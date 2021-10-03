@@ -22650,7 +22650,7 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "mt-8 text-2xl"
-}, " Welcome to your Livingwithgravity application! ", -1
+}, " Welcome to Livingwithgravity Admin Panel ", -1
 /* HOISTED */
 );
 

@@ -6,7 +6,7 @@
             </div>
 
             <div class="mt-8 text-2xl">
-                Welcome to your Livingwithgravity application!
+                Welcome to Livingwithgravity Admin Panel
             </div>
 
             <div class="mt-6 text-white">
