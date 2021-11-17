@@ -14,6 +14,7 @@ return [
     */
 
     'wp_api' => env('WP_API', 'https://livingwithgravity.com/wp-json/wp/v2/'),
-    'wp_api_posts' => env('WP_API_POSTS', 'https://livingwithgravity.com/wp-json/wp/v2/posts'),
+    'wp_api_posts' => env('WP_API_POSTS', 'https://livingwithgravity.com/wp-json/wp/v2/posts/'),
+    'wp_api_posts_media' => env('WP_API_POSTS_MEDIA', 'https://livingwithgravity.com/wp-json/wp/v2/media/'),
 
 ];

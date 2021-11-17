@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\BikeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,17 +17,18 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])
+        ->get('/bikes', [BikeController::class, 'index'])->name('bikes');
+Route::middleware(['auth:sanctum', 'verified'])
+        ->get('/add-bike', [BikeController::class, 'create'])->name('add.bikes');
+Route::middleware(['auth:sanctum', 'verified'])
+        ->post('/store-bike', [BikeController::class, 'store'])->name('store.bikes');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+
+Route::get('/bike/{id}', [BikeController::class, 'show'])->name('show.bikes');

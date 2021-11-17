@@ -15,12 +15,18 @@
                                 <Link :href="route('dashboard')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
+                                <Link :href="route('bikes')">
+                                    <jet-application-mark class="block h-9 w-auto" />
+                                </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
+                                </jet-nav-link>
+                                <jet-nav-link :href="route('bikes')" :active="route().current('bikes')">
+                                    Bikes
                                 </jet-nav-link>
                             </div>
                         </div>

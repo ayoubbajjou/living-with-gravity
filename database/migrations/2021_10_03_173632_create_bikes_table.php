@@ -110,14 +110,9 @@ class CreateBikesTable extends Migration
             $table->string('turn_signal', 150)->nullable();
             $table->string('pass_light', 150)->nullable();
             $table->string('additional_features', 150)->nullable();
-            $table->string('bangalore', 150)->nullable();
-            $table->string('mumbai', 150)->nullable();
-            $table->string('delhi', 150)->nullable();
-            $table->string('pune', 150)->nullable();
-            $table->string('chennai', 150)->nullable();
-            $table->string('kolkata', 150)->nullable();
-            $table->string('hyderabad', 150)->nullable();
-            $table->string('lucknow', 150)->nullable();
+            $table->string('city', 150)->nullable();
+            $table->string('dealer', 150)->nullable();
+            $table->string('price', 150)->nullable();
             $table->string('about_model', 150)->nullable();
             $table->timestamps();
         });
