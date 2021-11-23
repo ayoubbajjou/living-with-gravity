@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bike;
+use App\Models\Brand;
+use App\Models\City;
+use App\Models\Dealer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Http;
@@ -159,9 +162,14 @@ class BikeController extends Controller
         // $posts['0']['thumb'] = $media1;
         // $posts['1']['thumb'] = $media2;
         // $postsData = [$posts['0'], $posts['1']];
-
+        
+        $bike = Bike::where('id', $id)->with(['images', 'prices', 'specifications', 'brand'])->get();
         $postsData = [];
-        return Inertia::render('Bikes/Details', compact('postsData'));
+        $dealers = Dealer::limit(10)->get();
+        $moreBikes = Bike::where('brand_id', $bike[0]->brand_id)->limit(20)->get();
+        $cities = City::all();
+        $brands = Brand::all();
+        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands'));
     }
 
     /**

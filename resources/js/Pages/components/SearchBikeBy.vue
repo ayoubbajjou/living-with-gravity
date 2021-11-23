@@ -52,7 +52,13 @@
         class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
       >
         <div v-for="brand in brands" :key="brand.id" class="w-full">
-          <div class="h-32 w-46 rounded bg-gray-300"></div>
+          <div class="h-32 w-46 rounded bg-gray-50">
+            <img
+              class="h-32 w-46 mx-auto"
+              :src="`/images/brands/${brand.brand_logo}`"
+              :alt="brand.brand_name"
+            />
+          </div>
           <p class="text-white text-center mt-2">{{ brand.brand_name }}</p>
         </div>
       </div>
@@ -61,29 +67,129 @@
           v-if="active === 2"
           class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
         >
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              250-500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Upto 100cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              500-1000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              100cc - 110cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              1000-1500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              110cc - 125cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              1500-2000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              125cc - 150cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              2000+
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              150cc - 200cc
             </p>
           </div>
         </div>
@@ -91,29 +197,129 @@
           v-if="active === 2"
           class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
         >
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              250-500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              200cc - 250cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              500-1000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              250cc - 500cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              1000-1500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              500cc - 750cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              1500-2000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              750cc - 1000cc
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              2000+
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Above 1000cc
             </p>
           </div>
         </div>
@@ -123,29 +329,129 @@
           v-if="active === 3"
           class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
         >
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $250-$500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹50,000
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $500-$1000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹60,000
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $1000-$1500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹70,000
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $1500-$2000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹80,000
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $2000+
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹1 lakh
             </p>
           </div>
         </div>
@@ -153,35 +459,136 @@
           v-if="active === 3"
           class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
         >
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $250-$500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹1.5 lakh
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $500-$1000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹2 lakh
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $1000-$1500
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹2.5 lakh
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $1500-$2000
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Under ₹3 lakh
             </p>
           </div>
-          <div class="items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500">
-            <p class="text-white font-bold text-xl py-4 px-8 text-center hover:text-red-500">
-              $2000+
+          <div
+            class="
+              items-center
+              flex
+              justify-center
+              cursor-pointer
+              hover:bg-white
+              border-2 border-red-500
+            "
+          >
+            <p
+              class="
+                w-full
+                text-white
+                font-bold
+                text-xl
+                py-4
+                px-8
+                text-center
+                hover:text-red-500
+              "
+            >
+              Above ₹3 lakh
             </p>
           </div>
         </div>
       </div>
       <div class="flex justify-end mt-16">
         <button
+          @click="getMoreBrands()"
           class="
             text-white
             px-12
@@ -194,9 +601,12 @@
             rounded-l
           "
         >
-          Show more
+          {{ !showMore ? "Show more" : "Show less" }}
         </button>
-        <button class="bg-red-600 text-white px-6 py-3 rounded-r">
+        <button
+          @click="getMoreBrands()"
+          class="bg-red-600 text-white px-6 py-3 rounded-r"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -224,6 +634,7 @@ export default {
     return {
       active: 1,
       brands: [],
+      showMore: false,
     };
   },
   mounted() {
@@ -233,6 +644,31 @@ export default {
   methods: {
     activeTab(val) {
       this.active = val;
+    },
+    async getMoreBrands() {
+      if (this.showMore) {
+        axios
+          .get("/get-brands-limited")
+          .then((res) => {
+            this.showMore = false;
+            console.log(res);
+            this.brands = res.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        axios
+          .get("/get-brands")
+          .then((res) => {
+            this.showMore = true;
+            console.log(res);
+            this.brands = res.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     },
   },
 };

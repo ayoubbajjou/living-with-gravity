@@ -19,7 +19,7 @@
 
     <div class="flex w-full justify-between px-36 py-12">
       <div class="relative flex w-1/2 items-center justify-between pr-8">
-        <svg
+        <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           class="absolute inset-x-0 left-28 h-6 w-6 text-white"
           fill="none"
@@ -32,8 +32,8 @@
             stroke-width="2"
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
-        </svg>
-        <input
+        </svg> -->
+        <!-- <input
           type="text"
           placeholder="Search your city"
           class="
@@ -47,8 +47,10 @@
             px-12
             outline-none
           "
-        />
-        <svg
+        /> -->
+        <v-select :options="cities"></v-select>
+
+        <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 absolute inset-x-0 left-120 w-6 text-white"
           fill="none"
@@ -61,10 +63,12 @@
             stroke-width="2"
             d="M19 9l-7 7-7-7"
           />
-        </svg>
+        </svg> -->
       </div>
       <div class="flex relative w-1/2 items-center justify-between pr-8">
-        <svg
+        <v-select :options="brands"></v-select>
+
+        <!-- <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6 absolute inset-x-0 left-28 text-white"
           fill="none"
@@ -106,7 +110,7 @@
             stroke-width="2"
             d="M19 9l-7 7-7-7"
           />
-        </svg>
+        </svg> -->
       </div>
     </div>
     <h3 class="text-gray-50 font-bold font-xl pl-64 pt-4">
@@ -121,12 +125,14 @@
           <td class="px-6 py-4">Mail</td>
         </thead>
         <tbody class="border-b py-4 pl-8 border-gray-50">
-          <td class="px-6 py-4">Keerthi Triumph</td>
-          <td class="px-6 py-4">9535677228</td>
-          <td class="px-6 py-4 max-w-md">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 560025
-          </td>
-          <td class="px-6 py-4">smrtriumph@keerthi.co.in</td>
+            <tr v-for="dealer in dealers" :key="dealer.id">
+              <td class="px-6 py-4">{{dealer.name}}</td>
+              <td class="px-6 py-4">{{dealer.phone}}</td>
+              <td class="px-6 py-4 max-w-md">
+                {{dealer.address}}
+              </td>
+              <td class="px-6 py-4">{{ dealer.email ? dealer.email : 'N/A'}}</td>
+            </tr>
         </tbody>
       </table>
     </div>
@@ -134,10 +140,19 @@
 </template>
 
 <script>
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+
 export default {
   name: "Dealers",
+  props: ["dealers", 'cities', 'brands'],
+  components: {
+    vSelect
+  }
 };
 </script>
 
-<style>
+<style scoped>
+/* @import "vue-select/src/scss/vue-select.scss"; */
+
 </style>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,5 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/bike/{id}', [BikeController::class, 'show'])->name('show.bikes');
+Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
+Route::get('/get-brands-limited', [BrandController::class, 'getBrandsLimited'])->name('get.brands-limited');

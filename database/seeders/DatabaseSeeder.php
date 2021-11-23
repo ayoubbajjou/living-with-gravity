@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Team::factory(1)->create();
+        $this->call([
+            BrandSeeder::class,
+        ]);
     }
 }

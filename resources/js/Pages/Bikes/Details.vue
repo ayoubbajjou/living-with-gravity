@@ -69,15 +69,15 @@
         </div>
       </div>
 
-      <BikeDetailsFeaturesPrice />
+      <BikeDetailsFeaturesPrice :bike-price="bike?.prices[0]" />
     </div>
-    <BikeSpecs />
-    <MoreSuggestedBikes />
+    <BikeSpecs :specs="bike?.specifications" />
+    <MoreSuggestedBikes :bikes="suggestedBikes" />
 
     <!-- Blog section -->
     <Blogs />
 
-    <Dealers />
+    <Dealers :dealers="dealers" :cities="cities" :brands="brands" />
 
     <Subscribe />
 
@@ -125,5 +125,22 @@ export default defineComponent({
     laravelVersion: String,
     phpVersion: String,
   },
+  data() {
+    return {
+      bike: null,
+      dealers: null,
+      suggestedBikes: null,
+      cities: null,
+      brands: null
+    }
+  },
+  mounted() {
+    console.log(this.$inertia.page.props.bike)
+    this.bike = this.$inertia.page.props.bike[0]
+    this.dealers = this.$inertia.page.props.dealers
+    this.suggestedBikes = this.$inertia.page.props.moreBikes
+    this.cities = this.$inertia.page.props.cities
+    this.brands = this.$inertia.page.props.brands
+  }
 });
 </script>

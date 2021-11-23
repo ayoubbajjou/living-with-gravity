@@ -7,24 +7,11 @@
 
     <div class="overflow-x-auto" id="suggestedBikes">
       <div class="w-max flex px-64 pt-12 pb-6">
-        <div
-          class="flex bg-gray-100 rounded-lg px-6 py-4 items-center space-x-12"
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-800">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
+        
+        <div v-for="(bike, index) in bikes" :key="bike.id"
+        :class="index === 0 ? 'bg-gray-100': 'bg-gray-700'"
           class="
             flex
-            bg-gray-700
             rounded-lg
             px-6
             py-4
@@ -38,215 +25,8 @@
             src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
             alt=""
           />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
-        </div>
-        <div
-          class="
-            flex
-            bg-gray-700
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
-        >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div class="text-gray-50">
-            <h3 class="font-bold">Trident 660</h3>
+          <div :class="index === 0 ? 'text-gray-900': 'text-gray-50'">
+            <h3 class="font-bold">{{bike.series}} {{ bike.version_name }}</h3>
             <span class="text-xs">Starting from</span>
             <p class="text-light italic">Rs. 6.95 Lakh</p>
           </div>
@@ -311,6 +91,7 @@
 <script>
 export default {
   name: "MoreSuggestedBikes",
+  props: [ 'bikes' ],
   data() {
     return {
       scrollVal: 300,

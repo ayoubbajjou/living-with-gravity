@@ -98,8 +98,23 @@
       </div>
       <div class="px-14 py-28 flex-col items-center justify-center" v-else>
         <div class="py-16 space-y-6">
-          <h1 class="text-white text-4xl font-bold">₹ 13,70,015</h1>
-          <p class="text-white text-md leading-4">Avg. Ex Showroom price</p>
+          <div class="flex items-center space-x-14 justify-between">
+            <p class="text-white text-md leading-4">Ex-showroom (Bangalore):</p>
+            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.ex_showroom_price }}</h1>
+          </div>
+          <div class="flex items-center space-x-14 justify-between">
+            <p class="text-white text-md leading-4">RTO:</p>
+            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.rto_price }}</h1>
+          </div>
+          <div class="flex items-center space-x-14 justify-between">
+            <p class="text-white text-md leading-4">Insurance (Comprehensive):</p>
+            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.insurance_price }}</h1>
+          </div>
+          <hr>
+          <div class="flex items-center space-x-14 justify-between">
+            <p class="text-white text-md leading-4">On-road price in Bangalore:</p>
+            <h1 class="text-white text-4xl font-bold">₹ {{ bikePrice.onroad_price }}</h1>
+          </div>
           <div>
             <a
               href="/"
@@ -201,6 +216,9 @@
 <script>
 export default {
   name: "BikeDetailsFeaturesPrice",
+  props: [
+    'bikePrice'
+  ],
   data() {
     return {
       activeTab: 1,
@@ -212,7 +230,7 @@ export default {
       this.activeTab = val;
     },
     scrollDown() {
-        console.log('sadas')
+      console.log("sadas");
       window.scroll({
         top: 700,
         behavior: "smooth",
