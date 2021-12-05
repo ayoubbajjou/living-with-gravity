@@ -84,27 +84,6 @@
             </div>
           </div>
         </div>
-        <!-- <select
-            name="brand"
-            class="max-h-16 w-80 py-4 rounded-lg border-none"
-            id="brand"
-          >
-            <option value="Brand" selected disabled>Brand</option>
-          </select>
-          <select
-            name="body"
-            class="max-h-16 w-80 py-4 rounded-lg border-none"
-            id="body"
-          >
-            <option value="Body" selected disabled>Body</option>
-          </select>
-          <select
-            name="year"
-            class="max-h-16 w-80 py-4 rounded-lg border-none"
-            id="year"
-          >
-            <option value="Year" selected disabled>Year</option>
-          </select> -->
         <button class="bg-red-600 text-white px-6 py-3 rounded-r">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,38 @@
+<template>
+  <div
+        class="
+          w-11/12
+          lg:w-full
+          bg-gray-600
+          grid grid-cols-3
+          lg:grid-cols-5
+          gap-4
+          py-8
+          px-4
+        "
+      >
+        <div v-for="brand in brands" :key="brand.id" class="w-full">
+          <a :href="`/brand/${brand.brand_name}`">
+            <div class="h-32 w-46 rounded bg-gray-50">
+              <img
+                class="h-32 w-46 mx-auto"
+                :src="`/images/brands/${brand.brand_logo}`"
+                :alt="brand.brand_name"
+              />
+            </div>
+            <p class="text-white text-center mt-2">{{ brand.brand_name }}</p>
+          </a>
+        </div>
+      </div>
+</template>
+
+<script>
+export default {
+    name: 'SearchByBrand',
+    props: ['brands']
+}
+</script>
+
+<style>
+
+</style>
