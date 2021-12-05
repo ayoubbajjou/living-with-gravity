@@ -1434,6 +1434,9 @@ select {
 .max-w-md {
 	max-width: 28rem;
 }
+.max-w-lg {
+	max-width: 32rem;
+}
 .flex-1 {
 	flex: 1 1 0%;
 }
@@ -1959,6 +1962,14 @@ select {
 .py-14 {
 	padding-top: 3.5rem;
 	padding-bottom: 3.5rem;
+}
+.px-40 {
+	padding-left: 10rem;
+	padding-right: 10rem;
+}
+.px-64 {
+	padding-left: 16rem;
+	padding-right: 16rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;

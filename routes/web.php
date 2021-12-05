@@ -37,6 +37,8 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/bike/{id}', [BikeController::class, 'show'])->name('show.bikes');
 Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
 Route::get('/brand/{name}', [BrandController::class, 'index'])->name('brand');
+Route::get('/search/budget/{budget}', [SearchController::class, 'searchByBudget'])->name('searchByBudget');
+Route::get('/search/displacement/{displacement}', [SearchController::class, 'searchByDisplacement'])->name('searchByDisplacement');
 Route::get('/get-brands-limited', [BrandController::class, 'getBrandsLimited'])->name('get.brands-limited');
 Route::get('/bike-versions/{id}', [BikeController::class, 'bikeVersions'])->name('get.bike-versions');
 Route::post('/search', [SearchController::class, 'search'])->name('search');

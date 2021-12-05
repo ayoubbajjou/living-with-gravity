@@ -30,7 +30,7 @@ import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import Navigation from "./components/Navigation.vue";
 import Blogs from "./components/Blogs.vue";
 import FeaturedBikes from "./components/FeaturedBikes.vue";
-import SearchBikeBy from "./components/SearchBikeBy.vue";
+import SearchBikeBy from "./components/SearchBikeBy/SearchBikeBy.vue";
 import Footer from "./components/Footer.vue";
 import Subscribe from "./components/Subscribe.vue";
 import Hero from "./components/Hero.vue";
