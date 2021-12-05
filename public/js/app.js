@@ -30561,19 +30561,15 @@ var _hoisted_5 = {
   "class": "w-full"
 };
 var _hoisted_6 = ["src"];
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_7 = {
   "class": "w-full h-120 overflow-y-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_8 = {
   "class": "py-4 bg-gray-700 rounded-r-lg"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-white rounded-r-lg bg-gray-700 shadow-xl px-8"
-}, " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. v v Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam optio perferendis similique eius officiis quo quibusdam dolorum dicta nemo dignissimos aperiam, praesentium nam laboriosam illo voluptates! Quis sit suscipit vitae? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque enim quidem dolor ab inventore nobis rerum nesciunt odit repellat possimus quis iste fugit labore ipsum non, reprehenderit quos nemo magnam? autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. v v Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum quod quos harum velit, provident minus qui laborum, officiis rerum delectus magni fugiat. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam optio perferendis similique eius officiis quo quibusdam dolorum dicta nemo dignissimos aperiam, praesentium nam laboriosam illo voluptates! Quis sit suscipit vitae? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque enim quidem dolor ab inventore nobis rerum nesciunt odit repellat possimus quis iste fugit labore ipsum non, reprehenderit quos nemo magnam? ")])], -1
-/* HOISTED */
-);
-
+};
+var _hoisted_9 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _ctx$brand, _ctx$brand2, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$bike, _ctx$bike$brand, _ctx$brand3, _ctx$brand4, _ctx$brand5;
+  var _ctx$brand, _ctx$brand2, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$brand3, _ctx$bike, _ctx$bike$brand, _ctx$brand4, _ctx$brand5, _ctx$brand6;
 
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -30603,17 +30599,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_6)]), _hoisted_7]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
+  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-white rounded-r-lg bg-gray-700 shadow-xl px-8",
+    innerHTML: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.about_brand
+  }, null, 8
+  /* PROPS */
+  , _hoisted_9)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
     title: (_ctx$bike = _ctx.bike) === null || _ctx$bike === void 0 ? void 0 : (_ctx$bike$brand = _ctx$bike.brand) === null || _ctx$bike$brand === void 0 ? void 0 : _ctx$bike$brand.brand_name,
     bikes: _ctx.suggestedBikes
   }, null, 8
   /* PROPS */
   , ["title", "bikes"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dealers, {
-    dealers: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.dealers,
+    dealers: (_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.dealers,
     cities: _ctx.cities,
     brands: _ctx.brands,
-    brandId: (_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.id,
-    brandTitle: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.brand_name
+    brandId: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.id,
+    brandTitle: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.brand_name
   }, null, 8
   /* PROPS */
   , ["dealers", "cities", "brands", "brandId", "brandTitle"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
