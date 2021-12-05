@@ -24,7 +24,7 @@ class SearchController extends Controller
     public function searchByBudget(Request $request, $budget)
     {
         $bikes = Bike::where('model_id', '!=', NULL)->with('prices', 'images')->whereHas('prices', function ($q) use ($budget) {
-            if ($budget > 300000) {
+            if ($budget < 300000) {
                 $q->where('onroad_price', '<', $budget);
             } else {
                 $q->where('onroad_price', '>', $budget);
