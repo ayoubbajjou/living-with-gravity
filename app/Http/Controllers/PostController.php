@@ -22,6 +22,45 @@ class PostController extends Controller
         // return $posts->json()[0]['content']['rendered'];
     }
 
+    public function getWpPosts() {
+        $postsReq  = Http::get(config('lwg.wp_api_posts'));
+
+        $posts = $postsReq->json();
+        $media1Req = Http::get($posts['0']['_links']['wp:featuredmedia']['0']['href']);
+        $media1 = $media1Req->json()['source_url'];
+        $media2Req = Http::get($posts['1']['_links']['wp:featuredmedia']['0']['href']);
+        $media2 = $media2Req->json()['source_url'];
+
+
+        $posts['0']['thumb'] = $media1;
+        $posts['1']['thumb'] = $media2;
+        $postsData = [$posts['0'], $posts['1']];
+
+        return $postsData;
+    }
+
+    public function getWpPostsFooter() {
+        $postsReq  = Http::get(config('lwg.wp_api_posts'));
+
+        $posts = $postsReq->json();
+        $media1Req = Http::get($posts['0']['_links']['wp:featuredmedia']['0']['href']);
+        $media1 = $media1Req->json()['source_url'];
+        $media2Req = Http::get($posts['1']['_links']['wp:featuredmedia']['0']['href']);
+        $media2 = $media2Req->json()['source_url'];
+        $media3Req = Http::get($posts['2']['_links']['wp:featuredmedia']['0']['href']);
+        $media3 = $media3Req->json()['source_url'];
+        $media4Req = Http::get($posts['3']['_links']['wp:featuredmedia']['0']['href']);
+        $media4 = $media4Req->json()['source_url'];
+
+
+        $posts['0']['thumb'] = $media1;
+        $posts['1']['thumb'] = $media2;
+        $posts['2']['thumb'] = $media3;
+        $posts['3']['thumb'] = $media4;
+        $postsData = [$posts['0'], $posts['1'], $posts['2'], $posts['3']];
+
+        return $postsData;
+    }
     /**
      * Show the form for creating a new resource.
      *
