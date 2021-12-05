@@ -18,7 +18,7 @@
       News/Blogs
     </h1>
     <div class="mx-auto lg:px-64 mt-12 bg-gray-800">
-      <div class="flex justify-between space-x-12">
+      <div v-if="posts.length" class="lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12">
         <div v-for="post in posts" :key="post.id" class="relative">
           <a :href="post.link">
             <img
@@ -32,38 +32,60 @@
                 {{ post.title.rendered }}
               </h2>
               <p class="text-white font-bold text-xl">
-                {{ datePosted(post.date) }}
+                {{ post.date }}
               </p>
               <!-- <p class="text-red-600">Aditiya Chatterjee</p> -->
               <p class="text-white text-sm">
-                Published: {{ dateTimePosted(post.date) }} IST
+                Published: {{ post.date }} IST
               </p>
             </div>
           </a>
         </div>
+      </div>
 
-        <!-- <div class="relative">
+      <div v-else class="lg:flex justify-between space-y-4 lg:space-x-12">
+        <div class="relative">
+          <a href="#">
             <img
               class="opacity-50"
-              style="
-                height: 320px !important;
-                width: 600px !important;
-                filter: grayscale(100%);
-              "
+              style="height: 320px !important; width: 600px !important"
               src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-              alt="moto"
+              alt=""
             />
             <div class="absolute inset-x-0 bottom-0 px-6 py-4">
-              <p class="text-white text-lg mb-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h2 class="text-white font-bold text-xl mb-2">
+                
+              </h2>
+              <p class="text-white font-bold text-xl">
               </p>
-              <p class="text-white">February 9, 2021</p>
-              <p class="text-red-600">Aditiya Chatterjee</p>
-              <p class="text-white font-light text-sm">
-                Published: February 9, 2021 12PM IST
+              <!-- <p class="text-red-600">Aditiya Chatterjee</p> -->
+              <p class="text-white text-sm">
+                
               </p>
             </div>
-          </div> -->
+          </a>
+        </div>
+        <div class="relative">
+          <a href="#">
+            <img
+              class="opacity-50"
+              style="height: 320px !important; width: 600px !important"
+              src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+              alt=""
+            />
+            <div class="absolute inset-x-0 bottom-0 px-6 py-4">
+              <h2 class="text-white font-bold text-xl mb-2">
+                
+              </h2>
+              <p class="text-white font-bold text-xl">
+              </p>
+              <!-- <p class="text-red-600">Aditiya Chatterjee</p> -->
+              <p class="text-white text-sm">
+                
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
 
         <a
@@ -118,15 +140,32 @@ export default {
   },
   methods: {
     datePosted(date) {
-      return moment(date).format("LL");
+      return datePosted(post.date) 
     },
     dateTimePosted(date) {
       return moment(date).format("LLL");
     },
   },
   mounted() {
-    this.posts = this.$page.props.postsData;
+    // this.posts = this.$page.props.postsData;
+
+    this.getWpPosts()
   },
+  methods: {
+    async getWpPosts() {
+      await axios.get('/get-wp-posts')
+        .then(res => {
+          const data = res.data.map(post => {
+              moment(post.date).format("LLL")
+              return post;
+          })
+          this.posts = data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
 };
 </script>
 

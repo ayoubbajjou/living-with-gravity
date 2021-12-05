@@ -168,7 +168,38 @@
               <div class="border-t-4 border-gray-500 w-1/2"></div>
             </div>
             <div class="space-y-6">
-              <div class="flex justify-between space-x-4 items-start">
+              <div v-for="post in posts" :key="post.id" class="flex justify-between space-x-4 items-start">
+                <a :href="post.link" class="flex justify-between space-x-4 items-start">
+                  <img
+                    class="h-20 w-20"
+                    :src="post.thumb"
+                    :alt="post.title.rendered"
+                  />
+                  <div>
+                  <h4 class="text-white font-bold mb-2">
+                    {{ post.title.rendered }}
+                  </h4>
+                  <div class="flex items-center space-x-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <p class="text-white text-xs">{{ post.date }}</p>
+                  </div>
+                </div>
+                </a>                
+              </div>
+              <!-- <div class="flex justify-between space-x-4 items-start">
                 <div class="bg-gray-400 h-20 w-40"></div>
                 <div>
                   <h4 class="text-white font-bold mb-2">
@@ -242,32 +273,7 @@
                     <p class="text-white text-xs">August 23, 2021</p>
                   </div>
                 </div>
-              </div>
-              <div class="flex justify-between space-x-4 items-start">
-                <div class="bg-gray-400 h-20 w-40"></div>
-                <div>
-                  <h4 class="text-white font-bold mb-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit
-                  </h4>
-                  <div class="flex items-center space-x-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <p class="text-white text-xs">August 23, 2021</p>
-                  </div>
-                </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="mt-6">
@@ -387,6 +393,28 @@
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      posts: []
+    }
+  },
+  mounted() {
+    this.getWpPosts()
+  },
+  methods: {
+    async getWpPosts() {
+      await axios.get('/get-wp-posts-footer')
+        .then(res => {
+          const data = res.data.map(post => {
+              return post;
+          })
+          this.posts = data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
 };
 </script>
 

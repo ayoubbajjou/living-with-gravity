@@ -44,3 +44,5 @@ Route::post('/get-dealers-pagination', [BikeController::class, 'getDealersPagina
 Route::post('/get-dealers', [BikeController::class, 'getDealers'])->name('getDealers');
 Route::get('/get-cities', [CityController::class, 'getCities'])->name('getCities');
 Route::post('/get-keys-featured', [BikeController::class, 'getKeys'])->name('getKeys');
+Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpPosts');
+Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');

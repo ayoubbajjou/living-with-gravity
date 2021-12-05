@@ -24622,10 +24622,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_defineProperty({
   name: "Blogs",
   data: function data() {
     return {
@@ -24633,17 +24643,56 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    datePosted: function datePosted(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format("LL");
-    },
+    datePosted: function (_datePosted) {
+      function datePosted(_x) {
+        return _datePosted.apply(this, arguments);
+      }
+
+      datePosted.toString = function () {
+        return _datePosted.toString();
+      };
+
+      return datePosted;
+    }(function (date) {
+      return datePosted(post.date);
+    }),
     dateTimePosted: function dateTimePosted(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).format("LLL");
+      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format("LLL");
     }
   },
   mounted: function mounted() {
-    this.posts = this.$page.props.postsData;
+    // this.posts = this.$page.props.postsData;
+    this.getWpPosts();
   }
-});
+}, "methods", {
+  getWpPosts: function getWpPosts() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get('/get-wp-posts').then(function (res) {
+                var data = res.data.map(function (post) {
+                  moment__WEBPACK_IMPORTED_MODULE_1___default()(post.date).format("LLL");
+                  return post;
+                });
+                _this.posts = data;
+              })["catch"](function (err) {
+                console.log(err);
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+}));
 
 /***/ }),
 
@@ -24921,8 +24970,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Footer"
+  name: "Footer",
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  mounted: function mounted() {
+    this.getWpPosts();
+  },
+  methods: {
+    getWpPosts: function getWpPosts() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get('/get-wp-posts-footer').then(function (res) {
+                  var data = res.data.map(function (post) {
+                    return post;
+                  });
+                  _this.posts = data;
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
 });
 
 /***/ }),
@@ -33319,7 +33412,8 @@ var _hoisted_3 = {
   "class": "mx-auto lg:px-64 mt-12 bg-gray-800"
 };
 var _hoisted_4 = {
-  "class": "flex justify-between space-x-12"
+  key: 0,
+  "class": "lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12"
 };
 var _hoisted_5 = ["href"];
 var _hoisted_6 = ["src", "alt"];
@@ -33335,11 +33429,19 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "text-white text-sm"
 };
+var _hoisted_11 = {
+  key: 1,
+  "class": "lg:flex justify-between space-y-4 lg:space-x-12"
+};
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"flex lg:justify-end mt-8 mb-8 lg:mt-16\" href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\"><button class=\"text-white px-12 py-4 uppercase shadow-md font-bold text-base bg-gray-900 rounded-l\"> Show more </button><button class=\"bg-red-600 text-white px-6 py-3 rounded-r\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17 8l4 4m0 0l-4 4m4-4H3\"></path></svg></button></a>", 1);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"relative\"><a href=\"#\"><img class=\"opacity-50\" style=\"height:320px !important;width:600px !important;\" src=\"https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1770&amp;q=80\" alt=\"\"><div class=\"absolute inset-x-0 bottom-0 px-6 py-4\"><h2 class=\"text-white font-bold text-xl mb-2\"></h2><p class=\"text-white font-bold text-xl\"></p><!-- &lt;p class=&quot;text-red-600&quot;&gt;Aditiya Chatterjee&lt;/p&gt; --><p class=\"text-white text-sm\"></p></div></a></div><div class=\"relative\"><a href=\"#\"><img class=\"opacity-50\" style=\"height:320px !important;width:600px !important;\" src=\"https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1770&amp;q=80\" alt=\"\"><div class=\"absolute inset-x-0 bottom-0 px-6 py-4\"><h2 class=\"text-white font-bold text-xl mb-2\"></h2><p class=\"text-white font-bold text-xl\"></p><!-- &lt;p class=&quot;text-red-600&quot;&gt;Aditiya Chatterjee&lt;/p&gt; --><p class=\"text-white text-sm\"></p></div></a></div>", 2);
+
+var _hoisted_14 = [_hoisted_12];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"flex lg:justify-end mt-8 mb-8 lg:mt-16\" href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\"><button class=\"text-white px-12 py-4 uppercase shadow-md font-bold text-base bg-gray-900 rounded-l\"> Show more </button><button class=\"bg-red-600 text-white px-6 py-3 rounded-r\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17 8l4 4m0 0l-4 4m4-4H3\"></path></svg></button></a>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.posts, function (post) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [$data.posts.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.posts, function (post) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: post.id,
       "class": "relative"
@@ -33357,16 +33459,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS */
     , _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title.rendered), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.datePosted(post.date)), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.date), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-red-600\">Aditiya Chatterjee</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, " Published: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.dateTimePosted(post.date)) + " IST ", 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"text-red-600\">Aditiya Chatterjee</p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, " Published: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.date) + " IST ", 1
     /* TEXT */
     )])], 8
     /* PROPS */
     , _hoisted_5)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"relative\">\n            <img\n              class=\"opacity-50\"\n              style=\"\n                height: 320px !important;\n                width: 600px !important;\n                filter: grayscale(100%);\n              \"\n              src=\"https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80\"\n              alt=\"moto\"\n            />\n            <div class=\"absolute inset-x-0 bottom-0 px-6 py-4\">\n              <p class=\"text-white text-lg mb-2\">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n              </p>\n              <p class=\"text-white\">February 9, 2021</p>\n              <p class=\"text-red-600\">Aditiya Chatterjee</p>\n              <p class=\"text-white font-light text-sm\">\n                Published: February 9, 2021 12PM IST\n              </p>\n            </div>\n          </div> ")]), _hoisted_11])]);
+  ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, _hoisted_14)), _hoisted_15])]);
 }
 
 /***/ }),
@@ -33977,11 +34079,100 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "bg-gray-800"
+};
+var _hoisted_2 = {
+  "class": "px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+};
+var _hoisted_3 = {
+  "class": "grid lg:row-gap-10 mb-8 lg:grid-cols-3"
+};
+var _hoisted_4 = {
+  "class": "grid lg:gap-5 lg:row-gap-8 lg:col-span-3 md:grid-cols-3"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bg-gray-800\"><div class=\"px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8\"><div class=\"grid lg:row-gap-10 mb-8 lg:grid-cols-3\"><div class=\"grid lg:gap-5 lg:row-gap-8 lg:col-span-3 md:grid-cols-3\"><div class=\"flex flex-col space-y-12\"><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> About us </p><div class=\"border-t-4 border-gray-500 w-full\"></div></div><p class=\"text-white font-light text-base\"> Mission of LivingWithGravity is to go beyond reviews, blogs and expert advice on bikes. </p></div><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> Social </p><div class=\"border-t-4 border-gray-500 w-full flex justify-end\"></div></div><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"https://twitter.com/dolas_akash\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"https://www.instagram.com/livingwithgravity/\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"https://www.facebook.com/LivingWithGravity/\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></div><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> Quick Links </p><div class=\"border-t-4 border-gray-500 w-full\"></div></div><div><ul class=\"flex flex-row w-full text-white space-x-4\"><li><a href=\"/\">About us</a></li><li><a href=\"/\">Contact</a></li><li><a href=\"/\">Post your review</a></li></ul></div><div><ul class=\"flex flex-row w-full text-white space-x-4\"><li><a href=\"/\">Classified</a></li><li><a href=\"/\">News</a></li><li><a href=\"/\">Privacy Policy</a></li></ul></div></div></div><div class=\"lg:ml-20\"><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> Blog Posts </p><div class=\"border-t-4 border-gray-500 w-1/2\"></div></div><div class=\"space-y-6\"><div class=\"flex justify-between space-x-4 items-start\"><div class=\"bg-gray-400 h-20 w-40\"></div><div><h4 class=\"text-white font-bold mb-2\"> Lorem ipsum dolor sit amet consectetur adipisicing elit </h4><div class=\"flex items-center space-x-2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4 text-white\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg><p class=\"text-white text-xs\">August 23, 2021</p></div></div></div><div class=\"flex justify-between space-x-4 items-start\"><div class=\"bg-gray-400 h-20 w-40\"></div><div><h4 class=\"text-white font-bold mb-2\"> Lorem ipsum dolor sit amet consectetur adipisicing elit </h4><div class=\"flex items-center space-x-2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4 text-white\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg><p class=\"text-white text-xs\">August 23, 2021</p></div></div></div><div class=\"flex justify-between space-x-4 items-start\"><div class=\"bg-gray-400 h-20 w-40\"></div><div><h4 class=\"text-white font-bold mb-2\"> Lorem ipsum dolor sit amet consectetur adipisicing elit </h4><div class=\"flex items-center space-x-2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4 text-white\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg><p class=\"text-white text-xs\">August 23, 2021</p></div></div></div><div class=\"flex justify-between space-x-4 items-start\"><div class=\"bg-gray-400 h-20 w-40\"></div><div><h4 class=\"text-white font-bold mb-2\"> Lorem ipsum dolor sit amet consectetur adipisicing elit </h4><div class=\"flex items-center space-x-2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4 text-white\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg><p class=\"text-white text-xs\">August 23, 2021</p></div></div></div></div></div><div class=\"mt-6\"><div class=\"space-y-4\"><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Bike Reviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">30</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Custom</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">140</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Electric</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">50</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Interviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">64</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Racing</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">126</p></div></div></div></div></div><div class=\"flex flex-col justify-center pt-5 pb-10 border-t border-gray-800 sm:flex-row\"><p class=\"text-sm text-gray-500 text-center\"> © 2021 Living with gravity. All rights reserved. </p></div></div></div>", 1);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex flex-col space-y-12\"><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> About us </p><div class=\"border-t-4 border-gray-500 w-full\"></div></div><p class=\"text-white font-light text-base\"> Mission of LivingWithGravity is to go beyond reviews, blogs and expert advice on bikes. </p></div><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> Social </p><div class=\"border-t-4 border-gray-500 w-full flex justify-end\"></div></div><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"https://twitter.com/dolas_akash\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"https://www.instagram.com/livingwithgravity/\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"https://www.facebook.com/LivingWithGravity/\" target=\"_blank\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></div><div><div class=\"flex items-center space-x-4\"><p class=\"font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4\"> Quick Links </p><div class=\"border-t-4 border-gray-500 w-full\"></div></div><div><ul class=\"flex flex-row w-full text-white space-x-4\"><li><a href=\"/\">About us</a></li><li><a href=\"/\">Contact</a></li><li><a href=\"/\">Post your review</a></li></ul></div><div><ul class=\"flex flex-row w-full text-white space-x-4\"><li><a href=\"/\">Classified</a></li><li><a href=\"/\">News</a></li><li><a href=\"/\">Privacy Policy</a></li></ul></div></div></div>", 1);
+
+var _hoisted_6 = {
+  "class": "lg:ml-20"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex items-center space-x-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "font-bold text-2xl tracking-wide text-gray-300 w-2/3 mb-4"
+}, " Blog Posts "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "border-t-4 border-gray-500 w-1/2"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "space-y-6"
+};
+var _hoisted_9 = ["href"];
+var _hoisted_10 = ["src", "alt"];
+var _hoisted_11 = {
+  "class": "text-white font-bold mb-2"
+};
+var _hoisted_12 = {
+  "class": "flex items-center space-x-2"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-4 w-4 text-white",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "text-white text-xs"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"mt-6\"><div class=\"space-y-4\"><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Bike Reviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">30</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Custom</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">140</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Electric</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">50</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Interviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">64</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Racing</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">126</p></div></div></div>", 1);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-col justify-center pt-5 pb-10 border-t border-gray-800 sm:flex-row"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-sm text-gray-500 text-center"
+}, " © 2021 Living with gravity. All rights reserved. ")], -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer  "), _hoisted_1], 2112
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.posts, function (post) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: post.id,
+      "class": "flex justify-between space-x-4 items-start"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      href: post.link,
+      "class": "flex justify-between space-x-4 items-start"
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "h-20 w-20",
+      src: post.thumb,
+      alt: post.title.rendered
+    }, null, 8
+    /* PROPS */
+    , _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title.rendered), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.date), 1
+    /* TEXT */
+    )])])], 8
+    /* PROPS */
+    , _hoisted_9)]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div> ")])]), _hoisted_15])]), _hoisted_16])])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }
