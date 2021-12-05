@@ -162,26 +162,54 @@ class BikeController extends Controller
         // $posts['0']['thumb'] = $media1;
         // $posts['1']['thumb'] = $media2;
         // $postsData = [$posts['0'], $posts['1']];
-        
-        $bike = Bike::where('id', $id)->with(['images', 'prices', 'specifications', 'brand'])->get();
         $postsData = [];
-        $dealers = Dealer::limit(10)->get();
-        $moreBikes = Bike::where('brand_id', $bike[0]->brand_id)->limit(20)->get();
+        
+        $bike = Bike::where('id', $id)->where('brand_id', '!=', NULL)->with(['images', 'prices', 'specifications', 'brand'])->first();
+        if(!$bike) {
+            abort(404);
+        }
+        $data = [];
+
+        
+        $dealers = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->take(10)->get();
+        $dealersCount = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->count();
+        $moreBikes = Bike::where('brand_id', $bike->brand_id)->where('id', '!=', $bike->id)->with('prices', 'images')->limit(20)->get();
         $cities = City::all();
         $brands = Brand::all();
-        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands'));
+        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bike  $bike
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Bike $bike)
+    public function bikeVersions($id)
     {
-        //
+        return Bike::where('model_id', $id)->select('model_id', 'id', 'version_id', 'version_name')->get();
     }
+
+    /**
+     * 
+     */
+    public function getDealersPagination(Request $request) {
+        $dealers = Dealer::where('brand_id', $request->brand_id)->where('city_id', $request->city_id)->count();
+        $dealersPagination = Dealer::where('brand_id', $request->brand_id)->where('city_id', $request->city_id)->skip(($request->page -1) * 10)->take(10)->get();
+        return [$dealersPagination, $dealers];
+    }
+
+    /**
+     * 
+     */
+    // public function getKeys(Request $request) {
+    //     $bike = $bike = Bike::where('id', $request->bike_id)->where('brand_id', '!=', NULL)->with('specifications');
+    //     $length = $bike->whereHas('specifications', function($q){
+    //         $q->where('title', 'Overall Length');
+    //     })->first();
+
+    //     // $data = [
+    //     //   'dimension' => $length
+    //     // ];
+
+    //     return $length;
+    // }
 
     /**
      * Update the specified resource in storage.

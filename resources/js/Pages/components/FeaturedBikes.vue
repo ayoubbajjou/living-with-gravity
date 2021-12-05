@@ -5,7 +5,8 @@
         text-white
         border-b-4
         w-max
-        ml-64
+        lg:ml-64
+        ml-6
         border-red-600
         text-4xl
         uppercase
@@ -24,9 +25,9 @@
         />
       </div>
       <div>
-        <div class="h-72 w-120">
+        <div class="h-72 w-96 lg:h-96 lg:w-120">
           <img
-            class="h-96 w-120"
+            class="h-72 w-96 lg:h-96 lg:w-120"
             :src="`/images/bike-${featuredImages[start][0]}.png`"
             alt=""
           />
@@ -40,7 +41,7 @@
         />
       </div>
     </div>
-    <div class="flex items-center justify-center space-y-3 flex-col mt-32">
+    <div class="flex items-center justify-center space-y-3 flex-col mt-16 lg:mt-32">
       <p class="text-3xl text-white uppercase font-bold italic">
         {{bikesDetails[start].title}}
       </p>

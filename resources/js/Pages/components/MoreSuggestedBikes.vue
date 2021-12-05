@@ -1,35 +1,45 @@
 <template>
   <!-- More products section -->
   <div class="bg-gray-800">
-    <h1 class="text-white w-max ml-64 text-4xl uppercase font-bold italic">
-      More triumph bikes
+    <h1
+      class="
+        text-white
+        w-max
+        ml-4
+        lg:ml-64
+        lg:text-4xl
+        uppercase text-2xl
+        font-bold
+        italic
+      "
+    >
+      More {{ title }} bikes
     </h1>
 
     <div class="overflow-x-auto" id="suggestedBikes">
-      <div class="w-max flex px-64 pt-12 pb-6">
-        
-        <div v-for="(bike, index) in bikes" :key="bike.id"
-        :class="index === 0 ? 'bg-gray-100': 'bg-gray-700'"
-          class="
-            flex
-            rounded-lg
-            px-6
-            py-4
-            items-center
-            space-x-12
-            mx-8
-          "
+      <div class="w-max flex lg:px-64 pt-12 pb-6">
+        <div
+          v-for="(bike, index) in bikes"
+          :key="bike.id"
+          :class="index === 0 ? 'bg-gray-100' : 'bg-gray-700'"
+          class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8"
         >
-          <img
-            class="w-24 h-16 rounded-lg mr-4"
-            src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            alt=""
-          />
-          <div :class="index === 0 ? 'text-gray-900': 'text-gray-50'">
-            <h3 class="font-bold">{{bike.series}} {{ bike.version_name }}</h3>
-            <span class="text-xs">Starting from</span>
-            <p class="text-light italic">Rs. 6.95 Lakh</p>
-          </div>
+          <a class="flex" :href="`/bike/${bike.id}`">
+            <img
+              class="w-24 h-16 rounded-lg mr-4"
+              :src="bike?.images[0]?.thumb_link"
+              alt=""
+            />
+            <div :class="index === 0 ? 'text-gray-900' : 'text-gray-50'">
+              <h3 class="font-bold">
+                {{ bike.series }} {{ bike.version_name }}
+              </h3>
+              <span class="text-xs">Starting from</span>
+              <p class="text-light italic">
+                ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -40,11 +50,13 @@
           justify-between
           items-center
           text-center
-          pl-64
+          pl-pl-4
+          lg:pl-64
           text-gray-50
           pt-4
           pb-12
-          pr-72
+          lg:pr-72
+          px-8
         "
       >
         <div class="flex space-x-6">
@@ -91,7 +103,7 @@
 <script>
 export default {
   name: "MoreSuggestedBikes",
-  props: [ 'bikes' ],
+  props: ["bikes", "title"],
   data() {
     return {
       scrollVal: 300,
@@ -100,17 +112,19 @@ export default {
   methods: {
     scrollNext() {
       this.validateScroll();
-      this.documentScroll('+')
+      this.documentScroll("+");
       this.scrollTo();
     },
     scrollBack() {
       this.validateScroll();
-      this.documentScroll('-')
+      this.documentScroll("-");
       this.scrollTo();
     },
     documentScroll(operator) {
       const scrollWith = 300;
-      operator === '+' ? this.scrollVal += scrollWith : this.scrollVal -= scrollWith ;
+      operator === "+"
+        ? (this.scrollVal += scrollWith)
+        : (this.scrollVal -= scrollWith);
     },
     scrollTo() {
       const el = document.getElementById("suggestedBikes");

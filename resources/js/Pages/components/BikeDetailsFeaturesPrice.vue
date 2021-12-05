@@ -1,9 +1,9 @@
 <template>
-  <div class="w-2/5 bg-gray-800">
+  <div class="lg:w-2/5 bg-gray-800">
     <div class="w-full bg-gray-800">
       <button
         @click="selectTab(1)"
-        class="px-14 py-6 text-2xl uppercase"
+        class="px-6 lg:px-14 py-6 text-2xl uppercase"
         :class="
           activeTab === 1
             ? 'text-red-600 bg-gray-600 font-bold'
@@ -14,7 +14,7 @@
       </button>
       <button
         @click="selectTab(2)"
-        class="px-14 py-6 text-2xl uppercase"
+        class="px-6 lg:px-14 py-6 text-2xl uppercase"
         :class="
           activeTab === 2
             ? 'text-red-600 bg-gray-600 font-bold'
@@ -26,39 +26,39 @@
 
       <div v-if="activeTab === 1">
         <div class="flex px-14 py-4 h-max">
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">0 x 935 X 1502</h3>
+          <div class="w-1/2">
+            <img src="/icons/dimension.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{specs?.[0]?.dimension}}</h3>
             <p class="text-gray-50">Dimensions (L x W x H)</p>
           </div>
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">6-Speed</h3>
-            <p class="text-gray-50">Transmission</p>
+          <div class="w-1/2">
+            <img src="/icons/engine.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.engine }}</h3>
+            <p class="text-gray-50">Engine</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">0 x 935 X 1502</h3>
-            <p class="text-gray-50">Dimensions (L x W x H)</p>
+          <div class="w-1/2">
+            <img src="/icons/fuel-tank.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.fuel }}</h3>
+            <p class="text-gray-50">Fuel Tank</p>
           </div>
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">6-Speed</h3>
-            <p class="text-gray-50">Transmission</p>
+          <div class="w-1/2">
+            <img src="/icons/mileage.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.mileage }}</h3>
+            <p class="text-gray-50">Mileage</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">0 x 935 X 1502</h3>
-            <p class="text-gray-50">Dimensions (L x W x H)</p>
+          <div class="w-1/2">
+            <img src="/icons/power.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.power }}</h3>
+            <p class="text-gray-50">Power</p>
           </div>
-          <div>
-            <div class="w-8 h-8 bg-gray-50"></div>
-            <h3 class="text-gray-50 text-lg font-bold">6-Speed</h3>
-            <p class="text-gray-50">Transmission</p>
+          <div class="w-1/2">
+            <img src="/icons/speed.svg" class="w-8 h-8" style="filter: invert(1)" />
+            <h3 class="text-gray-50 text-lg font-bold">{{specs?.[0]?.speed}}</h3>
+            <p class="text-gray-50">Speed</p>
           </div>
         </div>
         <div class="flex justify-start px-14 py-10">
@@ -96,33 +96,48 @@
           </button>
         </div>
       </div>
-      <div class="px-14 py-28 flex-col items-center justify-center" v-else>
-        <div class="py-16 space-y-6">
+      <div class="px-14 py-14 flex-col items-center justify-center" v-else>
+        <div class="py-2 space-y-6">
           <div class="flex items-center space-x-14 justify-between">
-            <p class="text-white text-md leading-4">Ex-showroom (Bangalore):</p>
-            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.ex_showroom_price }}</h1>
+            <p class="text-white text-md leading-4">
+              Ex-showroom ({{ cityName }}):
+            </p>
+            <h1 class="text-white text-1xl font-bold">
+              ₹ {{ bikePrice?.ex_showroom_price }}
+            </h1>
           </div>
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">RTO:</p>
-            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.rto_price }}</h1>
+            <h1 class="text-white text-1xl font-bold">
+              ₹ {{ bikePrice?.rto_price }}
+            </h1>
           </div>
           <div class="flex items-center space-x-14 justify-between">
-            <p class="text-white text-md leading-4">Insurance (Comprehensive):</p>
-            <h1 class="text-white text-1xl font-bold">₹ {{ bikePrice.insurance_price }}</h1>
+            <p class="text-white text-md leading-4">
+              Insurance (Comprehensive):
+            </p>
+            <h1 class="text-white text-1xl font-bold">
+              ₹ {{ bikePrice?.insurance_price }}
+            </h1>
           </div>
-          <hr>
+          <hr />
           <div class="flex items-center space-x-14 justify-between">
-            <p class="text-white text-md leading-4">On-road price in Bangalore:</p>
-            <h1 class="text-white text-4xl font-bold">₹ {{ bikePrice.onroad_price }}</h1>
+            <p class="text-white text-md leading-4">
+              On-road price in {{ cityName }}:
+            </p>
+            <h1 class="text-white text-4xl font-bold">
+              ₹ {{ bikePrice?.onroad_price }}
+            </h1>
           </div>
           <div>
-            <a
-              href="/"
+            <li
+              @click="selectCity = !selectCity"
               class="
-                inline-flex
+                flex
+                border-l-4
                 items-center
-                justify-center
                 h-12
+                px-6
                 font-medium
                 uppercase
                 tracking-wide
@@ -132,9 +147,8 @@
                 bg-deep-purple-accent-400
                 hover:bg-deep-purple-accent-700
                 focus:shadow-outline focus:outline-none
+                cursor-pointer
               "
-              aria-label="City"
-              title="City"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +171,25 @@
                 />
               </svg>
 
-              <span>Bangalore</span>
+              <span
+                class="
+                  flex
+                  items-center
+                  justify-center
+                  h-12
+                  px-6
+                  font-medium
+                  uppercase
+                  tracking-wide
+                  text-white
+                  transition
+                  duration-200
+                  bg-deep-purple-accent-400
+                  hover:bg-deep-purple-accent-700
+                  focus:shadow-outline focus:outline-none
+                "
+                >{{ cityName }}</span
+              >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -172,7 +204,7 @@
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-            </a>
+            </li>
           </div>
         </div>
         <div class="flex justify-start py-10">
@@ -210,32 +242,51 @@
         </div>
       </div>
     </div>
+    <city-modal v-if="selectCity" @city-selected="citySelected()"></city-modal>
   </div>
 </template>
 
 <script>
+import CityModal from "./CityModal.vue";
+
 export default {
   name: "BikeDetailsFeaturesPrice",
-  props: [
-    'bikePrice'
-  ],
+  props: ["bikePrice", 'specs'],
+  components: {
+    CityModal,
+  },
   data() {
     return {
       activeTab: 1,
+      selectCity: false,
+      cityName: localStorage.getItem("citySelectedName"),
+      keys: null
     };
   },
-
+  mounted() {
+    // axios.post('/get-keys-featured', {
+    //   bike_id: this.bikePrice.bikeId
+    // })
+    // .then(res => {
+    //   console.log(res)
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    // })
+  },
   methods: {
     selectTab(val) {
       this.activeTab = val;
     },
     scrollDown() {
-      console.log("sadas");
       window.scroll({
         top: 700,
         behavior: "smooth",
       });
     },
+    citySelected() {
+      this.cityName = localStorage.getItem('citySelectedName');
+    }
   },
 };
 </script>

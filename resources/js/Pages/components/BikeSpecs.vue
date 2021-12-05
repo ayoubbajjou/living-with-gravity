@@ -1,8 +1,8 @@
 <template>
-  <div class="flex pl-64 bg-gray-800 py-12">
-    <div class="bg-gray-700 px-12 py-8 flex-col items-start flex space-y-12">
+  <div class="flex pl-4 lg:pl-64 bg-gray-800 py-12">
+    <div class="bg-gray-700 lg:px-12 py-8 flex-col items-start lg:flex space-y-12">
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 1
             ? 'text-red-500 font-bold'
@@ -16,7 +16,7 @@
         Engine And Transmission
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 2
             ? 'text-red-500 font-bold'
@@ -31,7 +31,7 @@
         Features And Safety
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 3
             ? 'text-red-500 font-bold'
@@ -46,7 +46,7 @@
         Charging
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 4
             ? 'text-red-500 font-bold'
@@ -61,7 +61,7 @@
         Chassis and Suspension
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 5
             ? 'text-red-500 font-bold'
@@ -76,7 +76,7 @@
         Dimensions and Capacity
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 6
             ? 'text-red-500 font-bold'
@@ -91,7 +91,7 @@
         Electricals
       </button>
       <button
-        class="uppercase"
+        class="uppercase text-xs lg:text-base"
         :class="
           activeTab === 7
             ? 'text-red-500 font-bold'
@@ -106,7 +106,7 @@
         Tyres And Brakes
       </button>
     </div>
-    <div class="flex max-h-120 items-center overflow-y-auto">
+    <div class="flex lg:w-1/2 max-h-120 items-center overflow-y-auto">
       <ul>
         <li v-for="spec in specs" :key="spec.id" class="text-bold">
           <div class="flex items-center justify-between text-white px-12 space-y-4">

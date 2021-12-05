@@ -27,7 +27,10 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
+        "@headlessui/vue": "^1.4.2",
+        "@vueuse/core": "^7.1.2",
         "moment": "^2.29.1",
+        "vue-next-select": "^2.10.2",
         "vue-select": "^3.16.0"
     }
 }

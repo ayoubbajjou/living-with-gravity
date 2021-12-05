@@ -30,8 +30,8 @@ class HomeController extends Controller
         // $posts['0']['thumb'] = $media1;
         // $posts['1']['thumb'] = $media2;
         // $postsData = [$posts['0'], $posts['1']];
-
         $postsData = [];
+
         $brands = Brand::limit(10)->get();
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),

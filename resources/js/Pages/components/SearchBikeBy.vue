@@ -5,7 +5,8 @@
         text-white
         border-b-4
         w-max
-        ml-64
+        lg:ml-64
+        ml-6
         border-red-600
         text-4xl
         uppercase
@@ -15,10 +16,10 @@
     >
       Search Bikes By
     </h1>
-    <div class="mx-auto px-64 mt-12 bg-gray-800">
-      <div class="flex w-full bg-gray-800">
+    <div class="mx-auto lg:px-64 mt-12 bg-gray-800">
+      <div class="lg:flex w-full bg-gray-800">
         <div
-          class="px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
           :class="
             active === 1
               ? 'text-red-600 bg-gray-600'
@@ -29,14 +30,14 @@
           Brands
         </div>
         <div
-          class="px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
           :class="active === 2 ? 'text-red-600 bg-gray-600' : 'text-gray-200'"
           @click="activeTab(2)"
         >
           Displacement
         </div>
         <div
-          class="px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
           :class="
             active === 3
               ? 'text-red-600 bg-gray-600'
@@ -49,23 +50,35 @@
       </div>
       <div
         v-if="active === 1"
-        class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
+        class="
+          w-11/12
+          lg:w-full
+          bg-gray-600
+          grid grid-cols-3
+          lg:grid-cols-5
+          gap-4
+          py-8
+          px-4
+        "
       >
         <div v-for="brand in brands" :key="brand.id" class="w-full">
-          <div class="h-32 w-46 rounded bg-gray-50">
-            <img
-              class="h-32 w-46 mx-auto"
-              :src="`/images/brands/${brand.brand_logo}`"
-              :alt="brand.brand_name"
-            />
-          </div>
-          <p class="text-white text-center mt-2">{{ brand.brand_name }}</p>
+          <a :href="`/brand/${brand.brand_name}`">
+            <div class="h-32 w-46 rounded bg-gray-50">
+              <img
+                class="h-32 w-46 mx-auto"
+                :src="`/images/brands/${brand.brand_logo}`"
+                :alt="brand.brand_name"
+              />
+            </div>
+            <p class="text-white text-center mt-2">{{ brand.brand_name }}</p>
+          </a>
         </div>
       </div>
       <div>
         <div
           v-if="active === 2"
-          class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
+          class="w-11/12
+          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
         >
           <div
             class="
@@ -82,7 +95,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -107,7 +121,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -132,7 +147,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -157,7 +173,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -182,7 +199,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -195,7 +213,8 @@
         </div>
         <div
           v-if="active === 2"
-          class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
+          class="w-11/12
+          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
         >
           <div
             class="
@@ -212,7 +231,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -237,7 +257,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -262,7 +283,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -287,7 +309,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -312,7 +335,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -327,7 +351,8 @@
       <div>
         <div
           v-if="active === 3"
-          class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
+          class="w-11/12
+          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
         >
           <div
             class="
@@ -344,7 +369,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -369,7 +395,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -394,7 +421,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -419,7 +447,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -444,7 +473,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -457,7 +487,8 @@
         </div>
         <div
           v-if="active === 3"
-          class="bg-gray-600 grid grid-cols-5 gap-4 py-8 px-4"
+          class="w-11/12
+          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
         >
           <div
             class="
@@ -474,7 +505,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -499,7 +531,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -524,7 +557,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -549,7 +583,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -574,7 +609,8 @@
                 w-full
                 text-white
                 font-bold
-                text-xl
+                text-md
+                lg:text-xl
                 py-4
                 px-8
                 text-center
@@ -586,7 +622,7 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-end mt-16">
+      <div class="flex lg:justify-end mt-8 mb-8 lg:mt-16">
         <button
           @click="getMoreBrands()"
           class="

@@ -2,6 +2,8 @@
   <!-- Susbcribe section -->
   <div
     class="
+    w-11/12
+    lg:w-full
       flex
       justify-around
       items-center
