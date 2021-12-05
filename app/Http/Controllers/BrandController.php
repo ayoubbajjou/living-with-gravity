@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bike;
 use App\Models\Brand;
+use App\Models\City;
+use App\Models\Dealer;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BrandController extends Controller
 {
@@ -12,9 +16,38 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($name)
     {
-        //
+        $brand = Brand::where('brand_name', $name)->with('bikes', 'dealers')->first();
+        if(!$brand) {
+            abort(404);
+        }
+
+        $moreBikes = Bike::where('brand_id', $brand->bikes[0]->brand_id)->where('id', '!=', $brand->bikes[0]->id)->with('prices', 'images')->limit(20)->get();
+        $cities = City::all();
+        $brands = Brand::all();
+
+        return Inertia::render('Brand', compact('brand', 'moreBikes', 'cities', 'brands'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBrands()
+    {
+        return Brand::all();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBrandsLimited()
+    {
+        return Brand::limit(10)->get();
     }
 
     /**

@@ -1,52 +1,58 @@
 <template>
-    <Head title="Welcome" />
+  <Head title="Welcome" />
+  <Navigation />
+  <div class="bg-gray-800 h-screen">
+    <Hero />
 
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-800 sm:items-center sm:pt-0">
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <Link v-if="$page.props.user" :href="route('dashboard')" class="text-lg text-white">
-                Dashboard
-            </Link>
+    <SearchBikeBy />
 
-            <template v-else>
-                <Link :href="route('login')" class="text-lg text-white">
-                    Log in
-                </Link>
+    <FeaturedBikes />
 
-                <!-- <Link v-if="canRegister" :href="route('register')" class="ml-4 text-sm text-white underline">
-                    Register
-                </Link> -->
-            </template>
-        </div>
+    <Blogs />
 
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <jet-application-logo class="block h-auto w-auto" />
-            </div>
-        </div>
-    </div>
+    <Subscribe />
+
+  <Footer />
+  </div>
 </template>
 
-<style scoped>
-    /*  */
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
 </style>
 
 <script>
-    import { defineComponent } from 'vue'
-    import { Head, Link } from '@inertiajs/inertia-vue3';
-    import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue'
+import { defineComponent } from "vue";
+import { Head, Link } from "@inertiajs/inertia-vue3";
+import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
+import Navigation from "./components/Navigation.vue";
+import Blogs from "./components/Blogs.vue";
+import FeaturedBikes from "./components/FeaturedBikes.vue";
+import SearchBikeBy from "./components/SearchBikeBy.vue";
+import Footer from "./components/Footer.vue";
+import Subscribe from "./components/Subscribe.vue";
+import Hero from "./components/Hero.vue";
+export default defineComponent({
+  components: {
+    Head,
+    Link,
+    JetApplicationLogo,
+    Navigation,
+    Blogs,
+    FeaturedBikes,
+    SearchBikeBy,
+    Footer,
+    Subscribe,
+    Hero
+  },
 
-    export default defineComponent({
-        components: {
-            Head,
-            Link,
-            JetApplicationLogo
-        },
-
-        props: {
-            canLogin: Boolean,
-            canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
-        }
-    })
+  props: {
+    canLogin: Boolean,
+    canRegister: Boolean,
+    laravelVersion: String,
+    phpVersion: String,
+  },
+});
 </script>

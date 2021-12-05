@@ -1,0 +1,149 @@
+<template>
+  <!-- More products section -->
+  <div class="bg-gray-800">
+    <h1
+      class="
+        text-white
+        w-max
+        ml-4
+        lg:ml-64
+        lg:text-4xl
+        uppercase text-2xl
+        font-bold
+        italic
+      "
+    >
+      More {{ title }} bikes
+    </h1>
+
+    <div class="overflow-x-auto" id="suggestedBikes">
+      <div class="w-max flex lg:px-64 pt-12 pb-6">
+        <div
+          v-for="(bike, index) in bikes"
+          :key="bike.id"
+          :class="index === 0 ? 'bg-gray-100' : 'bg-gray-700'"
+          class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8"
+        >
+          <a class="flex" :href="`/bike/${bike.id}`">
+            <img
+              class="w-24 h-16 rounded-lg mr-4"
+              :src="bike?.images[0]?.thumb_link"
+              alt=""
+            />
+            <div :class="index === 0 ? 'text-gray-900' : 'text-gray-50'">
+              <h3 class="font-bold">
+                {{ bike.series }} {{ bike.version_name }}
+              </h3>
+              <span class="text-xs">Starting from</span>
+              <p class="text-light italic">
+                ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="
+          flex
+          justify-between
+          items-center
+          text-center
+          pl-pl-4
+          lg:pl-64
+          text-gray-50
+          pt-4
+          pb-12
+          lg:pr-72
+          px-8
+        "
+      >
+        <div class="flex space-x-6">
+          <button type="button" @click="scrollBack()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 cursor-pointer transform rotate-180"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+
+          <button type="button" @click="scrollNext()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 cursor-pointer"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+        </div>
+        <a href="#" class="text-red-600">View all</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "MoreSuggestedBikes",
+  props: ["bikes", "title"],
+  data() {
+    return {
+      scrollVal: 300,
+    };
+  },
+  methods: {
+    scrollNext() {
+      this.validateScroll();
+      this.documentScroll("+");
+      this.scrollTo();
+    },
+    scrollBack() {
+      this.validateScroll();
+      this.documentScroll("-");
+      this.scrollTo();
+    },
+    documentScroll(operator) {
+      const scrollWith = 300;
+      operator === "+"
+        ? (this.scrollVal += scrollWith)
+        : (this.scrollVal -= scrollWith);
+    },
+    scrollTo() {
+      const el = document.getElementById("suggestedBikes");
+      el.scrollTo({
+        left: this.scrollVal,
+        behavior: "smooth",
+      });
+    },
+    validateScroll() {
+      if (this.scrollVal <= 0) {
+        this.scrollVal = 300;
+      }
+      if (this.scrollVal >= 2400) {
+        this.scrollVal = 2400;
+      }
+    },
+  },
+};
+</script>
+
+<style>
+</style>
