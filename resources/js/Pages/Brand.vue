@@ -19,46 +19,7 @@
       </div>
       <div class="w-full h-120 overflow-y-auto">
         <div class="py-4 bg-gray-700 rounded-r-lg">
-          <p class="text-white rounded-r-lg bg-gray-700 shadow-xl px-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          culpa accusamus sapiente autem quibusdam consequatur eius. Dolorum
-          quod quos harum velit, provident minus qui laborum, officiis rerum
-          delectus magni fugiat. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam
-          consequatur eius. Dolorum quod quos harum velit, provident minus qui
-          laborum, officiis rerum delectus magni fugiat. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Praesentium culpa accusamus
-          sapiente autem quibusdam consequatur eius. Dolorum quod quos harum
-          velit, provident minus qui laborum, officiis rerum delectus magni
-          fugiat. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Praesentium culpa accusamus sapiente autem quibusdam consequatur eius.
-          Dolorum quod quos harum velit, provident minus qui laborum, officiis
-          rerum delectus magni fugiat. v v Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Praesentium culpa accusamus sapiente
-          autem quibusdam consequatur eius. Dolorum quod quos harum velit,
-          provident minus qui laborum, officiis rerum delectus magni fugiat.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam optio
-          perferendis similique eius officiis quo quibusdam dolorum dicta nemo
-          dignissimos aperiam, praesentium nam laboriosam illo voluptates! Quis
-          sit suscipit vitae? Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Eaque enim quidem dolor ab inventore nobis rerum
-          nesciunt odit repellat possimus quis iste fugit labore ipsum non,
-          reprehenderit quos nemo magnam? autem quibusdam consequatur eius.
-          Dolorum quod quos harum velit, provident minus qui laborum, officiis
-          rerum delectus magni fugiat. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Praesentium culpa accusamus sapiente autem quibusdam
-          consequatur eius. Dolorum quod quos harum velit, provident minus qui
-          laborum, officiis rerum delectus magni fugiat. v v Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Praesentium culpa accusamus
-          sapiente autem quibusdam consequatur eius. Dolorum quod quos harum
-          velit, provident minus qui laborum, officiis rerum delectus magni
-          fugiat. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Veniam optio perferendis similique eius officiis quo quibusdam dolorum
-          dicta nemo dignissimos aperiam, praesentium nam laboriosam illo
-          voluptates! Quis sit suscipit vitae? Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. Eaque enim quidem dolor ab inventore
-          nobis rerum nesciunt odit repellat possimus quis iste fugit labore
-          ipsum non, reprehenderit quos nemo magnam?
+          <p class="text-white rounded-r-lg bg-gray-700 shadow-xl px-8" v-html="brand?.about_brand">
         </p>
         </div>
       </div>

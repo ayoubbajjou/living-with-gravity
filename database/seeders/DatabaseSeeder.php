@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Team::factory(1)->create();
         $this->call([
-            BrandSeeder::class,
+            // BrandSeeder::class,
         ]);
     }
 }
