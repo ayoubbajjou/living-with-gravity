@@ -18,7 +18,7 @@ class BrandController extends Controller
      */
     public function index($name)
     {
-        $brand = Brand::where('brand_name', $name)->with('bikes', 'dealers')->first();
+        $brand = Brand::where('brand_name', $name)->where('site_id', 1)->with('bikes', 'dealers')->first();
         if(!$brand) {
             abort(404);
         }
@@ -37,7 +37,7 @@ class BrandController extends Controller
      */
     public function getBrands()
     {
-        return Brand::all();
+        return Brand::where('site_id', 1)->get();
     }
 
     /**
@@ -47,7 +47,7 @@ class BrandController extends Controller
      */
     public function getBrandsLimited()
     {
-        return Brand::limit(10)->get();
+        return Brand::where('site_id', 1)->limit(10)->get();
     }
 
     /**

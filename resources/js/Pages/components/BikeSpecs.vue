@@ -1,5 +1,5 @@
 <template>
-  <div class="flex pl-4 lg:pl-64 bg-gray-800 py-12">
+  <div class="flex pl-4 lg:pl-64 bg-secondary py-12">
     <div class="bg-gray-700 lg:px-12 py-8 flex-col items-start lg:flex space-y-12">
       <button
         class="uppercase text-xs lg:text-base"

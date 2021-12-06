@@ -1,6 +1,6 @@
 <template>
   <!-- Footer  -->
-  <div class="bg-gray-800">
+  <div class="bg-secondary">
     <div
       class="
         px-4

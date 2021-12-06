@@ -16,14 +16,14 @@
     >
       Search Bikes By
     </h1>
-    <div class="mx-auto lg:px-64 mt-12 bg-gray-800">
-      <div class="lg:flex w-full bg-gray-800">
+    <div class="mx-auto lg:px-64 mt-12 bg-secondary">
+      <div class="lg:flex w-full bg-secondary">
         <div
           class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
           :class="
             active === 1
               ? 'text-red-600 bg-gray-600'
-              : 'text-gray-200 bg-gray-800'
+              : 'text-gray-200 bg-secondary'
           "
           @click="activeTab(1)"
         >
@@ -41,7 +41,7 @@
           :class="
             active === 3
               ? 'text-red-600 bg-gray-600'
-              : 'text-gray-200 bg-gray-800'
+              : 'text-gray-200 bg-secondary'
           "
           @click="activeTab(3)"
         >
@@ -62,7 +62,7 @@
             shadow-md
             font-bold
             text-base
-            bg-gray-900
+            bg-button
             rounded-l
           "
         >
@@ -70,7 +70,7 @@
         </button>
         <button
           @click="getMoreBrands()"
-          class="bg-red-600 text-white px-6 py-3 rounded-r"
+          class="bg-icon-button text-white px-6 py-3 rounded-r"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

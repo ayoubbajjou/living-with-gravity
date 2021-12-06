@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-secondary">
     <h1
       class="
         text-white
@@ -17,7 +17,7 @@
     >
       News/Blogs
     </h1>
-    <div class="mx-auto lg:px-64 mt-12 bg-gray-800">
+    <div class="mx-auto lg:px-64 mt-12 bg-secondary">
       <div v-if="posts.length" class="lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12">
         <div v-for="post in posts" :key="post.id" class="relative">
           <a :href="post.link">
@@ -102,13 +102,13 @@
               shadow-md
               font-bold
               text-base
-              bg-gray-900
+              bg-button
               rounded-l
             "
           >
             Show more
           </button>
-          <button class="bg-red-600 text-white px-6 py-3 rounded-r">
+          <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"

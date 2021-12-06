@@ -1,7 +1,7 @@
 <template>
   <Head title="Welcome" />
   <Navigation />
-  <div class="bg-gray-800">
+  <div class="bg-secondary">
     <div class="py-8 shadow-xl items-center">
       <div>
         <h3

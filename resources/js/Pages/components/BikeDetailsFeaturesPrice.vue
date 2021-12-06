@@ -1,13 +1,13 @@
 <template>
-  <div class="lg:w-2/5 bg-gray-800">
-    <div class="w-full bg-gray-800">
+  <div class="lg:w-2/5 bg-secondary">
+    <div class="w-full bg-secondary">
       <button
         @click="selectTab(1)"
         class="px-6 lg:px-14 py-6 text-2xl uppercase"
         :class="
           activeTab === 1
             ? 'text-red-600 bg-gray-600 font-bold'
-            : 'text-gray-200 bg-gray-800 font-normal'
+            : 'text-gray-200 bg-secondary font-normal'
         "
       >
         Key Features
@@ -18,7 +18,7 @@
         :class="
           activeTab === 2
             ? 'text-red-600 bg-gray-600 font-bold'
-            : 'text-gray-200 bg-gray-800 font-normal'
+            : 'text-gray-200 bg-secondary font-normal'
         "
       >
         Price
@@ -78,7 +78,7 @@
           >
             Full Specs
           </button>
-          <button class="bg-red-600 text-white px-6 py-3 rounded-r">
+          <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -223,7 +223,7 @@
           >
             Contact Dealer
           </button>
-          <button class="bg-red-600 text-white px-6 py-3 rounded-r">
+          <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"

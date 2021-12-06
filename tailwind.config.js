@@ -21,6 +21,11 @@ module.exports = {
                 120: '30rem',
                 144: '36rem',
                 192: '48rem',
+            },
+            colors: {
+                secondary: '#2F2F2F',
+                'icon-button': '#C54044',
+                'button': '#343434'
             }
         },
     },

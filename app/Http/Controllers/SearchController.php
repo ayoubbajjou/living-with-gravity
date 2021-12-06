@@ -31,7 +31,7 @@ class SearchController extends Controller
             }
         })->select('id', 'version_name', 'make', 'series', 'model_name')->take(20)->get();
         $cities = City::all();
-        $brands = Brand::all();
+        $brands = Brand::where('site_id', 1)->get();
 
         return Inertia::render('Search/Results', compact('bikes'));
     }
@@ -41,7 +41,7 @@ class SearchController extends Controller
         $bikes = Bike::where('model_id', '!=', NULL)->with('prices', 'images')->take(20)->get();
 
         $cities = City::all();
-        $brands = Brand::all();
+        $brands = Brand::where('site_id', 1)->get();
 
         return Inertia::render('Search/Results', compact('bikes'));
     }

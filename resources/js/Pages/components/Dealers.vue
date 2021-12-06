@@ -1,6 +1,6 @@
 <template>
   <!-- Dealers in your city section -->
-  <div class="bg-gray-800 pb-32">
+  <div class="bg-secondary pb-32">
     <h1
       class="
         text-white
@@ -302,7 +302,6 @@ export default {
   },
   created() {
     onClickOutside(this.$refs.cities, (event) => {
-      console.log(event);
     });
   },
   watch: {
@@ -367,7 +366,6 @@ export default {
       this.paginate()
     },
     collapse() {
-      console.log("sfas");
       this.isBrandList = false;
       this.isCitiesList = false;
     },
