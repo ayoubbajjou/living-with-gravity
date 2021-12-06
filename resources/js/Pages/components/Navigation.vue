@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800 px-8 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24">
+  <div class="bg-secondary px-8 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24">
     <div
       class="
         w-full
@@ -108,8 +108,8 @@
     class="
       w-full
       bg-gradient-to-r
-      from-red-300
-      to-yellow-600
+      from-[#f84270]
+      to-[#fe803b]
       px-4
       py-5
       lg:mx-auto
@@ -126,7 +126,7 @@
               aria-label="Bikes"
               title="Bikes"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -158,7 +158,7 @@
               aria-label="Bikes Finance"
               title="Bikes Finance"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -191,7 +191,7 @@
               aria-label="Compare"
               title="Compare"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 flex
@@ -224,7 +224,7 @@
               aria-label="News & Reviews"
               title="News & Reviews"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -257,7 +257,7 @@
               aria-label="More"
               title="More"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -291,7 +291,7 @@
               aria-label="contact us"
               title="contact us"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -311,7 +311,7 @@
               aria-label="About us"
               title="About us"
               class="
-                font-medium
+                font-bold
                 uppercase
                 space-x-4
                 tracking-wide
@@ -337,7 +337,7 @@
             justify-center
             h-12
             px-6
-            font-medium
+            font-bold
             uppercase
             tracking-wide
             text-white
@@ -437,7 +437,7 @@
           </svg>
         </button>
         <div v-if="isMenuOpen" class="absolute top-0 left-0 w-full">
-          <div class="relative z-50 p-5 bg-gray-800 border rounded shadow-sm">
+          <div class="relative z-50 p-5 bg-secondary border rounded shadow-sm">
             <div class="text-xl text-white font-bold flex justify-end" @click="isMenuOpen = !isMenuOpen">x</div>
             <nav>
               <ul class="space-y-4">

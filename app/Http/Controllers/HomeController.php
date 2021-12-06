@@ -17,22 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        // $postsReq  = Http::get(config('lwg.wp_api_posts'));
-
-        // $posts = $postsReq->json();
-        // $media1Req = Http::get($posts['0']['_links']['wp:featuredmedia']['0']['href']);
-        // $media1 = $media1Req->json()['source_url'];
-        // $media2Req = Http::get($posts['1']['_links']['wp:featuredmedia']['0']['href']);
-        // $media2 = $media2Req->json()['source_url'];
-
-
-        // $posts['0']['thumb'] = $media1;
-        // $posts['1']['thumb'] = $media2;
-        // $postsData = [$posts['0'], $posts['1']];
         $postsData = [];
 
-        $brands = Brand::limit(10)->get();
+        $brands = Brand::limit(10)->where('site_id', 1)->get();
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),

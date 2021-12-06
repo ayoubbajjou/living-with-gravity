@@ -1,7 +1,7 @@
 <template>
   <Head title="Welcome" />
   <Navigation />
-  <div class="bg-gray-800 h-screen">
+  <div class="bg-secondary h-screen">
     <div class="">
         <img
           class="mx-auto"

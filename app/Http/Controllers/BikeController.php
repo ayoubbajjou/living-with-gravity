@@ -150,18 +150,6 @@ class BikeController extends Controller
      */
     public function show($id)
     {
-        // $postsReq  = Http::get(config('lwg.wp_api_posts'));
-
-        // $posts = $postsReq->json();
-        // $media1Req = Http::get($posts['0']['_links']['wp:featuredmedia']['0']['href']);
-        // $media1 = $media1Req->json()['source_url'];
-        // $media2Req = Http::get($posts['1']['_links']['wp:featuredmedia']['0']['href']);
-        // $media2 = $media2Req->json()['source_url'];
-
-
-        // $posts['0']['thumb'] = $media1;
-        // $posts['1']['thumb'] = $media2;
-        // $postsData = [$posts['0'], $posts['1']];
         $postsData = [];
         
         $bike = Bike::where('id', $id)->where('brand_id', '!=', NULL)->with(['images', 'prices', 'specifications', 'brand'])->first();
@@ -175,7 +163,7 @@ class BikeController extends Controller
         $dealersCount = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->count();
         $moreBikes = Bike::where('brand_id', $bike->brand_id)->where('id', '!=', $bike->id)->with('prices', 'images')->limit(20)->get();
         $cities = City::all();
-        $brands = Brand::all();
+        $brands = Brand::where('site_id', 1)->get();
         return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount'));
     }
 
@@ -195,21 +183,6 @@ class BikeController extends Controller
         return [$dealersPagination, $dealers];
     }
 
-    /**
-     * 
-     */
-    // public function getKeys(Request $request) {
-    //     $bike = $bike = Bike::where('id', $request->bike_id)->where('brand_id', '!=', NULL)->with('specifications');
-    //     $length = $bike->whereHas('specifications', function($q){
-    //         $q->where('title', 'Overall Length');
-    //     })->first();
-
-    //     // $data = [
-    //     //   'dimension' => $length
-    //     // ];
-
-    //     return $length;
-    // }
 
     /**
      * Update the specified resource in storage.

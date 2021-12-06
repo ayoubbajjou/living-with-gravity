@@ -190,7 +190,7 @@
                   shadow-sm
                   px-4
                   py-2
-                  bg-red-600
+                  bg-icon-button
                   text-base
                   font-medium
                   text-white

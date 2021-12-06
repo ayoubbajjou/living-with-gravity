@@ -9,8 +9,8 @@
       items-center
       py-6
       bg-gradient-to-r
-      from-red-300
-      to-yellow-600
+      from-[#f84270]
+      to-[#fe803b]
     "
   >
     <jet-application-logo class="block h-20 w-auto" />
@@ -29,7 +29,7 @@
         type="email"
         placeholder="Your email"
       />
-      <button class="text-white uppercase bg-gray-800 rounded-r px-12 py-4">
+      <button class="text-white uppercase bg-secondary rounded-r px-12 py-4">
         Subscribe
       </button>
     </div>

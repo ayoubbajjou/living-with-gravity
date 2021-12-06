@@ -1,6 +1,6 @@
 <template>
   <!-- More products section -->
-  <div class="bg-gray-800">
+  <div class="bg-secondary">
     <h1
       class="
         text-white

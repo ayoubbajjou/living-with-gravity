@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-secondary">
     <h1
       class="
         text-white
@@ -46,7 +46,7 @@
         {{bikesDetails[start].title}}
       </p>
       <p class="text-red-600 font-bold text-2xl">{{bikesDetails[start].price}}</p>
-      <button @click="sildeBikes" class="bg-red-600 text-white px-6 py-3 rounded-r">
+      <button @click="sildeBikes" class="bg-icon-button text-white px-6 py-3 rounded-r">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"

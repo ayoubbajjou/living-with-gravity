@@ -1,7 +1,7 @@
 <template>
   <Head title="Welcome" />
   <Navigation />
-  <div class="bg-gray-800 h-screen">
+  <div class="bg-secondary h-screen">
     <div class="lg:flex w-full mb-10">
       <div class="relative lg:w-3/5">
         <div class="w-full">
@@ -163,7 +163,6 @@ export default defineComponent({
     };
   },
   mounted() {
-    console.log(this.$inertia.page.props.bike);
     this.bike = this.$inertia.page.props.bike;
     this.dealers = this.$inertia.page.props.dealers;
     this.suggestedBikes = this.$inertia.page.props.moreBikes;
@@ -173,7 +172,6 @@ export default defineComponent({
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
-        console.log(res.data);
         this.versions = res.data;
         this.versionSelected = this.bike?.id;
       })

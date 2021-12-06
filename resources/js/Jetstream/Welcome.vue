@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="p-6 sm:px-20 bg-gray-800 border-b border-gray-600 text-white">
+        <div class="p-6 sm:px-20 bg-secondary border-b border-gray-600 text-white">
             <div>
                 <jet-application-logo class="block h-12 w-auto" />
             </div>
