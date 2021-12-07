@@ -10,7 +10,7 @@
         lg:ml-64
         border-red-600
         text-2xl
-        lg:text-4xl
+        lg:text-3xl
         uppercase
         font-bold
         italic
@@ -211,26 +211,28 @@
       {{ brandTitle }} Dealers in {{ city }}
     </h3>
     <div class="pl-4 lg:pl-64  pt-2 pb-8">
-      <table v-if="dealersList.length" class="text-gray-50 text-start">
-        <thead class="bg-gray-600">
-          <td class="px-6 py-4">Dealer</td>
-          <td class="px-6 py-4">Phone No.</td>
-          <td class="px-6 py-4">Address</td>
-        </thead>
-        <tbody class="border-b py-4 pl-8 border-gray-50">
-          <tr v-for="dealer in dealersList" :key="dealer.id">
-            <td class="px-6 py-4">{{ dealer.name }}</td>
-            <td class="px-6 py-4">{{ dealer.phone }}</td>
-            <td class="px-6 py-4 max-w-md">
-              {{ dealer.address }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-       <thead v-else class="bg-gray-600">
+      <div class="overflow-x-scroll lg:overflow-x-auto">
+        <table v-if="dealersList.length" class="text-gray-50 text-start">
+          <thead class="bg-gray-600">
+            <td class="px-6 py-4">Dealer</td>
+            <td class="px-6 py-4">Phone No.</td>
+            <td class="px-6 py-4">Address</td>
+          </thead>
+          <tbody class="border-b py-4 pl-8 border-gray-50">
+            <tr v-for="dealer in dealersList" :key="dealer.id">
+              <td class="px-6 py-4">{{ dealer.name }}</td>
+              <td class="px-6 py-4">{{ dealer.phone }}</td>
+              <td class="px-6 py-4 max-w-md">
+                {{ dealer.address }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <thead v-else class="bg-gray-600">
           <p class="text-gray-50 text-start px-6 py-4">No dealers found!</p>
         </thead>
-      <div class="flex items-center mt-10 space-x-4">
+      </div>
+      <div class="flex items-center mt-10 overflow-x-scroll">
         <button
           v-for="(page, index) in dealersPagination"
           :key="index"
@@ -242,6 +244,7 @@
           class="
             py-4
             px-6
+            m-2
             font-bold
             focus:outline-none
             active:outline-none

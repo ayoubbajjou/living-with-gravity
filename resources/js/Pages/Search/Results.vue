@@ -12,7 +12,7 @@
             lg:ml-64
             ml-6
             border-red-600
-            text-4xl
+            text-3xl
             uppercase
             font-bold
             italic

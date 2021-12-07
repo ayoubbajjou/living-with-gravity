@@ -7,7 +7,7 @@
         w-max
         ml-4
         lg:ml-64
-        lg:text-4xl
+        lg:text-3xl
         uppercase text-2xl
         font-bold
         italic
@@ -22,7 +22,7 @@
           v-for="(bike, index) in bikes"
           :key="bike.id"
           :class="index === 0 ? 'bg-gray-100' : 'bg-gray-700'"
-          class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8"
+          class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8 w-80"
         >
           <a class="flex" :href="`/bike/${bike.id}`">
             <img

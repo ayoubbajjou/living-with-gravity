@@ -30389,7 +30389,7 @@ var _hoisted_7 = {
   "class": "text-white flex space-x-14"
 };
 var _hoisted_8 = {
-  "class": "text-bolder text-2xl lg:text-4xl py-4 italic uppercase"
+  "class": "text-bolder text-2xl lg:text-3xl py-4 italic uppercase"
 };
 var _hoisted_9 = {
   "class": "flex space-x-6"
@@ -30720,7 +30720,7 @@ var _hoisted_7 = {
   "class": "w-full h-120 overflow-y-auto"
 };
 var _hoisted_8 = {
-  "class": "py-4 bg-gray-700 rounded-r-lg"
+  "class": "py-4 bg-gray-700 lg:rounded-r-lg"
 };
 var _hoisted_9 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -30749,13 +30749,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "w-full h-120 rounded-l-lg lg:rounded-r-lg",
+    "class": "w-full h-120 lg:rounded-l-lg",
     src: (_ctx$suggestedBikes = _ctx.suggestedBikes) === null || _ctx$suggestedBikes === void 0 ? void 0 : (_ctx$suggestedBikes$ = _ctx$suggestedBikes[0]) === null || _ctx$suggestedBikes$ === void 0 ? void 0 : (_ctx$suggestedBikes$$ = _ctx$suggestedBikes$.images[0]) === null || _ctx$suggestedBikes$$ === void 0 ? void 0 : _ctx$suggestedBikes$$.image_link,
     alt: ""
   }, null, 8
   /* PROPS */
   , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "text-white rounded-r-lg bg-gray-700 shadow-xl px-8",
+    "class": "text-white lg:rounded-r-lg bg-gray-700 shadow-xl px-8",
     innerHTML: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.about_brand
   }, null, 8
   /* PROPS */
@@ -31949,7 +31949,7 @@ var _hoisted_2 = {
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
-  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-4xl uppercase font-bold italic mt-12"
+  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-3xl uppercase font-bold italic mt-12"
 }, " Search Results ", -1
 /* HOISTED */
 );
@@ -33401,7 +33401,7 @@ var _hoisted_46 = {
   "class": "text-white text-md leading-4"
 };
 var _hoisted_47 = {
-  "class": "text-white text-4xl font-bold"
+  "class": "text-white text-3xl font-bold"
 };
 
 var _hoisted_48 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -33650,7 +33650,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-4xl uppercase font-bold italic mt-12"
+  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-3xl uppercase font-bold italic mt-12"
 }, " News/Blogs ", -1
 /* HOISTED */
 );
@@ -33961,7 +33961,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-white border-b-4 w-max ml-4 lg:ml-64 border-red-600 text-2xl lg:text-4xl uppercase font-bold italic"
+  "class": "text-white border-b-4 w-max ml-4 lg:ml-64 border-red-600 text-2xl lg:text-3xl uppercase font-bold italic"
 }, " Dealers in your city ", -1
 /* HOISTED */
 );
@@ -34069,11 +34069,14 @@ var _hoisted_20 = {
   "class": "pl-4 lg:pl-64 pt-2 pb-8"
 };
 var _hoisted_21 = {
+  "class": "overflow-x-scroll lg:overflow-x-auto"
+};
+var _hoisted_22 = {
   key: 0,
   "class": "text-gray-50 text-start"
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
   "class": "bg-gray-600"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
   "class": "px-6 py-4"
@@ -34085,34 +34088,34 @@ var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_23 = {
-  "class": "border-b py-4 pl-8 border-gray-50"
-};
 var _hoisted_24 = {
-  "class": "px-6 py-4"
+  "class": "border-b py-4 pl-8 border-gray-50"
 };
 var _hoisted_25 = {
   "class": "px-6 py-4"
 };
 var _hoisted_26 = {
-  "class": "px-6 py-4 max-w-md"
+  "class": "px-6 py-4"
 };
 var _hoisted_27 = {
+  "class": "px-6 py-4 max-w-md"
+};
+var _hoisted_28 = {
   key: 1,
   "class": "bg-gray-600"
 };
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-gray-50 text-start px-6 py-4"
 }, "No dealers found!", -1
 /* HOISTED */
 );
 
-var _hoisted_29 = [_hoisted_28];
-var _hoisted_30 = {
-  "class": "flex items-center mt-10 space-x-4"
+var _hoisted_30 = [_hoisted_29];
+var _hoisted_31 = {
+  "class": "flex items-center mt-10 overflow-x-scroll"
 };
-var _hoisted_31 = ["onClick"];
+var _hoisted_32 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Dealers in your city section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     autocomplete: "off",
@@ -34185,28 +34188,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.brandTitle) + " Dealers in " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.city), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [$data.dealersList.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_23, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dealersList, function (dealer) {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [$data.dealersList.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_24, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dealersList, function (dealer) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: dealer.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.name), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.name), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.phone), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.phone), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.address), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dealer.address), 1
     /* TEXT */
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("thead", _hoisted_27, _hoisted_29)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dealersPagination, function (page, index) {
+  ))])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("thead", _hoisted_28, _hoisted_30))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dealersPagination, function (page, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
       key: index,
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.activePage === page ? 'bg-white text-red-500 ' : 'bg-red-500 text-white ', "py-4 px-6 font-bold focus:outline-none active:outline-none rounded-lg"]),
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.activePage === page ? 'bg-white text-red-500 ' : 'bg-red-500 text-white ', "py-4 px-6 m-2 font-bold focus:outline-none active:outline-none rounded-lg"]),
       onClick: function onClick($event) {
         return $options.paginate(page);
       }
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(page), 11
     /* TEXT, CLASS, PROPS */
-    , _hoisted_31);
+    , _hoisted_32);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])])], 2112
@@ -34234,7 +34237,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-4xl uppercase font-bold italic"
+  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-3xl uppercase font-bold italic"
 }, " Featured Bikes ", -1
 /* HOISTED */
 );
@@ -34577,7 +34580,7 @@ var _hoisted_1 = {
   "class": "bg-secondary"
 };
 var _hoisted_2 = {
-  "class": "text-white w-max ml-4 lg:ml-64 lg:text-4xl uppercase text-2xl font-bold italic"
+  "class": "text-white w-max ml-4 lg:ml-64 lg:text-3xl uppercase text-2xl font-bold italic"
 };
 var _hoisted_3 = {
   "class": "overflow-x-auto",
@@ -34657,7 +34660,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: bike.id,
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([index === 0 ? 'bg-gray-100' : 'bg-gray-700', "flex rounded-lg px-6 py-4 items-center space-x-12 mx-8"])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([index === 0 ? 'bg-gray-100' : 'bg-gray-700', "flex rounded-lg px-6 py-4 items-center space-x-12 mx-8 w-80"])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
       "class": "flex",
       href: "/bike/".concat(bike.id)
@@ -34713,30 +34716,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "bg-secondary px-8 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24"
+  "class": "bg-secondary px-8 py-3 mx-auto sm:max-w-xl md:max-w-full md:px-24"
 };
 var _hoisted_2 = {
-  "class": "w-full relative max-w-screen-xl mx-auto grid items-center grid-cols-2 lg:grid-cols-3"
+  "class": "w-full relative max-w-screen-xl mx-auto flex justify-between items-center"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"flex items-center space-x-8 lg:flex\"><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></ul>", 1);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"order-last lg:order-none w-1/4 flex items-center space-x-8 lg:flex\"><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></ul>", 1);
 
 var _hoisted_4 = {
   href: "/",
   "aria-label": "Company",
   title: "Company",
-  "class": "inline-flex items-center lg:mx-auto"
+  "class": "order-first lg:order-none inline-flex justofy-start lg:justify-center items-center lg:mx-auto w-2/4"
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex items-center justify-between"
+  "class": "w-1/4 hidden lg:flex items-center justify-between"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   placeholder: "Search Keyword",
-  "class": "w-full lg:w-2/3 lg:ml-28 bg-transparent border-b-2 border-t-0 border-l-0 border-r-0 focus:outline-none border-gray-100 py-3 px-2 outline-none"
+  "class": "w-full hidden lg:block lg:w-2/3 lg:ml-28 bg-transparent border-b-2 border-t-0 border-l-0 border-r-0 focus:outline-none border-gray-100 py-3 px-2 outline-none"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-6 w-6 text-white",
+  "class": "hidden lg:block h-6 w-6 text-white",
   fill: "none",
   viewBox: "0 0 24 24",
   stroke: "currentColor"
@@ -34750,13 +34753,13 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_6 = {
-  "class": "w-full bg-gradient-to-r from-[#f84270] to-[#fe803b] px-4 py-5 lg:mx-auto sm:max-w-xl md:max-w-full md:px-24"
+  "class": "w-full bg-gradient-to-r from-[#f84270] to-[#fe803b] px-4 py-3 lg:mx-auto sm:max-w-xl md:max-w-full md:px-24"
 };
 var _hoisted_7 = {
   "class": "relative flex items-center justify-between"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"font-bold uppercase space-x-4 flex tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-bold uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul></div>", 1);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex tracking- items-centerwide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul></div>", 1);
 
 var _hoisted_9 = {
   "class": "items-center hidden space-x-8 lg:flex"
@@ -34783,7 +34786,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_11 = {
-  "class": "flex items-center justify-center h-12 px-6 font-medium uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+  "class": "flex items-center justify-center h-12 px-2 font-bold text-sm uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -34830,16 +34833,16 @@ var _hoisted_17 = {
   "class": "relative z-50 p-5 bg-secondary border rounded shadow-sm"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"font-medium uppercase space-x-4 flex tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul><!-- &lt;ul class=&quot;space-y-4&quot;&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Our product&quot;\n                    title=&quot;Our product&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Bikes&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Our product&quot;\n                    title=&quot;Our product&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Features&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Product pricing&quot;\n                    title=&quot;Product pricing&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Pricing&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;About us&quot;\n                    title=&quot;About us&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;About us&lt;/a\n                  &gt;\n                &lt;/li&gt;\n              &lt;/ul&gt; --></nav>", 1);
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul><!-- &lt;ul class=&quot;space-y-4&quot;&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Our product&quot;\n                    title=&quot;Our product&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Bikes&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Our product&quot;\n                    title=&quot;Our product&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Features&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;Product pricing&quot;\n                    title=&quot;Product pricing&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;Pricing&lt;/a\n                  &gt;\n                &lt;/li&gt;\n                &lt;li&gt;\n                  &lt;a\n                    href=&quot;/&quot;\n                    aria-label=&quot;About us&quot;\n                    title=&quot;About us&quot;\n                    class=&quot;\n                      font-medium\n                      uppercase\n                      tracking-wide\n                      flex\n                      w-full\n                      text-gray-100\n                      transition-colors\n                      duration-200\n                      hover:text-deep-purple-accent-400\n                    &quot;\n                    &gt;About us&lt;/a\n                  &gt;\n                &lt;/li&gt;\n              &lt;/ul&gt; --></nav>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-application-logo");
 
   var _component_city_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("city-modal");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_application_logo, {
-    "class": "block h-20 w-auto"
-  })]), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-2/3 flex items-center\"> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_application_logo, {
+    "class": "lg:block h-16 w-auto"
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> "), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.selectCity = !$data.selectCity;
     }),
@@ -34858,7 +34861,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[2] || (_cache[2] = function ($event) {
       return $data.isMenuOpen = !$data.isMenuOpen;
     })
-  }, "x"), _hoisted_18])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
+  }, " x "), _hoisted_18])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
     key: 0,
     onCitySelected: _cache[3] || (_cache[3] = function ($event) {
       return $options.citySelected();
@@ -34888,7 +34891,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-4xl uppercase font-bold italic"
+  "class": "text-white border-b-4 w-max lg:ml-64 ml-6 border-red-600 text-3xl uppercase font-bold italic"
 }, " Search Bikes By ", -1
 /* HOISTED */
 );

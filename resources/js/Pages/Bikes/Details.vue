@@ -25,7 +25,7 @@
           "
         >
           <div class="text-white flex space-x-14">
-            <h2 class="text-bolder text-2xl lg:text-4xl py-4 italic uppercase">
+            <h2 class="text-bolder text-2xl lg:text-3xl py-4 italic uppercase">
               {{ bike?.series }} {{ bike?.version_name }}
             </h2>
             <div class="flex space-x-6">
