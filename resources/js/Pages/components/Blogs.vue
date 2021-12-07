@@ -89,7 +89,7 @@
       </div>
 
         <a
-          class="flex lg:justify-end mt-8 mb-8 lg:mt-16"
+          class="flex justify-center lg:justify-end mt-8 mb-8 lg:mt-16"
           href="https://livingwithgravity.com/category/news/"
           target="_blank"
         >

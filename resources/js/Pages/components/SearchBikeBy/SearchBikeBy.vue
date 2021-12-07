@@ -17,9 +17,9 @@
       Search Bikes By
     </h1>
     <div class="mx-auto lg:px-64 mt-12 bg-secondary">
-      <div class="lg:flex w-full bg-secondary">
+      <div class="flex w-full bg-secondary">
         <div
-          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
           :class="
             active === 1
               ? 'text-red-600 bg-gray-600'
@@ -30,14 +30,14 @@
           Brands
         </div>
         <div
-          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
           :class="active === 2 ? 'text-red-600 bg-gray-600' : 'text-gray-200'"
           @click="activeTab(2)"
         >
           Displacement
         </div>
         <div
-          class="w-11/12 lg-w-full px-14 cursor-pointer py-6 text-2xl font-bold uppercase"
+          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
           :class="
             active === 3
               ? 'text-red-600 bg-gray-600'
@@ -51,7 +51,7 @@
       <search-by-brand v-if="active === 1" :brands="brands"></search-by-brand>
       <search-by-displacement v-if="active === 2" ></search-by-displacement>
       <search-by-budget v-if="active === 3" ></search-by-budget>
-      <div class="flex lg:justify-end mt-8 mb-8 lg:mt-16">
+      <div class="flex justify-center lg:justify-end mt-8 mb-8 lg:mt-16">
         <button
           @click="getMoreBrands()"
           class="

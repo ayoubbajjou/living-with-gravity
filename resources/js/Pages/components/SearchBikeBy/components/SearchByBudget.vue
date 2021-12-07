@@ -1,299 +1,313 @@
 <template>
   <div>
-        <div
-          class="w-11/12
-          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
+    <div
+      class="
+        lg:w-full
+        bg-gray-600
+        grid grid-cols-3
+        lg:grid-cols-5
+        gap-4
+        py-8
+        px-4
+      "
+    >
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(50000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
         >
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(50000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹50,000
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(60000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹60,000
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(70000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹70,000
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(80000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹80,000
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(100000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹1 lakh
-            </p>
-          </div>
-        </div>
-        <div
-          class="w-11/12
-          lg:w-full bg-gray-600 grid grid-cols-3 lg:grid-cols-5 gap-4 py-8 px-4"
-        >
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(150000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹1.5 lakh
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(200000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹2 lakh
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(250000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹2.5 lakh
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(300000)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Under ₹3 lakh
-            </p>
-          </div>
-          <div
-            class="
-              items-center
-              flex
-              justify-center
-              cursor-pointer
-              hover:bg-white
-              border-2 border-red-500
-            "
-            @click="searchBy(300001)"
-          >
-            <p
-              class="
-                w-full
-                text-white
-                font-bold
-                text-md
-                lg:text-xl
-                py-4
-                px-8
-                text-center
-                hover:text-red-500
-              "
-            >
-              Above ₹3 lakh
-            </p>
-          </div>
-        </div>
+          Under ₹50,000
+        </p>
       </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(60000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹60,000
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(70000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹70,000
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(80000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹80,000
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(100000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹1 lakh
+        </p>
+      </div>
+    </div>
+    <div
+      class="
+        w-11/12
+        lg:w-full
+        bg-gray-600
+        grid grid-cols-3
+        lg:grid-cols-5
+        gap-4
+        py-8
+        px-4
+      "
+    >
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(150000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹1.5 lakh
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(200000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹2 lakh
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(250000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹2.5 lakh
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(300000)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Under ₹3 lakh
+        </p>
+      </div>
+      <div
+        class="
+          items-center
+          flex
+          justify-center
+          cursor-pointer
+          hover:bg-white
+          border-2 border-red-500
+        "
+        @click="searchBy(300001)"
+      >
+        <p
+          class="
+            w-full
+            text-white
+            font-bold
+            text-md
+            lg:text-xl
+            py-4
+            px-8
+            text-center
+            hover:text-red-500
+          "
+        >
+          Above ₹3 lakh
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'SearchByBudget',
-    methods: {
-        searchBy(val) {
-            window.location.href = `/search/budget/${val}`
-        }
-    }
-}
+  name: "SearchByBudget",
+  methods: {
+    searchBy(val) {
+      window.location.href = `/search/budget/${val}`;
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>

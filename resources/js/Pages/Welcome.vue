@@ -1,18 +1,20 @@
 <template>
-  <Head title="Welcome" />
-  <Navigation />
-  <div class="bg-secondary h-screen">
-    <Hero />
+  <div class="max-w-screen-xl mx-auto">
+    <Head title="Welcome" />
+    <Navigation />
+    <div class="bg-secondary h-screen">
+      <Hero />
 
-    <SearchBikeBy />
+      <SearchBikeBy />
 
-    <FeaturedBikes />
+      <FeaturedBikes />
 
-    <Blogs />
+      <Blogs />
 
-    <Subscribe />
+      <Subscribe />
 
-  <Footer />
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -45,7 +47,7 @@ export default defineComponent({
     SearchBikeBy,
     Footer,
     Subscribe,
-    Hero
+    Hero,
   },
 
   props: {

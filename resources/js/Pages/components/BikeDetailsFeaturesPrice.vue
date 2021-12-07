@@ -3,7 +3,7 @@
     <div class="w-full bg-secondary">
       <button
         @click="selectTab(1)"
-        class="px-6 lg:px-14 py-6 text-2xl uppercase"
+        class="w-1/2 px-6 lg:px-14 py-6 text-xl uppercase"
         :class="
           activeTab === 1
             ? 'text-red-600 bg-gray-600 font-bold'
@@ -14,7 +14,7 @@
       </button>
       <button
         @click="selectTab(2)"
-        class="px-6 lg:px-14 py-6 text-2xl uppercase"
+        class="w-1/2 px-6 lg:px-14 py-6 text-xl uppercase"
         :class="
           activeTab === 2
             ? 'text-red-600 bg-gray-600 font-bold'
@@ -26,42 +26,42 @@
 
       <div v-if="activeTab === 1">
         <div class="flex px-14 py-4 h-max">
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/dimension.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{specs?.[0]?.dimension}}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{specs?.[0]?.dimension}}</h3>
             <p class="text-gray-50">Dimensions (L x W x H)</p>
           </div>
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/engine.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.engine }}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.engine }}</h3>
             <p class="text-gray-50">Engine</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/fuel-tank.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.fuel }}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.fuel }}</h3>
             <p class="text-gray-50">Fuel Tank</p>
           </div>
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/mileage.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.mileage }}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.mileage }}</h3>
             <p class="text-gray-50">Mileage</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/power.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{ specs?.[0]?.power }}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.power }}</h3>
             <p class="text-gray-50">Power</p>
           </div>
-          <div class="w-1/2">
+          <div class="w-1/2 space-y-2">
             <img src="/icons/speed.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-lg font-bold">{{specs?.[0]?.speed}}</h3>
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{specs?.[0]?.speed}}</h3>
             <p class="text-gray-50">Speed</p>
           </div>
         </div>
-        <div class="flex justify-start px-14 py-10">
+        <div class="flex justify-center lg:justify-start px-14 py-10">
           <button
             @click="scrollDown()"
             class="
@@ -207,7 +207,7 @@
             </li>
           </div>
         </div>
-        <div class="flex justify-start py-10">
+        <div class="flex justify-center lg:justify-start py-10">
           <button
             class="
               text-white
