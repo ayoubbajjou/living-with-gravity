@@ -125,7 +125,7 @@
             <p class="text-white text-md leading-4">
               On-road price in {{ cityName }}:
             </p>
-            <h1 class="text-white text-4xl font-bold">
+            <h1 class="text-white text-3xl font-bold">
               ₹ {{ bikePrice?.onroad_price }}
             </h1>
           </div>

@@ -12,14 +12,14 @@
     <div class="py-8 shadow-xl lg:px-56 lg:flex justify-around items-center">
       <div class="w-full">
          <img
-         class="w-full h-120 rounded-l-lg lg:rounded-r-lg"
+         class="w-full h-120 lg:rounded-l-lg"
           :src="suggestedBikes?.[0]?.images[0]?.image_link"
           alt=""
         />
       </div>
       <div class="w-full h-120 overflow-y-auto">
-        <div class="py-4 bg-gray-700 rounded-r-lg">
-          <p class="text-white rounded-r-lg bg-gray-700 shadow-xl px-8" v-html="brand?.about_brand">
+        <div class="py-4 bg-gray-700 lg:rounded-r-lg">
+          <p class="text-white lg:rounded-r-lg bg-gray-700 shadow-xl px-8" v-html="brand?.about_brand">
         </p>
         </div>
       </div>

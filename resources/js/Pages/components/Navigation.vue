@@ -1,18 +1,19 @@
 <template>
-  <div class="bg-secondary px-8 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24">
+  <div
+    class="bg-secondary px-8 py-3 mx-auto sm:max-w-xl md:max-w-full md:px-24"
+  >
     <div
       class="
         w-full
         relative
         max-w-screen-xl
         mx-auto
-        grid
+        flex justify-between
         items-center
-        grid-cols-2
-        lg:grid-cols-3
       "
     >
-      <ul class="flex items-center space-x-8 lg:flex">
+      <!-- <div class="w-2/3 flex items-center"> -->
+        <ul class="order-last lg:order-none w-1/4 flex items-center space-x-8 lg:flex">
         <div class="flex items-center mt-4 space-x-4 sm:mt-0">
           <a
             href="/"
@@ -61,22 +62,24 @@
             </svg>
           </a>
         </div>
-      </ul>
-      <a
-        href="/"
-        aria-label="Company"
-        title="Company"
-        class="inline-flex items-center lg:mx-auto"
-      >
-        <jet-application-logo class="block h-20 w-auto" />
-      </a>
-      <div class="flex items-center justify-between">
+        </ul>
+        <a
+          href="/"
+          aria-label="Company"
+          title="Company"
+          class="order-first lg:order-none inline-flex justofy-start lg:justify-center items-center lg:mx-auto w-2/4"
+        >
+          <jet-application-logo class="lg:block h-16 w-auto" />
+        </a>
+      <!-- </div> -->
+      <div class="w-1/4 hidden lg:flex items-center justify-between">
         <input
           type="text"
           placeholder="Search Keyword"
           class="
             w-full
-            lg:w-2/3 lg:ml-28
+            hidden
+            lg:block lg:w-2/3 lg:ml-28
             bg-transparent
             border-b-2 border-t-0 border-l-0 border-r-0
             focus:outline-none
@@ -88,7 +91,7 @@
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-white"
+          class="hidden lg:block h-6 w-6 text-white"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -111,7 +114,7 @@
       from-[#f84270]
       to-[#fe803b]
       px-4
-      py-5
+      py-3
       lg:mx-auto
       sm:max-w-xl
       md:max-w-full md:px-24
@@ -126,11 +129,13 @@
               aria-label="Bikes"
               title="Bikes"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -139,7 +144,7 @@
               >Bikes
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -158,11 +163,13 @@
               aria-label="Bikes Finance"
               title="Bikes Finance"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -172,7 +179,7 @@
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -191,11 +198,13 @@
               aria-label="Compare"
               title="Compare"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 flex
-                tracking-wide
+                tracking-
+                items-centerwide
                 text-gray-100
                 transition-colors
                 duration-200
@@ -204,7 +213,7 @@
               >Compare
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -224,11 +233,13 @@
               aria-label="News & Reviews"
               title="News & Reviews"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -237,7 +248,7 @@
               >News & Reviews
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -257,11 +268,13 @@
               aria-label="More"
               title="More"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -271,7 +284,7 @@
               More
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -291,11 +304,13 @@
               aria-label="contact us"
               title="contact us"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -311,11 +326,13 @@
               aria-label="About us"
               title="About us"
               class="
+                text-sm
                 font-bold
                 uppercase
                 space-x-4
                 tracking-wide
                 flex
+                items-center
                 text-gray-100
                 transition-colors
                 duration-200
@@ -376,8 +393,9 @@
               items-center
               justify-center
               h-12
-              px-6
-              font-medium
+              px-2
+              font-bold
+              text-sm
               uppercase
               tracking-wide
               text-white
@@ -438,7 +456,12 @@
         </button>
         <div v-if="isMenuOpen" class="absolute top-0 left-0 w-full">
           <div class="relative z-50 p-5 bg-secondary border rounded shadow-sm">
-            <div class="text-xl text-white font-bold flex justify-end" @click="isMenuOpen = !isMenuOpen">x</div>
+            <div
+              class="text-xl text-white font-bold flex justify-end"
+              @click="isMenuOpen = !isMenuOpen"
+            >
+              x
+            </div>
             <nav>
               <ul class="space-y-4">
                 <li>
@@ -512,10 +535,12 @@
                     aria-label="Compare"
                     title="Compare"
                     class="
-                      font-medium
+                      text-sm
+                      font-bold
                       uppercase
                       space-x-4
                       flex
+                      items-center
                       tracking-wide
                       text-gray-100
                       transition-colors
