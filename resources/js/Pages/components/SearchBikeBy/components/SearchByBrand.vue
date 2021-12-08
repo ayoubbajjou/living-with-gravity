@@ -5,7 +5,8 @@
           bg-gray-600
           grid grid-cols-2
           md:grid-cols-3
-          lg:grid-cols-5
+          lg:grid-cols-4
+          xl:grid-cols-5
           gap-4
           py-8
           px-4
@@ -13,9 +14,9 @@
       >
         <div v-for="brand in brands" :key="brand.id" class="w-full">
           <a :href="`/brand/${brand.brand_name}`">
-            <div class="h-32 w-46 rounded bg-gray-50">
+            <div class="h-36 w-56 rounded bg-gray-50">
               <img
-                class="h-32 w-46 mx-auto"
+                class="h-36 w-56 mx-auto"
                 :src="`/images/brands/${brand.brand_logo}`"
                 :alt="brand.brand_name"
               />
