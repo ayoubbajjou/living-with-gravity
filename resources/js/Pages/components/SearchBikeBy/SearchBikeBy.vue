@@ -16,7 +16,7 @@
     >
       Search Bikes By
     </h1>
-    <div class="mx-auto lg:px-64 mt-12 bg-secondary">
+    <div class="mx-auto mt-12 bg-secondary">
       <div class="flex w-full bg-secondary">
         <div
           class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"

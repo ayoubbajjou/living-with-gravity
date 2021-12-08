@@ -120,7 +120,7 @@
     "
   >
     <div class="relative flex items-center justify-between">
-      <div class="flex items-center">
+      <div class="flex items-center px-2">
         <ul class="flex items-center hidden space-x-14 lg:flex">
           <li>
             <a
