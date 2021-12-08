@@ -28,7 +28,6 @@
             class="
               relative
               max-h-16
-              lg:w-120
               py-4
               rounded-lg
               border-none

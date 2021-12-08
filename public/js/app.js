@@ -33812,7 +33812,98 @@ var _hoisted_15 = {
   "class": "w-full"
 };
 var _hoisted_16 = ["onClick"];
-var _hoisted_17 = {
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-wrap items-center w-full justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/bangalore.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/mumbai.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/new-delhi.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/gurugram.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/pune.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/hyderabad.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/jaipur.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/ahmedabad.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/chennai.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/faridabad.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/goa.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "w-24 h-24",
+  src: "/icons/kolkata.svg",
+  alt: "",
+  style: {
+    "filter": "invert(1)"
+  }
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
   "class": "absolute bottom-0 w-full bg-gray-50 px-4 py-6 sm:px-6 sm:flex sm:flex-row-reverse"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -33905,9 +33996,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 , _hoisted_16);
               }), 128
               /* KEYED_FRAGMENT */
-              ))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+              ))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_17], 512
               /* NEED_PATCH */
-              )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+              )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
                 type: "button",
                 "class": "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-icon-button text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm",
                 onClick: _cache[3] || (_cache[3] = function ($event) {
@@ -34511,7 +34602,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "class": "relative max-h-16 lg:w-120 py-4 rounded-lg border-none outline-none focus:outline-none active:outline-none",
+    "class": "relative max-h-16 py-4 rounded-lg border-none outline-none focus:outline-none active:outline-none",
     onKeyup: _cache[0] || (_cache[0] = function ($event) {
       return $options.search();
     }),
