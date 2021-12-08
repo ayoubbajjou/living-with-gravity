@@ -1,10 +1,10 @@
 <template>
   <div
         class="
-          w-11/12
           lg:w-full
           bg-gray-600
-          grid grid-cols-3
+          grid grid-cols-2
+          md:grid-cols-3
           lg:grid-cols-5
           gap-4
           py-8

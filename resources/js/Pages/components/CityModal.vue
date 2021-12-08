@@ -170,6 +170,21 @@
                             </li>
                           </ul>
                         </div>
+
+                        <div class="flex flex-wrap items-center w-full justify-center">
+                          <img class="w-24 h-24" src="/icons/bangalore.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/mumbai.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/new-delhi.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/pune.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/hyderabad.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/jaipur.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/ahmedabad.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/chennai.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/faridabad.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/goa.svg" alt="" style="filter: invert(1);">
+                          <img class="w-24 h-24" src="/icons/kolkata.svg" alt="" style="filter: invert(1);">
+                        </div>
                       </div>
                     </div>
                   </div>

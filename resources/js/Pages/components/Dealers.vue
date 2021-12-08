@@ -20,7 +20,7 @@
     </h1>
 
     <div class="lg:flex w-full pl-4 lg:pl-64 py-12 space-y-6 lg:space-y-0 ">
-      <div class="relative flex lg:mr-96 items-center justify-between pr-8">
+      <div class="relative flex lg:mr-96 items-center justify-center lg:justify-start pr-8">
         <div ref="cities" class="relative">
           <div>
             <svg
@@ -110,7 +110,7 @@
           </div>
         </div>
       </div>
-      <div class="relative flex items-center justify-between pr-8">
+      <div class="relative hidden items-center justify-between pr-8">
         <div ref="brands" class="relative">
           <div>
             <svg

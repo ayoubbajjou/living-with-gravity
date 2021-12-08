@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <img
-    class="w-full h-144"
+    class="w-full lg:h-144"
       style="object-fit: none"
       src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
       alt=""
@@ -10,25 +10,24 @@
     <div class="absolute inset-x-0 -bottom-20 mx-auto w-full lg:w-2/3 h-40">
       <div
         class="
-          lg:px-40
+          lg:px-20
           bg-opacity-60 bg-gray-100
           h-36
           rounded-lg
           mx-auto
           flex
-          justify-center
+          justify-around
+          lg:justify-center
           items-center
-          lg:w-full
-          w-11/12
+          w-full
           space-x-6
         "
       >
-        <div class="flex flex-col">
+        <div class="flex w-2/3 lg:w-full flex-col">
           <input
             class="
               relative
               max-h-16
-              lg:w-120
               py-4
               rounded-lg
               border-none
@@ -49,7 +48,8 @@
             class="
               absolute
               h-80
-              w-120
+              w-96
+              lg:w-120
               top-24
               bg-white
               mt-2

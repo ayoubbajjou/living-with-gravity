@@ -116,7 +116,6 @@
       px-4
       py-3
       lg:mx-auto
-      sm:max-w-xl
       md:max-w-full md:px-24
     "
   >
