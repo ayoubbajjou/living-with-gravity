@@ -596,12 +596,10 @@
                 this.page++;
             },
             insertData() {
-                console.log(this.form)
                 axios.post('/store-bike', {
                     data: this.form
                 })
                 .then(res => {
-                    console.log(res)
                     this.form = {
                                     url: null,
                                     make: null,

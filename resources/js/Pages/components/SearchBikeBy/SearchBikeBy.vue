@@ -5,13 +5,13 @@
         text-white
         border-b-4
         w-max
-        lg:ml-64
-        ml-6
         border-red-600
         text-3xl
         uppercase
         font-bold
         italic
+        ml-6
+        xl:ml-0
       "
     >
       Search Bikes By
@@ -107,7 +107,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$inertia.page.props.brands);
     this.brands = this.$inertia.page.props.brands;
   },
   methods: {
@@ -120,7 +119,6 @@ export default {
           .get("/get-brands-limited")
           .then((res) => {
             this.showMore = false;
-            console.log(res);
             this.brands = res.data;
           })
           .catch((err) => {

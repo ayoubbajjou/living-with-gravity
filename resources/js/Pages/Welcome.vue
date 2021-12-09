@@ -1,15 +1,17 @@
 <template>
-  <div class="max-w-screen-xl mx-auto">
+  <div class="mx-auto">
     <Head title="Welcome" />
     <Navigation />
     <div class="bg-secondary h-screen">
       <Hero />
 
-      <SearchBikeBy />
+      <div class="max-w-screen-xl mx-auto">
+        <SearchBikeBy />
 
-      <FeaturedBikes />
+        <FeaturedBikes />
 
-      <Blogs />
+        <Blogs />
+      </div>
 
       <Subscribe />
 

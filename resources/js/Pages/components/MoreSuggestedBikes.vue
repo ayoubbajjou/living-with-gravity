@@ -5,8 +5,6 @@
       class="
         text-white
         w-max
-        ml-4
-        lg:ml-64
         lg:text-3xl
         uppercase text-2xl
         font-bold
@@ -17,7 +15,7 @@
     </h1>
 
     <div class="overflow-x-auto" id="suggestedBikes">
-      <div class="w-max flex lg:px-64 pt-12 pb-6">
+      <div class="w-max flex pt-12 pb-6">
         <div
           v-for="(bike, index) in bikes"
           :key="bike.id"

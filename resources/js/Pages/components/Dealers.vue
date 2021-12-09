@@ -6,14 +6,14 @@
         text-white
         border-b-4
         w-max
-        ml-4
-        lg:ml-64
         border-red-600
         text-2xl
         lg:text-3xl
         uppercase
         font-bold
         italic
+        ml-6
+        xl:ml-0
       "
     >
       Dealers in your city

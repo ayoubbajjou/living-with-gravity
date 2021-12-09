@@ -8,12 +8,23 @@
         relative
         max-w-screen-xl
         mx-auto
-        flex justify-between
+        flex
+        justify-between
         items-center
       "
     >
       <!-- <div class="w-2/3 flex items-center"> -->
-        <ul class="order-last lg:order-none w-1/4 flex items-center space-x-8 lg:flex">
+      <ul
+        class="
+          order-last
+          lg:order-none
+          w-1/4
+          flex
+          items-center
+          space-x-8
+          lg:flex
+        "
+      >
         <div class="flex items-center mt-4 space-x-4 sm:mt-0">
           <a
             href="/"
@@ -62,15 +73,24 @@
             </svg>
           </a>
         </div>
-        </ul>
-        <a
-          href="/"
-          aria-label="Company"
-          title="Company"
-          class="order-first lg:order-none inline-flex justofy-start lg:justify-center items-center lg:mx-auto w-2/4"
-        >
-          <jet-application-logo class="lg:block h-16 w-auto" />
-        </a>
+      </ul>
+      <a
+        href="/"
+        aria-label="Company"
+        title="Company"
+        class="
+          order-first
+          lg:order-none
+          inline-flex
+          justofy-start
+          lg:justify-center
+          items-center
+          lg:mx-auto
+          w-2/4
+        "
+      >
+        <jet-application-logo class="lg:block h-16 w-auto" />
+      </a>
       <!-- </div> -->
       <div class="w-1/4 hidden lg:flex items-center justify-between">
         <input
@@ -107,294 +127,251 @@
     </div>
   </div>
 
-  <div
-    class="
-      w-full
-      bg-gradient-to-r
-      from-[#f84270]
-      to-[#fe803b]
-      px-4
-      py-3
-      lg:mx-auto
-      md:max-w-full md:px-24
-    "
-  >
-    <div class="relative flex items-center justify-between">
-      <div class="flex items-center px-2">
-        <ul class="flex items-center hidden space-x-14 lg:flex">
-          <li>
-            <a
-              href="/"
-              aria-label="Bikes"
-              title="Bikes"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-              >Bikes
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                /></svg
-            ></a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="Bikes Finance"
-              title="Bikes Finance"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-              >Bikes Finance
+  <div class="bg-gradient-to-r from-[#f84270] to-[#fe803b]">
+    <div
+      class="
+        w-full
+        py-3
+        px-4
+        lg:mx-auto
+        md:max-w-screen-xl
+      "
+    >
+      <div class="relative flex items-center justify-between">
+        <div class="flex items-center px-2">
+          <ul class="flex items-center hidden space-x-14 lg:flex">
+            <li>
+              <a
+                href="/"
+                aria-label="Bikes"
+                title="Bikes"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+                >Bikes
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  /></svg
+              ></a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="Bikes Finance"
+                title="Bikes Finance"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+                >Bikes Finance
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  /></svg
+              ></a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="Compare"
+                title="Compare"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  flex
+                  tracking-
+                  items-centerwide
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+                >Compare
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="News & Reviews"
+                title="News & Reviews"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+                >News & Reviews
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="More"
+                title="More"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                /></svg
-            ></a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="Compare"
-              title="Compare"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                flex
-                tracking-
-                items-centerwide
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-              >Compare
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="contact us"
+                title="contact us"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="News & Reviews"
-              title="News & Reviews"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-              >News & Reviews
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                aria-label="About us"
+                title="About us"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="More"
-              title="More"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-            >
-              More
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="contact us"
-              title="contact us"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-            >
-              Contact
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              aria-label="About us"
-              title="About us"
-              class="
-                text-sm
-                font-bold
-                uppercase
-                space-x-4
-                tracking-wide
-                flex
-                items-center
-                text-gray-100
-                transition-colors
-                duration-200
-                hover:text-deep-purple-accent-400
-              "
-            >
-              About
-            </a>
-          </li>
-        </ul>
-      </div>
-      <ul class="items-center hidden space-x-8 lg:flex">
-        <li
-          @click="selectCity = !selectCity"
-          class="
-            flex
-            border-l-4
-            items-center
-            justify-center
-            h-12
-            px-6
-            font-bold
-            uppercase
-            tracking-wide
-            text-white
-            transition
-            duration-200
-            bg-deep-purple-accent-400
-            hover:bg-deep-purple-accent-700
-            focus:shadow-outline focus:outline-none
-            cursor-pointer
-          "
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-red-500 mr-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-
-          <span
+                About
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ul class="items-center hidden space-x-8 lg:flex">
+          <li
+            @click="selectCity = !selectCity"
             class="
               flex
+              border-l-4
               items-center
               justify-center
               h-12
-              px-2
+              px-6
               font-bold
-              text-sm
               uppercase
               tracking-wide
               text-white
@@ -403,358 +380,327 @@
               bg-deep-purple-accent-400
               hover:bg-deep-purple-accent-700
               focus:shadow-outline focus:outline-none
+              cursor-pointer
             "
-            >{{ cityName }}</span
           >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </li>
-      </ul>
-      <div class="lg:hidden">
-        <button
-          aria-label="Open Menu"
-          title="Open Menu"
-          class="
-            p-2
-            -mr-1
-            transition
-            duration-200
-            rounded
-            focus:outline-none focus:shadow-outline
-            hover:bg-deep-purple-50
-            focus:bg-deep-purple-50
-          "
-          @click="isMenuOpen = true"
-        >
-          <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-            <path
-              fill="currentColor"
-              d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-            ></path>
-            <path
-              fill="currentColor"
-              d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-            ></path>
-            <path
-              fill="currentColor"
-              d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-            ></path>
-          </svg>
-        </button>
-        <div v-if="isMenuOpen" class="absolute top-0 left-0 w-full">
-          <div class="relative z-50 p-5 bg-secondary border rounded shadow-sm">
-            <div
-              class="text-xl text-white font-bold flex justify-end"
-              @click="isMenuOpen = !isMenuOpen"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-red-500 mr-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              x
-            </div>
-            <nav>
-              <ul class="space-y-4">
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Bikes"
-                    title="Bikes"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Bikes
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      /></svg
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Bikes Finance"
-                    title="Bikes Finance"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Bikes Finance
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
 
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+            <span
+              class="
+                flex
+                items-center
+                justify-center
+                h-12
+                px-2
+                font-bold
+                text-sm
+                uppercase
+                tracking-wide
+                text-white
+                transition
+                duration-200
+                bg-deep-purple-accent-400
+                hover:bg-deep-purple-accent-700
+                focus:shadow-outline focus:outline-none
+              "
+              >{{ cityName }}</span
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </li>
+        </ul>
+        <div class="lg:hidden">
+          <button
+            aria-label="Open Menu"
+            title="Open Menu"
+            class="
+              p-2
+              -mr-1
+              transition
+              duration-200
+              rounded
+              focus:outline-none focus:shadow-outline
+              hover:bg-deep-purple-50
+              focus:bg-deep-purple-50
+            "
+            @click="isMenuOpen = true"
+          >
+            <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+              ></path>
+              <path
+                fill="currentColor"
+                d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+              ></path>
+            </svg>
+          </button>
+          <div v-if="isMenuOpen" class="absolute top-0 left-0 w-full">
+            <div
+              class="relative z-50 p-5 bg-secondary border rounded shadow-sm"
+            >
+              <div
+                class="text-xl text-white font-bold flex justify-end"
+                @click="isMenuOpen = !isMenuOpen"
+              >
+                x
+              </div>
+              <nav>
+                <ul class="space-y-4">
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="Bikes"
+                      title="Bikes"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
+                      >Bikes
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="Bikes Finance"
+                      title="Bikes Finance"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
+                      >Bikes Finance
+
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        /></svg
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="Compare"
+                      title="Compare"
+                      class="
+                        text-sm
+                        font-bold
+                        uppercase
+                        space-x-4
+                        flex
+                        items-center
+                        tracking-wide
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
+                      >Compare
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="News & Reviews"
+                      title="News & Reviews"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
+                      >News & Reviews
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="More"
+                      title="More"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      /></svg
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Compare"
-                    title="Compare"
-                    class="
-                      text-sm
-                      font-bold
-                      uppercase
-                      space-x-4
-                      flex
-                      items-center
-                      tracking-wide
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Compare
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                      More
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="contact us"
+                      title="contact us"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="News & Reviews"
-                    title="News & Reviews"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >News & Reviews
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                      Contact
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/"
+                      aria-label="About us"
+                      title="About us"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="More"
-                    title="More"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                  >
-                    More
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="contact us"
-                    title="contact us"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                  >
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="About us"
-                    title="About us"
-                    class="
-                      font-medium
-                      uppercase
-                      space-x-4
-                      tracking-wide
-                      flex
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                  >
-                    About
-                  </a>
-                </li>
-              </ul>
-              <!-- <ul class="space-y-4">
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Our product"
-                    title="Our product"
-                    class="
-                      font-medium
-                      uppercase
-                      tracking-wide
-                      flex
-                      w-full
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Bikes</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Our product"
-                    title="Our product"
-                    class="
-                      font-medium
-                      uppercase
-                      tracking-wide
-                      flex
-                      w-full
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Features</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="Product pricing"
-                    title="Product pricing"
-                    class="
-                      font-medium
-                      uppercase
-                      tracking-wide
-                      flex
-                      w-full
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >Pricing</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    aria-label="About us"
-                    title="About us"
-                    class="
-                      font-medium
-                      uppercase
-                      tracking-wide
-                      flex
-                      w-full
-                      text-gray-100
-                      transition-colors
-                      duration-200
-                      hover:text-deep-purple-accent-400
-                    "
-                    >About us</a
-                  >
-                </li>
-              </ul> -->
-            </nav>
+                      About
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
+      <city-modal
+        v-if="selectCity"
+        @city-selected="citySelected()"
+      ></city-modal>
     </div>
-    <city-modal v-if="selectCity" @city-selected="citySelected()"></city-modal>
   </div>
 </template>
 

@@ -19,7 +19,8 @@
           relative
           rounded-l
           py-4
-          px-12
+          px-4
+          md:px-12
           bg-white
           opacity-50
           border-none

@@ -96,7 +96,6 @@ export default defineComponent({
     };
   },
   mounted() {
-    console.log(this.$inertia.page.props.bike);
     this.bike = this.$inertia.page.props.bike;
     this.dealers = this.$inertia.page.props.dealers;
     this.suggestedBikes = this.$inertia.page.props.moreBikes;
@@ -106,7 +105,6 @@ export default defineComponent({
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
-        console.log(res.data);
         this.versions = res.data;
         this.versionSelected = this.bike?.id;
       })
@@ -120,7 +118,7 @@ export default defineComponent({
       if (this.currentImg >= lastImg) {
         return;
       } else {
-        console.log(this.currentImg);
+        (this.currentImg);
 
         this.currentImg++;
       }
@@ -130,12 +128,10 @@ export default defineComponent({
       if (this.currentImg == 0) {
         return;
       } else {
-        console.log(this.currentImg);
         this.currentImg--;
       }
     },
     bikeIsChanged() {
-      console.log("changed");
       window.location.replace(`/bike/${this.versionSelected}`);
     },
   },
