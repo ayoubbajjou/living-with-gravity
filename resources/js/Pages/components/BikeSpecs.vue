@@ -115,14 +115,14 @@
         Tyres And Brakes
       </button>
     </div>
-    <div class="flex lg:w-1/2 max-h-120 items-start overflow-y-auto">
-      <ul>
+    <div class="flex w-1/2 max-h-120 items-center overflow-y-auto">
+      <ul class="w-full">
         <li v-for="spec in specsList" :key="spec.id" class="text-bold">
           <div
-            class="flex items-center justify-between text-white px-12 space-y-4"
+            class="w-full flex items-center justify-start text-white px-12 py-4"
           >
-            <p>{{ spec.title }}</p>
-            <p class="px-4">{{ spec.description }}</p>
+            <p class="w-1/2">{{ spec.title }}</p>
+            <p class="w-1/2 ">{{ spec.description }}</p>
           </div>
         </li>
       </ul>
