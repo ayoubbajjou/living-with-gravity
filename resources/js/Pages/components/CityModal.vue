@@ -149,6 +149,8 @@
                             rounded-md
                             mt-4
                             overflow-y-scroll
+                            z-50
+                            shadow-2xl
                           "
                         >
                           <ul class="w-full">
@@ -172,18 +174,18 @@
                         </div>
 
                         <div class="flex flex-wrap items-center w-full justify-center">
-                          <img class="w-24 h-24" src="/icons/bangalore.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/mumbai.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/new-delhi.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/pune.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/hyderabad.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/jaipur.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/ahmedabad.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/chennai.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/faridabad.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/goa.svg" alt="" style="filter: invert(1);">
-                          <img class="w-24 h-24" src="/icons/kolkata.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('bangalore', 1)" class="cursor-pointer w-24 h-24" src="/icons/bangalore.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('mumbai', 3)" class="cursor-pointer w-24 h-24" src="/icons/mumbai.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('delhi', 4)" class="cursor-pointer w-24 h-24" src="/icons/new-delhi.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('gurugram', city.id)" class="cursor-pointer w-24 h-24" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('pune', 2)" class="cursor-pointer w-24 h-24" src="/icons/pune.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('hyderabad', 6)" class="cursor-pointer w-24 h-24" src="/icons/hyderabad.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('jaipur', 584)" class="cursor-pointer w-24 h-24" src="/icons/jaipur.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('ahmedabad', 8)" class="cursor-pointer w-24 h-24" src="/icons/ahmedabad.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('chennai', 5)" class="cursor-pointer w-24 h-24" src="/icons/chennai.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('faridabad', 413)" class="cursor-pointer w-24 h-24" src="/icons/faridabad.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('goa', 452)" class="cursor-pointer w-24 h-24" src="/icons/goa.svg" alt="" style="filter: invert(1);">
+                          <img @click="selectCity('kolkata', 7)" class="cursor-pointer w-24 h-24" src="/icons/kolkata.svg" alt="" style="filter: invert(1);">
                         </div>
                       </div>
                     </div>
