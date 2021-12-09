@@ -30441,6 +30441,9 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_16 = ["value"];
+var _hoisted_17 = {
+  "class": "max-w-screen-xl mx-auto"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _ctx$bike, _ctx$bike2, _ctx$bike3, _ctx$bike4, _ctx$bike5, _ctx$bike6, _ctx$bike6$brand, _ctx$bike7, _ctx$bike7$brand, _ctx$bike8, _ctx$bike8$brand;
 
@@ -30516,7 +30519,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     specs: _ctx.specs
   }, null, 8
   /* PROPS */
-  , ["bike-price", "specs"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BikeSpecs, {
+  , ["bike-price", "specs"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BikeSpecs, {
     specs: (_ctx$bike5 = _ctx.bike) === null || _ctx$bike5 === void 0 ? void 0 : _ctx$bike5.specifications
   }, null, 8
   /* PROPS */
@@ -30534,7 +30537,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     dealersCount: _ctx.dealersCount
   }, null, 8
   /* PROPS */
-  , ["dealers", "cities", "brands", "brandTitle", "brandId", "dealersCount"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
+  , ["dealers", "cities", "brands", "brandTitle", "brandId", "dealersCount"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -30720,23 +30723,26 @@ var _hoisted_1 = {
   "class": "bg-secondary h-screen"
 };
 var _hoisted_2 = {
+  "class": "max-w-screen-xl mx-auto"
+};
+var _hoisted_3 = {
   "class": ""
 };
-var _hoisted_3 = ["src", "alt"];
-var _hoisted_4 = {
-  "class": "py-8 shadow-xl lg:px-56 lg:flex justify-around items-center"
-};
+var _hoisted_4 = ["src", "alt"];
 var _hoisted_5 = {
+  "class": "py-8 shadow-xl lg:flex justify-around items-center"
+};
+var _hoisted_6 = {
   "class": "w-full"
 };
-var _hoisted_6 = ["src"];
-var _hoisted_7 = {
+var _hoisted_7 = ["src"];
+var _hoisted_8 = {
   "class": "w-full h-120 overflow-y-auto"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "py-4 bg-gray-700 lg:rounded-r-lg"
 };
-var _hoisted_9 = ["innerHTML"];
+var _hoisted_10 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _ctx$brand, _ctx$brand2, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$brand3, _ctx$bike, _ctx$bike$brand, _ctx$brand4, _ctx$brand5, _ctx$brand6;
 
@@ -30756,24 +30762,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Welcome"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "mx-auto",
     src: "/images/brands/".concat((_ctx$brand = _ctx.brand) === null || _ctx$brand === void 0 ? void 0 : _ctx$brand.brand_logo),
     alt: (_ctx$brand2 = _ctx.brand) === null || _ctx$brand2 === void 0 ? void 0 : _ctx$brand2.brand_name
   }, null, 8
   /* PROPS */
-  , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_4)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "w-full h-120 lg:rounded-l-lg",
     src: (_ctx$suggestedBikes = _ctx.suggestedBikes) === null || _ctx$suggestedBikes === void 0 ? void 0 : (_ctx$suggestedBikes$ = _ctx$suggestedBikes[0]) === null || _ctx$suggestedBikes$ === void 0 ? void 0 : (_ctx$suggestedBikes$$ = _ctx$suggestedBikes$.images[0]) === null || _ctx$suggestedBikes$$ === void 0 ? void 0 : _ctx$suggestedBikes$$.image_link,
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-white lg:rounded-r-lg bg-gray-700 shadow-xl px-8",
     innerHTML: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.about_brand
   }, null, 8
   /* PROPS */
-  , _hoisted_9)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
+  , _hoisted_10)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
     title: (_ctx$bike = _ctx.bike) === null || _ctx$bike === void 0 ? void 0 : (_ctx$bike$brand = _ctx$bike.brand) === null || _ctx$bike$brand === void 0 ? void 0 : _ctx$bike$brand.brand_name,
     bikes: _ctx.suggestedBikes
   }, null, 8
@@ -30786,7 +30792,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     brandTitle: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.brand_name
   }, null, 8
   /* PROPS */
-  , ["dealers", "cities", "brands", "brandId", "brandTitle"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
+  , ["dealers", "cities", "brands", "brandId", "brandTitle"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -33542,10 +33548,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex pl-4 lg:pl-64 bg-secondary py-12"
+  "class": "flex pl-4 bg-secondary py-12"
 };
 var _hoisted_2 = {
-  "class": "bg-gray-700 lg:px-12 py-8 flex-col items-start lg:flex space-y-12"
+  "class": "bg-gray-700 lg:px-12 py-8 flex-col items-start flex space-y-12"
 };
 var _hoisted_3 = {
   key: 0,
@@ -34129,7 +34135,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_3 = {
-  "class": "lg:flex w-full pl-4 lg:pl-64 py-12 space-y-6 lg:space-y-0"
+  "class": "lg:flex w-full pl-6 py-12 space-y-6 lg:space-y-0"
 };
 var _hoisted_4 = {
   "class": "relative flex lg:mr-96 items-center justify-center lg:justify-start pr-8"
@@ -34225,10 +34231,10 @@ var _hoisted_16 = {
 var _hoisted_17 = ["onClick"];
 var _hoisted_18 = ["src"];
 var _hoisted_19 = {
-  "class": "text-gray-50 font-bold font-xl pl-4 lg:pl-64 pt-4"
+  "class": "text-gray-50 font-bold font-xl pl-6 pt-4"
 };
 var _hoisted_20 = {
-  "class": "pl-4 lg:pl-64 pt-2 pb-8"
+  "class": "pl-6 pt-2 pb-8"
 };
 var _hoisted_21 = {
   "class": "overflow-x-scroll lg:overflow-x-auto"
@@ -34742,7 +34748,7 @@ var _hoisted_1 = {
   "class": "bg-secondary"
 };
 var _hoisted_2 = {
-  "class": "text-white w-max lg:text-3xl uppercase text-2xl font-bold italic"
+  "class": "text-white border-b-4 w-max border-red-600 text-2xl lg:text-3xl uppercase font-bold italic ml-6 xl:ml-0"
 };
 var _hoisted_3 = {
   "class": "overflow-x-auto",
@@ -34767,7 +34773,7 @@ var _hoisted_9 = {
   "class": "text-light italic"
 };
 var _hoisted_10 = {
-  "class": "flex justify-between items-center text-center pl-pl-4 lg:pl-64 text-gray-50 pt-4 pb-12 lg:pr-72 px-8"
+  "class": "flex justify-between items-center text-center pl-pl-4 text-gray-50 pt-4 pb-12 px-8"
 };
 var _hoisted_11 = {
   "class": "flex space-x-6"

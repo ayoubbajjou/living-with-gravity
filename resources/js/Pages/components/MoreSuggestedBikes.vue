@@ -4,11 +4,16 @@
     <h1
       class="
         text-white
+        border-b-4
         w-max
+        border-red-600
+        text-2xl
         lg:text-3xl
-        uppercase text-2xl
+        uppercase
         font-bold
         italic
+        ml-6
+        xl:ml-0
       "
     >
       More {{ title }} bikes
@@ -49,11 +54,9 @@
           items-center
           text-center
           pl-pl-4
-          lg:pl-64
           text-gray-50
           pt-4
           pb-12
-          lg:pr-72
           px-8
         "
       >
