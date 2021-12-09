@@ -19,7 +19,7 @@
       Dealers in your city
     </h1>
 
-    <div class="lg:flex w-full pl-4 lg:pl-64 py-12 space-y-6 lg:space-y-0 ">
+    <div class="lg:flex w-full pl-6 py-12 space-y-6 lg:space-y-0 ">
       <div class="relative flex lg:mr-96 items-center justify-center lg:justify-start pr-8">
         <div ref="cities" class="relative">
           <div>
@@ -207,10 +207,10 @@
         </div>
       </div>
     </div>
-    <h3 class="text-gray-50 font-bold font-xl pl-4 lg:pl-64 pt-4">
+    <h3 class="text-gray-50 font-bold font-xl pl-6 pt-4">
       {{ brandTitle }} Dealers in {{ city }}
     </h3>
-    <div class="pl-4 lg:pl-64  pt-2 pb-8">
+    <div class="pl-6 pt-2 pb-8">
       <div class="overflow-x-scroll lg:overflow-x-auto">
         <table v-if="dealersList.length" class="text-gray-50 text-start">
           <thead class="bg-gray-600">

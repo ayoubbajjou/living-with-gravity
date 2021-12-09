@@ -2,44 +2,47 @@
   <Head title="Welcome" />
   <Navigation />
   <div class="bg-secondary h-screen">
-    <div class="">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="">
         <img
           class="mx-auto"
           :src="`/images/brands/${brand?.brand_logo}`"
           :alt="brand?.brand_name"
         />
       </div>
-    <div class="py-8 shadow-xl lg:px-56 lg:flex justify-around items-center">
-      <div class="w-full">
-         <img
-         class="w-full h-120 lg:rounded-l-lg"
-          :src="suggestedBikes?.[0]?.images[0]?.image_link"
-          alt=""
-        />
-      </div>
-      <div class="w-full h-120 overflow-y-auto">
-        <div class="py-4 bg-gray-700 lg:rounded-r-lg">
-          <p class="text-white lg:rounded-r-lg bg-gray-700 shadow-xl px-8" v-html="brand?.about_brand">
-        </p>
+      <div class="py-8 shadow-xl lg:flex justify-around items-center">
+        <div class="w-full">
+          <img
+            class="w-full h-120 lg:rounded-l-lg"
+            :src="suggestedBikes?.[0]?.images[0]?.image_link"
+            alt=""
+          />
+        </div>
+        <div class="w-full h-120 overflow-y-auto">
+          <div class="py-4 bg-gray-700 lg:rounded-r-lg">
+            <p
+              class="text-white lg:rounded-r-lg bg-gray-700 shadow-xl px-8"
+              v-html="brand?.about_brand"
+            ></p>
+          </div>
         </div>
       </div>
+      <MoreSuggestedBikes
+        :title="bike?.brand?.brand_name"
+        :bikes="suggestedBikes"
+      />
+
+      <!-- Blog section -->
+      <Blogs />
+
+      <Dealers
+        :dealers="brand?.dealers"
+        :cities="cities"
+        :brands="brands"
+        :brandId="brand?.id"
+        :brandTitle="brand?.brand_name"
+      />
     </div>
-    <MoreSuggestedBikes
-      :title="bike?.brand?.brand_name"
-      :bikes="suggestedBikes"
-    />
-
-    <!-- Blog section -->
-    <Blogs />
-
-    <Dealers
-      :dealers="brand?.dealers"
-      :cities="cities"
-      :brands="brands"
-      :brandId="brand?.id"
-      :brandTitle="brand?.brand_name"
-    />
-
     <Subscribe />
 
     <Footer />
@@ -118,7 +121,7 @@ export default defineComponent({
       if (this.currentImg >= lastImg) {
         return;
       } else {
-        (this.currentImg);
+        this.currentImg;
 
         this.currentImg++;
       }

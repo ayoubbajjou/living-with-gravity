@@ -85,24 +85,25 @@
 
       <BikeDetailsFeaturesPrice :bike-price="bike?.prices[0]" :specs="specs" />
     </div>
-    <BikeSpecs :specs="bike?.specifications" />
-    <MoreSuggestedBikes
-      :title="bike?.brand?.brand_name"
-      :bikes="suggestedBikes"
-    />
+    <div class="max-w-screen-xl mx-auto">
+      <BikeSpecs :specs="bike?.specifications" />
+      <MoreSuggestedBikes
+        :title="bike?.brand?.brand_name"
+        :bikes="suggestedBikes"
+      />
 
-    <!-- Blog section -->
-    <Blogs />
+      <!-- Blog section -->
+      <Blogs />
 
-    <Dealers
-      :dealers="dealers"
-      :cities="cities"
-      :brands="brands"
-      :brandTitle="bike?.brand?.brand_name"
-      :brandId="bike?.brand?.id"
-      :dealersCount="dealersCount"
-    />
-
+      <Dealers
+        :dealers="dealers"
+        :cities="cities"
+        :brands="brands"
+        :brandTitle="bike?.brand?.brand_name"
+        :brandId="bike?.brand?.id"
+        :dealersCount="dealersCount"
+      />
+    </div>
     <Subscribe />
 
     <Footer />
