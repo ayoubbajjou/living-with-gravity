@@ -33844,103 +33844,15 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_14 = {
   key: 0,
-  "class": "absolute max-h-120 w-full space-y-4 bg-white rounded-md mt-4 overflow-y-scroll"
+  "class": "absolute max-h-120 w-full space-y-4 bg-white rounded-md mt-4 overflow-y-scroll z-50 shadow-2xl"
 };
 var _hoisted_15 = {
   "class": "w-full"
 };
 var _hoisted_16 = ["onClick"];
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_17 = {
   "class": "flex flex-wrap items-center w-full justify-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/bangalore.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/mumbai.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/new-delhi.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/gurugram.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/pune.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/hyderabad.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/jaipur.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/ahmedabad.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/chennai.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/faridabad.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/goa.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "w-24 h-24",
-  src: "/icons/kolkata.svg",
-  alt: "",
-  style: {
-    "filter": "invert(1)"
-  }
-})], -1
-/* HOISTED */
-);
-
+};
 var _hoisted_18 = {
   "class": "absolute bottom-0 w-full bg-gray-50 px-4 py-6 sm:px-6 sm:flex sm:flex-row-reverse"
 };
@@ -33963,7 +33875,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dialog, {
         as: "div",
         "class": "fixed z-10 inset-0 overflow-y-auto",
-        onClose: _cache[5] || (_cache[5] = function ($event) {
+        onClose: _cache[17] || (_cache[17] = function ($event) {
           return $data.open = false;
         })
       }, {
@@ -34034,18 +33946,138 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 , _hoisted_16);
               }), 128
               /* KEYED_FRAGMENT */
-              ))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_17], 512
+              ))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[3] || (_cache[3] = function ($event) {
+                  return $options.selectCity('bangalore', 1);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/bangalore.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[4] || (_cache[4] = function ($event) {
+                  return $options.selectCity('mumbai', 3);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/mumbai.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[5] || (_cache[5] = function ($event) {
+                  return $options.selectCity('delhi', 4);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/new-delhi.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[6] || (_cache[6] = function ($event) {
+                  return $options.selectCity('gurugram', $data.city.id);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/gurugram.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[7] || (_cache[7] = function ($event) {
+                  return $options.selectCity('pune', 2);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/pune.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[8] || (_cache[8] = function ($event) {
+                  return $options.selectCity('hyderabad', 6);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/hyderabad.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[9] || (_cache[9] = function ($event) {
+                  return $options.selectCity('jaipur', 584);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/jaipur.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[10] || (_cache[10] = function ($event) {
+                  return $options.selectCity('ahmedabad', 8);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/ahmedabad.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[11] || (_cache[11] = function ($event) {
+                  return $options.selectCity('chennai', 5);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/chennai.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[12] || (_cache[12] = function ($event) {
+                  return $options.selectCity('faridabad', 413);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/faridabad.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[13] || (_cache[13] = function ($event) {
+                  return $options.selectCity('goa', 452);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/goa.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+                onClick: _cache[14] || (_cache[14] = function ($event) {
+                  return $options.selectCity('kolkata', 7);
+                }),
+                "class": "cursor-pointer w-24 h-24",
+                src: "/icons/kolkata.svg",
+                alt: "",
+                style: {
+                  "filter": "invert(1)"
+                }
+              })])], 512
               /* NEED_PATCH */
               )])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
                 type: "button",
                 "class": "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-icon-button text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm",
-                onClick: _cache[3] || (_cache[3] = function ($event) {
+                onClick: _cache[15] || (_cache[15] = function ($event) {
                   return $options.selectCity();
                 })
               }, " Select "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
                 type: "button",
                 "class": "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-                onClick: _cache[4] || (_cache[4] = function ($event) {
+                onClick: _cache[16] || (_cache[16] = function ($event) {
                   return $data.open = false;
                 }),
                 ref: "cancelButtonRef"
