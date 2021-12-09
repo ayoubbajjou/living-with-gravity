@@ -222,7 +222,6 @@ export default defineComponent({
       engine: engine?.[0]?.description,
     });
     this.specs = data;
-    console.log(this.specs);
   },
   methods: {
     nextImg() {

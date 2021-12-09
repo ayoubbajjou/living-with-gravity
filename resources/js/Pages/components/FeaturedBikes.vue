@@ -5,19 +5,19 @@
         text-white
         border-b-4
         w-max
-        lg:ml-64
-        ml-6
         border-red-600
         text-3xl
         uppercase
         font-bold
         italic
+        ml-6
+        xl:ml-0
       "
     >
       Featured Bikes
     </h1>
     <div class="flex space-x-12 mt-12 justify-center items-center">
-      <div class="h-72 w-96">
+      <div class="h-72 w-96 hidden lg:block">
         <img
           class="h-72 w-96"
           :src="`/images/bike-${featuredImages[start][1]}.png`"
@@ -25,15 +25,15 @@
         />
       </div>
       <div>
-        <div class="h-72 w-96 lg:h-96 lg:w-120">
+        <div class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120">
           <img
-            class="h-72 w-96 lg:h-96 lg:w-120"
+            class=" w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120"
             :src="`/images/bike-${featuredImages[start][0]}.png`"
             alt=""
           />
         </div>
       </div>
-      <div class="h-72 w-96">
+      <div class="h-72 w-96 hidden lg:block">
         <img
           class="h-72 w-96"
           :src="`/images/bike-${featuredImages[start][2]}.png`"

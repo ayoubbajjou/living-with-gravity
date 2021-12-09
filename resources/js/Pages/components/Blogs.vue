@@ -5,19 +5,19 @@
         text-white
         border-b-4
         w-max
-        lg:ml-64
-        ml-6
         border-red-600
         text-3xl
         uppercase
         font-bold
         italic
         mt-12
+        ml-6
+        xl:ml-0
       "
     >
       News/Blogs
     </h1>
-    <div class="mx-auto lg:px-64 mt-12 bg-secondary">
+    <div class="mx-auto mt-12 bg-secondary">
       <div v-if="posts.length" class="lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12">
         <div v-for="post in posts" :key="post.id" class="relative">
           <a :href="post.link">
@@ -27,7 +27,7 @@
               :src="post.thumb"
               :alt="post.title.rendered"
             />
-            <div class="absolute inset-x-0 bottom-0 px-6 py-4">
+            <div class="absolute inset-x-0 max-w-xl bottom-0 px-6 py-4">
               <h2 class="text-white font-bold text-xl mb-2">
                 {{ post.title.rendered }}
               </h2>

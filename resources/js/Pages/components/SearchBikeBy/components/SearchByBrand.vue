@@ -14,9 +14,9 @@
       >
         <div v-for="brand in brands" :key="brand.id" class="w-full">
           <a :href="`/brand/${brand.brand_name}`">
-            <div class="h-36 w-56 rounded bg-gray-50">
+            <div class="w-full h-36 md:w-56 rounded bg-gray-50">
               <img
-                class="h-36 w-56 mx-auto"
+                class="w-full h-36 md:w-56 mx-auto"
                 :src="`/images/brands/${brand.brand_logo}`"
                 :alt="brand.brand_name"
               />

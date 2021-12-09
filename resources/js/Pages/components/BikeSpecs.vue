@@ -1,6 +1,8 @@
 <template>
   <div class="flex pl-4 lg:pl-64 bg-secondary py-12">
-    <div class="bg-gray-700 lg:px-12 py-8 flex-col items-start lg:flex space-y-12">
+    <div
+      class="bg-gray-700 lg:px-12 py-8 flex-col items-start lg:flex space-y-12"
+    >
       <button
         class="uppercase text-xs lg:text-base"
         :class="
@@ -8,6 +10,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(1)"
       >
         <span
           v-if="activeTab === 1"
@@ -22,6 +25,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(2)"
       >
         <span
           v-if="activeTab === 2"
@@ -37,6 +41,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(3)"
       >
         <span
           v-if="activeTab === 3"
@@ -52,6 +57,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(4)"
       >
         <span
           v-if="activeTab === 4"
@@ -67,6 +73,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(5)"
       >
         <span
           v-if="activeTab === 5"
@@ -82,6 +89,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(6)"
       >
         <span
           v-if="activeTab === 6"
@@ -97,6 +105,7 @@
             ? 'text-red-500 font-bold'
             : 'text-white ml-6 font-semibold'
         "
+        @click="changeActiveTab(7)"
       >
         <span
           v-if="activeTab === 7"
@@ -106,10 +115,12 @@
         Tyres And Brakes
       </button>
     </div>
-    <div class="flex lg:w-1/2 max-h-120 items-center overflow-y-auto">
+    <div class="flex lg:w-1/2 max-h-120 items-start overflow-y-auto">
       <ul>
-        <li v-for="spec in specs" :key="spec.id" class="text-bold">
-          <div class="flex items-center justify-between text-white px-12 space-y-4">
+        <li v-for="spec in specsList" :key="spec.id" class="text-bold">
+          <div
+            class="flex items-center justify-between text-white px-12 space-y-4"
+          >
             <p>{{ spec.title }}</p>
             <p class="px-4">{{ spec.description }}</p>
           </div>
@@ -126,7 +137,28 @@ export default {
   data() {
     return {
       activeTab: 1,
+      specsList: [],
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.getSpecsCategory();
+    }, 250);
+  },
+  watch: {
+    activeTab(newTab, oldTab) {
+      this.getSpecsCategory()
+    },
+  },
+  methods: {
+    changeActiveTab(tab) {
+      this.activeTab = tab;
+    },
+    getSpecsCategory() {
+      this.specsList = this.specs.filter((spec) => {
+        return spec.specification_group_id === this.activeTab;
+      });
+    },
   },
 };
 </script>

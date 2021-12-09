@@ -1339,8 +1339,11 @@ select {
 .h-80 {
 	height: 20rem;
 }
-.h-32 {
-	height: 8rem;
+.h-full {
+	height: 100%;
+}
+.h-auto {
+	height: auto;
 }
 .max-h-120 {
 	max-height: 30rem;
@@ -1430,6 +1433,9 @@ select {
 }
 .w-56 {
 	width: 14rem;
+}
+.w-64 {
+	width: 16rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -2867,8 +2873,24 @@ select {
 		display: grid;
 	}
 
+	.md\:h-72 {
+		height: 18rem;
+	}
+
+	.md\:w-56 {
+		width: 14rem;
+	}
+
+	.md\:w-96 {
+		width: 24rem;
+	}
+
 	.md\:max-w-full {
 		max-width: 100%;
+	}
+
+	.md\:max-w-screen-xl {
+		max-width: 1280px;
 	}
 
 	.md\:grid-cols-3 {
@@ -2894,6 +2916,11 @@ select {
 	.md\:px-24 {
 		padding-left: 6rem;
 		padding-right: 6rem;
+	}
+
+	.md\:px-12 {
+		padding-left: 3rem;
+		padding-right: 3rem;
 	}
 }
 @media (min-width: 1024px) {
@@ -2968,6 +2995,10 @@ select {
 		height: 36rem;
 	}
 
+	.lg\:h-36 {
+		height: 9rem;
+	}
+
 	.lg\:w-3\/5 {
 		width: 60%;
 	}
@@ -2992,6 +3023,10 @@ select {
 		width: 66.666667%;
 	}
 
+	.lg\:w-56 {
+		width: 14rem;
+	}
+
 	.lg\:max-w-screen-xl {
 		max-width: 1280px;
 	}
@@ -3000,12 +3035,12 @@ select {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
-	.lg\:grid-cols-5 {
-		grid-template-columns: repeat(5, minmax(0, 1fr));
-	}
-
 	.lg\:grid-cols-4 {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.lg\:grid-cols-5 {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
 
 	.lg\:justify-start {
@@ -3085,11 +3120,6 @@ select {
 		padding-right: 5rem;
 	}
 
-	.lg\:px-40 {
-		padding-left: 10rem;
-		padding-right: 10rem;
-	}
-
 	.lg\:pl-64 {
 		padding-left: 16rem;
 	}
@@ -3120,12 +3150,12 @@ select {
 }
 @media (min-width: 1280px) {
 
-	.xl\:grid-cols-3 {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+	.xl\:ml-0 {
+		margin-left: 0px;
 	}
 
-	.xl\:grid-cols-4 {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+	.xl\:w-120 {
+		width: 30rem;
 	}
 
 	.xl\:grid-cols-5 {

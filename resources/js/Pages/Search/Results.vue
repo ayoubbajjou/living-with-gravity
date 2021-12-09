@@ -9,23 +9,32 @@
             text-white
             border-b-4
             w-max
-            lg:ml-64
-            ml-6
             border-red-600
             text-3xl
             uppercase
             font-bold
             italic
+            ml-6
+            xl:ml-0
             mt-12
           "
         >
           Search Results
         </h3>
-        <div class="lg:px-64 space-y-12 pt-12 pb-6">
+        <div class="space-y-12 pt-12 pb-6">
           <div
-            v-for="(bike) in bikes"
+            v-for="bike in bikes"
             :key="bike.id"
-            class=" bg-gray-700 flex rounded-lg px-6 py-4 items-center space-x-12 mx-8"
+            class="
+              bg-gray-700
+              flex
+              rounded-lg
+              px-6
+              py-4
+              items-center
+              space-x-12
+              mx-8
+            "
           >
             <a class="w-full flex" :href="`/bike/${bike.id}`">
               <img
@@ -50,7 +59,7 @@
 
     <!-- Blog section -->
     <Blogs />
-<!-- 
+    <!-- 
     <Dealers
       :dealers="brand?.dealers"
       :cities="cities"
@@ -122,7 +131,6 @@ export default defineComponent({
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
-        console.log(res.data);
         this.versions = res.data;
         this.versionSelected = this.bike?.id;
       })
@@ -132,7 +140,6 @@ export default defineComponent({
   },
   methods: {
     bikeIsChanged() {
-      console.log("changed");
       window.location.replace(`/bike/${this.versionSelected}`);
     },
   },
