@@ -27,7 +27,7 @@
       >
         <div class="flex items-center mt-4 space-x-4 sm:mt-0">
           <a
-            href="/"
+            href="https://twitter.com/dolas_akash"
             class="
               text-gray-500
               transition-colors
@@ -42,7 +42,7 @@
             </svg>
           </a>
           <a
-            href="/"
+            href="https://www.instagram.com/livingwithgravity/"
             class="
               text-gray-500
               transition-colors
@@ -58,7 +58,7 @@
             </svg>
           </a>
           <a
-            href="/"
+            href="https://www.facebook.com/LivingWithGravity/"
             class="
               text-gray-500
               transition-colors
@@ -334,7 +334,7 @@
                   hover:text-deep-purple-accent-400
                 "
               >
-                Contact
+                Contact us
               </a>
             </li>
             <li>
@@ -356,7 +356,7 @@
                   hover:text-deep-purple-accent-400
                 "
               >
-                About
+                About Us
               </a>
             </li>
           </ul>
@@ -667,7 +667,7 @@
                         hover:text-deep-purple-accent-400
                       "
                     >
-                      Contact
+                      Contact us
                     </a>
                   </li>
                   <li>
@@ -687,7 +687,7 @@
                         hover:text-deep-purple-accent-400
                       "
                     >
-                      About
+                      About us 
                     </a>
                   </li>
                 </ul>
@@ -717,10 +717,10 @@ export default {
     return {
       isMenuOpen: false,
       selectCity: false,
-      cityName: localStorage.getItem("citySelectedName"),
+      cityName: localStorage.getItem("citySelectedName") ?? 'Bangalore',
     };
   },
-  mounted() {
+  beforeMount() {
     const citySelectedName = localStorage.getItem("citySelectedName");
     const citySelectedId = localStorage.getItem("citySelectedId");
 

@@ -2,63 +2,65 @@
   <Head title="Welcome" />
   <Navigation />
   <div class="bg-secondary">
-    <div class="py-8 shadow-xl items-center">
-      <div>
-        <h3
-          class="
-            text-white
-            border-b-4
-            w-max
-            border-red-600
-            text-3xl
-            uppercase
-            font-bold
-            italic
-            ml-6
-            xl:ml-0
-            mt-12
-          "
-        >
-          Search Results
-        </h3>
-        <div class="space-y-12 pt-12 pb-6">
-          <div
-            v-for="bike in bikes"
-            :key="bike.id"
+    <div class="max-w-screen-xl mx-auto">
+      <div class="py-8 shadow-xl items-center">
+        <div>
+          <h3
             class="
-              bg-gray-700
-              flex
-              rounded-lg
-              px-6
-              py-4
-              items-center
-              space-x-12
-              mx-8
+              text-white
+              border-b-4
+              w-max
+              border-red-600
+              text-3xl
+              uppercase
+              font-bold
+              italic
+              ml-6
+              xl:ml-0
+              mt-12
             "
           >
-            <a class="w-full flex" :href="`/bike/${bike.id}`">
-              <img
-                class="w-24 h-16 rounded-lg mr-4"
-                :src="bike?.images[0]?.thumb_link"
-                alt=""
-              />
-              <div class="text-gray-50">
-                <h3 class="font-bold">
-                  {{ bike.series }} {{ bike.version_name }}
-                </h3>
-                <span class="text-xs">Starting from</span>
-                <p class="text-light italic">
-                  ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
-                </p>
-              </div>
-            </a>
+            Search Results
+          </h3>
+          <div class="space-y-12 pt-12 pb-6">
+            <div
+              v-for="bike in bikes"
+              :key="bike.id"
+              class="
+                bg-gray-700
+                flex
+                rounded-lg
+                px-6
+                py-4
+                items-center
+                space-x-12
+                mx-8
+              "
+            >
+              <a class="w-full flex" :href="`/bike/${bike.id}`">
+                <img
+                  class="w-24 h-16 rounded-lg mr-4"
+                  :src="bike?.images[0]?.thumb_link"
+                  alt=""
+                />
+                <div class="text-gray-50">
+                  <h3 class="font-bold">
+                    {{ bike.series }} {{ bike.version_name }}
+                  </h3>
+                  <span class="text-xs">Starting from</span>
+                  <p class="text-light italic">
+                    ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+                  </p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Blog section -->
-    <Blogs />
+      <!-- Blog section -->
+      <Blogs />
+    </div>
     <!-- 
     <Dealers
       :dealers="brand?.dealers"

@@ -12,7 +12,7 @@
         italic
         mt-12
         ml-6
-        xl:ml-0
+        lg:ml-0
       "
     >
       News/Blogs

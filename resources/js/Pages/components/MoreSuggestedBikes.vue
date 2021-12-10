@@ -95,7 +95,7 @@
             </svg>
           </button>
         </div>
-        <a href="#" class="text-red-600">View all</a>
+        <span class="text-red-600 cursor-pointer">View all</span>
       </div>
     </div>
   </div>

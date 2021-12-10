@@ -23,7 +23,7 @@
           space-x-6
         "
       >
-        <div class="flex w-2/3 lg:w-full flex-col">
+        <div class="flex w-2/3 lg:w-full flex-col" >
           <input
             class="
               relative
@@ -45,6 +45,7 @@
           </span>
           <div
             v-if="!errorMessage && bikes.length"
+            id="search-list"
             class="
               absolute
               h-80
@@ -116,6 +117,27 @@ export default {
       bikeHovered: null
     };
   },
+  mounted() {
+    document.addEventListener("click", (evt) => {
+    const flyoutElement = document.getElementById("search-list");
+    let targetElement = evt.target; // clicked element
+
+    do {
+        if (targetElement == flyoutElement) {
+            // This is a click inside. Do nothing, just return.
+            console.log('click inside')
+            return;
+        }
+        // Go up the DOM
+        targetElement = targetElement.parentNode;
+    } while (targetElement);
+
+      // This is a click outside.
+      this.bikes = []
+      this.query = null
+
+    });
+  },
   methods: {
     search() {
       if (this.query.length >= 3) {
@@ -136,6 +158,9 @@ export default {
     },
     isHovered(id) {
       this.bikeHovered = id
+    },
+    clickOutside() {
+      console.log('sadsa')
     }
   },
 };
