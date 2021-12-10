@@ -115,7 +115,7 @@
         Tyres And Brakes
       </button>
     </div>
-    <div class="flex w-1/2 max-h-120 items-center overflow-y-auto">
+    <div class="flex w-1/2 max-h-120 overflow-y-auto">
       <ul class="w-full">
         <li v-for="spec in specsList" :key="spec.id" class="text-bold">
           <div

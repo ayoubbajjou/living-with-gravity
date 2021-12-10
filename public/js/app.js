@@ -25021,35 +25021,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'FeaturedBikes',
+  name: "FeaturedBikes",
   data: function data() {
     return {
       start: 0,
-      featuredImages: [[1, //3  2 
-      2, //1  3 
+      featuredImages: [[1, //3  2
+      2, //1  3
       3 //2  1
       ], [2, 3, 1], [3, 1, 2]],
       bikesDetails: [{
-        title: 'YAMAHA ALPHA',
-        price: '$11,500'
+        title: "YAMAHA ALPHA",
+        price: "$11,500"
       }, {
-        title: 'DUCATI PANIGALE V4',
-        price: '$6,000'
+        title: "DUCATI PANIGALE V4",
+        price: "$6,000"
       }, {
-        title: 'DOCKER STE',
-        price: '$2,500'
+        title: "DOCKER STE",
+        price: "$2,500"
       }]
     };
   },
-  mounted: function mounted() {
-    console.log(this.featuredImages[this.start]);
-  },
+  mounted: function mounted() {},
   methods: {
-    sildeBikes: function sildeBikes() {
+    scrollNext: function scrollNext() {
       if (this.start === 2) {
         this.start = 0;
       } else {
         this.start++;
+      }
+    },
+    scrollBack: function scrollBack() {
+      if (this.start === 0) {
+        this.start = 2;
+      } else {
+        this.start--;
       }
     }
   }
@@ -25139,16 +25144,39 @@ __webpack_require__.r(__webpack_exports__);
       bikeHovered: null
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    document.addEventListener("click", function (evt) {
+      var flyoutElement = document.getElementById("search-list");
+      var targetElement = evt.target; // clicked element
+
+      do {
+        if (targetElement == flyoutElement) {
+          // This is a click inside. Do nothing, just return.
+          console.log('click inside');
+          return;
+        } // Go up the DOM
+
+
+        targetElement = targetElement.parentNode;
+      } while (targetElement); // This is a click outside.
+
+
+      _this.bikes = [];
+      _this.query = null;
+    });
+  },
   methods: {
     search: function search() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.query.length >= 3) {
         this.errorMessage = null;
         axios.post("/search", {
           query: this.query
         }).then(function (res) {
-          _this.bikes = res.data;
+          _this2.bikes = res.data;
         })["catch"](function (err) {
           console.log(err);
         });
@@ -25158,6 +25186,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     isHovered: function isHovered(id) {
       this.bikeHovered = id;
+    },
+    clickOutside: function clickOutside() {
+      console.log('sadsa');
     }
   }
 });
@@ -25240,13 +25271,15 @@ __webpack_require__.r(__webpack_exports__);
     CityModal: _CityModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
+    var _localStorage$getItem;
+
     return {
       isMenuOpen: false,
       selectCity: false,
-      cityName: localStorage.getItem("citySelectedName")
+      cityName: (_localStorage$getItem = localStorage.getItem("citySelectedName")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : 'Bangalore'
     };
   },
-  mounted: function mounted() {
+  beforeMount: function beforeMount() {
     var citySelectedName = localStorage.getItem("citySelectedName");
     var citySelectedId = localStorage.getItem("citySelectedId");
 
@@ -31965,34 +31998,37 @@ var _hoisted_1 = {
   "class": "bg-secondary"
 };
 var _hoisted_2 = {
+  "class": "max-w-screen-xl mx-auto"
+};
+var _hoisted_3 = {
   "class": "py-8 shadow-xl items-center"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
   "class": "text-white border-b-4 w-max border-red-600 text-3xl uppercase font-bold italic ml-6 xl:ml-0 mt-12"
 }, " Search Results ", -1
 /* HOISTED */
 );
 
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "space-y-12 pt-12 pb-6"
 };
-var _hoisted_5 = ["href"];
-var _hoisted_6 = ["src"];
-var _hoisted_7 = {
+var _hoisted_6 = ["href"];
+var _hoisted_7 = ["src"];
+var _hoisted_8 = {
   "class": "text-gray-50"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   "class": "font-bold"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "text-xs"
 }, "Starting from", -1
 /* HOISTED */
 );
 
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "text-light italic"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -32008,7 +32044,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Welcome"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.bikes, function (bike) {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.bikes, function (bike) {
     var _bike$images$, _bike$prices, _bike$prices$;
 
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -32023,16 +32059,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       alt: ""
     }, null, 8
     /* PROPS */
-    , _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.version_name), 1
+    , _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.version_name), 1
     /* TEXT */
-    ), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, " ₹" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike === null || bike === void 0 ? void 0 : (_bike$prices = bike.prices) === null || _bike$prices === void 0 ? void 0 : (_bike$prices$ = _bike$prices[0]) === null || _bike$prices$ === void 0 ? void 0 : _bike$prices$.ex_showroom_price), 1
+    ), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, " ₹" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike === null || bike === void 0 ? void 0 : (_bike$prices = bike.prices) === null || _bike$prices === void 0 ? void 0 : (_bike$prices$ = _bike$prices[0]) === null || _bike$prices$ === void 0 ? void 0 : _bike$prices$.ex_showroom_price), 1
     /* TEXT */
     )])], 8
     /* PROPS */
-    , _hoisted_5)]);
+    , _hoisted_6)]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \n    <Dealers\n      :dealers=\"brand?.dealers\"\n      :cities=\"cities\"\n      :brands=\"brands\"\n      :brandId=\"brand?.id\"\n      :brandTitle=\"brand?.brand_name\"\n    /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" \n    <Dealers\n      :dealers=\"brand?.dealers\"\n      :cities=\"cities\"\n      :brands=\"brands\"\n      :brandId=\"brand?.id\"\n      :brandTitle=\"brand?.brand_name\"\n    /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -33603,7 +33639,7 @@ var _hoisted_15 = {
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Tyres And Brakes ");
 
 var _hoisted_17 = {
-  "class": "flex w-1/2 max-h-120 items-center overflow-y-auto"
+  "class": "flex w-1/2 max-h-120 overflow-y-auto"
 };
 var _hoisted_18 = {
   "class": "w-full"
@@ -33701,7 +33737,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-white border-b-4 w-max border-red-600 text-3xl uppercase font-bold italic mt-12 ml-6 xl:ml-0"
+  "class": "text-white border-b-4 w-max border-red-600 text-3xl uppercase font-bold italic mt-12 ml-6 lg:ml-0"
 }, " News/Blogs ", -1
 /* HOISTED */
 );
@@ -34419,31 +34455,10 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "flex space-x-12 mt-12 justify-center items-center"
 };
-var _hoisted_4 = {
-  "class": "h-72 w-96 hidden lg:block"
-};
-var _hoisted_5 = ["src"];
-var _hoisted_6 = {
-  "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120"
-};
-var _hoisted_7 = ["src"];
-var _hoisted_8 = {
-  "class": "h-72 w-96 hidden lg:block"
-};
-var _hoisted_9 = ["src"];
-var _hoisted_10 = {
-  "class": "flex items-center justify-center space-y-3 flex-col mt-16 lg:mt-32"
-};
-var _hoisted_11 = {
-  "class": "text-3xl text-white uppercase font-bold italic"
-};
-var _hoisted_12 = {
-  "class": "text-red-600 font-bold text-2xl"
-};
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-6 w-6",
+  "class": "h-6 w-6 text-white cursor-pointer transform rotate-180",
   fill: "none",
   viewBox: "0 0 24 24",
   stroke: "currentColor"
@@ -34456,36 +34471,98 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = [_hoisted_13];
+var _hoisted_5 = [_hoisted_4];
+var _hoisted_6 = {
+  "class": "h-72 w-96 hidden lg:block"
+};
+var _hoisted_7 = ["src"];
+var _hoisted_8 = {
+  "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120"
+};
+var _hoisted_9 = ["src"];
+var _hoisted_10 = {
+  "class": "h-72 w-96 hidden lg:block"
+};
+var _hoisted_11 = ["src"];
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-6 w-6 text-white cursor-pointer",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M17 8l4 4m0 0l-4 4m4-4H3"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_13 = [_hoisted_12];
+var _hoisted_14 = {
+  "class": "flex items-center justify-center space-y-3 flex-col mt-16 lg:mt-32"
+};
+var _hoisted_15 = {
+  "class": "text-3xl text-white uppercase font-bold italic"
+};
+var _hoisted_16 = {
+  "class": "text-red-600 font-bold text-2xl"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "/",
+  "class": "bg-icon-button text-white px-6 py-3 rounded-r"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-6 w-6",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M17 8l4 4m0 0l-4 4m4-4H3"
+})])], -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.scrollBack();
+    })
+  }, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "h-72 w-96",
     src: "/images/bike-".concat($data.featuredImages[$data.start][1], ".png"),
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120",
     src: "/images/bike-".concat($data.featuredImages[$data.start][0], ".png"),
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_7)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_9)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "h-72 w-96",
     src: "/images/bike-".concat($data.featuredImages[$data.start][2], ".png"),
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_9)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bikesDetails[$data.start].title), 1
+  , _hoisted_11)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.scrollNext();
+    })
+  }, _hoisted_13)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bikesDetails[$data.start].title), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bikesDetails[$data.start].price), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bikesDetails[$data.start].price), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.sildeBikes && $options.sildeBikes.apply($options, arguments);
-    }),
-    "class": "bg-icon-button text-white px-6 py-3 rounded-r"
-  }, _hoisted_14)])]);
+  ), _hoisted_17])]);
 }
 
 /***/ }),
@@ -34646,6 +34723,7 @@ var _hoisted_6 = {
 };
 var _hoisted_7 = {
   key: 1,
+  id: "search-list",
   "class": "absolute h-80 w-96 lg:w-120 top-24 bg-white mt-2 border-2 border-gray-400 rounded-md overflow-y-scroll"
 };
 var _hoisted_8 = ["onMouseover"];
@@ -34819,9 +34897,8 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_15 = [_hoisted_14];
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "#",
-  "class": "text-red-600"
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-red-600 cursor-pointer"
 }, "View all", -1
 /* HOISTED */
 );
@@ -34896,7 +34973,7 @@ var _hoisted_2 = {
   "class": "w-full relative max-w-screen-xl mx-auto flex justify-between items-center"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"order-last lg:order-none w-1/4 flex items-center space-x-8 lg:flex\"><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></ul>", 1);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"order-last lg:order-none w-1/4 flex items-center space-x-8 lg:flex\"><div class=\"flex items-center mt-4 space-x-4 sm:mt-0\"><a href=\"https://twitter.com/dolas_akash\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z\"></path></svg></a><a href=\"https://www.instagram.com/livingwithgravity/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 30 30\" fill=\"currentColor\" class=\"h-6\"><circle cx=\"15\" cy=\"15\" r=\"4\"></circle><path d=\"M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z\"></path></svg></a><a href=\"https://www.facebook.com/LivingWithGravity/\" class=\"text-gray-500 transition-colors duration-300 hover:text-teal-accent-400\"><svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"h-5\"><path d=\"M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z\"></path></svg></a></div></ul>", 1);
 
 var _hoisted_4 = {
   href: "/",
@@ -34936,7 +35013,7 @@ var _hoisted_8 = {
   "class": "relative flex items-center justify-between"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex tracking- items-centerwide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul></div>", 1);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex tracking- items-centerwide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About Us </a></li></ul></div>", 1);
 
 var _hoisted_10 = {
   "class": "items-center hidden space-x-8 lg:flex"
@@ -35010,7 +35087,7 @@ var _hoisted_18 = {
   "class": "relative z-50 p-5 bg-secondary border rounded shadow-sm"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About </a></li></ul></nav>", 1);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li></ul></nav>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-application-logo");
