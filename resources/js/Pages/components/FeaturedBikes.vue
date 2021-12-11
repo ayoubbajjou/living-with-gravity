@@ -35,10 +35,10 @@
           </svg>
         </button>
       </div>
-      <div class="h-72 w-96 hidden lg:block">
+      <div class="hidden lg:block">
         <img
-          class="h-72 w-96"
-          :src="`/images/bike-${featuredImages[start][1]}.png`"
+          class="w-120"
+          :src="`/images/featured/bike-${featuredImages[start][1]}.svg`"
           alt=""
         />
       </div>
@@ -46,15 +46,15 @@
         <div class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120">
           <img
             class="w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120"
-            :src="`/images/bike-${featuredImages[start][0]}.png`"
+            :src="`/images/featured/bike-${featuredImages[start][0]}.svg`"
             alt=""
           />
         </div>
       </div>
-      <div class="h-72 w-96 hidden lg:block">
+      <div class="w-120 hidden lg:block">
         <img
-          class="h-72 w-96"
-          :src="`/images/bike-${featuredImages[start][2]}.png`"
+          class="w-120"
+          :src="`/images/featured/bike-${featuredImages[start][2]}.svg`"
           alt=""
         />
       </div>
@@ -86,10 +86,7 @@
       <p class="text-red-600 font-bold text-2xl">
         {{ bikesDetails[start].price }}
       </p>
-      <a
-        href="/"
-        class="bg-icon-button text-white px-6 py-3 rounded-r"
-      >
+      <a :href="bikesDetails[start].url" class="bg-icon-button text-white px-6 py-3 rounded-r">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -116,26 +113,37 @@ export default {
     return {
       start: 0,
       featuredImages: [
-        [
-          1, //3  2
-          2, //1  3
-          3, //2  1
-        ],
-        [2, 3, 1],
-        [3, 1, 2],
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5, 1],
+        [3, 4, 5, 2, 1],
+        [4, 5, 1, 2, 3],
+        [5, 4, 3, 2, 1],
       ],
       bikesDetails: [
         {
-          title: "YAMAHA ALPHA",
+          title: "BMW M1000RR",
           price: "$11,500",
+          url: "https://bike.livingwithgravity.com/bike/314"
         },
         {
           title: "DUCATI PANIGALE V4",
           price: "$6,000",
+          url: "https://bike.livingwithgravity.com/bike/336"
         },
         {
-          title: "DOCKER STE",
+          title: "Kawasaki Ninja H2R",
           price: "$2,500",
+          url: "https://bike.livingwithgravity.com/bike/398"
+        },
+        {
+          title: "Aprilia RSV4 1100 Factory",
+          price: "$2,500",
+          url: "https://bike.livingwithgravity.com/bike/292"
+        },
+        {
+          title: "BMW F900XR",
+          price: "$2,500",
+          url: "https://bike.livingwithgravity.com/bike/328"
         },
       ],
     };
@@ -143,7 +151,7 @@ export default {
   mounted() {},
   methods: {
     scrollNext() {
-      if (this.start === 2) {
+      if (this.start === 4) {
         this.start = 0;
       } else {
         this.start++;
@@ -151,7 +159,7 @@ export default {
     },
     scrollBack() {
       if (this.start === 0) {
-        this.start = 2;
+        this.start = 4;
       } else {
         this.start--;
       }

@@ -25025,26 +25025,34 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       start: 0,
-      featuredImages: [[1, //3  2
-      2, //1  3
-      3 //2  1
-      ], [2, 3, 1], [3, 1, 2]],
+      featuredImages: [[1, 2, 3, 4, 5], [2, 3, 4, 5, 1], [3, 4, 5, 2, 1], [4, 5, 1, 2, 3], [5, 4, 3, 2, 1]],
       bikesDetails: [{
-        title: "YAMAHA ALPHA",
-        price: "$11,500"
+        title: "BMW M1000RR",
+        price: "$11,500",
+        url: "https://bike.livingwithgravity.com/bike/314"
       }, {
         title: "DUCATI PANIGALE V4",
-        price: "$6,000"
+        price: "$6,000",
+        url: "https://bike.livingwithgravity.com/bike/336"
       }, {
-        title: "DOCKER STE",
-        price: "$2,500"
+        title: "Kawasaki Ninja H2R",
+        price: "$2,500",
+        url: "https://bike.livingwithgravity.com/bike/398"
+      }, {
+        title: "Aprilia RSV4 1100 Factory",
+        price: "$2,500",
+        url: "https://bike.livingwithgravity.com/bike/292"
+      }, {
+        title: "BMW F900XR",
+        price: "$2,500",
+        url: "https://bike.livingwithgravity.com/bike/328"
       }]
     };
   },
   mounted: function mounted() {},
   methods: {
     scrollNext: function scrollNext() {
-      if (this.start === 2) {
+      if (this.start === 4) {
         this.start = 0;
       } else {
         this.start++;
@@ -25052,7 +25060,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     scrollBack: function scrollBack() {
       if (this.start === 0) {
-        this.start = 2;
+        this.start = 4;
       } else {
         this.start--;
       }
@@ -25276,7 +25284,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isMenuOpen: false,
       selectCity: false,
-      cityName: (_localStorage$getItem = localStorage.getItem("citySelectedName")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : 'Bangalore'
+      cityName: (_localStorage$getItem = localStorage.getItem("citySelectedName")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "Bangalore"
     };
   },
   beforeMount: function beforeMount() {
@@ -34473,7 +34481,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_5 = [_hoisted_4];
 var _hoisted_6 = {
-  "class": "h-72 w-96 hidden lg:block"
+  "class": "hidden lg:block"
 };
 var _hoisted_7 = ["src"];
 var _hoisted_8 = {
@@ -34481,7 +34489,7 @@ var _hoisted_8 = {
 };
 var _hoisted_9 = ["src"];
 var _hoisted_10 = {
-  "class": "h-72 w-96 hidden lg:block"
+  "class": "w-120 hidden lg:block"
 };
 var _hoisted_11 = ["src"];
 
@@ -34510,11 +34518,9 @@ var _hoisted_15 = {
 var _hoisted_16 = {
   "class": "text-red-600 font-bold text-2xl"
 };
+var _hoisted_17 = ["href"];
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "/",
-  "class": "bg-icon-button text-white px-6 py-3 rounded-r"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6",
   fill: "none",
@@ -34525,10 +34531,11 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "stroke-linejoin": "round",
   "stroke-width": "2",
   d: "M17 8l4 4m0 0l-4 4m4-4H3"
-})])], -1
+})], -1
 /* HOISTED */
 );
 
+var _hoisted_19 = [_hoisted_18];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
@@ -34536,20 +34543,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.scrollBack();
     })
   }, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "h-72 w-96",
-    src: "/images/bike-".concat($data.featuredImages[$data.start][1], ".png"),
+    "class": "w-120",
+    src: "/images/featured/bike-".concat($data.featuredImages[$data.start][1], ".svg"),
     alt: ""
   }, null, 8
   /* PROPS */
   , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120",
-    src: "/images/bike-".concat($data.featuredImages[$data.start][0], ".png"),
+    src: "/images/featured/bike-".concat($data.featuredImages[$data.start][0], ".svg"),
     alt: ""
   }, null, 8
   /* PROPS */
   , _hoisted_9)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "h-72 w-96",
-    src: "/images/bike-".concat($data.featuredImages[$data.start][2], ".png"),
+    "class": "w-120",
+    src: "/images/featured/bike-".concat($data.featuredImages[$data.start][2], ".svg"),
     alt: ""
   }, null, 8
   /* PROPS */
@@ -34562,7 +34569,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.bikesDetails[$data.start].price), 1
   /* TEXT */
-  ), _hoisted_17])]);
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: $data.bikesDetails[$data.start].url,
+    "class": "bg-icon-button text-white px-6 py-3 rounded-r"
+  }, _hoisted_19, 8
+  /* PROPS */
+  , _hoisted_17)])]);
 }
 
 /***/ }),
@@ -35013,7 +35025,7 @@ var _hoisted_8 = {
   "class": "relative flex items-center justify-between"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex tracking- items-centerwide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-4 w-4\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About Us </a></li></ul></div>", 1);
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Bike Guides\" title=\"Bike Guides\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bike Guides </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></div>", 1);
 
 var _hoisted_10 = {
   "class": "items-center hidden space-x-8 lg:flex"
@@ -35087,7 +35099,7 @@ var _hoisted_18 = {
   "class": "relative z-50 p-5 bg-secondary border rounded shadow-sm"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"/\" aria-label=\"Bikes\" title=\"Bikes\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Bikes Finance\" title=\"Bikes Finance\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bikes Finance <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"Compare\" title=\"Compare\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Compare <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"News &amp; Reviews\" title=\"News &amp; Reviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News &amp; Reviews <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"More\" title=\"More\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> More <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 9l-7 7-7-7\"></path></svg></a></li><li><a href=\"/\" aria-label=\"contact us\" title=\"contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li><li><a href=\"/\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li></ul></nav>", 1);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Bike Guides\" title=\"Bike Guides\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bike Guides </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></nav>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-application-logo");
