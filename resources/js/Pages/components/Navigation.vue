@@ -128,23 +128,16 @@
   </div>
 
   <div class="bg-gradient-to-r from-[#f84270] to-[#fe803b]">
-    <div
-      class="
-        w-full
-        py-3
-        px-4
-        lg:mx-auto
-        md:max-w-screen-xl
-      "
-    >
+    <div class="w-full py-3 px-4 lg:mx-auto md:max-w-screen-xl">
       <div class="relative flex items-center justify-between">
         <div class="flex items-center px-2">
           <ul class="flex items-center hidden space-x-14 lg:flex">
             <li>
               <a
-                href="/"
-                aria-label="Bikes"
-                title="Bikes"
+                href="https://livingwithgravity.com/category/news/"
+                target="_blank"
+                aria-label="News"
+                title="News"
                 class="
                   text-sm
                   font-bold
@@ -158,97 +151,15 @@
                   duration-200
                   hover:text-deep-purple-accent-400
                 "
-                >Bikes
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  /></svg
-              ></a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Bikes Finance"
-                title="Bikes Finance"
-                class="
-                  text-sm
-                  font-bold
-                  uppercase
-                  space-x-4
-                  tracking-wide
-                  flex
-                  items-center
-                  text-gray-100
-                  transition-colors
-                  duration-200
-                  hover:text-deep-purple-accent-400
-                "
-                >Bikes Finance
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  /></svg
-              ></a>
-            </li>
-            <li>
-              <a
-                href="/"
-                aria-label="Compare"
-                title="Compare"
-                class="
-                  text-sm
-                  font-bold
-                  uppercase
-                  space-x-4
-                  flex
-                  tracking-
-                  items-centerwide
-                  text-gray-100
-                  transition-colors
-                  duration-200
-                  hover:text-deep-purple-accent-400
-                "
-                >Compare
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                >News
               </a>
             </li>
             <li>
               <a
-                href="/"
-                aria-label="News & Reviews"
-                title="News & Reviews"
+                href="https://livingwithgravity.com/category/how-to/"
+                target="_blank"
+                aria-label="Bike Guides"
+                title="Bike Guides"
                 class="
                   text-sm
                   font-bold
@@ -262,28 +173,37 @@
                   duration-200
                   hover:text-deep-purple-accent-400
                 "
-                >News & Reviews
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                >Bike Guides
               </a>
             </li>
             <li>
               <a
-                href="/"
-                aria-label="More"
-                title="More"
+                href="https://livingwithgravity.com/category/racing/"
+                target="_blank"
+                aria-label="Racing"
+                title="Racing"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+                >Racing
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://livingwithgravity.com/category/electric-bikes/"
+                target="_blank"
+                aria-label="Electric"
+                title="Electric"
                 class="
                   text-sm
                   font-bold
@@ -298,28 +218,15 @@
                   hover:text-deep-purple-accent-400
                 "
               >
-                More
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                Electric
               </a>
             </li>
             <li>
               <a
-                href="/"
-                aria-label="contact us"
-                title="contact us"
+                href="https://livingwithgravity.com/category/expert-talks/"
+                target="_blank"
+                aria-label="Interviews"
+                title="Interviews"
                 class="
                   text-sm
                   font-bold
@@ -334,12 +241,36 @@
                   hover:text-deep-purple-accent-400
                 "
               >
-                Contact us
+                Interviews
               </a>
             </li>
             <li>
               <a
-                href="/"
+                href="https://livingwithgravity.com/"
+                target="_blank"
+                aria-label="Blog"
+                title="Blog"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://livingwithgravity.com/about"
+                target="_blank"
                 aria-label="About us"
                 title="About us"
                 class="
@@ -356,7 +287,30 @@
                   hover:text-deep-purple-accent-400
                 "
               >
-                About Us
+                About us
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://livingwithgravity.com/contact"
+                target="_blank"
+                aria-label="Contact us"
+                title="Contact us"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+              >
+                Contact us
               </a>
             </li>
           </ul>
@@ -485,9 +439,10 @@
                 <ul class="space-y-4">
                   <li>
                     <a
-                      href="/"
-                      aria-label="Bikes"
-                      title="Bikes"
+                      href="https://livingwithgravity.com/category/news/"
+                      target="_blank"
+                      aria-label="News"
+                      title="News"
                       class="
                         font-medium
                         uppercase
@@ -499,27 +454,15 @@
                         duration-200
                         hover:text-deep-purple-accent-400
                       "
-                      >Bikes
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        /></svg
-                    ></a>
+                      >News
+                    </a>
                   </li>
                   <li>
                     <a
-                      href="/"
-                      aria-label="Bikes Finance"
-                      title="Bikes Finance"
+                      href="https://livingwithgravity.com/category/how-to/"
+                      target="_blank"
+                      aria-label="Bike Guides"
+                      title="Bike Guides"
                       class="
                         font-medium
                         uppercase
@@ -531,28 +474,15 @@
                         duration-200
                         hover:text-deep-purple-accent-400
                       "
-                      >Bikes Finance
-
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        /></svg
-                    ></a>
+                      >Bike Guides
+                    </a>
                   </li>
                   <li>
                     <a
-                      href="/"
-                      aria-label="Compare"
-                      title="Compare"
+                      href="https://livingwithgravity.com/category/racing/"
+                      target="_blank"
+                      aria-label="Racing"
+                      title="Racing"
                       class="
                         text-sm
                         font-bold
@@ -566,28 +496,15 @@
                         duration-200
                         hover:text-deep-purple-accent-400
                       "
-                      >Compare
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
+                      >Racing
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
-                      aria-label="News & Reviews"
-                      title="News & Reviews"
+                      href="https://livingwithgravity.com/category/electric-bikes/"
+                      target="_blank"
+                      aria-label="Electric"
+                      title="Electric"
                       class="
                         font-medium
                         uppercase
@@ -599,28 +516,15 @@
                         duration-200
                         hover:text-deep-purple-accent-400
                       "
-                      >News & Reviews
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
+                      >Electric
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
-                      aria-label="More"
-                      title="More"
+                      href="https://livingwithgravity.com/category/expert-talks/"
+                      target="_blank"
+                      aria-label="Interviews"
+                      title="Interviews"
                       class="
                         font-medium
                         uppercase
@@ -633,28 +537,15 @@
                         hover:text-deep-purple-accent-400
                       "
                     >
-                      More
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
+                      Interviews
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
-                      aria-label="contact us"
-                      title="contact us"
+                      href="https://livingwithgravity.com/"
+                      target="_blank"
+                      aria-label="Blog"
+                      title="Blog"
                       class="
                         font-medium
                         uppercase
@@ -667,12 +558,13 @@
                         hover:text-deep-purple-accent-400
                       "
                     >
-                      Contact us
+                      Blog
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/"
+                      href="https://livingwithgravity.com/about"
+                      target="_blank"
                       aria-label="About us"
                       title="About us"
                       class="
@@ -687,7 +579,28 @@
                         hover:text-deep-purple-accent-400
                       "
                     >
-                      About us 
+                      About us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://livingwithgravity.com/contact"
+                      target="_blank"
+                      aria-label="Contact us"
+                      title="Contact us"
+                      class="
+                        font-medium
+                        uppercase
+                        space-x-4
+                        tracking-wide
+                        flex
+                        text-gray-100
+                        transition-colors
+                        duration-200
+                        hover:text-deep-purple-accent-400
+                      "
+                    >
+                      Contact us
                     </a>
                   </li>
                 </ul>
@@ -717,7 +630,7 @@ export default {
     return {
       isMenuOpen: false,
       selectCity: false,
-      cityName: localStorage.getItem("citySelectedName") ?? 'Bangalore',
+      cityName: localStorage.getItem("citySelectedName") ?? "Bangalore",
     };
   },
   beforeMount() {
