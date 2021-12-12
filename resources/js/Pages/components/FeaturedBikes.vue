@@ -35,26 +35,40 @@
           </svg>
         </button>
       </div>
-      <div class="hidden lg:block">
+      <div class="md:h-64 md:w-72 lg:h-72 lg:w-96 hidden lg:block">
         <img
-          class="w-120"
+          class="md:h-64 md:w-72 lg:h-72 lg:w-96"
           :src="`/images/featured/bike-${featuredImages[start][1]}.svg`"
+          width="576"
+          height="480"
           alt=""
         />
       </div>
       <div>
-        <div class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120">
+        <div
+          class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120 xl:w-144 xl:h-120"
+        >
           <img
-            class="w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120"
+            class="
+              w-64
+              h-full
+              md:h-72 md:w-96
+              lg:h-96 lg:w-120
+              xl:w-144 xl:h-120
+            "
             :src="`/images/featured/bike-${featuredImages[start][0]}.svg`"
+            width="576"
+            height="480"
             alt=""
           />
         </div>
       </div>
-      <div class="w-120 hidden lg:block">
+      <div class="d:h-64 md:w-72 lg:h-72 lg:w-96 hidden lg:block">
         <img
-          class="w-120"
+          class="d:h-64 md:w-72 lg:h-72 lg:w-96"
           :src="`/images/featured/bike-${featuredImages[start][2]}.svg`"
+          width="576"
+          height="480"
           alt=""
         />
       </div>
@@ -86,7 +100,10 @@
       <p class="text-red-600 font-bold text-2xl">
         {{ bikesDetails[start].price }}
       </p>
-      <a :href="bikesDetails[start].url" class="bg-icon-button text-white px-6 py-3 rounded-r">
+      <a
+        :href="bikesDetails[start].url"
+        class="bg-icon-button text-white px-6 py-3 rounded-r"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
@@ -121,34 +138,56 @@ export default {
       ],
       bikesDetails: [
         {
+          id: 314,
           title: "BMW M1000RR",
-          price: "$11,500",
-          url: "https://bike.livingwithgravity.com/bike/314"
+          price: null,
+          url: "https://bike.livingwithgravity.com/bike/314",
         },
         {
+          id: 336,
           title: "DUCATI PANIGALE V4",
-          price: "$6,000",
-          url: "https://bike.livingwithgravity.com/bike/336"
+          price: null,
+          url: "https://bike.livingwithgravity.com/bike/336",
         },
         {
+          id: 398,
           title: "Kawasaki Ninja H2R",
-          price: "$2,500",
-          url: "https://bike.livingwithgravity.com/bike/398"
+          price: null,
+          url: "https://bike.livingwithgravity.com/bike/398",
         },
         {
+          id: 292,
           title: "Aprilia RSV4 1100 Factory",
-          price: "$2,500",
-          url: "https://bike.livingwithgravity.com/bike/292"
+          price: null,
+          url: "https://bike.livingwithgravity.com/bike/292",
         },
         {
+          id: 328,
           title: "BMW F900XR",
-          price: "$2,500",
-          url: "https://bike.livingwithgravity.com/bike/328"
+          price: null,
+          url: "https://bike.livingwithgravity.com/bike/328",
         },
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    axios.defaults.headers.common["Content-Type"] =
+      "application/x-www-form-urlencoded";
+    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "http://137.184.139.6";
+    this.bikesDetails.map((bike) => {
+      const city_id = localStorage.getItem("citySelectedId");
+      axios
+        .get(
+          `http://137.184.139.6/bikewale/index.php/api/getprice?bike_id=${bike.id}&city_id=${city_id}`
+        )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  },
   methods: {
     scrollNext() {
       if (this.start === 4) {

@@ -25027,29 +25027,45 @@ __webpack_require__.r(__webpack_exports__);
       start: 0,
       featuredImages: [[1, 2, 3, 4, 5], [2, 3, 4, 5, 1], [3, 4, 5, 2, 1], [4, 5, 1, 2, 3], [5, 4, 3, 2, 1]],
       bikesDetails: [{
+        id: 314,
         title: "BMW M1000RR",
-        price: "$11,500",
+        price: null,
         url: "https://bike.livingwithgravity.com/bike/314"
       }, {
+        id: 336,
         title: "DUCATI PANIGALE V4",
-        price: "$6,000",
+        price: null,
         url: "https://bike.livingwithgravity.com/bike/336"
       }, {
+        id: 398,
         title: "Kawasaki Ninja H2R",
-        price: "$2,500",
+        price: null,
         url: "https://bike.livingwithgravity.com/bike/398"
       }, {
+        id: 292,
         title: "Aprilia RSV4 1100 Factory",
-        price: "$2,500",
+        price: null,
         url: "https://bike.livingwithgravity.com/bike/292"
       }, {
+        id: 328,
         title: "BMW F900XR",
-        price: "$2,500",
+        price: null,
         url: "https://bike.livingwithgravity.com/bike/328"
       }]
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    axios.defaults.headers.common["Content-Type"] = "application/x-www-form-urlencoded";
+    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "http://137.184.139.6";
+    this.bikesDetails.map(function (bike) {
+      var city_id = localStorage.getItem("citySelectedId");
+      axios.get("http://137.184.139.6/bikewale/index.php/api/getprice?bike_id=".concat(bike.id, "&city_id=").concat(city_id)).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    });
+  },
   methods: {
     scrollNext: function scrollNext() {
       if (this.start === 4) {
@@ -34481,15 +34497,15 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_5 = [_hoisted_4];
 var _hoisted_6 = {
-  "class": "hidden lg:block"
+  "class": "md:h-64 md:w-72 lg:h-72 lg:w-96 hidden lg:block"
 };
 var _hoisted_7 = ["src"];
 var _hoisted_8 = {
-  "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120"
+  "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120 xl:w-144 xl:h-120"
 };
 var _hoisted_9 = ["src"];
 var _hoisted_10 = {
-  "class": "w-120 hidden lg:block"
+  "class": "d:h-64 md:w-72 lg:h-72 lg:w-96 hidden lg:block"
 };
 var _hoisted_11 = ["src"];
 
@@ -34543,20 +34559,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.scrollBack();
     })
   }, _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "w-120",
+    "class": "md:h-64 md:w-72 lg:h-72 lg:w-96",
     src: "/images/featured/bike-".concat($data.featuredImages[$data.start][1], ".svg"),
+    width: "576",
+    height: "480",
     alt: ""
   }, null, 8
   /* PROPS */
   , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 xl:w-120",
+    "class": "w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120 xl:w-144 xl:h-120",
     src: "/images/featured/bike-".concat($data.featuredImages[$data.start][0], ".svg"),
+    width: "576",
+    height: "480",
     alt: ""
   }, null, 8
   /* PROPS */
   , _hoisted_9)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "w-120",
+    "class": "d:h-64 md:w-72 lg:h-72 lg:w-96",
     src: "/images/featured/bike-".concat($data.featuredImages[$data.start][2], ".svg"),
+    width: "576",
+    height: "480",
     alt: ""
   }, null, 8
   /* PROPS */
