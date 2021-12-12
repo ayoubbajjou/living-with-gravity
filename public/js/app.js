@@ -25056,10 +25056,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     axios.defaults.headers.common["Content-Type"] = "application/x-www-form-urlencoded";
-    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "http://137.184.139.6";
+    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "https://137.184.139.6";
     this.bikesDetails.map(function (bike) {
       var city_id = localStorage.getItem("citySelectedId");
-      axios.get("http://137.184.139.6/bikewale/index.php/api/getprice?bike_id=".concat(bike.id, "&city_id=").concat(city_id)).then(function (res) {
+      axios.get("https://137.184.139.6/bikewale/index.php/api/getprice?bike_id=".concat(bike.id, "&city_id=").concat(city_id)).then(function (res) {
         console.log(res);
       })["catch"](function (err) {
         console.log(err);
