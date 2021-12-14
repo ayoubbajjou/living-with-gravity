@@ -182,7 +182,7 @@ export default {
       const city_id = localStorage.getItem("citySelectedId");
       axios
         .get(
-          `https://137.184.139.6/bikewale/index.php/api/getprice?bike_id=${bike.id}&city_id=${city_id}`
+          `https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=${bike.id}&city_id=${city_id}`
         )
         .then((res) => {
           console.log(res);
