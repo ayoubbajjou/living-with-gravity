@@ -176,7 +176,7 @@ export default {
     axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
     axios.defaults.headers.common["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST, PUT, DELETE";
     axios.defaults.headers.common["Access-Control-Allow-Headers"] =
-      "Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, X-Token-Auth, Authorization";
+      "X-Requested-With, Content-Type, X-Token-Auth, Authorization";
 
     this.bikesDetails.map((bike) => {
       const city_id = localStorage.getItem("citySelectedId");

@@ -25056,7 +25056,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     axios.defaults.headers.common["Content-Type"] = "application/x-www-form-urlencoded";
-    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "https://137.184.139.6";
+    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+    axios.defaults.headers.common["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST, PUT, DELETE";
+    axios.defaults.headers.common["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type, X-Token-Auth, Authorization";
     this.bikesDetails.map(function (bike) {
       var city_id = localStorage.getItem("citySelectedId");
       axios.get("https://137.184.139.6/bikewale/index.php/api/getprice?bike_id=".concat(bike.id, "&city_id=").concat(city_id)).then(function (res) {
