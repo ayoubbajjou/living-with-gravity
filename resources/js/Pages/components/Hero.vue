@@ -160,7 +160,6 @@ export default {
       this.bikeHovered = id
     },
     clickOutside() {
-      console.log('sadsa')
     }
   },
 };

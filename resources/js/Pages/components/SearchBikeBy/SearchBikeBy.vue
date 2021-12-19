@@ -19,10 +19,19 @@
     <div class="mx-auto mt-12 bg-secondary">
       <div class="flex w-full bg-secondary">
         <div
-          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
+          class="
+            w-1/3
+            lg-w-full
+            px-4
+            lg:px-14
+            cursor-pointer
+            py-6
+            lg:text-xl
+            uppercase
+          "
           :class="
             active === 1
-              ? 'text-red-600 bg-gray-600'
+              ? 'text-red-600 bg-[#2F2F2F] font-bold'
               : 'text-gray-200 bg-secondary'
           "
           @click="activeTab(1)"
@@ -30,17 +39,39 @@
           Brands
         </div>
         <div
-          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
-          :class="active === 2 ? 'text-red-600 bg-gray-600' : 'text-gray-200'"
+          class="
+            w-1/3
+            lg-w-full
+            px-4
+            lg:px-14
+            cursor-pointer
+            py-6
+            lg:text-xl
+            uppercase
+          "
+          :class="
+            active === 2
+              ? 'text-red-600 bg-[#2F2F2F] font-bold'
+              : 'text-gray-200'
+          "
           @click="activeTab(2)"
         >
           Displacement
         </div>
         <div
-          class="w-1/3 lg-w-full px-4 lg:px-14 cursor-pointer py-6 lg:text-2xl font-bold uppercase"
+          class="
+            w-1/3
+            lg-w-full
+            px-4
+            lg:px-14
+            cursor-pointer
+            py-6
+            lg:text-xl
+            uppercase
+          "
           :class="
             active === 3
-              ? 'text-red-600 bg-gray-600'
+              ? 'text-red-600 bg-[#2F2F2F] font-bold'
               : 'text-gray-200 bg-secondary'
           "
           @click="activeTab(3)"
@@ -49,8 +80,8 @@
         </div>
       </div>
       <search-by-brand v-if="active === 1" :brands="brands"></search-by-brand>
-      <search-by-displacement v-if="active === 2" ></search-by-displacement>
-      <search-by-budget v-if="active === 3" ></search-by-budget>
+      <search-by-displacement v-if="active === 2"></search-by-displacement>
+      <search-by-budget v-if="active === 3"></search-by-budget>
       <div class="flex justify-center lg:justify-end mt-8 mb-8 lg:mt-16">
         <button
           @click="getMoreBrands()"
@@ -61,7 +92,7 @@
             uppercase
             shadow-md
             font-bold
-            text-base
+            text-xl
             bg-button
             rounded-l
           "
@@ -93,9 +124,9 @@
 </template>
 
 <script>
-import SearchByBrand from './components/SearchByBrand.vue';
-import SearchByDisplacement from './components/SearchByDisplacement.vue';
-import SearchByBudget from './components/SearchByBudget.vue';
+import SearchByBrand from "./components/SearchByBrand.vue";
+import SearchByDisplacement from "./components/SearchByDisplacement.vue";
+import SearchByBudget from "./components/SearchByBudget.vue";
 export default {
   components: { SearchByBrand, SearchByDisplacement, SearchByBudget },
   name: "SearchBikeBy",
@@ -129,7 +160,6 @@ export default {
           .get("/get-brands")
           .then((res) => {
             this.showMore = true;
-            console.log(res);
             this.brands = res.data;
           })
           .catch((err) => {

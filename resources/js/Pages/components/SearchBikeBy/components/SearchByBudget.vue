@@ -3,7 +3,7 @@
     <div
       class="
         lg:w-full
-        bg-gray-600
+        bg-[#2F2F2F]
         grid grid-cols-3
         lg:grid-cols-5
         gap-4
@@ -151,7 +151,7 @@
       class="
         w-11/12
         lg:w-full
-        bg-gray-600
+        bg-[#2F2F2F]
         grid grid-cols-3
         lg:grid-cols-5
         gap-4

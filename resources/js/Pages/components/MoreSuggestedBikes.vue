@@ -19,12 +19,12 @@
       More {{ title }} bikes
     </h1>
 
-    <div class="overflow-x-auto" id="suggestedBikes">
+    <div class="overflow-x-auto scrollBar" id="suggestedBikes">
       <div class="w-max flex pt-12 pb-6">
         <div
           v-for="(bike, index) in bikes"
           :key="bike.id"
-          :class="index === 0 ? 'bg-gray-100' : 'bg-gray-700'"
+          :class="index === 0 ? 'bg-gray-100' : 'bg-[#2F2F2F]'"
           class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8 w-80"
         >
           <a class="flex" :href="`/bike/${bike.id}`">
@@ -150,5 +150,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.scrollBar::-webkit-scrollbar {
+  display: none;
+}
 </style>

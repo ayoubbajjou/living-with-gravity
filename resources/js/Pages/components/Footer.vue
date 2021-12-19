@@ -3,19 +3,16 @@
   <div class="bg-secondary">
     <div
       class="
-        px-4
         pt-16
         mx-auto
         sm:max-w-xl
         md:max-w-full
         lg:max-w-screen-xl
-        md:px-24
-        lg:px-8
       "
     >
       <div class="grid lg:row-gap-10 mb-8 lg:grid-cols-3">
         <div
-          class="grid lg:gap-5 lg:row-gap-8 lg:col-span-3 md:grid-cols-3"
+          class="grid lg:gap-8 lg:row-gap-8 lg:col-span-3 md:grid-cols-3"
         >
           <div class="flex flex-col space-y-12">
             <div>
@@ -151,7 +148,7 @@
               </div>
             </div>
           </div>
-          <div class="lg:ml-20">
+          <div class="">
             <div class="flex items-center space-x-4">
               <p
                 class="

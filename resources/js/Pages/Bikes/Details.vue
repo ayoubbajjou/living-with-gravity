@@ -2,7 +2,7 @@
   <Head title="Welcome" />
   <Navigation />
   <div class="bg-secondary h-screen">
-    <div class="lg:flex w-full mb-10">
+    <div class="lg:flex w-full">
       <div class="lg:w-3/5">
         <div class="relative w-full">
           <img

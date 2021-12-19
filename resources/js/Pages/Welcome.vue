@@ -6,7 +6,7 @@
       <Hero />
 
       <div class="max-w-screen-xl mx-auto">
-        <SearchBikeBy />
+        <SearchBikeBy class="py-12" />
 
         <FeaturedBikes />
 

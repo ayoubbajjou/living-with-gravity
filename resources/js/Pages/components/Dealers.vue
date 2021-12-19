@@ -213,7 +213,7 @@
     <div class="pl-6 pt-2 pb-8">
       <div class="overflow-x-scroll lg:overflow-x-auto">
         <table v-if="dealersList.length" class="text-gray-50 text-start">
-          <thead class="bg-gray-600">
+          <thead class="bg-[#2F2F2F]">
             <td class="px-6 py-4">Dealer</td>
             <td class="px-6 py-4">Phone No.</td>
             <td class="px-6 py-4">Address</td>
@@ -228,11 +228,11 @@
             </tr>
           </tbody>
         </table>
-        <thead v-else class="bg-gray-600">
+        <thead v-else class="bg-[#2F2F2F]">
           <p class="text-gray-50 text-start px-6 py-4">No dealers found!</p>
         </thead>
       </div>
-      <div class="flex items-center mt-10 overflow-x-scroll">
+      <div class="flex items-center mt-10 overflow-x-scroll scrollBar">
         <button
           v-for="(page, index) in dealersPagination"
           :key="index"
@@ -327,9 +327,6 @@ export default {
     setTimeout(() => {
       this.paginate()
     }, 100) 
-
-    // this.dealersPagination = Math.ceil(this.dealersCount  / 10);
-    // console.log(this.dealersCount)
   },
   methods: {
     filterCitiesList() {
@@ -393,4 +390,7 @@ export default {
 </script>
 
 <style scoped>
+.scrollBar::-webkit-scrollbar {
+  display: none;
+}
 </style>

@@ -46,7 +46,7 @@
       </div>
       <div>
         <div
-          class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120 xl:w-144 xl:h-120"
+          class="w-64 h-full md:h-72 md:w-96 lg:h-96 lg:w-120 xl:w-168 xl:h-120"
         >
           <img
             class="
@@ -54,11 +54,11 @@
               h-full
               md:h-72 md:w-96
               lg:h-96 lg:w-120
-              xl:w-144 xl:h-120
+              xl:w-168 xl:h-120
             "
             :src="`/images/featured/bike-${featuredImages[start][0]}.svg`"
-            width="576"
-            height="480"
+            width="791"
+            height="494"
             alt=""
           />
         </div>
@@ -92,12 +92,12 @@
       </div>
     </div>
     <div
-      class="flex items-center justify-center space-y-3 flex-col mt-16 lg:mt-32"
+      class="flex items-center justify-center space-y-3 flex-col"
     >
-      <p class="text-3xl text-white uppercase font-bold italic">
+      <p class="text-5xl text-white uppercase font-bold italic">
         {{ bikesDetails[start].title }}
       </p>
-      <p class="text-red-600 font-bold text-2xl">
+      <p class="text-red-600 text-3xl">
         {{ bikesDetails[start].price }}
       </p>
       <a

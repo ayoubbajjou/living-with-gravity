@@ -101,7 +101,7 @@
               uppercase
               shadow-md
               font-bold
-              text-base
+              text-xl
               bg-button
               rounded-l
             "

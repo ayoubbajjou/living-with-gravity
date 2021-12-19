@@ -644,6 +644,13 @@ export default {
       localStorage.setItem("citySelectedId", 1);
     }
   },
+  mounted() {
+    var emitter = require("tiny-emitter/instance");
+
+    emitter.on("city-selected", (val) => {
+      this.cityName = val.city_name;
+    });
+  },
   methods: {
     citySelected() {
       this.cityName = localStorage.getItem("citySelectedName");
