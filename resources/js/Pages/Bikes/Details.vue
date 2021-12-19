@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <BikeDetailsFeaturesPrice :bike-price="bike?.prices[0]" :specs="specs" />
+      <BikeDetailsFeaturesPrice :bike-id="bike?.id" :bike-price="bike?.prices[0]" :specs="specs" />
     </div>
     <div class="max-w-screen-xl mx-auto">
       <BikeSpecs :specs="bike?.specifications" />
