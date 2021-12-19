@@ -171,13 +171,6 @@ export default {
     };
   },
   mounted() {
-    axios.defaults.headers.common["Content-Type"] =
-      "application/x-www-form-urlencoded";
-    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-    axios.defaults.headers.common["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST, PUT, DELETE";
-    axios.defaults.headers.common["Access-Control-Allow-Headers"] =
-      "X-Requested-With, Content-Type, X-Token-Auth, Authorization";
-
     this.bikesDetails.map((bike) => {
       const city_id = localStorage.getItem("citySelectedId");
       axios
@@ -185,7 +178,10 @@ export default {
           `https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=${bike.id}&city_id=${city_id}`
         )
         .then((res) => {
-          console.log(res);
+          var price = res.data.data?.price?.[0]?.amount
+          const formatedPrice = new Intl.NumberFormat().format(price)
+          bike.price = "₹ " + formatedPrice
+
         })
         .catch((err) => {
           console.log(err);

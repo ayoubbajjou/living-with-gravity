@@ -27,37 +27,73 @@
       <div v-if="activeTab === 1">
         <div class="flex px-14 py-4 h-max">
           <div class="w-1/2 space-y-2">
-            <img src="/icons/dimension.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{specs?.[0]?.dimension}}</h3>
+            <img
+              src="/icons/dimension.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.dimension }}
+            </h3>
             <p class="text-gray-50">Dimensions (L x W x H)</p>
           </div>
           <div class="w-1/2 space-y-2">
-            <img src="/icons/engine.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.engine }}</h3>
+            <img
+              src="/icons/engine.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.engine }}
+            </h3>
             <p class="text-gray-50">Engine</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
           <div class="w-1/2 space-y-2">
-            <img src="/icons/fuel-tank.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.fuel }}</h3>
+            <img
+              src="/icons/fuel-tank.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.fuel }}
+            </h3>
             <p class="text-gray-50">Fuel Tank</p>
           </div>
           <div class="w-1/2 space-y-2">
-            <img src="/icons/mileage.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.mileage }}</h3>
+            <img
+              src="/icons/mileage.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.mileage }}
+            </h3>
             <p class="text-gray-50">Mileage</p>
           </div>
         </div>
         <div class="flex px-14 py-4">
           <div class="w-1/2 space-y-2">
-            <img src="/icons/power.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{ specs?.[0]?.power }}</h3>
+            <img
+              src="/icons/power.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.power }}
+            </h3>
             <p class="text-gray-50">Power</p>
           </div>
           <div class="w-1/2 space-y-2">
-            <img src="/icons/speed.svg" class="w-8 h-8" style="filter: invert(1)" />
-            <h3 class="text-gray-50 text-md w-2/3 font-bold">{{specs?.[0]?.speed}}</h3>
+            <img
+              src="/icons/speed.svg"
+              class="w-8 h-8"
+              style="filter: invert(1)"
+            />
+            <h3 class="text-gray-50 text-md w-2/3 font-bold">
+              {{ specs?.[0]?.speed }}
+            </h3>
             <p class="text-gray-50">Speed</p>
           </div>
         </div>
@@ -80,18 +116,25 @@
           </button>
           <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
+            v-if="loading"
+              class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor"
             >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
             </svg>
           </button>
         </div>
@@ -102,32 +145,116 @@
             <p class="text-white text-md leading-4">
               Ex-showroom ({{ cityName }}):
             </p>
-            <h1 class="text-white text-1xl font-bold">
-              ₹ {{ bikePrice?.ex_showroom_price }}
+            <h1 class="text-white text-1xl font-bold" v-if="!loading">
+              ₹ {{ bikePriceList?.ex_showroom_price }}
             </h1>
+            <svg
+            v-if="loading"
+              class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
           </div>
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">RTO:</p>
-            <h1 class="text-white text-1xl font-bold">
-              ₹ {{ bikePrice?.rto_price }}
+            <h1 class="text-white text-1xl font-bold" v-if="!loading">
+              ₹ {{ bikePriceList?.rto_price }}
             </h1>
+            <svg
+            v-if="loading"
+              class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
           </div>
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">
               Insurance (Comprehensive):
             </p>
-            <h1 class="text-white text-1xl font-bold">
-              ₹ {{ bikePrice?.insurance_price }}
+            <h1 class="text-white text-1xl font-bold" v-if="!loading">
+              ₹ {{ bikePriceList?.insurance_price }}
             </h1>
+            <svg
+            v-if="loading"
+              class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
           </div>
           <hr />
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">
               On-road price in {{ cityName }}:
             </p>
-            <h1 class="text-white text-3xl font-bold">
-              ₹ {{ bikePrice?.onroad_price }}
+            <h1 class="text-white text-3xl font-bold" v-if="!loading">
+              ₹ {{ bikePriceList?.onroad_price }}
             </h1>
+            <svg
+            v-if="loading"
+              class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
           </div>
           <div>
             <li
@@ -195,8 +322,8 @@
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor"              
+                >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -251,7 +378,7 @@ import CityModal from "./CityModal.vue";
 
 export default {
   name: "BikeDetailsFeaturesPrice",
-  props: ["bikePrice", 'specs'],
+  props: ["bikePrice", "specs", "bikeId"],
   components: {
     CityModal,
   },
@@ -260,19 +387,27 @@ export default {
       activeTab: 1,
       selectCity: false,
       cityName: localStorage.getItem("citySelectedName"),
-      keys: null
+      keys: null,
+      bikePriceList: null,
+      loading: true,
     };
   },
   mounted() {
-    // axios.post('/get-keys-featured', {
-    //   bike_id: this.bikePrice.bikeId
-    // })
-    // .then(res => {
-    //   console.log(res)
-    // })
-    // .catch(err => {
-    //   console.log(err)
-    // })
+    var emitter = require("tiny-emitter/instance");
+
+    emitter.on("city-selected", (val) => {
+      this.cityName = val.city_name;
+      this.getPrice();
+    });
+
+    setTimeout(() => {
+      if (!this.bikePrice) {
+        this.getPrice();
+      } else {
+        this.bikePriceList = this.bikePrice;
+        this.loading = false;
+      }
+    }, 5);
   },
   methods: {
     selectTab(val) {
@@ -285,8 +420,42 @@ export default {
       });
     },
     citySelected() {
-      this.cityName = localStorage.getItem('citySelectedName');
-    }
+      console.log("city_selected");
+      this.cityName = localStorage.getItem("citySelectedName");
+    },
+    async getPrice() {
+      this.loading = true;
+      const city_id = localStorage.getItem("citySelectedId");
+      await axios
+        .get(
+          `https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=${this.bikeId}&city_id=${city_id}`
+        )
+        .then((res) => {
+          var price = res.data.data?.price?.[0]?.amount;
+          const formatedPrice = new Intl.NumberFormat().format(price);
+          // bike.price = "₹ " + formatedPrice
+          this.bikePriceList = {
+            bike_id: this.bikeId,
+            city_id: city_id,
+            ex_showroom_price: new Intl.NumberFormat().format(
+              res.data.data?.price?.[0]?.amount
+            ),
+            insurance_price: new Intl.NumberFormat().format(
+              res.data.data?.price?.[2]?.amount
+            ),
+            onroad_price: new Intl.NumberFormat().format(
+              res.data.data?.price?.[3]?.amount
+            ),
+            rto_price: new Intl.NumberFormat().format(
+              res.data.data?.price?.[1]?.amount
+            ),
+          };
+          this.loading = false;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

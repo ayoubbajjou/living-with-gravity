@@ -312,11 +312,15 @@ export default {
       this.citiesList = this.cities;
       localStorage.setItem('citySelectedName', this.city);
       localStorage.setItem('citySelectedId', id);
-      this.$emit('citySelected', {
+      this.$emit('city-selected', {
           city_name: this.city,
           city_id: id
       })
-      window.location.reload()
+    var emitter = require('tiny-emitter/instance');
+      emitter.emit('city-selected', {
+          city_name: this.city,
+          city_id: id
+      });
     },
   }
 };
