@@ -22,20 +22,22 @@
           >
             Search Results
           </h3>
-          <div class="pt-12 pb-6 mx-8 grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="
+              pt-12
+              pb-6
+              mx-8
+              grid
+              sm:grid-cols-2
+              md:grid-cols-2
+              lg:grid-cols-3
+              gap-6
+            "
+          >
             <div
               v-for="bike in bikes"
               :key="bike.id"
-              class="
-                bg-[#2F2F2F]
-                flex
-                rounded-lg
-                px-6
-                py-4
-                items-center
-                space-x-12
-                mx-8
-              "
+              class="bg-[#2F2F2F] rounded-lg px-6 py-4 w-80"
             >
               <a class="w-full flex" :href="`/bike/${bike.id}`">
                 <img
@@ -45,7 +47,7 @@
                 />
                 <div class="text-gray-50">
                   <h3 class="font-bold">
-                    {{ bike.series }} {{ bike.version_name }}
+                    {{ bike.title }}
                   </h3>
                   <span class="text-xs">Starting from</span>
                   <p class="text-light italic">
@@ -84,7 +86,6 @@
 </style>
 
 <script>
-import { defineComponent } from "vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import Navigation from "../components/Navigation.vue";
@@ -93,7 +94,7 @@ import Footer from "../components/Footer.vue";
 import Subscribe from "../components/Subscribe.vue";
 import Dealers from "../components/Dealers.vue";
 
-export default defineComponent({
+export default {
   components: {
     Head,
     Link,
@@ -129,7 +130,11 @@ export default defineComponent({
     this.cities = this.$inertia.page.props.cities;
     this.brands = this.$inertia.page.props.brands;
     this.brand = this.$inertia.page.props.brand;
-    this.bikes = this.$inertia.page.props.bikes;
+    this.bikes = this.$inertia.page.props.bikes.map(function (bike) {
+      const title = `${bike.series} ${bike.version_name}`;
+      bike.title = title.substr(0, 30);
+      return bike;
+    });
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
@@ -150,5 +155,5 @@ export default defineComponent({
       window.location.replace(`/bike/${this.versionSelected}`);
     },
   },
-});
+};
 </script>

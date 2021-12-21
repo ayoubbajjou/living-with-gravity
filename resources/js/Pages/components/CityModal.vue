@@ -60,11 +60,11 @@
               transform
               transition-all
               sm:my-8 sm:align-middle sm:max-w-lg sm:w-full
-              h-120
+              h-144
             "
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div class="">
+              <div class="overflow-y-scroll">
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <DialogTitle
                     as="h3"
@@ -173,19 +173,43 @@
                           </ul>
                         </div>
 
-                        <div class="flex flex-wrap items-center w-full justify-center">
-                          <img @click="selectCity('bangalore', 1)" class="cursor-pointer w-24 h-24" src="/icons/bangalore.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('mumbai', 3)" class="cursor-pointer w-24 h-24" src="/icons/mumbai.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('delhi', 4)" class="cursor-pointer w-24 h-24" src="/icons/new-delhi.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('gurugram', city.id)" class="cursor-pointer w-24 h-24" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('pune', 2)" class="cursor-pointer w-24 h-24" src="/icons/pune.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('hyderabad', 6)" class="cursor-pointer w-24 h-24" src="/icons/hyderabad.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('jaipur', 584)" class="cursor-pointer w-24 h-24" src="/icons/jaipur.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('ahmedabad', 8)" class="cursor-pointer w-24 h-24" src="/icons/ahmedabad.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('chennai', 5)" class="cursor-pointer w-24 h-24" src="/icons/chennai.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('faridabad', 413)" class="cursor-pointer w-24 h-24" src="/icons/faridabad.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('goa', 452)" class="cursor-pointer w-24 h-24" src="/icons/goa.svg" alt="" style="filter: invert(1);">
-                          <img @click="selectCity('kolkata', 7)" class="cursor-pointer w-24 h-24" src="/icons/kolkata.svg" alt="" style="filter: invert(1);">
+                        <div class="w-full grid grid-cols-3 gap-4 overflow-y-scroll">
+                          <div>
+                            <img @click="selectCity('bangalore', 1)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/bangalore.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">bangalore</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('mumbai', 3)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/mumbai.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">mumbai</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('delhi', 4)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/new-delhi.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">delhi</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('gurugram', city.id)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">gurugram</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('pune', 2)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/pune.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">pune</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('hyderabad', 6)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/hyderabad.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">hyderabad</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('jaipur', 584)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/jaipur.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">jaipur</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('ahmedabad', 8)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/ahmedabad.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">ahmedabad</p>
+                          </div>
+                          <div>
+                            <img @click="selectCity('chennai', 5)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/chennai.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">chennai</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -282,17 +306,18 @@ export default {
       cities: [],
       citiesList: [],
       city: null,
-      cityId: 1
+      cityId: 1,
     };
   },
   mounted() {
-      axios.get('/get-cities')
-        .then(res => {
-            this.cities = res.data
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    axios
+      .get("/get-cities")
+      .then((res) => {
+        this.cities = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   methods: {
     searchOnCities() {
@@ -305,23 +330,23 @@ export default {
       this.citiesList = data;
     },
     selectCity(name, id) {
-        this.open = false
+      this.open = false;
       this.city = name;
       this.cityId = id;
       this.isCitiesList = false;
       this.citiesList = this.cities;
-      localStorage.setItem('citySelectedName', this.city);
-      localStorage.setItem('citySelectedId', id);
-      this.$emit('city-selected', {
-          city_name: this.city,
-          city_id: id
-      })
-    var emitter = require('tiny-emitter/instance');
-      emitter.emit('city-selected', {
-          city_name: this.city,
-          city_id: id
+      localStorage.setItem("citySelectedName", this.city);
+      localStorage.setItem("citySelectedId", id);
+      this.$emit("city-selected", {
+        city_name: this.city,
+        city_id: id,
+      });
+      var emitter = require("tiny-emitter/instance");
+      emitter.emit("city-selected", {
+        city_name: this.city,
+        city_id: id,
       });
     },
-  }
+  },
 };
 </script>

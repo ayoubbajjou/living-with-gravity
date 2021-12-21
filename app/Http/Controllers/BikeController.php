@@ -159,7 +159,7 @@ class BikeController extends Controller
         $data = [];
 
         
-        $dealers = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->take(10)->get();
+        $dealers = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->take(20)->get();
         $dealersCount = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->count();
         $moreBikes = Bike::where('brand_id', $bike->brand_id)->where('id', '!=', $bike->id)->with('prices', 'images')->limit(20)->get();
         $cities = City::all();
@@ -185,15 +185,16 @@ class BikeController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * allBikes the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bike $bike)
+    public function allBikes(Request $request, $brand)
     {
-        //
+        $bikes = Bike::where('make', $brand)->with('prices', 'images')->limit(50)->get();
+        return Inertia::render('Bikes/All', compact('bikes'));
     }
 
     /**

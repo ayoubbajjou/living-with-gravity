@@ -42,6 +42,7 @@ Route::get('/search/displacement/{displacement}', [SearchController::class, 'sea
 Route::get('/get-brands-limited', [BrandController::class, 'getBrandsLimited'])->name('get.brands-limited');
 Route::get('/bike-versions/{id}', [BikeController::class, 'bikeVersions'])->name('get.bike-versions');
 Route::post('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/all-bikes/{brand}', [BikeController::class, 'allBikes'])->name('allBikes');
 Route::post('/get-dealers-pagination', [BikeController::class, 'getDealersPagination'])->name('getDealersPagination');
 Route::post('/get-dealers', [BikeController::class, 'getDealers'])->name('getDealers');
 Route::get('/get-cities', [CityController::class, 'getCities'])->name('getCities');

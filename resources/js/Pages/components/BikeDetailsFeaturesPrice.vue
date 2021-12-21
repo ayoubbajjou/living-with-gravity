@@ -6,7 +6,7 @@
         class="w-1/2 px-6 lg:px-14 py-6 text-xl uppercase"
         :class="
           activeTab === 1
-            ? 'text-red-600 bg-gray-600 font-bold'
+            ? 'text-red-600 bg-[#2F2F2F] font-bold'
             : 'text-gray-200 bg-secondary font-normal'
         "
       >
@@ -17,7 +17,7 @@
         class="w-1/2 px-6 lg:px-14 py-6 text-xl uppercase"
         :class="
           activeTab === 2
-            ? 'text-red-600 bg-gray-600 font-bold'
+            ? 'text-red-600 bg-[#2F2F2F] font-bold'
             : 'text-gray-200 bg-secondary font-normal'
         "
       >
@@ -99,7 +99,7 @@
         </div>
         <div class="flex justify-center lg:justify-start px-14 py-10">
           <button
-            @click="scrollDown()"
+            @click="scrollDown('specs')"
             class="
               text-white
               py-4
@@ -116,7 +116,7 @@
           </button>
           <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
-            v-if="loading"
+              v-if="loading"
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -146,10 +146,10 @@
               Ex-showroom ({{ cityName }}):
             </p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ bikePriceList?.ex_showroom_price }}
+              ₹ {{ priceFormat(bikePriceList?.ex_showroom_price) }}
             </h1>
             <svg
-            v-if="loading"
+              v-if="loading"
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -173,10 +173,10 @@
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">RTO:</p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ bikePriceList?.rto_price }}
+              ₹ {{ priceFormat(bikePriceList?.rto_price) }}
             </h1>
             <svg
-            v-if="loading"
+              v-if="loading"
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -202,10 +202,10 @@
               Insurance (Comprehensive):
             </p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ bikePriceList?.insurance_price }}
+              ₹ {{ priceFormat(bikePriceList?.insurance_price) }}
             </h1>
             <svg
-            v-if="loading"
+              v-if="loading"
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -232,10 +232,10 @@
               On-road price in {{ cityName }}:
             </p>
             <h1 class="text-white text-3xl font-bold" v-if="!loading">
-              ₹ {{ bikePriceList?.onroad_price }}
+              ₹ {{ priceFormat(bikePriceList?.onroad_price) }}
             </h1>
             <svg
-            v-if="loading"
+              v-if="loading"
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -322,8 +322,8 @@
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"              
-                >
+                stroke="currentColor"
+              >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -347,8 +347,9 @@
               bg-gray-900
               rounded-l
             "
+            @click="scrollDown('dealers')"
           >
-            Contact Dealer
+            View Dealers
           </button>
           <button class="bg-icon-button text-white px-6 py-3 rounded-r">
             <svg
@@ -410,14 +411,26 @@ export default {
     }, 5);
   },
   methods: {
+    priceFormat(price) {
+      return new Intl.NumberFormat("en-IN", {
+        maximumSignificantDigits: 3,
+      }).format(price);
+    },
     selectTab(val) {
       this.activeTab = val;
     },
-    scrollDown() {
-      window.scroll({
-        top: 700,
-        behavior: "smooth",
-      });
+    scrollDown(val) {
+      if (val === "specs") {
+        window.scroll({
+          top: 700,
+          behavior: "smooth",
+        });
+      } else if (val === "dealers") {
+        window.scroll({
+          top: 2450,
+          behavior: "smooth",
+        });
+      }
     },
     citySelected() {
       this.cityName = localStorage.getItem("citySelectedName");
@@ -430,24 +443,17 @@ export default {
           `https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=${this.bikeId}&city_id=${city_id}`
         )
         .then((res) => {
-          var price = res.data.data?.price?.[0]?.amount;
-          const formatedPrice = new Intl.NumberFormat().format(price);
-          // bike.price = "₹ " + formatedPrice
           this.bikePriceList = {
             bike_id: this.bikeId,
             city_id: city_id,
-            ex_showroom_price: new Intl.NumberFormat().format(
+            ex_showroom_price: this.priceFormat(
               res.data.data?.price?.[0]?.amount
             ),
-            insurance_price: new Intl.NumberFormat().format(
+            insurance_price: this.priceFormat(
               res.data.data?.price?.[2]?.amount
             ),
-            onroad_price: new Intl.NumberFormat().format(
-              res.data.data?.price?.[3]?.amount
-            ),
-            rto_price: new Intl.NumberFormat().format(
-              res.data.data?.price?.[1]?.amount
-            ),
+            onroad_price: this.priceFormat(res.data.data?.price?.[3]?.amount),
+            rto_price: this.priceFormat(res.data.data?.price?.[1]?.amount),
           };
           this.loading = false;
         })

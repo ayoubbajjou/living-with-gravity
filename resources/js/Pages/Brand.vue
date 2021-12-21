@@ -28,7 +28,8 @@
         </div>
       </div>
       <MoreSuggestedBikes
-        :title="bike?.brand?.brand_name"
+        :title="bike?.brand.brand_name"
+        :brand="true"
         :bikes="suggestedBikes"
       />
 
