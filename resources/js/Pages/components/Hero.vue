@@ -40,9 +40,9 @@
             type="text"
             placeholder="Search by brand, Body, Model..."
           />
-          <span v-if="errorMessage" class="text-red-500 text-sm">
+          <p v-if="errorMessage" class="text-red-500 text-sm font-bold">
             {{ errorMessage }}
-          </span>
+          </p>
           <div
             v-if="!errorMessage && bikes.length"
             id="search-list"
@@ -54,7 +54,7 @@
               top-24
               bg-white
               mt-2
-              border-2 border-gray-400
+              border-2 border-[#2F2F2F]
               rounded-md
               overflow-y-scroll
             "
@@ -64,7 +64,7 @@
               :key="bike.id"
               class="flex py-4 px-8 items-center"
               @mouseover="isHovered(bike.id)"
-              :class="{'bg-gray-400' : bikeHovered === bike.id}"
+              :class="{'bg-[#2F2F2F]' : bikeHovered === bike.id}"
             >
               <a class="flex" :href="`/bike/${bike.id}`">
                 <img
@@ -153,7 +153,7 @@ export default {
             console.log(err);
           });
       } else {
-        this.errorMessage = "please type more than 4 letters for search";
+        this.errorMessage = "Please type 3 or more letters";
       }
     },
     isHovered(id) {

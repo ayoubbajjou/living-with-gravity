@@ -16,7 +16,7 @@
         xl:ml-0
       "
     >
-      More {{ title }} bikes
+      {{ brand  ? `All ${bikes?.[0].make} bikes` : `More ${bikes?.[0].make} bikes`}}
     </h1>
 
     <div class="overflow-x-auto scrollBar" id="suggestedBikes">
@@ -40,7 +40,7 @@
               <span class="text-xs">Starting from</span>
               <p class="text-light italic">
                 <!-- ₹{{ bike?.prices?.[0]?.ex_showroom_price }} -->
-                ₹{{ bike?.default_price }}
+                ₹{{ priceFormat(bike?.default_price) }}
               </p>
             </div>
           </a>
@@ -96,7 +96,7 @@
             </svg>
           </button>
         </div>
-        <span class="text-red-600 cursor-pointer">View all</span>
+        <a :href="`/all-bikes/${title}`" class="text-red-600 cursor-pointer">View all</a>
       </div>
     </div>
   </div>
@@ -105,7 +105,7 @@
 <script>
 export default {
   name: "MoreSuggestedBikes",
-  props: ["bikes", "title"],
+  props: ["bikes", "title", "brand"],
   data() {
     return {
       scrollVal: 300,
@@ -115,6 +115,9 @@ export default {
 
   },
   methods: {
+    priceFormat(price) {
+      return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(price);
+    },
     scrollNext() {
       this.validateScroll();
       this.documentScroll("+");

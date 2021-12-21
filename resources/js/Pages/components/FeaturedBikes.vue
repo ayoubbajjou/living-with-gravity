@@ -179,8 +179,7 @@ export default {
         )
         .then((res) => {
           var price = res.data.data?.price?.[0]?.amount
-          const formatedPrice = new Intl.NumberFormat().format(price)
-          bike.price = "₹ " + formatedPrice
+          bike.price = "₹ " + this.priceFormat(price)
 
         })
         .catch((err) => {
@@ -189,6 +188,9 @@ export default {
     });
   },
   methods: {
+    priceFormat(price) {
+      return new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(price);
+    },
     scrollNext() {
       if (this.start === 4) {
         this.start = 0;

@@ -31,12 +31,9 @@
               <h2 class="text-white font-bold text-xl mb-2">
                 {{ post.title.rendered }}
               </h2>
-              <p class="text-white font-bold text-xl">
-                {{ post.date }}
-              </p>
               <!-- <p class="text-red-600">Aditiya Chatterjee</p> -->
               <p class="text-white text-sm">
-                Published: {{ post.date }} IST
+                Published: {{ this.datePosted(post.date) }}
               </p>
             </div>
           </a>
@@ -138,28 +135,18 @@ export default {
       posts: [],
     };
   },
-  methods: {
-    datePosted(date) {
-      return datePosted(post.date) 
-    },
-    dateTimePosted(date) {
-      return moment(date).format("LLL");
-    },
-  },
   mounted() {
     // this.posts = this.$page.props.postsData;
-
     this.getWpPosts()
   },
   methods: {
+    datePosted(date) {
+      return moment(date).format("ll");
+    },
     async getWpPosts() {
       await axios.get('/get-wp-posts')
         .then(res => {
-          const data = res.data.map(post => {
-              moment(post.date).format("LLL")
-              return post;
-          })
-          this.posts = data
+          this.posts = res.data
         })
         .catch(err => {
           console.log(err)

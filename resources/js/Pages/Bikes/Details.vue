@@ -157,7 +157,7 @@ export default defineComponent({
       suggestedBikes: null,
       cities: null,
       brands: null,
-      currentImg: 0,
+      currentImg: 1,
       versions: [],
       versionSelected: null,
       dealersCount: null,
