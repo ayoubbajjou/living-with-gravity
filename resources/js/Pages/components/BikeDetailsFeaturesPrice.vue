@@ -420,7 +420,6 @@ export default {
       });
     },
     citySelected() {
-      console.log("city_selected");
       this.cityName = localStorage.getItem("citySelectedName");
     },
     async getPrice() {

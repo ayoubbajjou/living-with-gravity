@@ -37,8 +37,13 @@
 </template>
 
 <script>
+import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
+
 export default {
   name: "Subscribe",
+  components: {
+    JetApplicationLogo
+  }
 };
 </script>
 

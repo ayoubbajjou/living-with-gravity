@@ -1,7 +1,7 @@
 <template>
-  <div class="flex pl-4 bg-secondary py-12">
+  <div class="flex pl-4 bg-secondary pb-12 w-full">
     <div
-      class="bg-gray-700 lg:px-12 py-8 flex-col items-start flex space-y-12"
+      class="bg-[#2F2F2F] lg:px-12 w-1/3 py-24 py-8 flex-col items-start flex space-y-12"
     >
       <button
         class="uppercase text-xs lg:text-base"
@@ -115,14 +115,14 @@
         Tyres And Brakes
       </button>
     </div>
-    <div class="flex w-1/2 max-h-120 overflow-y-auto">
-      <ul class="w-full">
+    <div class="flex w-2/3 max-h-168 overflow-y-auto">
+      <ul class="w-full lg:ml-12 py-20">
         <li v-for="spec in specsList" :key="spec.id" class="text-bold">
           <div
             class="w-full flex items-center justify-start text-white px-12 py-4"
           >
-            <p class="w-1/2">{{ spec.title }}</p>
-            <p class="w-1/2 ">{{ spec.description }}</p>
+            <p class="w-2/3 font-bold">{{ spec.title }}</p>
+            <p class="w-1/3 ">{{ spec.description }}</p>
           </div>
         </li>
       </ul>

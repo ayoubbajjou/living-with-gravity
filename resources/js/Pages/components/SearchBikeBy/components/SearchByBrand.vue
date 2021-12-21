@@ -2,14 +2,14 @@
   <div
         class="
           lg:w-full
-          bg-gray-600
+          bg-[#2F2F2F]
           grid grid-cols-2
           md:grid-cols-3
           lg:grid-cols-4
           xl:grid-cols-5
           gap-4
           py-8
-          px-4
+          px-12
         "
       >
         <div v-for="brand in brands" :key="brand.id" class="w-full">
