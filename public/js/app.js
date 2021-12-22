@@ -24805,12 +24805,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this2.bikePriceList = {
                     bike_id: _this2.bikeId,
                     city_id: city_id,
-                    ex_showroom_price: _this2.priceFormat((_res$data$data = res.data.data) === null || _res$data$data === void 0 ? void 0 : (_res$data$data$price = _res$data$data.price) === null || _res$data$data$price === void 0 ? void 0 : (_res$data$data$price$ = _res$data$data$price[0]) === null || _res$data$data$price$ === void 0 ? void 0 : _res$data$data$price$.amount),
-                    insurance_price: _this2.priceFormat((_res$data$data2 = res.data.data) === null || _res$data$data2 === void 0 ? void 0 : (_res$data$data2$price = _res$data$data2.price) === null || _res$data$data2$price === void 0 ? void 0 : (_res$data$data2$price2 = _res$data$data2$price[2]) === null || _res$data$data2$price2 === void 0 ? void 0 : _res$data$data2$price2.amount),
-                    onroad_price: _this2.priceFormat((_res$data$data3 = res.data.data) === null || _res$data$data3 === void 0 ? void 0 : (_res$data$data3$price = _res$data$data3.price) === null || _res$data$data3$price === void 0 ? void 0 : (_res$data$data3$price2 = _res$data$data3$price[3]) === null || _res$data$data3$price2 === void 0 ? void 0 : _res$data$data3$price2.amount),
-                    rto_price: _this2.priceFormat((_res$data$data4 = res.data.data) === null || _res$data$data4 === void 0 ? void 0 : (_res$data$data4$price = _res$data$data4.price) === null || _res$data$data4$price === void 0 ? void 0 : (_res$data$data4$price2 = _res$data$data4$price[1]) === null || _res$data$data4$price2 === void 0 ? void 0 : _res$data$data4$price2.amount)
+                    ex_showroom_price: (_res$data$data = res.data.data) === null || _res$data$data === void 0 ? void 0 : (_res$data$data$price = _res$data$data.price) === null || _res$data$data$price === void 0 ? void 0 : (_res$data$data$price$ = _res$data$data$price[0]) === null || _res$data$data$price$ === void 0 ? void 0 : _res$data$data$price$.amount,
+                    insurance_price: (_res$data$data2 = res.data.data) === null || _res$data$data2 === void 0 ? void 0 : (_res$data$data2$price = _res$data$data2.price) === null || _res$data$data2$price === void 0 ? void 0 : (_res$data$data2$price2 = _res$data$data2$price[2]) === null || _res$data$data2$price2 === void 0 ? void 0 : _res$data$data2$price2.amount,
+                    onroad_price: (_res$data$data3 = res.data.data) === null || _res$data$data3 === void 0 ? void 0 : (_res$data$data3$price = _res$data$data3.price) === null || _res$data$data3$price === void 0 ? void 0 : (_res$data$data3$price2 = _res$data$data3$price[3]) === null || _res$data$data3$price2 === void 0 ? void 0 : _res$data$data3$price2.amount,
+                    rto_price: (_res$data$data4 = res.data.data) === null || _res$data$data4 === void 0 ? void 0 : (_res$data$data4$price = _res$data$data4.price) === null || _res$data$data4$price === void 0 ? void 0 : (_res$data$data4$price2 = _res$data$data4$price[1]) === null || _res$data$data4$price2 === void 0 ? void 0 : _res$data$data4$price2.amount
                   };
                   _this2.loading = false;
+                  console.log(_this2.bikePriceList);
                 })["catch"](function (err) {
                   console.log(err);
                 });

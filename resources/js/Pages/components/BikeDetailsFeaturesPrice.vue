@@ -446,16 +446,13 @@ export default {
           this.bikePriceList = {
             bike_id: this.bikeId,
             city_id: city_id,
-            ex_showroom_price: this.priceFormat(
-              res.data.data?.price?.[0]?.amount
-            ),
-            insurance_price: this.priceFormat(
-              res.data.data?.price?.[2]?.amount
-            ),
-            onroad_price: this.priceFormat(res.data.data?.price?.[3]?.amount),
-            rto_price: this.priceFormat(res.data.data?.price?.[1]?.amount),
+            ex_showroom_price: res.data.data?.price?.[0]?.amount,
+            insurance_price: res.data.data?.price?.[2]?.amount,
+            onroad_price: res.data.data?.price?.[3]?.amount,
+            rto_price: res.data.data?.price?.[1]?.amount,
           };
           this.loading = false;
+          console.log(this.bikePriceList);
         })
         .catch((err) => {
           console.log(err);
