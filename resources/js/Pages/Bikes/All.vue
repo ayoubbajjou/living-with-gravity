@@ -20,7 +20,7 @@
               mt-12
             "
           >
-            Search Results
+            All {{ bikes?.[0]?.make }} Bikes
           </h3>
           <div
             class="
@@ -51,7 +51,7 @@
                   </h3>
                   <span class="text-xs">Starting from</span>
                   <p class="text-light italic">
-                    ₹{{ priceFormat(bike?.prices?.[0]?.ex_showroom_price) }}
+                    ₹{{ priceFormat(bike?.default_price) }}
                   </p>
                 </div>
               </a>
