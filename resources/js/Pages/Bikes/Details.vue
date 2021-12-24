@@ -19,7 +19,7 @@
               pl-4
               lg:pl-64 lg:py-8
               h-40
-              bg-opacity-60 bg-gray-600
+              bg-opacity-75 bg-[#2F2F2F]
             "
           >
             <div class="text-white flex space-x-14">
@@ -65,7 +65,7 @@
               <p class="text-white">Select variant:</p>
               <select
                 name="variant"
-                class="bg-transparent border-0"
+                class="bg-transparent border-0 font-bold"
                 id="variant"
                 @change="bikeIsChanged()"
                 v-model="versionSelected"
@@ -114,6 +114,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 * {
   font-family: "Poppins", sans-serif;
+}
+
+select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='45' viewBox='0 0 24 24' width='45' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+
 }
 </style>
 
