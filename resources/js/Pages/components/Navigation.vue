@@ -14,16 +14,7 @@
       "
     >
       <!-- <div class="w-2/3 flex items-center"> -->
-      <ul
-        class="
-          order-last
-          lg:order-none
-          flex
-          items-center
-          space-x-8
-          lg:flex
-        "
-      >
+      <ul class="order-last lg:order-none flex items-center space-x-8 lg:flex">
         <div class="flex items-center mt-4 space-x-2 sm:mt-0">
           <a
             href="https://twitter.com/dolas_akash"
@@ -87,7 +78,7 @@
           </a>
         </div>
       </ul>
-      <a
+      <div
         href="/"
         aria-label="Living with gravity"
         title="living with gravity"
@@ -102,26 +93,83 @@
           w-2/4
         "
       >
-        <jet-application-logo class="lg:block h-16 w-auto" />
-      </a>
+        <a
+          href="/"
+          aria-label="Living with gravity"
+          title="living with gravity"
+          class=""
+        >
+          <jet-application-logo class="lg:block h-16 w-auto" />
+        </a>
+      </div>
       <!-- </div> -->
-      <div class="w-1/4 hidden lg:flex items-center justify-between">
+      <div class="relative w-1/4 hidden lg:flex items-center justify-between">
         <input
-          type="text"
-          placeholder="Search Keyword"
           class="
             w-full
             hidden
-            lg:block lg:w-2/3 lg:ml-28
+            lg:block
             bg-transparent
-            border-b-2 border-t-0 border-l-0 border-r-0
-            focus:outline-none
-            border-gray-100
+            border-b-2 border-t-0 border-l-0 border-r-0 border-gray-100
             py-3
             px-2
+            text-white
             outline-none
+            focus:outline-none
+            active:outline-none
+            focus:ring-transparent
+            active:ring-transparent
           "
+          @keyup="search('desktop')"
+          v-model="query"
+          type="text"
+          placeholder="Search by brand, Body, Model..."
         />
+        <div
+          v-if="!errorMessage && bikes.length"
+          id="search-list"
+          class="
+            absolute
+            h-80
+            z-50
+            lg:w-90
+            top-24
+            bg-white
+            border-2 border-[#2F2F2F]
+            rounded-md
+            overflow-y-scroll
+            lg:-mt-8
+          "
+        >
+          <div
+            v-for="bike in bikes"
+            :key="bike.id"
+            class="flex py-4 px-2 items-center"
+            @mouseover="isHovered(bike.id)"
+            :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
+          >
+            <a class="flex" :href="`/bike/${bike.id}`">
+              <img
+                class="w-24 h-16 rounded-lg mr-4"
+                :src="bike?.images[0]?.thumb_link"
+                alt=""
+              />
+              <div
+                :class="
+                  bikeHovered === bike.id ? 'text-white' : 'text-gray-900'
+                "
+              >
+                <h3 class="font-bold">
+                  {{ bike.series }} {{ bike.version_name }}
+                </h3>
+                <span class="text-xs">Starting from</span>
+                <p class="text-light italic">
+                  ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="hidden lg:block h-6 w-6 text-white"
@@ -137,6 +185,72 @@
           />
         </svg>
       </div>
+    </div>
+    <div class="relative">
+      <input
+        class="
+          w-full
+          bg-transparent
+          lg:hidden
+          border-b-2 border-t-0 border-l-0 border-r-0 border-gray-100
+          py-3
+          px-2
+          text-white
+          outline-none
+          focus:outline-none
+          active:outline-none
+          focus:ring-transparent
+          active:ring-transparent
+        "
+        @keyup="search('mobile')"
+        v-model="query"
+        type="text"
+        placeholder="Search by brand, Body, Model..."
+      />
+      <div
+          v-if="!errorMessage && bikes.length && isMobile"
+          id="search-list"
+          class="
+            absolute
+            h-144
+            z-50
+            top-24
+            bg-white
+            border-2 border-[#2F2F2F]
+            rounded-md
+            overflow-y-scroll
+            -mt-10
+          "
+        >
+          <div
+            v-for="bike in bikes"
+            :key="bike.id"
+            class="flex py-4 px-2 items-center"
+            @mouseover="isHovered(bike.id)"
+            :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
+          >
+            <a class="flex" :href="`/bike/${bike.id}`">
+              <img
+                class="w-24 h-16 rounded-lg mr-4"
+                :src="bike?.images[0]?.thumb_link"
+                alt=""
+              />
+              <div
+                :class="
+                  bikeHovered === bike.id ? 'text-white' : 'text-gray-900'
+                "
+              >
+                <h3 class="font-bold">
+                  {{ bike.series }} {{ bike.version_name }}
+                </h3>
+                <span class="text-xs">Starting from</span>
+                <p class="text-light italic">
+                  ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -644,6 +758,11 @@ export default {
       isMenuOpen: false,
       selectCity: false,
       cityName: localStorage.getItem("citySelectedName") ?? "Bangalore",
+      query: null,
+      errorMessage: null,
+      bikes: [],
+      bikeHovered: null,
+      isMobile: false
     };
   },
   beforeMount() {
@@ -663,10 +782,54 @@ export default {
     emitter.on("city-selected", (val) => {
       this.cityName = val.city_name;
     });
+
+    document.addEventListener("click", (evt) => {
+      const flyoutElement = document.getElementById("search-list");
+      let targetElement = evt.target; // clicked element
+
+      do {
+        if (targetElement == flyoutElement) {
+          // This is a click inside. Do nothing, just return.
+          console.log("click inside");
+          return;
+        }
+        // Go up the DOM
+        targetElement = targetElement.parentNode;
+      } while (targetElement);
+
+      // This is a click outside.
+      this.bikes = [];
+      this.query = null;
+    });
   },
   methods: {
     citySelected() {
       this.cityName = localStorage.getItem("citySelectedName");
+    },
+    search(val) {
+      if(val === 'mobile') {
+        this.isMobile = true
+      }else {
+        this.isMobile = false
+      }
+      if (this.query.length >= 3) {
+        this.errorMessage = null;
+        axios
+          .post("/search", {
+            query: this.query,
+          })
+          .then((res) => {
+            this.bikes = res.data;
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        this.errorMessage = "Please type 3 or more letters";
+      }
+    },
+    isHovered(id) {
+      this.bikeHovered = id;
     },
   },
 };

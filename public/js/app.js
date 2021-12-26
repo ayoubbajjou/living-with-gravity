@@ -25462,7 +25462,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isMenuOpen: false,
       selectCity: false,
-      cityName: (_localStorage$getItem = localStorage.getItem("citySelectedName")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "Bangalore"
+      cityName: (_localStorage$getItem = localStorage.getItem("citySelectedName")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "Bangalore",
+      query: null,
+      errorMessage: null,
+      bikes: [],
+      bikeHovered: null,
+      isMobile: false
     };
   },
   beforeMount: function beforeMount() {
@@ -25485,10 +25490,54 @@ __webpack_require__.r(__webpack_exports__);
     emitter.on("city-selected", function (val) {
       _this.cityName = val.city_name;
     });
+    document.addEventListener("click", function (evt) {
+      var flyoutElement = document.getElementById("search-list");
+      var targetElement = evt.target; // clicked element
+
+      do {
+        if (targetElement == flyoutElement) {
+          // This is a click inside. Do nothing, just return.
+          console.log("click inside");
+          return;
+        } // Go up the DOM
+
+
+        targetElement = targetElement.parentNode;
+      } while (targetElement); // This is a click outside.
+
+
+      _this.bikes = [];
+      _this.query = null;
+    });
   },
   methods: {
     citySelected: function citySelected() {
       this.cityName = localStorage.getItem("citySelectedName");
+    },
+    search: function search(val) {
+      var _this2 = this;
+
+      if (val === 'mobile') {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+
+      if (this.query.length >= 3) {
+        this.errorMessage = null;
+        axios.post("/search", {
+          query: this.query
+        }).then(function (res) {
+          _this2.bikes = res.data;
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      } else {
+        this.errorMessage = "Please type 3 or more letters";
+      }
+    },
+    isHovered: function isHovered(id) {
+      this.bikeHovered = id;
     }
   }
 });
@@ -35499,14 +35548,38 @@ var _hoisted_4 = {
   title: "living with gravity",
   "class": "order-first lg:order-none inline-flex justofy-start lg:justify-center items-center lg:mx-auto w-2/4"
 };
+var _hoisted_5 = {
+  href: "/",
+  "aria-label": "Living with gravity",
+  title: "living with gravity",
+  "class": ""
+};
+var _hoisted_6 = {
+  "class": "relative w-1/4 hidden lg:flex items-center justify-between"
+};
+var _hoisted_7 = {
+  key: 0,
+  id: "search-list",
+  "class": "absolute h-80 z-50 lg:w-90 top-24 bg-white border-2 border-[#2F2F2F] rounded-md overflow-y-scroll lg:-mt-8"
+};
+var _hoisted_8 = ["onMouseover"];
+var _hoisted_9 = ["href"];
+var _hoisted_10 = ["src"];
+var _hoisted_11 = {
+  "class": "font-bold"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-1/4 hidden lg:flex items-center justify-between"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  placeholder: "Search Keyword",
-  "class": "w-full hidden lg:block lg:w-2/3 lg:ml-28 bg-transparent border-b-2 border-t-0 border-l-0 border-r-0 focus:outline-none border-gray-100 py-3 px-2 outline-none"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-xs"
+}, "Starting from", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "text-light italic"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "hidden lg:block h-6 w-6 text-white",
   fill: "none",
@@ -35517,27 +35590,51 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "stroke-linejoin": "round",
   "stroke-width": "2",
   d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-})])], -1
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_6 = {
+var _hoisted_15 = {
+  "class": "relative"
+};
+var _hoisted_16 = {
+  key: 0,
+  id: "search-list",
+  "class": "absolute h-144 z-50 top-24 bg-white border-2 border-[#2F2F2F] rounded-md overflow-y-scroll -mt-10"
+};
+var _hoisted_17 = ["onMouseover"];
+var _hoisted_18 = ["href"];
+var _hoisted_19 = ["src"];
+var _hoisted_20 = {
+  "class": "font-bold"
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-xs"
+}, "Starting from", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "text-light italic"
+};
+var _hoisted_23 = {
   "class": "bg-gradient-to-r from-[#f84270] to-[#fe803b]"
 };
-var _hoisted_7 = {
+var _hoisted_24 = {
   "class": "w-full py-3 px-4 lg:mx-auto md:max-w-screen-xl"
 };
-var _hoisted_8 = {
+var _hoisted_25 = {
   "class": "relative flex items-center justify-between"
 };
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Buyers Guide\" title=\"Buyers Guide\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Buyers Guide </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></div>", 1);
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex items-center px-2\"><ul class=\"flex items-center hidden space-x-14 lg:flex\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Buyers Guide\" title=\"Buyers Guide\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Buyers Guide </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></div>", 1);
 
-var _hoisted_10 = {
+var _hoisted_27 = {
   "class": "items-center hidden space-x-8 lg:flex"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6 text-red-500 mr-4",
   fill: "none",
@@ -35557,11 +35654,11 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = {
+var _hoisted_29 = {
   "class": "flex items-center justify-center h-12 px-2 font-bold text-sm uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
 };
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6",
   fill: "none",
@@ -35576,11 +35673,11 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = {
+var _hoisted_31 = {
   "class": "lg:hidden"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   "class": "w-5 text-gray-600",
   viewBox: "0 0 24 24"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
@@ -35596,46 +35693,140 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_16 = [_hoisted_15];
-var _hoisted_17 = {
+var _hoisted_33 = [_hoisted_32];
+var _hoisted_34 = {
   key: 0,
   "class": "absolute top-0 left-0 w-full"
 };
-var _hoisted_18 = {
+var _hoisted_35 = {
   "class": "relative z-50 p-5 bg-secondary border rounded shadow-sm"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Bike Guides\" title=\"Bike Guides\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bike Guides </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></nav>", 1);
+var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav><ul class=\"space-y-4\"><li><a href=\"https://livingwithgravity.com/category/news/\" target=\"_blank\" aria-label=\"News\" title=\"News\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">News </a></li><li><a href=\"https://livingwithgravity.com/category/how-to/\" target=\"_blank\" aria-label=\"Bike Guides\" title=\"Bike Guides\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Bike Guides </a></li><li><a href=\"https://livingwithgravity.com/category/racing/\" target=\"_blank\" aria-label=\"Racing\" title=\"Racing\" class=\"text-sm font-bold uppercase space-x-4 flex items-center tracking-wide text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Racing </a></li><li><a href=\"https://livingwithgravity.com/category/electric-bikes/\" target=\"_blank\" aria-label=\"Electric\" title=\"Electric\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\">Electric </a></li><li><a href=\"https://livingwithgravity.com/category/expert-talks/\" target=\"_blank\" aria-label=\"Interviews\" title=\"Interviews\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Interviews </a></li><li><a href=\"https://livingwithgravity.com/\" target=\"_blank\" aria-label=\"Blog\" title=\"Blog\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Blog </a></li><li><a href=\"https://livingwithgravity.com/about\" target=\"_blank\" aria-label=\"About us\" title=\"About us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> About us </a></li><li><a href=\"https://livingwithgravity.com/contact\" target=\"_blank\" aria-label=\"Contact us\" title=\"Contact us\" class=\"font-medium uppercase space-x-4 tracking-wide flex text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400\"> Contact us </a></li></ul></nav>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_application_logo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-application-logo");
 
   var _component_city_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("city-modal");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-2/3 flex items-center\"> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_application_logo, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-2/3 flex items-center\"> "), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_application_logo, {
     "class": "lg:block h-16 w-auto"
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> "), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "w-full hidden lg:block bg-transparent border-b-2 border-t-0 border-l-0 border-r-0 border-gray-100 py-3 px-2 text-white outline-none focus:outline-none active:outline-none focus:ring-transparent active:ring-transparent",
+    onKeyup: _cache[0] || (_cache[0] = function ($event) {
+      return $options.search('desktop');
+    }),
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.query = $event;
+    }),
+    type: "text",
+    placeholder: "Search by brand, Body, Model..."
+  }, null, 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.query]]), !$data.errorMessage && $data.bikes.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bikes, function (bike) {
+    var _bike$images$, _bike$prices, _bike$prices$;
+
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: bike.id,
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex py-4 px-2 items-center", {
+        'bg-[#2F2F2F]': $data.bikeHovered === bike.id
+      }]),
+      onMouseover: function onMouseover($event) {
+        return $options.isHovered(bike.id);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      "class": "flex",
+      href: "/bike/".concat(bike.id)
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "w-24 h-16 rounded-lg mr-4",
+      src: bike === null || bike === void 0 ? void 0 : (_bike$images$ = bike.images[0]) === null || _bike$images$ === void 0 ? void 0 : _bike$images$.thumb_link,
+      alt: ""
+    }, null, 8
+    /* PROPS */
+    , _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.bikeHovered === bike.id ? 'text-white' : 'text-gray-900')
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.version_name), 1
+    /* TEXT */
+    ), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_13, " ₹" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike === null || bike === void 0 ? void 0 : (_bike$prices = bike.prices) === null || _bike$prices === void 0 ? void 0 : (_bike$prices$ = _bike$prices[0]) === null || _bike$prices$ === void 0 ? void 0 : _bike$prices$.ex_showroom_price), 1
+    /* TEXT */
+    )], 2
+    /* CLASS */
+    )], 8
+    /* PROPS */
+    , _hoisted_9)], 42
+    /* CLASS, PROPS, HYDRATE_EVENTS */
+    , _hoisted_8);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_14])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "w-full bg-transparent lg:hidden border-b-2 border-t-0 border-l-0 border-r-0 border-gray-100 py-3 px-2 text-white outline-none focus:outline-none active:outline-none focus:ring-transparent active:ring-transparent",
+    onKeyup: _cache[2] || (_cache[2] = function ($event) {
+      return $options.search('mobile');
+    }),
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.query = $event;
+    }),
+    type: "text",
+    placeholder: "Search by brand, Body, Model..."
+  }, null, 544
+  /* HYDRATE_EVENTS, NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.query]]), !$data.errorMessage && $data.bikes.length && $data.isMobile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bikes, function (bike) {
+    var _bike$images$2, _bike$prices2, _bike$prices2$;
+
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      key: bike.id,
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex py-4 px-2 items-center", {
+        'bg-[#2F2F2F]': $data.bikeHovered === bike.id
+      }]),
+      onMouseover: function onMouseover($event) {
+        return $options.isHovered(bike.id);
+      }
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+      "class": "flex",
+      href: "/bike/".concat(bike.id)
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      "class": "w-24 h-16 rounded-lg mr-4",
+      src: bike === null || bike === void 0 ? void 0 : (_bike$images$2 = bike.images[0]) === null || _bike$images$2 === void 0 ? void 0 : _bike$images$2.thumb_link,
+      alt: ""
+    }, null, 8
+    /* PROPS */
+    , _hoisted_19), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.bikeHovered === bike.id ? 'text-white' : 'text-gray-900')
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike.version_name), 1
+    /* TEXT */
+    ), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_22, " ₹" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(bike === null || bike === void 0 ? void 0 : (_bike$prices2 = bike.prices) === null || _bike$prices2 === void 0 ? void 0 : (_bike$prices2$ = _bike$prices2[0]) === null || _bike$prices2$ === void 0 ? void 0 : _bike$prices2$.ex_showroom_price), 1
+    /* TEXT */
+    )], 2
+    /* CLASS */
+    )], 8
+    /* PROPS */
+    , _hoisted_18)], 42
+    /* CLASS, PROPS, HYDRATE_EVENTS */
+    , _hoisted_17);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
       return $data.selectCity = !$data.selectCity;
     }),
     "class": "flex border-l-4 items-center justify-center h-12 px-6 font-bold uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none cursor-pointer"
-  }, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName), 1
+  }, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName), 1
   /* TEXT */
-  ), _hoisted_13])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), _hoisted_30])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "aria-label": "Open Menu",
     title: "Open Menu",
     "class": "p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
+    onClick: _cache[5] || (_cache[5] = function ($event) {
       return $data.isMenuOpen = true;
     })
-  }, _hoisted_16), $data.isMenuOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, _hoisted_33), $data.isMenuOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "text-xl text-white font-bold flex justify-end",
-    onClick: _cache[2] || (_cache[2] = function ($event) {
+    onClick: _cache[6] || (_cache[6] = function ($event) {
       return $data.isMenuOpen = !$data.isMenuOpen;
     })
-  }, " x "), _hoisted_19])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
+  }, " x "), _hoisted_36])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
     key: 0,
-    onCitySelected: _cache[3] || (_cache[3] = function ($event) {
+    onCitySelected: _cache[7] || (_cache[7] = function ($event) {
       return $options.citySelected();
     })
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])], 64
