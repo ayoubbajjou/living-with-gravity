@@ -34423,7 +34423,7 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "capitalize text-center w-full"
-}, "gurugram", -1
+}, "Goa", -1
 /* HOISTED */
 );
 
@@ -34582,10 +34582,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 }
               }), _hoisted_20]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
                 onClick: _cache[6] || (_cache[6] = function ($event) {
-                  return $options.selectCity('gurugram', $data.city.id);
+                  return $options.selectCity('goa', 452);
                 }),
                 "class": "cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]",
-                src: "/icons/gurugram.svg",
+                src: "/icons/goa.svg",
                 alt: "",
                 style: {
                   "filter": "invert(1)"
