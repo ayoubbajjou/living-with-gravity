@@ -187,8 +187,8 @@
                             <p class="capitalize text-center w-full">delhi</p>
                           </div>
                           <div>
-                            <img @click="selectCity('gurugram', city.id)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/gurugram.svg" alt="" style="filter: invert(1);">
-                            <p class="capitalize text-center w-full">gurugram</p>
+                            <img @click="selectCity('goa', 452)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/goa.svg" alt="" style="filter: invert(1);">
+                            <p class="capitalize text-center w-full">Goa</p>
                           </div>
                           <div>
                             <img @click="selectCity('pune', 2)" class="cursor-pointer mx-auto w-[4.5rem] h-[4.5rem]" src="/icons/pune.svg" alt="" style="filter: invert(1);">
