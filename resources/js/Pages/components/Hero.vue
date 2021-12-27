@@ -78,7 +78,7 @@
                   </h3>
                   <span class="text-xs">Starting from</span>
                   <p class="text-light italic">
-                    ₹{{ bike?.prices?.[0]?.ex_showroom_price }}
+                    ₹{{ bike?.default_price }}
                   </p>
                 </div>
               </a>

@@ -22,8 +22,12 @@ class BrandController extends Controller
         if(!$brand) {
             abort(404);
         }
+        $moreBikes = Bike::where('brand_id', $brand->id)
+                    ->whereNotNull('default_price')
+                    ->with('prices', 'images')
+                    ->limit(20)
+                    ->get();
 
-        $moreBikes = Bike::where('brand_id', $brand->bikes[0]->brand_id)->where('id', '!=', $brand->bikes[0]->id)->with('prices', 'images')->limit(20)->get();
         $cities = City::all();
         $brands = Brand::all();
 

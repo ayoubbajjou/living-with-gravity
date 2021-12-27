@@ -13,23 +13,35 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request['query'];
-        $search = Bike::with('images', 'prices')->where('make', 'like', $query . '%')
-            ->orWhere('version_name', 'like', $query . '%')
-            ->orwhere('model_name', 'like', $query . '%')
-            ->orwhere('series', 'like', $query . '%')
+        $search = Bike::whereNotNull('default_price')
+            ->with('images', 'prices')
+            ->where('make', 'like', $query . '%')
+            ->where(function ($q) use ($query) {
+                $q->Where('version_name', 'like', $query . '%')
+                ->orwhere('model_name', 'like', $query . '%')
+                ->orwhere('series', 'like', $query . '%');
+            })
+            ->orderByDesc('default_price')
             ->get();
 
         return $search;
     }
     public function searchByBudget(Request $request, $budget)
     {
-        $bikes = Bike::where('model_id', '!=', NULL)->with('prices', 'images')->whereHas('prices', function ($q) use ($budget) {
-            if ($budget < 300000) {
-                $q->where('onroad_price', '<', $budget);
-            } else {
-                $q->where('onroad_price', '>', $budget);
-            }
-        })->select('id', 'version_name', 'make', 'series', 'model_name')->take(20)->get();
+        $bikes = Bike::whereNotNull('model_id')
+                        ->whereNotNull('default_price')
+                        ->with('prices', 'images');
+
+        if ($budget <= 300000) {
+            $bikes->where('default_price', '<', $budget);
+        } else {
+            $bikes->where('default_price', '>', $budget);
+        }
+        
+        $bikes = $bikes->select('id', 'version_name', 'make', 'series', 'model_name', 'default_price')
+                ->take(50)
+                ->orderByDesc('default_price')
+                ->get();
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
 
@@ -38,7 +50,11 @@ class SearchController extends Controller
 
     public function searchByDisplacement(Request $request, $displacement)
     {
-        $bikes = Bike::where('model_id', '!=', NULL)->with('prices', 'images')->take(20)->get();
+        $bikes = Bike::where('model_id', '!=', NULL)
+                    ->whereNotNull('default_price')
+                    ->with('prices', 'images')
+                    ->take(20)
+                    ->get();
 
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
