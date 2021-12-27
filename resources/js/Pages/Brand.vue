@@ -3,35 +3,40 @@
   <Navigation />
   <div class="bg-secondary h-screen">
     <div class="max-w-screen-xl mx-auto">
-      <div class="">
-        <img
-          class="mx-auto"
-          :src="`/images/brands/${brand?.brand_logo}`"
-          :alt="brand?.brand_name"
-        />
-      </div>
-      <div class="py-8 shadow-xl lg:flex justify-around items-center">
-        <div class="w-full">
+      <div v-if="brand && suggestedBikes">
+        <div class="">
           <img
-            class="w-full lg:rounded-l-lg"
-            :src="suggestedBikes?.[0]?.images[0]?.image_link"
-            alt=""
+            class="mx-auto"
+            :src="`/images/brands/${brand?.brand_logo}`"
+            :alt="brand?.brand_name"
           />
         </div>
-        <div class="w-full h-[360px] overflow-y-auto scrollBar">
-          <div class="py-4 bg-[#2F2F2F] lg:rounded-r-lg">
-            <p
-              class="text-white lg:rounded-r-lg bg-[#2F2F2F] shadow-xl px-8"
-              v-html="brand?.about_brand"
-            ></p>
+        <div class="py-8 shadow-xl lg:flex justify-around items-center">
+          <div class="w-full">
+            <img
+              class="w-full lg:rounded-l-lg"
+              :src="suggestedBikes?.[0]?.images[0]?.image_link"
+              alt=""
+            />
+          </div>
+          <div class="w-full h-[360px] overflow-y-auto scrollBar">
+            <div class="py-4 bg-[#2F2F2F] lg:rounded-r-lg">
+              <p
+                class="text-white lg:rounded-r-lg bg-[#2F2F2F] shadow-xl px-8"
+                v-html="brand?.about_brand"
+              ></p>
+            </div>
           </div>
         </div>
+        <MoreSuggestedBikes
+          :title="bike?.brand.brand_name"
+          :brand="true"
+          :bikes="suggestedBikes"
+        />
       </div>
-      <MoreSuggestedBikes
-        :title="bike?.brand.brand_name"
-        :brand="true"
-        :bikes="suggestedBikes"
-      />
+      <div v-if="!brand && !suggestedBikes">
+        <p class="text-3xl text-white font-bold text-center py-10">No Data Found!</p>
+      </div>
 
       <!-- Blog section -->
       <Blogs />

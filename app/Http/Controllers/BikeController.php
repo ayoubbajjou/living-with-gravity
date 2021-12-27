@@ -20,7 +20,7 @@ class BikeController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::all();
+        $bikes = Bike::whereNotNull('default_price')->get();
         return Inertia::render('Bikes/index', compact('bikes'));
     }
 
@@ -151,17 +151,23 @@ class BikeController extends Controller
     public function show($id)
     {
         $postsData = [];
-        
-        $bike = Bike::where('id', $id)->where('brand_id', '!=', NULL)->with(['images', 'prices', 'specifications', 'brand'])->first();
-        if(!$bike) {
+        $bike = Bike::where('id', $id)
+                    ->whereNotNull('default_price')
+                    ->where('brand_id', '!=', NULL)
+                    ->with(['images', 'prices', 'specifications', 'brand'])
+                    ->first();
+        if (!$bike) {
             abort(404);
         }
         $data = [];
 
-        
+
         $dealers = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->take(20)->get();
         $dealersCount = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->count();
-        $moreBikes = Bike::where('brand_id', $bike->brand_id)->where('id', '!=', $bike->id)->with('prices', 'images')->limit(20)->get();
+        $moreBikes = Bike::where('brand_id', $bike->brand_id)
+                            ->whereNotNull('default_price')
+                            ->with('prices', 'images')->limit(20)
+                            ->get();
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
         return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount'));
@@ -171,15 +177,19 @@ class BikeController extends Controller
      */
     public function bikeVersions($id)
     {
-        return Bike::where('model_id', $id)->select('model_id', 'id', 'version_id', 'version_name')->get();
+        return Bike::where('model_id', $id)
+                    ->whereNotNull('default_price')
+                    ->select('model_id', 'id', 'version_id', 'version_name')
+                    ->get();
     }
 
     /**
      * 
      */
-    public function getDealersPagination(Request $request) {
+    public function getDealersPagination(Request $request)
+    {
         $dealers = Dealer::where('brand_id', $request->brand_id)->where('city_id', $request->city_id)->count();
-        $dealersPagination = Dealer::where('brand_id', $request->brand_id)->where('city_id', $request->city_id)->skip(($request->page -1) * 10)->take(10)->get();
+        $dealersPagination = Dealer::where('brand_id', $request->brand_id)->where('city_id', $request->city_id)->skip(($request->page - 1) * 10)->take(10)->get();
         return [$dealersPagination, $dealers];
     }
 
@@ -193,7 +203,11 @@ class BikeController extends Controller
      */
     public function allBikes(Request $request, $brand)
     {
-        $bikes = Bike::where('make', $brand)->with('prices', 'images')->limit(50)->get();
+        $bikes = Bike::where('make', $brand)
+                        ->with('prices', 'images')
+                        ->whereNotNull('default_price')
+                        ->limit(50)
+                        ->get();
         return Inertia::render('Bikes/All', compact('bikes'));
     }
 

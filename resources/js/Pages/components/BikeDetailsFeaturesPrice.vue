@@ -146,7 +146,7 @@
               Ex-showroom ({{ cityName }}):
             </p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ priceFormat(bikePriceList?.ex_showroom_price) }}
+              {{ priceFormat(bikePriceList?.ex_showroom_price) }}
             </h1>
             <svg
               v-if="loading"
@@ -173,7 +173,7 @@
           <div class="flex items-center space-x-14 justify-between">
             <p class="text-white text-md leading-4">RTO:</p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ priceFormat(bikePriceList?.rto_price) }}
+              {{ priceFormat(bikePriceList?.rto_price) }}
             </h1>
             <svg
               v-if="loading"
@@ -202,7 +202,7 @@
               Insurance (Comprehensive):
             </p>
             <h1 class="text-white text-1xl font-bold" v-if="!loading">
-              ₹ {{ priceFormat(bikePriceList?.insurance_price) }}
+              {{ priceFormat(bikePriceList?.insurance_price) }}
             </h1>
             <svg
               v-if="loading"
@@ -232,7 +232,7 @@
               On-road price in {{ cityName }}:
             </p>
             <h1 class="text-white text-3xl font-bold" v-if="!loading">
-              ₹ {{ priceFormat(bikePriceList?.onroad_price) }}
+              {{ priceFormat(bikePriceList?.onroad_price) }}
             </h1>
             <svg
               v-if="loading"
@@ -412,9 +412,9 @@ export default {
   },
   methods: {
     priceFormat(price) {
-      return new Intl.NumberFormat("en-IN", {
+      return price ? '₹ '+ new Intl.NumberFormat("en-IN", {
         maximumSignificantDigits: 3,
-      }).format(price);
+      }).format(price) : `N/A`;
     },
     selectTab(val) {
       this.activeTab = val;

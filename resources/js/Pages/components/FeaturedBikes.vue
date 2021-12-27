@@ -179,7 +179,7 @@ export default {
         )
         .then((res) => {
           var price = res.data.data?.price?.[0]?.amount
-          bike.price = "₹ " + this.priceFormat(price)
+          bike.price = price === undefined ? res.data.message :  "₹ " + this.priceFormat(price)
 
         })
         .catch((err) => {
