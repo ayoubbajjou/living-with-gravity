@@ -24907,8 +24907,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    // this.posts = this.$page.props.postsData;
-    this.getWpPosts();
+    //check if past expiration date
+    var date = localStorage.getItem('fetchedDate');
+
+    if (localStorage.getItem("posts")) {
+      if (date < new Date()) {
+        localStorage.removeItem('posts');
+        localStorage.removeItem('fetchedDate');
+      } else {
+        this.posts = JSON.parse(localStorage.getItem("posts"));
+      }
+    } else {
+      this.getWpPosts();
+    }
   },
   methods: {
     datePosted: function datePosted(date) {
@@ -24925,6 +24936,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 2;
                 return axios.get('/get-wp-posts').then(function (res) {
                   _this.posts = res.data;
+                  localStorage.setItem('posts', JSON.stringify(res.data));
+                  var fourHours = new Date();
+                  fourHours.setHours(fourHours.getHours() + 4); //4 Hours from now
+
+                  //4 Hours from now
+                  localStorage.setItem('fetchedDate', fourHours);
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -25271,7 +25288,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    this.getWpPosts();
+    var date = localStorage.getItem('footerFetchedDate');
+
+    if (localStorage.getItem("footerPosts")) {
+      if (date < new Date()) {
+        localStorage.removeItem('footerPosts');
+        localStorage.removeItem('footerFetchedDate');
+      } else {
+        this.posts = JSON.parse(localStorage.getItem("footerPosts"));
+      }
+    } else {
+      this.getWpPosts();
+    }
   },
   methods: {
     getWpPosts: function getWpPosts() {
@@ -25288,6 +25316,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     return post;
                   });
                   _this.posts = data;
+                  localStorage.setItem('footerPosts', JSON.stringify(res.data));
+                  var fourHours = new Date();
+                  fourHours.setHours(fourHours.getHours() + 4); //4 Hours from now
+
+                  //4 Hours from now
+                  localStorage.setItem('footerFetchedDate', fourHours);
                 })["catch"](function (err) {
                   console.log(err);
                 });
@@ -34263,7 +34297,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_3 = {
-  "class": "mx-auto mt-12 bg-secondary"
+  "class": "mt-12 bg-secondary"
 };
 var _hoisted_4 = {
   key: 0,
@@ -34282,10 +34316,10 @@ var _hoisted_9 = {
 };
 var _hoisted_10 = {
   key: 1,
-  "class": "lg:flex justify-between space-y-4 lg:space-x-12"
+  "class": "lg:flex justify-between space-y-4 lg:space-y-0 lg:space-x-12"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"relative\"><a href=\"#\"><img class=\"opacity-50\" style=\"height:320px !important;width:600px !important;\" src=\"https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1770&amp;q=80\" alt=\"\"><div class=\"absolute inset-x-0 bottom-0 px-6 py-4\"><h2 class=\"text-white font-bold text-xl mb-2\"></h2><p class=\"text-white font-bold text-xl\"></p><!-- &lt;p class=&quot;text-red-600&quot;&gt;Aditiya Chatterjee&lt;/p&gt; --><p class=\"text-white text-sm\"></p></div></a></div><div class=\"relative\"><a href=\"#\"><img class=\"opacity-50\" style=\"height:320px !important;width:600px !important;\" src=\"https://images.unsplash.com/photo-1558981285-6f0c94958bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1770&amp;q=80\" alt=\"\"><div class=\"absolute inset-x-0 bottom-0 px-6 py-4\"><h2 class=\"text-white font-bold text-xl mb-2\"></h2><p class=\"text-white font-bold text-xl\"></p><!-- &lt;p class=&quot;text-red-600&quot;&gt;Aditiya Chatterjee&lt;/p&gt; --><p class=\"text-white text-sm\"></p></div></a></div>", 2);
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex justify-center items-center bg-[#2F2F2F]\" style=\"height:320px !important;width:600px !important;\"><svg class=\"animate-spin -ml-1 mr-3 h-5 w-5 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\"><circle class=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"4\"></circle><path class=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\"></path></svg></div><div class=\"flex justify-center items-center bg-[#2F2F2F]\" style=\"height:320px !important;width:600px !important;\"><svg class=\"animate-spin -ml-1 mr-3 h-5 w-5 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\"><circle class=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"4\"></circle><path class=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\"></path></svg></div>", 2);
 
 var _hoisted_13 = [_hoisted_11];
 

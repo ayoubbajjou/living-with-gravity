@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
         $postsData = [];
 
-        $brands = Brand::limit(10)->where('site_id', 1)->get();
+        $brands = Brand::limit(10)->where('site_id', 1)->select('id', 'brand_logo', 'brand_name')->get();
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
