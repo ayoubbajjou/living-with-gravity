@@ -419,7 +419,17 @@ export default {
     };
   },
   mounted() {
-    this.getWpPosts();
+    var date = localStorage.getItem('footerFetchedDate')
+    if(localStorage.getItem("footerPosts")) {
+      if (date < new Date()) {
+          localStorage.removeItem('footerPosts');
+          localStorage.removeItem('footerFetchedDate');
+      }else {
+        this.posts = JSON.parse(localStorage.getItem("footerPosts"))
+      }
+    }else {
+      this.getWpPosts()
+    }
   },
   methods: {
     async getWpPosts() {
@@ -430,6 +440,11 @@ export default {
             return post;
           });
           this.posts = data;
+          localStorage.setItem('footerPosts', JSON.stringify(res.data));
+
+          var fourHours = new Date();
+          fourHours.setHours(fourHours.getHours() + 4); //4 Hours from now
+          localStorage.setItem('footerFetchedDate', fourHours);
         })
         .catch((err) => {
           console.log(err);
