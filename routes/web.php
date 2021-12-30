@@ -36,7 +36,6 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/bike/{id}', [BikeController::class, 'show'])->name('show.bikes');
 Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
-Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
 Route::get('/search/budget/{budget}', [SearchController::class, 'searchByBudget'])->name('searchByBudget');
 Route::get('/search/displacement', [SearchController::class, 'searchByDisplacement'])->name('searchByDisplacement');
 Route::get('/get-brands-limited', [BrandController::class, 'getBrandsLimited'])->name('get.brands-limited');
@@ -49,3 +48,4 @@ Route::get('/get-cities', [CityController::class, 'getCities'])->name('getCities
 Route::post('/get-keys-featured', [BikeController::class, 'getKeys'])->name('getKeys');
 Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpPosts');
 Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');
+Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
