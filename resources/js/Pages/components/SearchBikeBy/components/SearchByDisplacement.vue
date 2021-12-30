@@ -12,7 +12,7 @@
       "
     >
       <div
-        @click="searchBy('100')"
+        @click="searchBy('?up=0&under=100')"
         class="
           items-center
           flex
@@ -39,7 +39,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('100-110')"
+        @click="searchBy('?up=100&under=110')"
         class="
           items-center
           flex
@@ -66,7 +66,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('110-125')"
+        @click="searchBy('?up=110&under=125')"
         class="
           items-center
           flex
@@ -93,7 +93,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('125-150')"
+        @click="searchBy('?up=125&under=150')"
         class="
           items-center
           flex
@@ -120,7 +120,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('150-200')"
+        @click="searchBy('?up=150&under=200')"
         class="
           items-center
           flex
@@ -160,7 +160,7 @@
       "
     >
       <div
-        @click="searchBy('200-250')"
+        @click="searchBy('?up=200&under=250')"
         class="
           items-center
           flex
@@ -187,7 +187,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('250-500')"
+        @click="searchBy('?up=250&under=500')"
         class="
           items-center
           flex
@@ -214,7 +214,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('500-750')"
+        @click="searchBy('?up=500&under=750')"
         class="
           items-center
           flex
@@ -241,7 +241,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('750-1000')"
+        @click="searchBy('?up=750&under=1000')"
         class="
           items-center
           flex
@@ -268,7 +268,7 @@
         </p>
       </div>
       <div
-        @click="searchBy('1000')"
+        @click="searchBy('?up=1000&under=10000000000')"
         class="
           items-center
           flex
@@ -303,7 +303,7 @@ export default {
   name: "SearchByDisplacement",
   methods: {
     searchBy(val) {
-      window.location.href = `/search/displacement/${val}`;
+      window.location.href = `/search/displacement${val}`;
     },
   },
 };

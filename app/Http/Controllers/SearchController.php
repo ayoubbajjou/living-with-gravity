@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Brand;
 use App\Models\City;
+use DB;
 
 class SearchController extends Controller
 {
@@ -15,15 +16,14 @@ class SearchController extends Controller
         $query = $request['query'];
         $search = Bike::whereNotNull('default_price')
             ->with('images', 'prices')
-            ->where('make', 'like', $query . '%')
             ->where(function ($q) use ($query) {
-                $q->Where('version_name', 'like', $query . '%')
-                ->orwhere('model_name', 'like', $query . '%')
-                ->orwhere('series', 'like', $query . '%');
+                $q->where('make', 'like', '%' . $query . '%')
+                ->orWhere('version_name', 'like', '%' . $query . '%')
+                ->orWhere('model_name', 'like', '%' . $query . '%')
+                ->orWhere('series', 'like', '%' . $query . '%');
             })
             ->orderByDesc('default_price')
             ->get();
-
         return $search;
     }
     public function searchByBudget(Request $request, $budget)
@@ -48,12 +48,18 @@ class SearchController extends Controller
         return Inertia::render('Search/Results', compact('bikes'));
     }
 
-    public function searchByDisplacement(Request $request, $displacement)
+    public function searchByDisplacement(Request $request)
     {
-        $bikes = Bike::where('model_id', '!=', NULL)
+        $up = $request->query('up');
+        $under = $request->query('under');
+        $bikesSearch = DB::select(DB::raw("SELECT bike_id,description+0 as cc FROM bike_specifications WHERE title LIKE 'displacement' having cc >= $up and cc<= $under"));
+        $ids = collect($bikesSearch)->pluck('bike_id');
+        $bikes = Bike::whereIn('id', $ids)
+                    ->where('model_id', '!=', NULL)
                     ->whereNotNull('default_price')
                     ->with('prices', 'images')
-                    ->take(20)
+                    ->take(50)
+                    ->select('model_id', 'series', 'id', 'version_id', 'version_name', 'default_price')
                     ->get();
 
         $cities = City::all();

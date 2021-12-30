@@ -443,12 +443,14 @@ export default {
           `https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=${this.bikeId}&city_id=${city_id}`
         )
         .then((res) => {
+
+          var onRoadPrice = parseInt(res.data.data?.price?.[0]?.amount) + parseInt(res.data.data?.price?.[2]?.amount) + parseInt(res.data.data?.price?.[1]?.amount)
           this.bikePriceList = {
             bike_id: this.bikeId,
             city_id: city_id,
             ex_showroom_price: res.data.data?.price?.[0]?.amount,
             insurance_price: res.data.data?.price?.[2]?.amount,
-            onroad_price: res.data.data?.price?.[3]?.amount,
+            onroad_price: onRoadPrice,
             rto_price: res.data.data?.price?.[1]?.amount,
           };
           this.loading = false;

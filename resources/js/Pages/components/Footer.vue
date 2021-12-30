@@ -1,7 +1,7 @@
 <template>
   <!-- Footer  -->
   <div class="bg-secondary">
-    <div class="pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+    <div class="pt-16 px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
       <div class="grid lg:row-gap-10 mb-8 lg:grid-cols-3">
         <div class="grid lg:gap-8 lg:row-gap-8 lg:col-span-3 md:grid-cols-3">
           <div class="flex flex-col space-y-12">

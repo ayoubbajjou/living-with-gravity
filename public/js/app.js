@@ -23611,7 +23611,29 @@ __webpack_require__.r(__webpack_exports__);
       currentImg: 0,
       versions: [],
       versionSelected: null,
-      brand: null
+      brand: null,
+      brandsWithNoBike: [{
+        name: "MV Agusta",
+        img: "augusta.jpg"
+      }, {
+        name: "22Kymco",
+        img: "kymco.png"
+      }, {
+        name: "Lambretta",
+        img: "Lambretta.jpg"
+      }, {
+        name: "Emflux Motors",
+        img: "emflux.jpg"
+      }, {
+        name: "Yezdi",
+        img: "yezdi.jpg"
+      }, {
+        name: "Tork",
+        img: "trok.jpg"
+      }, {
+        name: "Norton",
+        img: "norton.jpg"
+      }]
     };
   },
   mounted: function mounted() {
@@ -23632,6 +23654,15 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (err) {
       console.log(err);
     });
+    setTimeout(function () {
+      var data = _this.brandsWithNoBike.filter(function (el) {
+        var _this$brand;
+
+        return el.name == ((_this$brand = _this.brand) === null || _this$brand === void 0 ? void 0 : _this$brand.brand_name);
+      });
+
+      _this.brandsWithNoBike = data;
+    }, 50);
   },
   methods: {
     nextImg: function nextImg() {
@@ -24800,15 +24831,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 city_id = localStorage.getItem("citySelectedId");
                 _context.next = 4;
                 return axios.get("https://sleeplikecat.com/bikewale/index.php/api/getprice?bike_id=".concat(_this2.bikeId, "&city_id=").concat(city_id)).then(function (res) {
-                  var _res$data$data, _res$data$data$price, _res$data$data$price$, _res$data$data2, _res$data$data2$price, _res$data$data2$price2, _res$data$data3, _res$data$data3$price, _res$data$data3$price2, _res$data$data4, _res$data$data4$price, _res$data$data4$price2;
+                  var _res$data$data, _res$data$data$price, _res$data$data$price$, _res$data$data2, _res$data$data2$price, _res$data$data2$price2, _res$data$data3, _res$data$data3$price, _res$data$data3$price2, _res$data$data4, _res$data$data4$price, _res$data$data4$price2, _res$data$data5, _res$data$data5$price, _res$data$data5$price2, _res$data$data6, _res$data$data6$price, _res$data$data6$price2;
 
+                  var onRoadPrice = parseInt((_res$data$data = res.data.data) === null || _res$data$data === void 0 ? void 0 : (_res$data$data$price = _res$data$data.price) === null || _res$data$data$price === void 0 ? void 0 : (_res$data$data$price$ = _res$data$data$price[0]) === null || _res$data$data$price$ === void 0 ? void 0 : _res$data$data$price$.amount) + parseInt((_res$data$data2 = res.data.data) === null || _res$data$data2 === void 0 ? void 0 : (_res$data$data2$price = _res$data$data2.price) === null || _res$data$data2$price === void 0 ? void 0 : (_res$data$data2$price2 = _res$data$data2$price[2]) === null || _res$data$data2$price2 === void 0 ? void 0 : _res$data$data2$price2.amount) + parseInt((_res$data$data3 = res.data.data) === null || _res$data$data3 === void 0 ? void 0 : (_res$data$data3$price = _res$data$data3.price) === null || _res$data$data3$price === void 0 ? void 0 : (_res$data$data3$price2 = _res$data$data3$price[1]) === null || _res$data$data3$price2 === void 0 ? void 0 : _res$data$data3$price2.amount);
                   _this2.bikePriceList = {
                     bike_id: _this2.bikeId,
                     city_id: city_id,
-                    ex_showroom_price: (_res$data$data = res.data.data) === null || _res$data$data === void 0 ? void 0 : (_res$data$data$price = _res$data$data.price) === null || _res$data$data$price === void 0 ? void 0 : (_res$data$data$price$ = _res$data$data$price[0]) === null || _res$data$data$price$ === void 0 ? void 0 : _res$data$data$price$.amount,
-                    insurance_price: (_res$data$data2 = res.data.data) === null || _res$data$data2 === void 0 ? void 0 : (_res$data$data2$price = _res$data$data2.price) === null || _res$data$data2$price === void 0 ? void 0 : (_res$data$data2$price2 = _res$data$data2$price[2]) === null || _res$data$data2$price2 === void 0 ? void 0 : _res$data$data2$price2.amount,
-                    onroad_price: (_res$data$data3 = res.data.data) === null || _res$data$data3 === void 0 ? void 0 : (_res$data$data3$price = _res$data$data3.price) === null || _res$data$data3$price === void 0 ? void 0 : (_res$data$data3$price2 = _res$data$data3$price[3]) === null || _res$data$data3$price2 === void 0 ? void 0 : _res$data$data3$price2.amount,
-                    rto_price: (_res$data$data4 = res.data.data) === null || _res$data$data4 === void 0 ? void 0 : (_res$data$data4$price = _res$data$data4.price) === null || _res$data$data4$price === void 0 ? void 0 : (_res$data$data4$price2 = _res$data$data4$price[1]) === null || _res$data$data4$price2 === void 0 ? void 0 : _res$data$data4$price2.amount
+                    ex_showroom_price: (_res$data$data4 = res.data.data) === null || _res$data$data4 === void 0 ? void 0 : (_res$data$data4$price = _res$data$data4.price) === null || _res$data$data4$price === void 0 ? void 0 : (_res$data$data4$price2 = _res$data$data4$price[0]) === null || _res$data$data4$price2 === void 0 ? void 0 : _res$data$data4$price2.amount,
+                    insurance_price: (_res$data$data5 = res.data.data) === null || _res$data$data5 === void 0 ? void 0 : (_res$data$data5$price = _res$data$data5.price) === null || _res$data$data5$price === void 0 ? void 0 : (_res$data$data5$price2 = _res$data$data5$price[2]) === null || _res$data$data5$price2 === void 0 ? void 0 : _res$data$data5$price2.amount,
+                    onroad_price: onRoadPrice,
+                    rto_price: (_res$data$data6 = res.data.data) === null || _res$data$data6 === void 0 ? void 0 : (_res$data$data6$price = _res$data$data6.price) === null || _res$data$data6$price === void 0 ? void 0 : (_res$data$data6$price2 = _res$data$data6$price[1]) === null || _res$data$data6$price2 === void 0 ? void 0 : _res$data$data6$price2.amount
                   };
                   _this2.loading = false;
                   console.log(_this2.bikePriceList);
@@ -25716,7 +25748,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "SearchByDisplacement",
   methods: {
     searchBy: function searchBy(val) {
-      window.location.href = "/search/displacement/".concat(val);
+      window.location.href = "/search/displacement".concat(val);
     }
   }
 });
@@ -31141,19 +31173,17 @@ var _hoisted_2 = {
   "class": "max-w-screen-xl mx-auto"
 };
 var _hoisted_3 = {
-  key: 0
-};
-var _hoisted_4 = {
   "class": ""
 };
-var _hoisted_5 = ["src", "alt"];
-var _hoisted_6 = {
+var _hoisted_4 = ["src", "alt"];
+var _hoisted_5 = {
   "class": "py-8 shadow-xl lg:flex justify-around items-center"
 };
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "w-full"
 };
-var _hoisted_8 = ["src"];
+var _hoisted_7 = ["src"];
+var _hoisted_8 = ["src", "alt"];
 var _hoisted_9 = {
   "class": "w-full h-[360px] overflow-y-auto scrollBar"
 };
@@ -31161,21 +31191,8 @@ var _hoisted_10 = {
   "class": "py-4 bg-[#2F2F2F] lg:rounded-r-lg"
 };
 var _hoisted_11 = ["innerHTML"];
-var _hoisted_12 = {
-  key: 1
-};
-
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "text-3xl text-white font-bold text-center py-10"
-  }, "No Data Found!", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_14 = [_hoisted_13];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _ctx$brand, _ctx$brand2, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$brand3, _ctx$bike, _ctx$brand4, _ctx$brand5, _ctx$brand6;
+  var _ctx$brand, _ctx$brand2, _ctx$brand3, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$suggestedBikes2, _ctx$suggestedBikes2$, _ctx$suggestedBikes2$2, _ctx$brand4, _ctx$brand5, _ctx$bike, _ctx$brand6, _ctx$brand7, _ctx$brand8;
 
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -31193,35 +31210,45 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Welcome"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_ctx.brand && _ctx.suggestedBikes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(_ctx$brand = _ctx.brand) !== null && _ctx$brand !== void 0 && _ctx$brand.brand_logo ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+    key: 0,
     "class": "mx-auto",
-    src: "/images/brands/".concat((_ctx$brand = _ctx.brand) === null || _ctx$brand === void 0 ? void 0 : _ctx$brand.brand_logo),
-    alt: (_ctx$brand2 = _ctx.brand) === null || _ctx$brand2 === void 0 ? void 0 : _ctx$brand2.brand_name
+    src: "/images/brands/".concat((_ctx$brand2 = _ctx.brand) === null || _ctx$brand2 === void 0 ? void 0 : _ctx$brand2.brand_logo),
+    alt: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.brand_name
   }, null, 8
   /* PROPS */
-  , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(_ctx$suggestedBikes = _ctx.suggestedBikes) !== null && _ctx$suggestedBikes !== void 0 && (_ctx$suggestedBikes$ = _ctx$suggestedBikes[0]) !== null && _ctx$suggestedBikes$ !== void 0 && (_ctx$suggestedBikes$$ = _ctx$suggestedBikes$.images[0]) !== null && _ctx$suggestedBikes$$ !== void 0 && _ctx$suggestedBikes$$.image_link ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+    key: 0,
     "class": "w-full lg:rounded-l-lg",
-    src: (_ctx$suggestedBikes = _ctx.suggestedBikes) === null || _ctx$suggestedBikes === void 0 ? void 0 : (_ctx$suggestedBikes$ = _ctx$suggestedBikes[0]) === null || _ctx$suggestedBikes$ === void 0 ? void 0 : (_ctx$suggestedBikes$$ = _ctx$suggestedBikes$.images[0]) === null || _ctx$suggestedBikes$$ === void 0 ? void 0 : _ctx$suggestedBikes$$.image_link,
+    src: (_ctx$suggestedBikes2 = _ctx.suggestedBikes) === null || _ctx$suggestedBikes2 === void 0 ? void 0 : (_ctx$suggestedBikes2$ = _ctx$suggestedBikes2[0]) === null || _ctx$suggestedBikes2$ === void 0 ? void 0 : (_ctx$suggestedBikes2$2 = _ctx$suggestedBikes2$.images[0]) === null || _ctx$suggestedBikes2$2 === void 0 ? void 0 : _ctx$suggestedBikes2$2.image_link,
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_8)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "text-white lg:rounded-r-lg bg-[#2F2F2F] shadow-xl px-8",
-    innerHTML: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.about_brand
+  , _hoisted_7)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+    key: 1,
+    "class": "mx-auto",
+    src: "/images/".concat(_ctx.brandsWithNoBike[0].img),
+    alt: (_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.brand_name
   }, null, 8
   /* PROPS */
-  , _hoisted_11)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
+  , _hoisted_8))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "text-white lg:rounded-r-lg bg-[#2F2F2F] shadow-xl px-8",
+    innerHTML: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.about_brand
+  }, null, 8
+  /* PROPS */
+  , _hoisted_11)])])]), _ctx.brand && _ctx.suggestedBikes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MoreSuggestedBikes, {
+    key: 0,
     title: (_ctx$bike = _ctx.bike) === null || _ctx$bike === void 0 ? void 0 : _ctx$bike.brand.brand_name,
     brand: true,
     bikes: _ctx.suggestedBikes
   }, null, 8
   /* PROPS */
-  , ["title", "bikes"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.brand && !_ctx.suggestedBikes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, _hoisted_14)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dealers, {
-    dealers: (_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.dealers,
+  , ["title", "bikes"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-if=\"!brand && !suggestedBikes\">\n        <p class=\"text-3xl text-white font-bold text-center py-10\">No Data Found!</p>\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dealers, {
+    dealers: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.dealers,
     cities: _ctx.cities,
     brands: _ctx.brands,
-    brandId: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.id,
-    brandTitle: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.brand_name
+    brandId: (_ctx$brand7 = _ctx.brand) === null || _ctx$brand7 === void 0 ? void 0 : _ctx$brand7.id,
+    brandTitle: (_ctx$brand8 = _ctx.brand) === null || _ctx$brand8 === void 0 ? void 0 : _ctx$brand8.brand_name
   }, null, 8
   /* PROPS */
   , ["dealers", "cities", "brands", "brandId", "brandTitle"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
@@ -34301,7 +34328,7 @@ var _hoisted_3 = {
 };
 var _hoisted_4 = {
   key: 0,
-  "class": "lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12"
+  "class": "lg:flex justify-between space-y-4 lg:space-y-0 px-4 lg:ml-0 lg:space-x-12"
 };
 var _hoisted_5 = ["href"];
 var _hoisted_6 = ["src", "alt"];
@@ -35048,7 +35075,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_3 = {
-  "class": "flex space-x-12 mt-12 justify-center items-center"
+  "class": "flex lg:space-x-12 mt-12 justify-center items-center"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -35189,7 +35216,7 @@ var _hoisted_1 = {
   "class": "bg-secondary"
 };
 var _hoisted_2 = {
-  "class": "pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl"
+  "class": "pt-16 px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl"
 };
 var _hoisted_3 = {
   "class": "grid lg:row-gap-10 mb-8 lg:grid-cols-3"
@@ -35514,7 +35541,7 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_15 = [_hoisted_14];
 var _hoisted_16 = ["href"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _$props$bikes, _$props$bikes2, _$props$bikes3;
+  var _$props$bikes, _$props$bikes2, _$props$bikes3, _$props$bikes4;
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More products section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.brand ? "All ".concat((_$props$bikes = $props.bikes) === null || _$props$bikes === void 0 ? void 0 : _$props$bikes[0].make, " bikes") : "More ".concat((_$props$bikes2 = $props.bikes) === null || _$props$bikes2 === void 0 ? void 0 : _$props$bikes2[0].make, " bikes")), 1
   /* TEXT */
@@ -35561,8 +35588,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_15)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "/all-bikes/".concat((_$props$bikes3 = $props.bikes) === null || _$props$bikes3 === void 0 ? void 0 : _$props$bikes3[0].make),
     "class": "text-red-600 cursor-pointer"
-  }, "View all", 8
-  /* PROPS */
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)("All ".concat((_$props$bikes4 = $props.bikes) === null || _$props$bikes4 === void 0 ? void 0 : _$props$bikes4[0].make, " bikes")), 9
+  /* TEXT, PROPS */
   , _hoisted_16)])])])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
@@ -36019,7 +36046,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: brand.id,
       "class": "w-full"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-      href: "/brand/".concat(brand.brand_name)
+      href: "/".concat(brand.brand_name)
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "w-full h-36 md:w-56 mx-auto",
       src: "/images/brands/".concat(brand.brand_logo),
@@ -36295,52 +36322,52 @@ var _hoisted_22 = [_hoisted_21];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
-      return $options.searchBy('100');
+      return $options.searchBy('?up=0&under=100');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $options.searchBy('100-110');
+      return $options.searchBy('?up=100&under=110');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $options.searchBy('110-125');
+      return $options.searchBy('?up=110&under=125');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[3] || (_cache[3] = function ($event) {
-      return $options.searchBy('125-150');
+      return $options.searchBy('?up=125&under=150');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[4] || (_cache[4] = function ($event) {
-      return $options.searchBy('150-200');
+      return $options.searchBy('?up=150&under=200');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_11)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[5] || (_cache[5] = function ($event) {
-      return $options.searchBy('200-250');
+      return $options.searchBy('?up=200&under=250');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_14), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[6] || (_cache[6] = function ($event) {
-      return $options.searchBy('250-500');
+      return $options.searchBy('?up=250&under=500');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_16), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[7] || (_cache[7] = function ($event) {
-      return $options.searchBy('500-750');
+      return $options.searchBy('?up=500&under=750');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[8] || (_cache[8] = function ($event) {
-      return $options.searchBy('750-1000');
+      return $options.searchBy('?up=750&under=1000');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     onClick: _cache[9] || (_cache[9] = function ($event) {
-      return $options.searchBy('1000');
+      return $options.searchBy('?up=1000&under=10000000000');
     }),
     "class": "items-center flex justify-center cursor-pointer hover:bg-white border-2 border-red-500"
   }, _hoisted_22)])]);
