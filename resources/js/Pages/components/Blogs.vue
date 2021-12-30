@@ -23,7 +23,7 @@
           <a :href="post.link">
             <img
               class="opacity-50"
-              style="height: 320px !important; width: 600px !important"
+              style="height: 360px !important; width: 600px !important"
               :src="post.thumb"
               :alt="post.title.rendered"
             />
@@ -41,7 +41,7 @@
       </div>
 
       <div v-else class="lg:flex justify-between space-y-4 lg:space-y-0 lg:space-x-12">
-        <div class="flex justify-center items-center bg-[#2F2F2F]" style="height: 320px !important; width: 600px !important">
+        <div class="flex justify-center items-center bg-[#2F2F2F]" style="height: 360px !important; width: 600px !important">
           <svg
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@
               ></path>
             </svg>
         </div>
-        <div class="flex justify-center items-center bg-[#2F2F2F]" style="height: 320px !important; width: 600px !important">
+        <div class="flex justify-center items-center bg-[#2F2F2F]" style="height: 360px !important; width: 600px !important">
           <svg
               class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
