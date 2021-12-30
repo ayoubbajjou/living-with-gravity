@@ -18,7 +18,7 @@
       News/Blogs
     </h1>
     <div class="mt-12 bg-secondary">
-      <div v-if="posts.length" class="lg:flex justify-between space-y-4 lg:space-y-0 ml-5 lg:ml-0 lg:space-x-12">
+      <div v-if="posts.length" class="lg:flex justify-between space-y-4 lg:space-y-0 px-4 lg:ml-0 lg:space-x-12">
         <div v-for="post in posts" :key="post.id" class="relative">
           <a :href="post.link">
             <img

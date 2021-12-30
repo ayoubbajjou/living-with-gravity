@@ -3,9 +3,10 @@
   <Navigation />
   <div class="bg-secondary h-screen">
     <div class="max-w-screen-xl mx-auto">
-      <div v-if="brand && suggestedBikes">
+      <div>
         <div class="">
           <img
+            v-if="brand?.brand_logo"
             class="mx-auto"
             :src="`/images/brands/${brand?.brand_logo}`"
             :alt="brand?.brand_name"
@@ -14,9 +15,16 @@
         <div class="py-8 shadow-xl lg:flex justify-around items-center">
           <div class="w-full">
             <img
+            v-if="suggestedBikes?.[0]?.images[0]?.image_link"
               class="w-full lg:rounded-l-lg"
               :src="suggestedBikes?.[0]?.images[0]?.image_link"
               alt=""
+            />
+            <img
+              v-else
+              class="mx-auto"
+              :src="`/images/${brandsWithNoBike[0].img}`"
+              :alt="brand?.brand_name"
             />
           </div>
           <div class="w-full h-[360px] overflow-y-auto scrollBar">
@@ -29,14 +37,15 @@
           </div>
         </div>
         <MoreSuggestedBikes
+          v-if="brand && suggestedBikes"
           :title="bike?.brand.brand_name"
           :brand="true"
           :bikes="suggestedBikes"
         />
       </div>
-      <div v-if="!brand && !suggestedBikes">
+      <!-- <div v-if="!brand && !suggestedBikes">
         <p class="text-3xl text-white font-bold text-center py-10">No Data Found!</p>
-      </div>
+      </div> -->
 
       <!-- Blog section -->
       <Blogs />
@@ -102,6 +111,36 @@ export default defineComponent({
       versions: [],
       versionSelected: null,
       brand: null,
+      brandsWithNoBike: [
+        {
+          name: "MV Agusta",
+          img: "augusta.jpg",
+        },
+        {
+          name: "22Kymco",
+          img: "kymco.png",
+        },
+        {
+          name: "Lambretta",
+          img: "Lambretta.jpg",
+        },
+        {
+          name: "Emflux Motors",
+          img: "emflux.jpg",
+        },
+        {
+          name: "Yezdi",
+          img: "yezdi.jpg",
+        },
+        {
+          name: "Tork",
+          img: "trok.jpg",
+        },
+        {
+          name: "Norton",
+          img: "norton.jpg",
+        },
+      ],
     };
   },
   mounted() {
@@ -120,6 +159,14 @@ export default defineComponent({
       .catch((err) => {
         console.log(err);
       });
+
+      setTimeout(() => {
+        const data = this.brandsWithNoBike.filter((el) => {
+          return el.name  == this.brand?.brand_name
+        });
+
+        this.brandsWithNoBike = data
+      }, 50)
   },
   methods: {
     nextImg() {

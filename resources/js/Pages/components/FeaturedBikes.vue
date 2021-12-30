@@ -16,7 +16,7 @@
     >
       Featured Bikes
     </h1>
-    <div class="flex space-x-12 mt-12 justify-center items-center">
+    <div class="flex lg:space-x-12 mt-12 justify-center items-center">
       <div>
         <button type="button" @click="scrollBack()">
           <svg

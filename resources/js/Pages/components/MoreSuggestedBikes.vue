@@ -96,7 +96,7 @@
             </svg>
           </button>
         </div>
-        <a :href="`/all-bikes/${bikes?.[0].make}`" class="text-red-600 cursor-pointer">View all</a>
+        <a :href="`/all-bikes/${bikes?.[0].make}`" class="text-red-600 cursor-pointer">{{ `All ${bikes?.[0].make} bikes` }}</a>
       </div>
     </div>
   </div>
