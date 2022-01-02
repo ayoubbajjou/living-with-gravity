@@ -59,7 +59,7 @@ class SearchController extends Controller
                     ->whereNotNull('default_price')
                     ->with('prices', 'images')
                     ->take(50)
-                    ->select('model_id', 'series', 'id', 'version_id', 'version_name', 'default_price')
+                    ->select('model_id', 'series', 'id', 'version_id', 'version_name', 'default_price', 'make')
                     ->get();
 
         $cities = City::all();

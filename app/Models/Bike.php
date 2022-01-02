@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sitemap\Contracts\Sitemapable;
+use Spatie\Sitemap\Tags\Url;
 
 class Bike extends Model
 {
@@ -27,5 +29,10 @@ class Bike extends Model
 
     public function brand() {
         return $this->hasOne(Brand::class, 'id', 'brand_id');
+    }
+    
+    public function toSitemapTag(): Url | string | array
+    {
+        return route('show.bikes', $this->make . '/' . $this->series . '/' . $this->version_name);
     }
 }

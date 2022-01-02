@@ -27,7 +27,7 @@
           :class="index === 0 ? 'bg-gray-100' : 'bg-[#2F2F2F]'"
           class="flex rounded-lg px-6 py-4 items-center space-x-12 mx-8 w-80"
         >
-          <a class="flex" :href="`/bike/${bike.id}`">
+          <a class="flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
             <img
               class="w-24 h-16 rounded-lg mr-4"
               :src="bike?.images[0]?.thumb_link"
@@ -149,6 +149,13 @@ export default {
         this.scrollVal = 2400;
       }
     },
+    slugify(text) {
+      return  text
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
+    }
   },
 };
 </script>

@@ -39,7 +39,7 @@
               :key="bike.id"
               class="bg-[#2F2F2F] rounded-lg px-6 py-4 w-80"
             >
-              <a class="w-full flex" :href="`/bike/${bike.id}`">
+              <a class="w-full flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
                 <img
                   class="w-24 h-16 rounded-lg mr-4"
                   :src="bike?.images[0]?.thumb_link"
@@ -154,6 +154,7 @@ export default {
     bikeIsChanged() {
       window.location.replace(`/bike/${this.versionSelected}`);
     },
+    slugify(text) { return  text .toLowerCase() .replace(/ /g,'-') .replace(/[^\w-]+/g,'') ; }
   },
 };
 </script>

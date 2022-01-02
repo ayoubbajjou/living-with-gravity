@@ -148,7 +148,7 @@
             @mouseover="isHovered(bike.id)"
             :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
           >
-            <a class="flex" :href="`/bike/${bike.id}`">
+            <a class="flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
               <img
                 class="w-24 h-16 rounded-lg mr-4"
                 :src="bike?.images[0]?.thumb_link"
@@ -229,7 +229,7 @@
             @mouseover="isHovered(bike.id)"
             :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
           >
-            <a class="flex" :href="`/bike/${bike.id}`">
+            <a class="flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
               <img
                 class="w-24 h-16 rounded-lg mr-4"
                 :src="bike?.images[0]?.thumb_link"
@@ -831,6 +831,7 @@ export default {
     isHovered(id) {
       this.bikeHovered = id;
     },
+    slugify(text) { return  text .toLowerCase() .replace(/ /g,'-') .replace(/[^\w-]+/g,'') ; }
   },
 };
 </script>
