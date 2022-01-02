@@ -148,10 +148,13 @@ class BikeController extends Controller
      * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($brand, $series, $version_name)
     {
+        $unslug = ucwords(str_replace('-', ' ', $series)); 
         $postsData = [];
-        $bike = Bike::where('id', $id)
+        $bike = Bike::where('make', $brand)
+                    ->where('series', $unslug)
+                    ->where('version_name', $version_name)
                     ->whereNotNull('default_price')
                     ->where('brand_id', '!=', NULL)
                     ->with(['images', 'prices', 'specifications', 'brand'])

@@ -6,8 +6,11 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
+use App\Models\Bike;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Sitemap;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +36,12 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])
         ->post('/store-bike', [BikeController::class, 'store'])->name('store.bikes');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
-
-Route::get('/bike/{id}', [BikeController::class, 'show'])->name('show.bikes');
+Route::get('/generate-sitemap', function() {
+        Sitemap::create('https://bike.livingwithgravity.com')
+                        ->add(Bike::whereNotNull('default_price')
+                        ->pluck('make'))
+                        ->writeToFile('sitemap.xml');
+})->name('generate-sitemap');
 Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
 Route::get('/search/budget/{budget}', [SearchController::class, 'searchByBudget'])->name('searchByBudget');
 Route::get('/search/displacement', [SearchController::class, 'searchByDisplacement'])->name('searchByDisplacement');
@@ -49,3 +56,4 @@ Route::post('/get-keys-featured', [BikeController::class, 'getKeys'])->name('get
 Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpPosts');
 Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');
 Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
+Route::get('/{brand}/{series}/{version_name}', [BikeController::class, 'show'])->name('show.bikes');

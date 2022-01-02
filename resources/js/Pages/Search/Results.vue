@@ -37,7 +37,7 @@
                 mx-8
               "
             >
-              <a class="w-full flex" :href="`/bike/${bike.id}`">
+              <a class="w-full flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
                 <img
                   class="w-24 h-16 rounded-lg mr-4"
                   :src="bike?.images[0]?.thumb_link"
@@ -149,6 +149,7 @@ export default defineComponent({
     bikeIsChanged() {
       window.location.replace(`/bike/${this.versionSelected}`);
     },
+    slugify(text) { return  text .toLowerCase() .replace(/ /g,'-') .replace(/[^\w-]+/g,'') ; }
   },
 });
 </script>
