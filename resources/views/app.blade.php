@@ -11,6 +11,18 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.ico" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCEMQLTX3L"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TCEMQLTX3L');
+        </script>
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>

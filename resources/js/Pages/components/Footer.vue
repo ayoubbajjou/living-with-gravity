@@ -403,7 +403,7 @@
         "
       >
         <p class="text-sm text-gray-500 text-center">
-          © 2021 Living with gravity. All rights reserved.
+          © {{new Date().getFullYear()}} Living with gravity. All rights reserved.
         </p>
       </div>
     </div>

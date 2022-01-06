@@ -1,5 +1,8 @@
 <template>
-  <Head title="Welcome" />
+  <Head>
+  <title>{{bike?.series}} {{bike?.version_name}} price, specs, mileage & dealers</title>
+  <!-- <meta name="description" content="Your page description"> -->
+  </Head>
   <Navigation />
   <div class="bg-secondary h-screen">
     <div class="lg:flex w-full">

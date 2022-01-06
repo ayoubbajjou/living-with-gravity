@@ -1,5 +1,8 @@
 <template>
-  <Head title="Welcome" />
+  <Head>
+    <title>{{brand?.brand_name}} Bike Price in India, New {{brand?.brand_name}} bike Launch</title>
+  <!-- <meta name="description" content="Your page description"> -->
+  </Head>
   <Navigation />
   <div class="bg-secondary h-screen">
     <div class="max-w-screen-xl mx-auto">
