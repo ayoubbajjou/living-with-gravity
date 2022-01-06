@@ -30901,7 +30901,7 @@ var _hoisted_17 = {
   "class": "max-w-screen-xl mx-auto"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _ctx$bike, _ctx$bike2, _ctx$bike3, _ctx$bike4, _ctx$bike5, _ctx$bike6, _ctx$bike7, _ctx$bike7$brand, _ctx$bike8, _ctx$bike8$brand, _ctx$bike9, _ctx$bike9$brand;
+  var _ctx$bike3, _ctx$bike4, _ctx$bike5, _ctx$bike6, _ctx$bike7, _ctx$bike8, _ctx$bike9, _ctx$bike9$brand, _ctx$bike10, _ctx$bike10$brand, _ctx$bike11, _ctx$bike11$brand;
 
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -30921,15 +30921,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Welcome"
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      var _ctx$bike, _ctx$bike2;
+
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("title", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike = _ctx.bike) === null || _ctx$bike === void 0 ? void 0 : _ctx$bike.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike2 = _ctx.bike) === null || _ctx$bike2 === void 0 ? void 0 : _ctx$bike2.version_name) + " price, specs, mileage & dealers", 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <meta name=\"description\" content=\"Your page description\"> ")];
+    }),
+    _: 1
+    /* STABLE */
+
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "min-w-full",
-    src: (_ctx$bike = _ctx.bike) === null || _ctx$bike === void 0 ? void 0 : _ctx$bike.images[_ctx.currentImg].image_link,
+    src: (_ctx$bike3 = _ctx.bike) === null || _ctx$bike3 === void 0 ? void 0 : _ctx$bike3.images[_ctx.currentImg].image_link,
     alt: ""
   }, null, 8
   /* PROPS */
-  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike2 = _ctx.bike) === null || _ctx$bike2 === void 0 ? void 0 : _ctx$bike2.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike3 = _ctx.bike) === null || _ctx$bike3 === void 0 ? void 0 : _ctx$bike3.version_name), 1
+  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike4 = _ctx.bike) === null || _ctx$bike4 === void 0 ? void 0 : _ctx$bike4.series) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$bike5 = _ctx.bike) === null || _ctx$bike5 === void 0 ? void 0 : _ctx$bike5.version_name), 1
   /* TEXT */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
@@ -30971,17 +30980,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ))], 544
   /* HYDRATE_EVENTS, NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.versionSelected]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BikeDetailsFeaturesPrice, {
-    "bike-id": (_ctx$bike4 = _ctx.bike) === null || _ctx$bike4 === void 0 ? void 0 : _ctx$bike4.id,
-    "bike-price": (_ctx$bike5 = _ctx.bike) === null || _ctx$bike5 === void 0 ? void 0 : _ctx$bike5.prices[0],
+    "bike-id": (_ctx$bike6 = _ctx.bike) === null || _ctx$bike6 === void 0 ? void 0 : _ctx$bike6.id,
+    "bike-price": (_ctx$bike7 = _ctx.bike) === null || _ctx$bike7 === void 0 ? void 0 : _ctx$bike7.prices[0],
     specs: _ctx.specs
   }, null, 8
   /* PROPS */
   , ["bike-id", "bike-price", "specs"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BikeSpecs, {
-    specs: (_ctx$bike6 = _ctx.bike) === null || _ctx$bike6 === void 0 ? void 0 : _ctx$bike6.specifications
+    specs: (_ctx$bike8 = _ctx.bike) === null || _ctx$bike8 === void 0 ? void 0 : _ctx$bike8.specifications
   }, null, 8
   /* PROPS */
   , ["specs"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_MoreSuggestedBikes, {
-    title: (_ctx$bike7 = _ctx.bike) === null || _ctx$bike7 === void 0 ? void 0 : (_ctx$bike7$brand = _ctx$bike7.brand) === null || _ctx$bike7$brand === void 0 ? void 0 : _ctx$bike7$brand.brand_name,
+    title: (_ctx$bike9 = _ctx.bike) === null || _ctx$bike9 === void 0 ? void 0 : (_ctx$bike9$brand = _ctx$bike9.brand) === null || _ctx$bike9$brand === void 0 ? void 0 : _ctx$bike9$brand.brand_name,
     bikes: _ctx.suggestedBikes
   }, null, 8
   /* PROPS */
@@ -30989,8 +30998,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     dealers: _ctx.dealers,
     cities: _ctx.cities,
     brands: _ctx.brands,
-    brandTitle: (_ctx$bike8 = _ctx.bike) === null || _ctx$bike8 === void 0 ? void 0 : (_ctx$bike8$brand = _ctx$bike8.brand) === null || _ctx$bike8$brand === void 0 ? void 0 : _ctx$bike8$brand.brand_name,
-    brandId: (_ctx$bike9 = _ctx.bike) === null || _ctx$bike9 === void 0 ? void 0 : (_ctx$bike9$brand = _ctx$bike9.brand) === null || _ctx$bike9$brand === void 0 ? void 0 : _ctx$bike9$brand.id,
+    brandTitle: (_ctx$bike10 = _ctx.bike) === null || _ctx$bike10 === void 0 ? void 0 : (_ctx$bike10$brand = _ctx$bike10.brand) === null || _ctx$bike10$brand === void 0 ? void 0 : _ctx$bike10$brand.brand_name,
+    brandId: (_ctx$bike11 = _ctx.bike) === null || _ctx$bike11 === void 0 ? void 0 : (_ctx$bike11$brand = _ctx$bike11.brand) === null || _ctx$bike11$brand === void 0 ? void 0 : _ctx$bike11$brand.id,
     dealersCount: _ctx.dealersCount
   }, null, 8
   /* PROPS */
@@ -31207,7 +31216,7 @@ var _hoisted_10 = {
 };
 var _hoisted_11 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _ctx$brand, _ctx$brand2, _ctx$brand3, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$suggestedBikes2, _ctx$suggestedBikes2$, _ctx$suggestedBikes2$2, _ctx$brand4, _ctx$brand5, _ctx$bike, _ctx$brand6, _ctx$brand7, _ctx$brand8;
+  var _ctx$brand3, _ctx$brand4, _ctx$brand5, _ctx$suggestedBikes, _ctx$suggestedBikes$, _ctx$suggestedBikes$$, _ctx$suggestedBikes2, _ctx$suggestedBikes2$, _ctx$suggestedBikes2$2, _ctx$brand6, _ctx$brand7, _ctx$bike, _ctx$brand8, _ctx$brand9, _ctx$brand10;
 
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -31223,13 +31232,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Welcome"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(_ctx$brand = _ctx.brand) !== null && _ctx$brand !== void 0 && _ctx$brand.brand_logo ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      var _ctx$brand, _ctx$brand2;
+
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("title", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$brand = _ctx.brand) === null || _ctx$brand === void 0 ? void 0 : _ctx$brand.brand_name) + " Bike Price in India, New " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_ctx$brand2 = _ctx.brand) === null || _ctx$brand2 === void 0 ? void 0 : _ctx$brand2.brand_name) + " bike Launch", 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <meta name=\"description\" content=\"Your page description\"> ")];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(_ctx$brand3 = _ctx.brand) !== null && _ctx$brand3 !== void 0 && _ctx$brand3.brand_logo ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
     key: 0,
     "class": "mx-auto",
-    src: "/images/brands/".concat((_ctx$brand2 = _ctx.brand) === null || _ctx$brand2 === void 0 ? void 0 : _ctx$brand2.brand_logo),
-    alt: (_ctx$brand3 = _ctx.brand) === null || _ctx$brand3 === void 0 ? void 0 : _ctx$brand3.brand_name
+    src: "/images/brands/".concat((_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.brand_logo),
+    alt: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.brand_name
   }, null, 8
   /* PROPS */
   , _hoisted_4)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(_ctx$suggestedBikes = _ctx.suggestedBikes) !== null && _ctx$suggestedBikes !== void 0 && (_ctx$suggestedBikes$ = _ctx$suggestedBikes[0]) !== null && _ctx$suggestedBikes$ !== void 0 && (_ctx$suggestedBikes$$ = _ctx$suggestedBikes$.images[0]) !== null && _ctx$suggestedBikes$$ !== void 0 && _ctx$suggestedBikes$$.image_link ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
@@ -31243,12 +31261,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 1,
     "class": "mx-auto",
     src: "/images/".concat(_ctx.brandsWithNoBike[0].img),
-    alt: (_ctx$brand4 = _ctx.brand) === null || _ctx$brand4 === void 0 ? void 0 : _ctx$brand4.brand_name
+    alt: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.brand_name
   }, null, 8
   /* PROPS */
   , _hoisted_8))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-white lg:rounded-r-lg bg-[#2F2F2F] shadow-xl px-8",
-    innerHTML: (_ctx$brand5 = _ctx.brand) === null || _ctx$brand5 === void 0 ? void 0 : _ctx$brand5.about_brand
+    innerHTML: (_ctx$brand7 = _ctx.brand) === null || _ctx$brand7 === void 0 ? void 0 : _ctx$brand7.about_brand
   }, null, 8
   /* PROPS */
   , _hoisted_11)])])]), _ctx.brand && _ctx.suggestedBikes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MoreSuggestedBikes, {
@@ -31259,11 +31277,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , ["title", "bikes"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-if=\"!brand && !suggestedBikes\">\n        <p class=\"text-3xl text-white font-bold text-center py-10\">No Data Found!</p>\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Blog section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Dealers, {
-    dealers: (_ctx$brand6 = _ctx.brand) === null || _ctx$brand6 === void 0 ? void 0 : _ctx$brand6.dealers,
+    dealers: (_ctx$brand8 = _ctx.brand) === null || _ctx$brand8 === void 0 ? void 0 : _ctx$brand8.dealers,
     cities: _ctx.cities,
     brands: _ctx.brands,
-    brandId: (_ctx$brand7 = _ctx.brand) === null || _ctx$brand7 === void 0 ? void 0 : _ctx$brand7.id,
-    brandTitle: (_ctx$brand8 = _ctx.brand) === null || _ctx$brand8 === void 0 ? void 0 : _ctx$brand8.brand_name
+    brandId: (_ctx$brand9 = _ctx.brand) === null || _ctx$brand9 === void 0 ? void 0 : _ctx$brand9.id,
+    brandTitle: (_ctx$brand10 = _ctx.brand) === null || _ctx$brand10 === void 0 ? void 0 : _ctx$brand10.brand_name
   }, null, 8
   /* PROPS */
   , ["dealers", "cities", "brands", "brandId", "brandTitle"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])], 64
@@ -33646,7 +33664,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Welcome"
+    title: "New Bikes, New Scooters, Used Bikes, Buy a Bike - Livingwithgravity"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navigation), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Hero), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SearchBikeBy, {
     "class": "py-12"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FeaturedBikes), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Blogs)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Subscribe), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])]);
@@ -33832,55 +33850,42 @@ var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_31 = {
   "class": "flex justify-center lg:justify-start px-14 py-10"
 };
-var _hoisted_32 = {
+
+var _hoisted_32 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "bg-icon-button text-white px-6 py-3 rounded-r"
-};
-var _hoisted_33 = {
-  key: 0,
-  "class": "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-6 w-6",
   fill: "none",
-  viewBox: "0 0 24 24"
-};
-
-var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
-  "class": "opacity-25",
-  cx: "12",
-  cy: "12",
-  r: "10",
-  stroke: "currentColor",
-  "stroke-width": "4"
-}, null, -1
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M17 8l4 4m0 0l-4 4m4-4H3"
+})])], -1
 /* HOISTED */
 );
 
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  "class": "opacity-75",
-  fill: "currentColor",
-  d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_36 = [_hoisted_34, _hoisted_35];
-var _hoisted_37 = {
+var _hoisted_33 = {
   key: 1,
   "class": "px-14 py-14 flex-col items-center justify-center"
 };
-var _hoisted_38 = {
+var _hoisted_34 = {
   "class": "py-2 space-y-6"
 };
-var _hoisted_39 = {
+var _hoisted_35 = {
   "class": "flex items-center space-x-14 justify-between"
 };
-var _hoisted_40 = {
+var _hoisted_36 = {
   "class": "text-white text-md leading-4"
 };
-var _hoisted_41 = {
+var _hoisted_37 = {
   key: 0,
   "class": "text-white text-1xl font-bold"
 };
-var _hoisted_42 = {
+var _hoisted_38 = {
   key: 1,
   "class": "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33888,7 +33893,7 @@ var _hoisted_42 = {
   viewBox: "0 0 24 24"
 };
 
-var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   "class": "opacity-25",
   cx: "12",
   cy: "12",
@@ -33899,7 +33904,7 @@ var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "class": "opacity-75",
   fill: "currentColor",
   d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
@@ -33907,22 +33912,22 @@ var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_45 = [_hoisted_43, _hoisted_44];
-var _hoisted_46 = {
+var _hoisted_41 = [_hoisted_39, _hoisted_40];
+var _hoisted_42 = {
   "class": "flex items-center space-x-14 justify-between"
 };
 
-var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-white text-md leading-4"
 }, "RTO:", -1
 /* HOISTED */
 );
 
-var _hoisted_48 = {
+var _hoisted_44 = {
   key: 0,
   "class": "text-white text-1xl font-bold"
 };
-var _hoisted_49 = {
+var _hoisted_45 = {
   key: 1,
   "class": "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33930,7 +33935,7 @@ var _hoisted_49 = {
   viewBox: "0 0 24 24"
 };
 
-var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   "class": "opacity-25",
   cx: "12",
   cy: "12",
@@ -33941,7 +33946,7 @@ var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_47 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "class": "opacity-75",
   fill: "currentColor",
   d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
@@ -33949,22 +33954,22 @@ var _hoisted_51 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_52 = [_hoisted_50, _hoisted_51];
-var _hoisted_53 = {
+var _hoisted_48 = [_hoisted_46, _hoisted_47];
+var _hoisted_49 = {
   "class": "flex items-center space-x-14 justify-between"
 };
 
-var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_50 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-white text-md leading-4"
 }, " Insurance (Comprehensive): ", -1
 /* HOISTED */
 );
 
-var _hoisted_55 = {
+var _hoisted_51 = {
   key: 0,
   "class": "text-white text-1xl font-bold"
 };
-var _hoisted_56 = {
+var _hoisted_52 = {
   key: 1,
   "class": "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
   xmlns: "http://www.w3.org/2000/svg",
@@ -33972,7 +33977,7 @@ var _hoisted_56 = {
   viewBox: "0 0 24 24"
 };
 
-var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   "class": "opacity-25",
   cx: "12",
   cy: "12",
@@ -33983,7 +33988,7 @@ var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "class": "opacity-75",
   fill: "currentColor",
   d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
@@ -33991,23 +33996,23 @@ var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_59 = [_hoisted_57, _hoisted_58];
+var _hoisted_55 = [_hoisted_53, _hoisted_54];
 
-var _hoisted_60 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
+var _hoisted_56 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_61 = {
+var _hoisted_57 = {
   "class": "flex items-center space-x-14 justify-between"
 };
-var _hoisted_62 = {
+var _hoisted_58 = {
   "class": "text-white text-md leading-4"
 };
-var _hoisted_63 = {
+var _hoisted_59 = {
   key: 0,
   "class": "text-white text-3xl font-bold"
 };
-var _hoisted_64 = {
+var _hoisted_60 = {
   key: 1,
   "class": "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
   xmlns: "http://www.w3.org/2000/svg",
@@ -34015,7 +34020,7 @@ var _hoisted_64 = {
   viewBox: "0 0 24 24"
 };
 
-var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+var _hoisted_61 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
   "class": "opacity-25",
   cx: "12",
   cy: "12",
@@ -34026,7 +34031,7 @@ var _hoisted_65 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_62 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "class": "opacity-75",
   fill: "currentColor",
   d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
@@ -34034,9 +34039,9 @@ var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_67 = [_hoisted_65, _hoisted_66];
+var _hoisted_63 = [_hoisted_61, _hoisted_62];
 
-var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_64 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6 text-red-500 mr-4",
   fill: "none",
@@ -34056,11 +34061,11 @@ var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_69 = {
+var _hoisted_65 = {
   "class": "flex items-center justify-center h-12 px-6 font-medium uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
 };
 
-var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_66 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6",
   fill: "none",
@@ -34075,11 +34080,11 @@ var _hoisted_70 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_71 = {
+var _hoisted_67 = {
   "class": "flex justify-center lg:justify-start py-10"
 };
 
-var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_68 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6",
   fill: "none",
@@ -34094,7 +34099,7 @@ var _hoisted_72 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_73 = [_hoisted_72];
+var _hoisted_69 = [_hoisted_68];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _$props$specs, _$props$specs$, _$props$specs2, _$props$specs2$, _$props$specs3, _$props$specs3$, _$props$specs4, _$props$specs4$, _$props$specs5, _$props$specs5$, _$props$specs6, _$props$specs6$, _$data$bikePriceList, _$data$bikePriceList2, _$data$bikePriceList3, _$data$bikePriceList4;
 
@@ -34131,26 +34136,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.scrollDown('specs');
     }),
     "class": "text-white py-4 px-12 uppercase shadow-md font-bold text-base bg-gray-900 rounded-l"
-  }, " Full Specs "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_32, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_33, _hoisted_36)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_40, " Ex-showroom (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName) + "): ", 1
+  }, " Full Specs "), _hoisted_32])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_36, " Ex-showroom (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName) + "): ", 1
   /* TEXT */
-  ), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList = $data.bikePriceList) === null || _$data$bikePriceList === void 0 ? void 0 : _$data$bikePriceList.ex_showroom_price)), 1
+  ), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_37, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList = $data.bikePriceList) === null || _$data$bikePriceList === void 0 ? void 0 : _$data$bikePriceList.ex_showroom_price)), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_42, _hoisted_45)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [_hoisted_47, !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_48, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList2 = $data.bikePriceList) === null || _$data$bikePriceList2 === void 0 ? void 0 : _$data$bikePriceList2.rto_price)), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_38, _hoisted_41)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [_hoisted_43, !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_44, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList2 = $data.bikePriceList) === null || _$data$bikePriceList2 === void 0 ? void 0 : _$data$bikePriceList2.rto_price)), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_49, _hoisted_52)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_53, [_hoisted_54, !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_55, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList3 = $data.bikePriceList) === null || _$data$bikePriceList3 === void 0 ? void 0 : _$data$bikePriceList3.insurance_price)), 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_45, _hoisted_48)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_49, [_hoisted_50, !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_51, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList3 = $data.bikePriceList) === null || _$data$bikePriceList3 === void 0 ? void 0 : _$data$bikePriceList3.insurance_price)), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_56, _hoisted_59)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_60, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_61, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_62, " On-road price in " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName) + ": ", 1
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_52, _hoisted_55)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_56, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_57, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_58, " On-road price in " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName) + ": ", 1
   /* TEXT */
-  ), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_63, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList4 = $data.bikePriceList) === null || _$data$bikePriceList4 === void 0 ? void 0 : _$data$bikePriceList4.onroad_price)), 1
+  ), !$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("h1", _hoisted_59, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.priceFormat((_$data$bikePriceList4 = $data.bikePriceList) === null || _$data$bikePriceList4 === void 0 ? void 0 : _$data$bikePriceList4.onroad_price)), 1
   /* TEXT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_64, _hoisted_67)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_60, _hoisted_63)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $data.selectCity = !$data.selectCity;
     }),
     "class": "flex border-l-4 items-center h-12 px-6 font-medium uppercase tracking-wide text-white transition duration-200 bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none cursor-pointer"
-  }, [_hoisted_68, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_69, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName), 1
+  }, [_hoisted_64, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_65, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.cityName), 1
   /* TEXT */
-  ), _hoisted_70])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_71, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), _hoisted_66])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_67, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "text-white py-4 px-12 uppercase shadow-md font-bold text-base bg-gray-900 rounded-l",
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.scrollDown('dealers');
@@ -34160,7 +34165,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.scrollDown('dealers');
     }),
     "class": "bg-icon-button text-white px-6 py-3 rounded-r"
-  }, _hoisted_73)])]))]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
+  }, _hoisted_69)])]))]), $data.selectCity ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_city_modal, {
     key: 0,
     onCitySelected: _cache[6] || (_cache[6] = function ($event) {
       return $options.citySelected();
@@ -35293,14 +35298,12 @@ var _hoisted_14 = {
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"mt-6\"><div class=\"space-y-4\"><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Bike Reviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">30</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Custom</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">140</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Electric</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">50</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Interviews</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">64</p></div><div class=\"w-11/12 lg:w-full rounded bg-black text-white flex items-center justify-between px-4 py-6\"><p>Racing</p><p>----------</p><p class=\"bg-white rounded-full text-black px-4 py-4\">126</p></div></div></div>", 1);
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = {
   "class": "flex flex-col justify-center pt-5 pb-10 border-t border-gray-800 sm:flex-row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+};
+var _hoisted_17 = {
   "class": "text-sm text-gray-500 text-center"
-}, " © 2021 Living with gravity. All rights reserved. ")], -1
-/* HOISTED */
-);
-
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer  "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.posts, function (post) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -35324,7 +35327,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_9)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div> ")])]), _hoisted_15])]), _hoisted_16])])], 2112
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex justify-between space-x-4 items-start\">\n                <div class=\"bg-gray-400 h-20 w-40\"></div>\n                <div>\n                  <h4 class=\"text-white font-bold mb-2\">\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit\n                  </h4>\n                  <div class=\"flex items-center space-x-2\">\n                    <svg\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                      class=\"h-4 w-4 text-white\"\n                      fill=\"none\"\n                      viewBox=\"0 0 24 24\"\n                      stroke=\"currentColor\"\n                    >\n                      <path\n                        stroke-linecap=\"round\"\n                        stroke-linejoin=\"round\"\n                        stroke-width=\"2\"\n                        d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"\n                      />\n                    </svg>\n                    <p class=\"text-white text-xs\">August 23, 2021</p>\n                  </div>\n                </div>\n              </div> ")])]), _hoisted_15])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, " © " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date().getFullYear()) + " Living with gravity. All rights reserved. ", 1
+  /* TEXT */
+  )])])])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }

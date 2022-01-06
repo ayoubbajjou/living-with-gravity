@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto">
-    <Head title="Welcome" />
+    <Head title="New Bikes, New Scooters, Used Bikes, Buy a Bike - Livingwithgravity" />
     <Navigation />
     <div class="bg-secondary h-screen">
       <Hero />
