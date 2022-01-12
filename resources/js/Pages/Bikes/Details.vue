@@ -75,8 +75,8 @@
               >
                 <option
                   v-for="version in versions"
-                  :key="version.id"
-                  :value="version.id"
+                  :key="version.version_name"
+                  :value="version.version_name"
                 >
                   {{ version.version_name }}
                 </option>
@@ -186,7 +186,7 @@ export default defineComponent({
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
         this.versions = res.data;
-        this.versionSelected = this.bike?.id;
+        this.versionSelected = this.bike?.version_name;
       })
       .catch((err) => {
         console.log(err);
@@ -253,8 +253,11 @@ export default defineComponent({
       }
     },
     bikeIsChanged() {
-      window.location.replace(`/bike/${this.versionSelected}`);
+      var link = `/${this.bike.make}/${this.slugify(this.bike.series)}/${this.versionSelected}`
+      console.log(link)
+      window.location.replace(link);
     },
+    slugify(text) { return  text .toLowerCase() .replace(/ /g,'-') .replace(/[^\w-]+/g,'') ; }
   },
 });
 </script>
