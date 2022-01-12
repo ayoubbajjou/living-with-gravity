@@ -23452,7 +23452,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this$bike2;
 
       _this.versions = res.data;
-      _this.versionSelected = (_this$bike2 = _this.bike) === null || _this$bike2 === void 0 ? void 0 : _this$bike2.id;
+      _this.versionSelected = (_this$bike2 = _this.bike) === null || _this$bike2 === void 0 ? void 0 : _this$bike2.version_name;
     })["catch"](function (err) {
       console.log(err);
     });
@@ -23511,7 +23511,12 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     bikeIsChanged: function bikeIsChanged() {
-      window.location.replace("/bike/".concat(this.versionSelected));
+      var link = "/".concat(this.bike.make, "/").concat(this.slugify(this.bike.series), "/").concat(this.versionSelected);
+      console.log(link);
+      window.location.replace(link);
+    },
+    slugify: function slugify(text) {
+      return text.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
     }
   }
 }));
@@ -30970,8 +30975,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.versions, function (version) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-      key: version.id,
-      value: version.id
+      key: version.version_name,
+      value: version.version_name
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(version.version_name), 9
     /* TEXT, PROPS */
     , _hoisted_16);
