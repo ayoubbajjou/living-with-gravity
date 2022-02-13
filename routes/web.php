@@ -36,12 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::middleware(['auth:sanctum', 'verified'])
         ->post('/store-bike', [BikeController::class, 'store'])->name('store.bikes');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
-Route::get('/generate-sitemap', function() {
-        Sitemap::create('https://bike.livingwithgravity.com')
-                        ->add(Bike::whereNotNull('default_price')
-                        ->pluck('make'))
-                        ->writeToFile('sitemap.xml');
-})->name('generate-sitemap');
+Route::get('/sitemap.xml', [HomeController::class, 'generateSitemap']);
 Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
 Route::get('/search/budget/{budget}', [SearchController::class, 'searchByBudget'])->name('searchByBudget');
 Route::get('/search/displacement', [SearchController::class, 'searchByDisplacement'])->name('searchByDisplacement');
