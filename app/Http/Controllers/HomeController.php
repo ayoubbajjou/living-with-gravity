@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bike;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -26,6 +27,13 @@ class HomeController extends Controller
             'postsData' => $postsData,
             'brands' => $brands
         ]);
+    }
+
+    public function generateSitemap() {
+
+        $bikes = Bike::whereNotNull('default_price')->get();
+        $brands = Brand::where('site_id', 1)->get();
+        return response()->view('sitemap', compact('bikes', 'brands'))->header('Content-Type', 'text/xml');
     }
 
     /**
