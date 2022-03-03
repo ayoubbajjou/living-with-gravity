@@ -6,18 +6,6 @@
             <changefreq>daily</changefreq>
             <priority>0.8</priority>
     </url>
-    <url>
-        <loc>https://bike.livingwithgravity.com/blog</loc>
-        <lastmod><?php echo date('c', time()); ?></lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://bike.livingwithgravity.com/about-us</loc>
-        <lastmod><?php echo date('c', time()); ?></lastmod>
-            <changefreq>daily</changefreq>
-            <priority>0.8</priority>
-    </url>
     @foreach($brands as $brand)
         <url>
             <loc>https://bike.livingwithgravity.com/{{ $brand->brand_name }}</loc>
