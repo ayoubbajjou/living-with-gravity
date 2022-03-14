@@ -6,12 +6,10 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
-use App\Models\Bike;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Spatie\Sitemap\SitemapGenerator;
-use Spatie\Sitemap\Sitemap;
-
+use App\Http\Controllers\FacebookSocialiteController;
+use App\Http\Controllers\GoogleSocialiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +50,11 @@ Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpP
 Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');
 Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
 Route::get('/{brand}/{series}/{version_name}', [BikeController::class, 'show'])->name('show.bikes');
+
+// Google login
+Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+Route::get('callback/google', [GoogleSocialiteController::class, 'handleCallback']);
+
+// Facebook login
+Route::get('auth/facebook', [FacebookSocialiteController::class, 'redirectToFB']);
+Route::get('callback/facebook', [FacebookSocialiteController::class, 'handleCallback']);
