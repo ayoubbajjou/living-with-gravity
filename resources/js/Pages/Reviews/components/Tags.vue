@@ -1,0 +1,96 @@
+<template>
+  <div class="flex items-center space-x-4">
+    <div
+      class="
+        flex
+        justify-between
+        min-w-[7rem]
+        bg-red-600
+        text-white
+        space-x-3
+        px-4
+        rounded-full
+        cursor-pointer
+        py-2
+      "
+    >
+      <p>All</p>
+      <span>x</span>
+    </div>
+    <div
+      class="
+        flex
+        justify-between
+        min-w-[7rem]
+        bg-[#333333]
+        text-white
+        space-x-3
+        px-4
+        rounded-full
+        cursor-pointer
+        py-2
+      "
+    >
+      <p>Power</p>
+      <span>x</span>
+    </div>
+    <div
+      class="
+        flex
+        justify-between
+        min-w-[7rem]
+        bg-[#333333]
+        text-white
+        space-x-3
+        px-4
+        rounded-full
+        cursor-pointer
+        py-2
+      "
+    >
+      <p>Mileage</p>
+      <span>x</span>
+    </div>
+    <div
+      class="
+        flex
+        justify-between
+        min-w-[7rem]
+        bg-[#333333]
+        text-white
+        space-x-3
+        px-4
+        rounded-full
+        cursor-pointer
+        py-2
+      "
+    >
+      <p>Looks</p>
+      <span>x</span>
+    </div>
+    <div
+      class="
+        flex
+        justify-between
+        min-w-[7rem]
+        bg-[#333333]
+        text-white
+        space-x-3
+        px-4
+        rounded-full
+        cursor-pointer
+        py-2
+      "
+    >
+      <p>Maintainance</p>
+      <span>x</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>

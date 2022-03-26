@@ -17,8 +17,8 @@
                 <img v-if="!colorSelected" src="/icons/pick-colors.png" class="mx-auto p-2" alt="">
                 <div v-else  class="mx-auto h-full p-2 rounded cursor-pointer" :style="`background-color: ${colorSelected}`"> </div>
               </div>
-              <div v-if="displayColors" class="z-50 flex flex-col items-center space-y-2 py-2 absolute top-16 right-0 mr-4 h-auto w-12 bg-white bg-opacity-80">
-                <div v-for="(color, index) in colors" :key="index" class="w-10 h-10 rounded cursor-pointer" :style="`background-color: ${color.colorcodes}`" @click="selectColor(color.colorcodes)"></div>
+              <div v-if="displayColors" class="z-50 flex flex-col items-center space-y-2 py-2 absolute top-16 right-0 mr-4 h-auto w-12 bg-white bg-opacity-80 rounded-b-3xl">
+                <div v-for="(color, index) in colors" :key="index" class="w-6 h-6 rounded-full cursor-pointer" :style="`background-color: ${color.colorcodes}`" @click="selectColor(color.colorcodes)"></div>
               </div>
             </div>
             <img
@@ -124,26 +124,16 @@
         :brandId="bike?.brand?.id"
         :dealersCount="dealersCount"
       />
+
+      <Qa :bike="bike" />
+
+      <UserReviews :bike="bike" />
     </div>
     <Subscribe />
 
     <Footer />
   </div>
 </template>
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-* {
-  font-family: "Poppins", sans-serif;
-}
-
-select {
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='45' viewBox='0 0 24 24' width='45' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-}
-</style>
 
 <script>
 import { defineComponent } from "vue";
@@ -157,6 +147,8 @@ import Dealers from "../components/Dealers.vue";
 import MoreSuggestedBikes from "../components/MoreSuggestedBikes.vue";
 import BikeDetailsFeaturesPrice from "../components/BikeDetailsFeaturesPrice.vue";
 import BikeSpecs from "../components/BikeSpecs.vue";
+import UserReviews from "../Reviews/UserReviewSection.vue";
+import Qa from "../components/Qa/QaSection.vue";
 
 export default defineComponent({
   components: {
@@ -171,6 +163,8 @@ export default defineComponent({
     MoreSuggestedBikes,
     BikeDetailsFeaturesPrice,
     BikeSpecs,
+    UserReviews,
+    Qa
   },
   props: {
     canLogin: Boolean,
@@ -293,3 +287,17 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+select {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='45' viewBox='0 0 24 24' width='45' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+}
+</style>

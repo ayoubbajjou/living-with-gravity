@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bike;
-use App\Models\Review;
+use App\Models\Question;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Illuminate\Support\Str;
 
-class ReviewController extends Controller
+class QaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, $bike_id)
     {
-        //
+        return Question::where('bike_id', $bike_id)->whereNotNull('answer')->orderByDesc('created_at')->get();
     }
 
     /**
@@ -25,11 +22,9 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($brand, $series, $version_name)
+    public function create()
     {
-        $bike = Bike::where('make', $brand)->where('version_name', $version_name)->with('images')->first();
-        
-        return Inertia::render('Reviews/WriteReview', compact('bike'));
+        //
     }
 
     /**
@@ -40,16 +35,25 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'bike_id' => 'required',
+            'question' => 'required',
+        ]);
+        Question::create([
+            'bike_id' => $request->bike_id,
+            'question' => $request->question,
+        ]);
+
+        return response()->json(); 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(Question $question)
     {
         //
     }
@@ -57,10 +61,10 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function edit(Question $question)
     {
         //
     }
@@ -69,10 +73,10 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(Request $request, Question $question)
     {
         //
     }
@@ -80,10 +84,10 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(Question $question)
     {
         //
     }

@@ -117,8 +117,8 @@
             outline-none
             focus:outline-none
             active:outline-none
-            focus:ring-transparent
-            active:ring-transparent
+            focus:ring-gray-100
+            active:ring-gray-100
           "
           @keyup="search('desktop')"
           v-model="query"

@@ -6,10 +6,13 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\QaController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\FacebookSocialiteController;
 use App\Http\Controllers\GoogleSocialiteController;
+use App\Http\Controllers\ReviewController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +53,13 @@ Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpP
 Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');
 Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
 Route::get('/{brand}/{series}/{version_name}', [BikeController::class, 'show'])->name('show.bikes');
+
+// QA
+Route::post('/ask-question', [QaController::class, 'store'])->name('store.qa');
+Route::get('/get-questions/{bike_id}', [QaController::class, 'index'])->name('get_questions');
+
+// Review
+Route::get('/review/{brand}/{series}/{version_name}', [ReviewController::class, 'create'])->name('review.create');
 
 // Google login
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
