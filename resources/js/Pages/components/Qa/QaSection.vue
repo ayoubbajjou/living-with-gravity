@@ -18,12 +18,16 @@
       Q&A
     </h1>
 
-    <div class="w-full my-8">
+    <div id="questions" class="w-full my-8">
       <h1 class="text-center text-4xl font-semilight text-white">
         Questions? Ask here.
       </h1>
       <div>
-        <div class="flex items-center px-24 py-4">
+        <div
+          v-if="$page.props.user && !$page.props?.user?.is_admin"
+          class="px-24 py-4"
+          :class="{ 'flex items-center ': $page.props.user && !$page.props?.user?.is_admin }"
+        >
           <input
             v-model="question"
             required="true"
@@ -39,15 +43,15 @@
               outline-none
               focus:outline-none
               active:outline-none
-              focus:ring-transparent
-              active:ring-transparent
+              focus:ring-0
+              active:ring-0
             "
           />
           <button
             @click="askQuestion"
             class="
               absolute
-              lg:right-[16%]
+              right-[16%]
               mb-6
               bg-icon-button
               text-white
@@ -56,6 +60,38 @@
               rounded-lg
             "
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+        </div>
+        <div @click="writeQuestion" class="flex items-start justify-center mt-3" v-if="!$page.props.user && !$page.props?.user?.is_admin">
+          <button
+            class="
+              text-white
+              px-3 py-2
+              uppercase
+              shadow-md
+              font-semibold
+              text-md
+              bg-button
+              rounded-l-lg
+            "
+          >
+            Ask Question?
+          </button>
+          <button class="bg-icon-button text-white px-3 py-2 rounded-r-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-6 w-6"
@@ -122,15 +158,19 @@
         </div>
       </div>
     </div>
+    <Login v-if="isModalOpened" section="question" @close="isModalOpened = false"/>
   </div>
 </template>
 
 <script>
 import QaItem from "./components/QaItem.vue";
+import Login from "../../Auth/LoginSlide.vue";
+
 export default {
   name: "Qa",
   components: {
     QaItem,
+    Login
   },
   props: {
     bike: {
@@ -143,10 +183,18 @@ export default {
       qaData: 4,
       question: null,
       questions: [],
+      isModalOpened: false
     };
   },
   mounted() {
     this.getQuestions();
+
+    let params = new URLSearchParams(document.location.search);
+    const section = params.get("section");
+    if(section === 'questions') {
+        var scrollDiv = document.getElementById(section).offsetTop;
+        window.scrollTo({ top: scrollDiv + 900, behavior: 'smooth'});
+    }
   },
   methods: {
     async getQuestions() {
@@ -158,6 +206,10 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    writeQuestion() {
+        this.$emit("remove-nav");
+        this.isModalOpened = true;
     },
     async askQuestion() {
       await axios

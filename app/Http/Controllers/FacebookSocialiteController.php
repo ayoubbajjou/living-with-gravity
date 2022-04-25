@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Exception;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -14,8 +15,21 @@ class FacebookSocialiteController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function redirectToFB()
+    public function redirectToFB(Request $request)
     {
+        $section = $request->all()['section'];
+        if($section === 'review') {
+            $prevUrl = '/review'.str_replace(url('/'), '', url()->previous());
+
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => $prevUrl]);
+            }
+        }else {
+            $prevUrl = str_replace(url('/'), '', url()->previous()).'?section=questions';
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => $prevUrl]);
+            }
+        }
         return Socialite::driver('facebook')->redirect();
     }
 
@@ -28,30 +42,30 @@ class FacebookSocialiteController extends Controller
     {
         try {
 
-            $user = Socialite::driver('facebook')->user();
+            $user = Socialite::driver('google')->user();
 
-            $finduser = User::where('social_id', $user->id)->first();
+            $findUser = User::where('email', $user->email)->first();
+            if ($findUser) {
 
-            if($finduser){
-
-                Auth::login($finduser);
-                dd(Auth::user());
-                return redirect('/profile');
-
-            }else{
+                Auth::login($findUser);
+                $path = session('url.intended');
+                session()->forget('url.intended');
+                return redirect($path);
+            } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'social_id'=> $user->id,
-                    'social_type'=> 'facebook',
-                    'password' => encrypt('my-facebook')
+                    'social_id' => $user->id,
+                    'social_type' => 'google',
+                    'profile_photo_path' => $user->user['picture'],
+                    'password' => encrypt('password')
                 ]);
 
                 Auth::login($newUser);
-                dd(Auth::user());
-                return redirect('/profile');
+                $path = session('url.intended');
+                session()->forget('url.intended');
+                return redirect($path);
             }
-
         } catch (Exception $e) {
             dd($e->getMessage());
         }

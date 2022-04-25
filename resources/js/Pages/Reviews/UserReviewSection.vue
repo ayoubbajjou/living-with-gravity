@@ -18,21 +18,19 @@
       User Reviews
     </h1>
 
-    <div class="w-full flex justify-between space-x-4 mt-8">
-      <div class="bg-[#2F2F2F] rounded-2xl shadow-2xl w-1/4 px-6 py-8">
+    <div class="w-full lg:flex justify-between space-x-4 lg:p-0 p-8 shadow-2xl mt-8">
+      <div class="bg-[#2F2F2F] rounded-2xl shadow-2xl w-full lg:w-1/4 px-6 py-8">
         <div
           class="flex justify-between border-b-2 border-gray-300 space-y-3 pb-8"
         >
           <div class="w-1/2 pl-4 mx-auto space-y-2">
-            <img
-              src="/icons/3.svg"
-              class="w-16 h-16 mx-auto"
-              alt=""
-            />
-            <h3 class="text-white font-bold text-5xl uppercase text-center">4.0</h3>
+            <img src="/icons/3.svg" class="w-16 h-16 mx-auto" alt="" />
+            <h3 class="text-white font-bold text-5xl uppercase text-center">
+              {{bike?.avg.toFixed(1)}}
+            </h3>
             <p class="text-white text-center">Great Ride !</p>
           </div>
-          <div class="w-1/2 space-y-4">
+          <div class="w-full lg:w-1/2 space-y-4">
             <RatingItem :rate="5" percentage="100%" />
             <RatingItem :rate="4" />
             <RatingItem :rate="3" percentage="40%" />
@@ -46,10 +44,7 @@
             Share your experience about {{ bike?.series }} -
             {{ bike?.version_name }}
           </p>
-          <a
-            class="flex justify-center mt-8 mb-8"
-            :href="`/review${historyUrl}`"
-          >
+          <a class="flex justify-center mt-8 mb-8" @click="writeReview">
             <button
               class="
                 text-white
@@ -85,18 +80,20 @@
           </a>
         </div>
       </div>
-      <div class="bg-[#2F2F2F] w-3/4 p-8 space-y-4">
+      <div class="bg-[#2F2F2F] w-full lg:w-3/4 p-8 space-y-4">
         <h3 class="text-white font-semibold text-2xl">
           {{ bike?.series }} - {{ bike?.version_name }} user Reviews
         </h3>
         <!-- <Tags /> -->
-        <div class="flex items-start space-x-8">
-          <Review />
-          <Review />
-          <Review />
+        <div class="grid lg:grid-cols-3 gap-4">
+          <Review
+            v-for="(review, index) in reviews"
+            :key="index"
+            :review="review"
+          />
         </div>
 
-        <a class="flex mt-8 mb-8" href="#">
+        <a v-if="reviews.length" class="flex mt-8 mb-8" :href="`${url}/reviews`">
           <button
             class="
               text-white
@@ -131,7 +128,8 @@
         </a>
       </div>
     </div>
-    <review-modal v-if="isModalOpened" :bike="bike"></review-modal>
+    <!-- <review-modal  :bike="bike"></review-modal> -->
+    <Login v-if="isModalOpened" @close="isModalOpened = false"/>
   </div>
 </template>
 
@@ -140,6 +138,8 @@ import RatingItem from "./components/RatingItem.vue";
 import Tags from "./components/Tags.vue";
 import Review from "./components/Review.vue";
 import ReviewModal from "./components/ReviewModal.vue";
+import Login from "../Auth/LoginSlide.vue";
+
 export default {
   name: "UserReviews",
   components: {
@@ -147,6 +147,7 @@ export default {
     Tags,
     Review,
     ReviewModal,
+    Login,
   },
   props: {
     bike: {
@@ -154,6 +155,14 @@ export default {
       required: true,
       historyUrl: null,
     },
+    reviews: {
+      type: Array,
+      required: true,
+    },
+    url: {
+        type: String,
+        required: true
+    }
   },
   data() {
     return {
@@ -163,9 +172,21 @@ export default {
   computed: {},
   mounted() {
     this.historyUrl = document.location.pathname;
-    console.log({ history: document.location.pathname });
   },
-  methods: {},
+  methods: {
+    writeReview() {
+      this.$emit("remove-nav");
+      console.log(this.isModalOpened)
+
+      if (this.$page.props.user && this.$page.props.user?.is_admin !== true) {
+        window.location.href = "/review" + document.location.pathname;
+      } else {
+        this.isModalOpened = true;
+      }
+      console.log(this.isModalOpened)
+
+    },
+  },
 };
 </script>
 

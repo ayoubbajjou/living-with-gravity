@@ -3,6 +3,7 @@
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CompareController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
@@ -12,6 +13,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\FacebookSocialiteController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\ReviewController;
+use App\Models\Question;
+use App\Models\Review;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,17 +29,36 @@ use App\Http\Controllers\ReviewController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
+        if (auth()->user()->is_admin) {
+                return Inertia::render('Dashboard');
+        }
+        $reviews = Review::where('user_id', auth()->user()->id)->with('bike', 'user')->get();
+        $questions = Question::where('user_id', auth()->user()->id)->with('bike', 'user')->get();
+        return Inertia::render('User/Dashboard', compact('reviews', 'questions'));
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])
+// Route::middleware(['auth', 'verified'])->get('/user/dashboard', function () {
+//         return Inertia::render('User/Dashboard');
+// })->name('dashboard.user');
+
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
         ->get('/bikes', [BikeController::class, 'index'])->name('bikes');
-Route::middleware(['auth:sanctum', 'verified'])
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
+        ->get('/questions', [QaController::class, 'adminPanel'])->name('questions');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
+        ->get('/reviews', [ReviewController::class, 'adminPanel'])->name('reviews');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
+        ->get('/questions/answer/{id}', [QaController::class, 'answerQuestion'])->name('questions.answer');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
+        ->post('/store-answer/{id}', [QaController::class, 'storeAnswer'])->name('store.answer');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
         ->get('/add-bike', [BikeController::class, 'create'])->name('add.bikes');
-Route::middleware(['auth:sanctum', 'verified'])
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
         ->post('/store-bike', [BikeController::class, 'store'])->name('store.bikes');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+// Compare bikes
+Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 Route::get('/sitemap.xml', [HomeController::class, 'generateSitemap']);
 Route::get('/get-brands', [BrandController::class, 'getBrands'])->name('get.brands');
 Route::get('/search/budget/{budget}', [SearchController::class, 'searchByBudget'])->name('searchByBudget');
@@ -53,6 +75,7 @@ Route::get('/get-wp-posts', [PostController::class, 'getWpPosts'])->name('getWpP
 Route::get('/get-wp-posts-footer', [PostController::class, 'getWpPostsFooter'])->name('getWpPostsFooter');
 Route::get('/{name}', [BrandController::class, 'index'])->name('brand');
 Route::get('/{brand}/{series}/{version_name}', [BikeController::class, 'show'])->name('show.bikes');
+Route::post('/fetch-bike-variant', [BikeController::class, 'fetchBikeVariant']);
 
 // QA
 Route::post('/ask-question', [QaController::class, 'store'])->name('store.qa');
@@ -60,6 +83,14 @@ Route::get('/get-questions/{bike_id}', [QaController::class, 'index'])->name('ge
 
 // Review
 Route::get('/review/{brand}/{series}/{version_name}', [ReviewController::class, 'create'])->name('review.create');
+Route::post('/submit-review/{id}', [ReviewController::class, 'store'])->name('review.store');
+Route::post('/approve-review', [ReviewController::class, 'approve'])->name('review.approve');
+Route::middleware(['auth:sanctum', 'verified', 'admin'])
+        ->get('/rt-reviews', [ReviewController::class, 'fetchReviews'])->name('fetch_reviews');
+Route::get('/{brand}/{series}/{version_name}/reviews', [ReviewController::class, 'allReviews'])->name('allReviews');
+
+//Compare
+Route::post('/compare-bikes', [CompareController::class, 'compareBikes'])->name('compare.bikes');
 
 // Google login
 Route::get('auth/google', [GoogleSocialiteController::class, 'redirectToGoogle']);

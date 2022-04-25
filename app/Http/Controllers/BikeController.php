@@ -6,6 +6,7 @@ use App\Models\Bike;
 use App\Models\Brand;
 use App\Models\City;
 use App\Models\Dealer;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Http;
@@ -20,7 +21,7 @@ class BikeController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::whereNotNull('default_price')->get();
+        $bikes = Bike::whereNotNull('default_price')->with('brand')->paginate(20);
         return Inertia::render('Bikes/index', compact('bikes'));
     }
 
@@ -150,7 +151,7 @@ class BikeController extends Controller
      */
     public function show($brand, $series, $version_name)
     {
-        $unslug = ucwords(str_replace('-', ' ', $series)); 
+        $unslug = ucwords(str_replace('-', ' ', $series));
         $postsData = [];
         $bike = Bike::where('make', $brand)
                     ->where('series', $unslug)
@@ -173,7 +174,19 @@ class BikeController extends Controller
                             ->get();
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
-        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount'));
+        $reviews = Review::where('bike_id', $bike->id)->where('approved', true)->with('user')->take(3)->get();
+        $rating = Review::where('bike_id', $bike->id)->where('approved', true)->select('mileage_rate', 'safety_rate', 'performance_rate', 'design_rate')->get();
+        $rates = [];
+        foreach ($rating as $key => $value) {
+            $arr = array_filter([$value->mileage_rate, $value->mileage_rate, $value->safety_rate, $value->pricing_rate, $value->performace_rate, $value->design_rate]);
+            $value['avg'] = array_sum($arr)/count($arr);
+            $rates[] = $value['avg'];
+        }
+        $arr = array_filter($rates);
+        if(count($arr) > 0) {
+            $bike['avg'] =  floor(array_sum($arr)/count($arr));
+        }
+        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount', 'reviews', 'rating'));
     }
 
     /**
@@ -187,7 +200,7 @@ class BikeController extends Controller
     }
 
     /**
-     * 
+     *
      */
     public function getDealersPagination(Request $request)
     {
@@ -223,5 +236,17 @@ class BikeController extends Controller
     public function destroy(Bike $bike)
     {
         //
+    }
+
+    public function fetchBikeVariant(Request $request) {
+        $versions1 = Bike::select('version_name')->where('series', $request->series1)->whereNotNull('model_id')->pluck('version_name');
+        $versions2 = Bike::select('version_name')->where('series', $request->series2)->whereNotNull('model_id')->pluck('version_name');
+        $versions3 = Bike::select('version_name')->where('series', $request->series3)->whereNotNull('model_id')->pluck('version_name');
+
+        return [
+            $versions1,
+            $versions2,
+            $versions3,
+        ];
     }
 }
