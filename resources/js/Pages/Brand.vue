@@ -198,6 +198,19 @@ export default defineComponent({
 </script>
 <style scoped>
 .scrollBar::-webkit-scrollbar {
-  display: none;
+    width: 10px;
+}
+.scrollBar::-webkit-scrollbar-thumb {
+    background: #858484;
+    border-radius: 10px;
+}
+.scrollBar::-webkit-scrollbar-track {
+    background: linear-gradient(
+        90deg,
+        #444444,
+        #444444 1px,
+        #444444 0,
+        #444444
+    );
 }
 </style>
