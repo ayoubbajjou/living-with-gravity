@@ -29,5 +29,16 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'facebook' => [
+        'client_id' => '1022544615007607',
+        'client_secret' => '017ae924685ca924c272a4de25a72007',
+        'redirect' => app()->runningInConsole() ? '' : url('/callback/facebook'),
+    ],
+
+    'google' => [
+        'client_id' => '225669792975-od19ibjltd5v5b3g77v8kd5kkh5rtcoj.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => app()->runningInConsole() ? '' : url('/callback/google')
+    ],
 
 ];

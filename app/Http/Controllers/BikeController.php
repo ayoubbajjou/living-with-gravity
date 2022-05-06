@@ -6,10 +6,13 @@ use App\Models\Bike;
 use App\Models\Brand;
 use App\Models\City;
 use App\Models\Dealer;
+use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class BikeController extends Controller
 {
@@ -20,7 +23,7 @@ class BikeController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::whereNotNull('default_price')->get();
+        $bikes = Bike::whereNotNull('default_price')->with('brand')->paginate(20);
         return Inertia::render('Bikes/index', compact('bikes'));
     }
 
@@ -150,15 +153,15 @@ class BikeController extends Controller
      */
     public function show($brand, $series, $version_name)
     {
-        $unslug = ucwords(str_replace('-', ' ', $series)); 
+        $unslug = ucwords(str_replace('-', ' ', $series));
         $postsData = [];
         $bike = Bike::where('make', $brand)
-                    ->where('series', $unslug)
-                    ->where('version_name', $version_name)
-                    ->whereNotNull('default_price')
-                    ->where('brand_id', '!=', NULL)
-                    ->with(['images', 'prices', 'specifications', 'brand'])
-                    ->first();
+            ->where('series', $unslug)
+            ->where('version_name', $version_name)
+            ->whereNotNull('default_price')
+            ->where('brand_id', '!=', NULL)
+            ->with(['images', 'prices', 'specifications', 'brand'])
+            ->first();
         if (!$bike) {
             abort(404);
         }
@@ -168,12 +171,24 @@ class BikeController extends Controller
         $dealers = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->take(20)->get();
         $dealersCount = Dealer::where('brand_id', $bike->brand_id)->where('city_id', 1)->count();
         $moreBikes = Bike::where('brand_id', $bike->brand_id)
-                            ->whereNotNull('default_price')
-                            ->with('prices', 'images')->limit(20)
-                            ->get();
+            ->whereNotNull('default_price')
+            ->with('prices', 'images')->limit(20)
+            ->get();
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
-        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount'));
+        $reviews = Review::where('bike_id', $bike->id)->where('approved', true)->with('user')->take(3)->get();
+        $rating = Review::where('bike_id', $bike->id)->where('approved', true)->select('mileage_rate', 'safety_rate', 'performance_rate', 'design_rate')->get();
+        $rates = [];
+        foreach ($rating as $key => $value) {
+            $arr = array_filter([$value->mileage_rate, $value->mileage_rate, $value->safety_rate, $value->pricing_rate, $value->performace_rate, $value->design_rate]);
+            $value['avg'] = array_sum($arr) / count($arr);
+            $rates[] = $value['avg'];
+        }
+        $arr = array_filter($rates);
+        if (count($arr) > 0) {
+            $bike['avg'] =  floor(array_sum($arr) / count($arr));
+        }
+        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount', 'reviews', 'rating'));
     }
 
     /**
@@ -181,13 +196,13 @@ class BikeController extends Controller
     public function bikeVersions($id)
     {
         return Bike::where('model_id', $id)
-                    ->whereNotNull('default_price')
-                    ->select('model_id', 'id', 'version_id', 'version_name')
-                    ->get();
+            ->whereNotNull('default_price')
+            ->select('model_id', 'id', 'version_id', 'version_name')
+            ->get();
     }
 
     /**
-     * 
+     *
      */
     public function getDealersPagination(Request $request)
     {
@@ -207,10 +222,10 @@ class BikeController extends Controller
     public function allBikes(Request $request, $brand)
     {
         $bikes = Bike::where('make', $brand)
-                        ->with('prices', 'images')
-                        ->whereNotNull('default_price')
-                        ->limit(50)
-                        ->get();
+            ->with('prices', 'images')
+            ->whereNotNull('default_price')
+            ->limit(50)
+            ->get();
         return Inertia::render('Bikes/All', compact('bikes'));
     }
 
@@ -223,5 +238,50 @@ class BikeController extends Controller
     public function destroy(Bike $bike)
     {
         //
+    }
+
+    public function fetchBikeVariant(Request $request)
+    {
+        $versions1 = Bike::select('version_name')->where('series', $request->series1)->whereNotNull('model_id')->pluck('version_name');
+        $versions2 = Bike::select('version_name')->where('series', $request->series2)->whereNotNull('model_id')->pluck('version_name');
+        $versions3 = Bike::select('version_name')->where('series', $request->series3)->whereNotNull('model_id')->pluck('version_name');
+
+        return [
+            $versions1,
+            $versions2,
+            $versions3,
+        ];
+    }
+
+    public function getBikeVariant(Request $request)
+    {
+        $versions = Bike::select('version_name')->where('series', $request->serie)->whereNotNull('model_id')->pluck('version_name');
+
+        return $versions;
+    }
+
+    public function saveUserBike(Request $request)
+    {
+        $bike = Bike::where('series', $request->serie)->where('version_name', $request->version)->first();
+        $user = User::where('id', auth()->user()->id)->first();
+
+        if($bike) {
+            $user->update([
+                'bike_id' => $bike->id
+            ]);
+
+            return response()->json(['status' => 200]);
+        }
+        return response()->json(['status' => 500]);
+    }
+
+    public function popularBikes(Request $request)
+    {
+        $bikes = Bike::whereIn('id', $request->bikes)
+            ->with('prices', 'images')
+            ->whereNotNull('default_price')
+            ->get();
+
+        return $bikes;
     }
 }

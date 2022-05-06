@@ -3,7 +3,7 @@ require('./bootstrap');
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-
+import vSelect from 'vue-select';
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
@@ -14,6 +14,7 @@ createInertiaApp({
             render: () => h(app, props)
         })
             .use(plugin)
+            .component('v-select', vSelect)
             .mixin({ methods: { route } })
             .mount(el);
     },

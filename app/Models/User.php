@@ -27,6 +27,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo_path',
+        'social_id',
+        'social_type',
+        'bike_id'
     ];
 
     /**
@@ -58,4 +62,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
+
+    public function isAdmin() {
+        return $this->is_admin = true;
+    }
 }
