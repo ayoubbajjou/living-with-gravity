@@ -123,7 +123,7 @@
           @keyup="search('desktop')"
           v-model="query"
           type="text"
-          placeholder="Search by brand, Body, Model..."
+          placeholder="Search by brands, Body, Model..."
         />
         <div
           v-if="!errorMessage && bikes.length"
@@ -148,7 +148,12 @@
             @mouseover="isHovered(bike.id)"
             :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
           >
-            <a class="flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
+            <a
+              class="flex"
+              :href="`/${bike.make}/${slugify(bike.series)}/${
+                bike.version_name
+              }`"
+            >
               <img
                 class="w-24 h-16 rounded-lg mr-4"
                 :src="bike?.images[0]?.thumb_link"
@@ -163,9 +168,7 @@
                   {{ bike.series }} {{ bike.version_name }}
                 </h3>
                 <span class="text-xs">Starting from</span>
-                <p class="text-light italic">
-                  ₹{{ bike?.default_price }}
-                </p>
+                <p class="text-light italic">₹{{ bike?.default_price }}</p>
               </div>
             </a>
           </div>
@@ -184,6 +187,85 @@
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
+      </div>
+      <!-- login/logout -->
+      <div class="ml-3 relative" v-if="$page.props.user">
+        <jet-dropdown align="right" width="48">
+          <template #trigger>
+            <button
+              v-if="$page.props.user?.profile_photo_path"
+              class="
+                flex
+                text-sm
+                border-2 border-transparent
+                rounded-full
+                focus:outline-none focus:border-gray-300
+                transition
+              "
+            >
+              <img
+                class="h-8 w-8 rounded-full object-cover"
+                :src="$page.props.user?.profile_photo_path"
+                :alt="$page.props.user?.name"
+              />
+            </button>
+
+            <span v-else class="inline-flex rounded-md">
+              <button
+                type="button"
+                class="
+                  inline-flex
+                  items-center
+                  px-3
+                  py-2
+                  border border-transparent
+                  text-sm
+                  leading-4
+                  font-medium
+                  rounded-md
+                  text-gray-500
+                  bg-white
+                  hover:text-gray-700
+                  focus:outline-none
+                  transition
+                "
+              >
+                {{ $page.props.user?.name }}
+
+                <svg
+                  class="ml-2 -mr-0.5 h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </span>
+          </template>
+
+          <template #content>
+            <!-- Account Management -->
+            <div class="block px-4 py-2 text-xs text-gray-400">
+              Manage Account
+            </div>
+
+            <jet-dropdown-link :href="route('dashboard')">
+              Profile
+            </jet-dropdown-link>
+
+            <div class="border-t border-gray-100"></div>
+
+            <!-- Authentication -->
+            <form @submit.prevent="logout">
+              <jet-dropdown-link as="button"> Log Out </jet-dropdown-link>
+            </form>
+          </template>
+        </jet-dropdown>
       </div>
     </div>
     <div class="relative">
@@ -208,55 +290,54 @@
         placeholder="Search by brand, Body, Model..."
       />
       <div
-          v-if="!errorMessage && bikes.length && isMobile"
-          id="search-list"
-          class="
-            absolute
-            h-144
-            z-50
-            top-24
-            bg-white
-            border-2 border-[#2F2F2F]
-            rounded-md
-            overflow-y-scroll
-            -mt-10
-          "
+        v-if="!errorMessage && bikes.length && isMobile"
+        id="search-list"
+        class="
+          absolute
+          h-144
+          z-50
+          top-24
+          bg-white
+          border-2 border-[#2F2F2F]
+          rounded-md
+          overflow-y-scroll
+          -mt-10
+        "
+      >
+        <div
+          v-for="bike in bikes"
+          :key="bike.id"
+          class="flex py-4 px-2 items-center"
+          @mouseover="isHovered(bike.id)"
+          :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
         >
-          <div
-            v-for="bike in bikes"
-            :key="bike.id"
-            class="flex py-4 px-2 items-center"
-            @mouseover="isHovered(bike.id)"
-            :class="{ 'bg-[#2F2F2F]': bikeHovered === bike.id }"
+          <a
+            class="flex"
+            :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`"
           >
-            <a class="flex" :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`">
-              <img
-                class="w-24 h-16 rounded-lg mr-4"
-                :src="bike?.images[0]?.thumb_link"
-                alt=""
-              />
-              <div
-                :class="
-                  bikeHovered === bike.id ? 'text-white' : 'text-gray-900'
-                "
-              >
-                <h3 class="font-bold">
-                  {{ bike.series }} {{ bike.version_name }}
-                </h3>
-                <span class="text-xs">Starting from</span>
-                <p class="text-light italic">
-                  ₹{{ bike?.default_price }}
-                </p>
-              </div>
-            </a>
-          </div>
+            <img
+              class="w-24 h-16 rounded-lg mr-4"
+              :src="bike?.images[0]?.thumb_link"
+              alt=""
+            />
+            <div
+              :class="bikeHovered === bike.id ? 'text-white' : 'text-gray-900'"
+            >
+              <h3 class="font-bold">
+                {{ bike.series }} {{ bike.version_name }}
+              </h3>
+              <span class="text-xs">Starting from</span>
+              <p class="text-light italic">₹{{ bike?.default_price }}</p>
+            </div>
+          </a>
         </div>
+      </div>
     </div>
   </div>
 
   <div class="bg-gradient-to-r from-[#f84270] to-[#fe803b]">
     <div class="w-full py-3 px-4 lg:mx-auto md:max-w-screen-xl">
-      <div class="relative flex items-center justify-between">
+      <div class="relative flex items-center xl:justify-between">
         <div class="flex items-center px-2">
           <ul class="flex items-center hidden space-x-14 lg:flex">
             <li>
@@ -451,7 +532,8 @@
               items-center
               justify-center
               h-12
-              px-6
+              px-1
+              xl:px-6
               font-bold
               uppercase
               tracking-wide
@@ -466,7 +548,7 @@
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-red-500 mr-4"
+              class="h-6 w-6 text-red-500"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -746,11 +828,15 @@
 
 <script>
 import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
+import JetDropdown from "@/Jetstream/Dropdown.vue";
+import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
 import CityModal from "./CityModal.vue";
 
 export default {
   components: {
     JetApplicationLogo,
+    JetDropdown,
+    JetDropdownLink,
     CityModal,
   },
   data() {
@@ -762,7 +848,7 @@ export default {
       errorMessage: null,
       bikes: [],
       bikeHovered: null,
-      isMobile: false
+      isMobile: false,
     };
   },
   beforeMount() {
@@ -807,10 +893,10 @@ export default {
       this.cityName = localStorage.getItem("citySelectedName");
     },
     search(val) {
-      if(val === 'mobile') {
-        this.isMobile = true
-      }else {
-        this.isMobile = false
+      if (val === "mobile") {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
       }
       if (this.query.length >= 3) {
         this.errorMessage = null;
@@ -831,7 +917,15 @@ export default {
     isHovered(id) {
       this.bikeHovered = id;
     },
-    slugify(text) { return  text .toLowerCase() .replace(/ /g,'-') .replace(/[^\w-]+/g,'') ; }
+    slugify(text) {
+      return text
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "");
+    },
+    logout() {
+      this.$inertia.post(route("logout"));
+    },
   },
 };
 </script>

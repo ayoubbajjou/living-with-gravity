@@ -11,14 +11,59 @@
     <div class="lg:flex w-full">
       <div class="lg:w-3/5">
         <div class="relative w-full">
-          <div class=" min-w-full">
+          <div class="min-w-full">
             <div class="relative">
-              <div class="absolute top-4 right-0 mr-4 h-12 w-12 bg-gray-900 bg-opacity-60 rounded cursor-pointer" @click="displayColors = !displayColors">
-                <img v-if="!colorSelected" src="/icons/pick-colors.png" class="mx-auto p-2" alt="">
-                <div v-else  class="mx-auto h-full p-2 rounded cursor-pointer" :style="`background-color: ${colorSelected}`"> </div>
+              <div
+                class="
+                  absolute
+                  top-4
+                  right-0
+                  mr-4
+                  h-12
+                  w-12
+                  bg-gray-900 bg-opacity-60
+                  rounded
+                  cursor-pointer
+                "
+                @click="displayColors = !displayColors"
+              >
+                <img
+                  v-if="!colorSelected"
+                  src="/icons/pick-colors.png"
+                  class="mx-auto p-2"
+                  alt=""
+                />
+                <div
+                  v-else
+                  class="mx-auto h-full p-2 rounded cursor-pointer"
+                  :style="`background-color: ${colorSelected}`"
+                ></div>
               </div>
-              <div v-if="displayColors" class="z-50 flex flex-col items-center space-y-2 py-2 absolute top-16 right-0 mr-4 h-auto w-12 bg-white bg-opacity-80 rounded-b-3xl">
-                <div v-for="(color, index) in colors" :key="index" class="w-6 h-6 rounded-full cursor-pointer" :style="`background-color: ${color.colorcodes}`" @click="selectColor(color.colorcodes)"></div>
+              <div
+                v-if="displayColors"
+                class="
+                  z-50
+                  flex flex-col
+                  items-center
+                  space-y-2
+                  py-2
+                  absolute
+                  top-16
+                  right-0
+                  mr-4
+                  h-auto
+                  w-12
+                  bg-white bg-opacity-80
+                  rounded-b-3xl
+                "
+              >
+                <div
+                  v-for="(color, index) in colors"
+                  :key="index"
+                  class="w-6 h-6 rounded-full cursor-pointer"
+                  :style="`background-color: ${color.colorcodes}`"
+                  @click="selectColor(color.colorcodes)"
+                ></div>
               </div>
             </div>
             <img
@@ -78,6 +123,24 @@
                 </svg>
               </div>
             </div>
+            <div class="flex items-center space-x-1">
+              <svg
+              v-for="(bike, index) in bike?.avg"
+                :key="index"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-yellow-400"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                />
+              </svg>
+            </div>
             <div class="flex items-center">
               <p class="text-white">Select variant:</p>
               <select
@@ -106,7 +169,74 @@
         :specs="specs"
       />
     </div>
-    <div class="max-w-screen-xl mx-auto">
+    <div id="parentDiv" class="max-w-screen-xl mx-auto">
+      <div
+        id="navbar"
+        class="
+          overflow-hidden
+          flex
+          items-center
+          justify-evenly
+          text-xl text-white
+          uppercase
+          font-semibold
+          shadow-2xl
+          bg-secondary
+          rounded-md
+          z-50
+        "
+      >
+        <h1
+          class="cursor-pointer"
+          :class="{
+            'text-red-500 border-r-0 border-t-0 border-l-0 border-b-[6px] border-red-500 py-3':
+              activeTab === 'bikes',
+          }"
+          @click="scrollTo('bikes')"
+        >
+          More Bike
+        </h1>
+        <h1
+          class="cursor-pointer"
+          :class="{
+            'text-red-500 border-r-0 border-t-0 border-l-0 border-b-[6px] border-red-500 py-3':
+              activeTab === 'blogs',
+          }"
+          @click="scrollTo('blogs')"
+        >
+          News/Blog
+        </h1>
+        <h1
+          class="cursor-pointer"
+          :class="{
+            'text-red-500 border-r-0 border-t-0 border-l-0 border-b-[6px] border-red-500 py-3':
+              activeTab === 'dealers',
+          }"
+          @click="scrollTo('dealers')"
+        >
+          Dealers List
+        </h1>
+        <h1
+          class="cursor-pointer"
+          :class="{
+            'text-red-500 border-r-0 border-t-0 border-l-0 border-b-[6px] border-red-500 py-3':
+              activeTab === 'questions',
+          }"
+          @click="scrollTo('questions')"
+        >
+          Q&A
+        </h1>
+        <h1
+          class="cursor-pointer"
+          :class="{
+            'text-red-500 border-r-0 border-t-0 border-l-0 border-b-[6px] border-red-500 py-3':
+              activeTab === 'reviews',
+          }"
+          @click="scrollTo('reviews')"
+        >
+          User Reviews
+        </h1>
+      </div>
       <BikeSpecs :specs="bike?.specifications" />
       <MoreSuggestedBikes
         :title="bike?.brand?.brand_name"
@@ -125,9 +255,9 @@
         :dealersCount="dealersCount"
       />
 
-      <Qa :bike="bike" />
+      <Qa :bike="bike" @remove-nav="removeNav" />
 
-      <UserReviews :bike="bike" />
+      <UserReviews :bike="bike" :reviews="reviews" @remove-nav="removeNav" :url="`${url}`" />
     </div>
     <Subscribe />
 
@@ -164,7 +294,7 @@ export default defineComponent({
     BikeDetailsFeaturesPrice,
     BikeSpecs,
     UserReviews,
-    Qa
+    Qa,
   },
   props: {
     canLogin: Boolean,
@@ -181,13 +311,26 @@ export default defineComponent({
       brands: null,
       currentImg: 1,
       versions: [],
+      reviews: [],
       versionSelected: null,
       dealersCount: null,
       specs: [],
       colors: [],
       displayColors: false,
-      colorSelected: null
+      colorSelected: null,
+      activeTab: "bikes",
     };
+  },
+  computed: {
+      url() {
+          return location.pathname;
+      }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   mounted() {
     this.bike = this.$inertia.page.props.bike;
@@ -196,12 +339,13 @@ export default defineComponent({
     this.cities = this.$inertia.page.props.cities;
     this.brands = this.$inertia.page.props.brands;
     this.dealersCount = this.$inertia.page.props.dealersCount;
+    this.reviews = this.$inertia.page.props.reviews;
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {
         this.versions = res.data;
         this.versionSelected = this.bike?.version_name;
-        this.colors = JSON.parse(this.bike.color_codes)
+        this.colors = JSON.parse(this.bike.color_codes);
       })
       .catch((err) => {
         console.log(err);
@@ -271,7 +415,6 @@ export default defineComponent({
       var link = `/${this.bike.make}/${this.slugify(this.bike.series)}/${
         this.versionSelected
       }`;
-      console.log(link);
       window.location.replace(link);
     },
     slugify(text) {
@@ -281,14 +424,69 @@ export default defineComponent({
         .replace(/[^\w-]+/g, "");
     },
     selectColor(color) {
-      this.colorSelected = color
-      this.displayColors = false
-    }
+      this.colorSelected = color;
+      this.displayColors = false;
+    },
+    handleScroll() {
+      var navbar = document.getElementById("navbar");
+      var parent = document.getElementById("parentDiv");
+      var sticky = navbar.offsetTop;
+      var stickyParent = parent.offsetTop;
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      }
+      if (window.pageYOffset < stickyParent) {
+        navbar.classList.remove("sticky");
+      }
+    },
+    removeNav() {
+      var navbar = document.getElementById("navbar");
+
+      navbar.classList.remove("sticky");
+    },
+    showNav() {
+      var navbar = document.getElementById("navbar");
+
+      navbar.classList.add("sticky");
+    },
+    scrollTo(val) {
+      if (val === "bikes") {
+        this.activeTab = "bikes";
+        window.scroll({
+          top: 1420,
+          behavior: "smooth",
+        });
+      } else if (val === "blogs") {
+        this.activeTab = "blogs";
+        window.scroll({
+          top: 1820,
+          behavior: "smooth",
+        });
+      } else if (val === "dealers") {
+        this.activeTab = "dealers";
+        window.scroll({
+          top: 2450,
+          behavior: "smooth",
+        });
+      } else if (val === "questions") {
+        this.activeTab = "questions";
+        window.scroll({
+          top: 3750,
+          behavior: "smooth",
+        });
+      } else if (val === "reviews") {
+        this.activeTab = "reviews";
+        window.scroll({
+          top: 4280,
+          behavior: "smooth",
+        });
+      }
+    },
   },
 });
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 * {
   font-family: "Poppins", sans-serif;
@@ -299,5 +497,17 @@ select {
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='45' viewBox='0 0 24 24' width='45' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
 }
 </style>

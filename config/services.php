@@ -34,10 +34,10 @@ return [
         'client_secret' => '017ae924685ca924c272a4de25a72007',
         'redirect' => app()->runningInConsole() ? '' : url('/callback/facebook'),
     ],
-    
+
     'google' => [
-        'client_id' => '473246924703-clvp8vbud3uodinknb4muph50ij626t8.apps.googleusercontent.com',
-        'client_secret' => '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',
+        'client_id' => '225669792975-od19ibjltd5v5b3g77v8kd5kkh5rtcoj.apps.googleusercontent.com',
+        'client_secret' => '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',
         'redirect' => app()->runningInConsole() ? '' : url('/callback/google')
     ],
 

@@ -229,6 +229,7 @@
                 </div>
                 <div class="rounded-lg border border-gray-100 p-4 space-y-3">
                   <input
+                    v-model="title"
                     type="text"
                     class="
                       focus:outline-none
@@ -246,6 +247,7 @@
                     placeholder="Give a Title to your review *"
                   />
                   <textarea
+                    v-model="description"
                     cols="20"
                     rows="4"
                     class="
@@ -260,7 +262,7 @@
                     placeholder="Write your riview about the product *"
                   ></textarea>
                 </div>
-                <div class="flex justify-end mt-4 mb-8">
+                <div @click="submitReview" class="flex justify-end mt-4 mb-8">
                   <button
                     class="
                       text-white
@@ -337,16 +339,44 @@ export default defineComponent({
       performanceRate: 0,
       designRate: 0,
       backUrl: null,
+      title: null,
+      description: null,
     };
   },
   mounted() {
     this.bike = this.$inertia.page.props.bike;
-    // const historyUrl = history.state?.url;
-    console.log({ backUrl: document.referrer });
-    // const url = historyUrl.replace("/review", "");
-    this.backUrl = document.referrer;
+    const url = window.location.pathname.replace('review/', '')
+    this.backUrl = url;
+
   },
-  methods: {},
+  methods: {
+    submitReview() {
+      axios
+        .post(`/submit-review/${this.bike.id}`, {
+          mileageRate: this.mileageRate,
+          safetyRate: this.safetyRate,
+          pricingRate: this.pricingRate,
+          performanceRate: this.performanceRate,
+          designRate: this.designRate,
+          title: this.title,
+          description: this.description,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            this.mileageRate = null;
+            this.safetyRate = null;
+            this.pricingRate = null;
+            this.performanceRate = null;
+            this.designRate = null;
+            this.title = null;
+            this.description = null;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 });
 </script>
 

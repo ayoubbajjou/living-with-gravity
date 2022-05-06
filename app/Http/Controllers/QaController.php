@@ -4,9 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Redirect;
 
 class QaController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function adminPanel(Request $request)
+    {
+        $questions =  Question::orderByDesc('created_at')->paginate(20);
+        return Inertia::render('Questions/index', compact('questions'));
+    }
+
+    public function answerQuestion(Request $request, $id) {
+        $question =  Question::findOrFail($id);
+
+        return Inertia::render('Questions/Answer', compact('question'));
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +43,15 @@ class QaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function storeAnswer(Request $request, $id)
     {
-        //
+        $question = Question::findOrFail($id);
+
+        $question->update([
+            'answer' => $request->form['answer']
+        ]);
+
+        return Redirect::route('/questions');
     }
 
     /**
@@ -42,9 +69,10 @@ class QaController extends Controller
         Question::create([
             'bike_id' => $request->bike_id,
             'question' => $request->question,
+            'user_id' => auth()->id()
         ]);
 
-        return response()->json(); 
+        return response()->json();
     }
 
     /**
