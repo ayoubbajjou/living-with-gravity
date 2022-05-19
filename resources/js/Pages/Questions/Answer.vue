@@ -135,8 +135,10 @@ export default {
       axios.post(`/store-answer/${this.question.id}`, {
           form: this.form
       }).then(res => {
-          console.log(res)
-        //   this.form.answer = null
+          this.form.answer = null
+          if(res.status === 200) {
+              window.location.href = '/questions'
+          }
       }).catch(err => {
           console.log(err)
       })

@@ -11,7 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class BikeController extends Controller
@@ -177,6 +177,9 @@ class BikeController extends Controller
         $cities = City::all();
         $brands = Brand::where('site_id', 1)->get();
         $reviews = Review::where('bike_id', $bike->id)->where('approved', true)->with('user')->take(3)->get();
+        foreach ($reviews as $key => $review) {
+            $review->slug = Str::slug($review->title);
+        }
         $rating = Review::where('bike_id', $bike->id)->where('approved', true)->select('mileage_rate', 'safety_rate', 'performance_rate', 'design_rate')->get();
         $rates = [];
         foreach ($rating as $key => $value) {

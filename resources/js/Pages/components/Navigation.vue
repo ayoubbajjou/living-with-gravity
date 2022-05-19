@@ -267,6 +267,29 @@
           </template>
         </jet-dropdown>
       </div>
+      <div class="ml-3" v-else>
+          <a
+                href="/login"
+                class="
+                  inline-flex
+                  items-center
+                  px-3
+                  py-2
+                  border border-transparent
+                  text-sm
+                  leading-4
+                  font-medium
+                  rounded-md
+                  text-gray-500
+                  bg-white
+                  hover:text-gray-700
+                  focus:outline-none
+                  transition
+                "
+              >
+                Login
+              </a>
+      </div>
     </div>
     <div class="relative">
       <input
@@ -360,6 +383,29 @@
                   hover:text-deep-purple-accent-400
                 "
                 >News
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/compare"
+                aria-label="Contact us"
+                title="Contact us"
+                class="
+                  text-sm
+                  font-bold
+                  uppercase
+                  space-x-4
+                  tracking-wide
+                  flex
+                  items-center
+                  text-gray-100
+                  transition-colors
+                  duration-200
+                  hover:text-deep-purple-accent-400
+                "
+              >
+                Compare
               </a>
             </li>
             <li>
@@ -473,52 +519,6 @@
                 "
               >
                 Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://livingwithgravity.com/about"
-                target="_blank"
-                aria-label="About us"
-                title="About us"
-                class="
-                  text-sm
-                  font-bold
-                  uppercase
-                  space-x-4
-                  tracking-wide
-                  flex
-                  items-center
-                  text-gray-100
-                  transition-colors
-                  duration-200
-                  hover:text-deep-purple-accent-400
-                "
-              >
-                About us
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://livingwithgravity.com/contact"
-                target="_blank"
-                aria-label="Contact us"
-                title="Contact us"
-                class="
-                  text-sm
-                  font-bold
-                  uppercase
-                  space-x-4
-                  tracking-wide
-                  flex
-                  items-center
-                  text-gray-100
-                  transition-colors
-                  duration-200
-                  hover:text-deep-purple-accent-400
-                "
-              >
-                Contact us
               </a>
             </li>
           </ul>
@@ -876,7 +876,6 @@ export default {
       do {
         if (targetElement == flyoutElement) {
           // This is a click inside. Do nothing, just return.
-          console.log("click inside");
           return;
         }
         // Go up the DOM

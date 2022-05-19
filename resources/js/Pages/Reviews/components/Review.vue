@@ -8,7 +8,7 @@
     <div class="w-full py-4 text-sm">
         <p>{{review.user.name}} | {{datePosted(review.created_at)}} | 1807 Views</p>
     </div>
-    <a href="/" class="text-red-600">Read more</a>
+    <a :href="`${url}/reviews/${review.slug}`" class="text-red-600">Read more</a>
   </div>
 </template>
 
@@ -20,6 +20,10 @@ export default {
     review: {
       type: Object,
       required: true
+    },
+    url: {
+        type: String,
+        required: true
     }
   },
   methods: {

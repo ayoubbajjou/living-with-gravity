@@ -9,8 +9,10 @@
     <Navigation />
     <div class="bg-secondary h-screen">
         <div class="max-w-screen-xl mx-auto">
-            <div class="px-4 lg:flex w-full">
-                <div class="uppercase italic py-20">
+            <div class="lg:flex w-full bg-hero-compare bg-cover bg-center">
+                <div
+                    class="uppercase italic py-[7rem] bg-gradient-to-r from-secondary w-full"
+                >
                     <h3 class="text-xl text-red-400 font-semibold">Compare</h3>
                     <h1 class="text-5xl text-white font-bold">Bikes</h1>
                 </div>
@@ -128,154 +130,175 @@ import "vue-select/dist/vue-select.css";
 import SpecsComparison from "./components/SpecsComparison.vue";
 
 export default defineComponent({
-  components: {
-    Head,
-    Link,
-    JetApplicationLogo,
-    Navigation,
-    Footer,
-    Subscribe,
-    CompareBikeCard,
-    PopularComparisons,
-    SpecsComparison,
-  },
-  props: {
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-  },
-  data() {
-    return {
-      bike: null,
-      dealers: null,
-      suggestedBikes: null,
-      cities: null,
-      versions1: [],
-      versions2: [],
-      versions3: [],
-      currentImg: 1,
-      reviews: [],
-      versionSelected: null,
-      dealersCount: null,
-      specs: [],
-      colors: [],
-      displayColors: false,
-      colorSelected: null,
-      activeTab: "bikes",
-      series1: null,
-      series2: null,
-      series3: null,
-      series: [],
-      variant1: null,
-      variant2: null,
-      variant3: null,
-      comparedBikes: [],
-      serie1Selected: null,
-      serie2Selected: null,
-      serie3Selected: null,
-      variat1Disabled: true,
-      variat2Disabled: true,
-      variat3Disabled: true,
-      selectedBikes: false
-    };
-  },
-  mounted() {
-    this.series = this.$inertia?.page?.props?.series;
-  },
-  created() {
-      var emitter = require("tiny-emitter/instance");
+    components: {
+        Head,
+        Link,
+        JetApplicationLogo,
+        Navigation,
+        Footer,
+        Subscribe,
+        CompareBikeCard,
+        PopularComparisons,
+        SpecsComparison,
+    },
+    props: {
+        canLogin: Boolean,
+        canRegister: Boolean,
+        laravelVersion: String,
+        phpVersion: String,
+    },
+    data() {
+        return {
+            bike: null,
+            dealers: null,
+            suggestedBikes: null,
+            cities: null,
+            versions1: [],
+            versions2: [],
+            versions3: [],
+            currentImg: 1,
+            reviews: [],
+            versionSelected: null,
+            dealersCount: null,
+            specs: [],
+            colors: [],
+            displayColors: false,
+            colorSelected: null,
+            activeTab: "bikes",
+            series1: null,
+            series2: null,
+            series3: null,
+            series: [],
+            variant1: null,
+            variant2: null,
+            variant3: null,
+            comparedBikes: [],
+            serie1Selected: null,
+            serie2Selected: null,
+            serie3Selected: null,
+            variat1Disabled: true,
+            variat2Disabled: true,
+            variat3Disabled: true,
+            selectedBikes: false,
+        };
+    },
+    mounted() {
+        this.series = this.$inertia?.page?.props?.series;
+    },
+    created() {
+        var emitter = require("tiny-emitter/instance");
 
-    emitter.on("compare-bikes", (val) => {
-      console.log({val})
-      this.series1 = val?.[0]?.series
-      this.variant1 = val?.[0]?.version_name
-      this.series2 = val?.[1]?.series
-      this.variant2 = val?.[1]?.version_name
-      this.startComparing()
-    });
-  },
-  watch: {
-    series1(newVal, oldVal) {
-      this.serie1Selected = newVal;
-      this.getVariant();
-    },
-    series2(newVal, oldVal) {
-      this.serie2Selected = newVal;
-      this.getVariant();
-    },
-    series3(newVal, oldVal) {
-      this.serie3Selected = newVal;
-      this.getVariant();
-    },
-  },
-  methods: {
-    startComparing() {
-      var bikes = [];
-      if (this.series1 && this.variant1) {
-        bikes.push({
-          brand: this.series1,
-          variant: this.variant1,
-        });
-      }
-      if (this.series2 && this.variant2) {
-        bikes.push({
-          brand: this.series2,
-          variant: this.variant2,
-        });
-      }
-      if (this.series3 && this.variant3) {
-        bikes.push({
-          brand: this.series3,
-          variant: this.variant3,
-        });
-      }
-      if (bikes.length < 2) {
-        //   alert('Ooops! You need to select at least 2 bikes')
-        this.selectedBikes = true
-      } else {
-        axios
-          .post("/compare-bikes", bikes)
-          .then((res) => {
-            console.log(res);
-            this.comparedBikes = res.data;
-            window.scroll({
-                top: 200,
-                behavior: "smooth",
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    },
-    getVariant() {
-      axios
-        .post("/fetch-bike-variant", {
-          series1: this.serie1Selected,
-          series2: this.serie2Selected,
-          series3: this.serie3Selected,
-        })
-        .then((res) => {
-          this.versions1 = res.data[0];
-          this.versions2 = res.data[1];
-          this.versions3 = res.data[2];
-          if (this.versions1.length) {
-            this.variat1Disabled = false;
-          }
-          if (this.versions2.length) {
-            this.variat2Disabled = false;
-          }
-          if (this.versions3.length) {
-            this.variat3Disabled = false;
-          }
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
+        emitter.on("compare-bikes", (val) => {
+            console.log({ val });
+            this.series1 = val?.[0]?.series;
+            this.variant1 = val?.[0]?.version_name;
+            this.series2 = val?.[1]?.series;
+            this.variant2 = val?.[1]?.version_name;
+            this.startComparing();
         });
     },
-  },
+    watch: {
+        series1(newVal, oldVal) {
+            this.serie1Selected = newVal;
+            this.getVariant();
+        },
+        series2(newVal, oldVal) {
+            this.serie2Selected = newVal;
+            this.getVariant();
+        },
+        series3(newVal, oldVal) {
+            this.serie3Selected = newVal;
+            this.getVariant();
+        },
+    },
+    methods: {
+        startComparing() {
+            var bikes = [];
+            if (this.series1 && this.variant1) {
+                bikes.push({
+                    brand: this.series1,
+                    variant: this.variant1,
+                });
+            }
+            if (this.series2 && this.variant2) {
+                bikes.push({
+                    brand: this.series2,
+                    variant: this.variant2,
+                });
+            }
+            if (this.series3 && this.variant3) {
+                bikes.push({
+                    brand: this.series3,
+                    variant: this.variant3,
+                });
+            }
+            var slug = ''
+            if(bikes.length === 2) {
+                slug = `${this.slugify(this.serie1Selected +' '+ this.variant1)}-vs-${this.slugify(this.serie2Selected +' '+ this.variant2)}`;
+            }else if(bikes.length === 3) {
+                slug = `${this.slugify(this.serie1Selected +' '+ this.variant1)}-vs-${this.slugify(this.serie2Selected +' '+ this.variant2)}-vs-${this.slugify(this.serie3Selected +' '+ this.variant3)}`;
+            }
+            const bikesUrl = `/compare/${slug}`;
+
+            history.pushState(null, null, bikesUrl);
+
+            if (bikes.length < 2) {
+                //   alert('Ooops! You need to select at least 2 bikes')
+                this.selectedBikes = true;
+            } else {
+                axios
+                    .post("/compare-bikes", bikes)
+                    .then((res) => {
+                        console.log(res);
+                        this.comparedBikes = res.data;
+                        window.scroll({
+                            top: 200,
+                            behavior: "smooth",
+                        });
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+        },
+        slugify(text) {
+            const separator = "-"
+            return text
+                .toString()
+                .normalize("NFD") // split an accented letter in the base letter and the acent
+                .replace(/[\u0300-\u036f]/g, "") // remove all previously split accents
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9 ]/g, "") // remove all chars not letters, numbers and spaces (to be replaced)
+                .replace(/\s+/g, separator);
+        },
+        getVariant() {
+            axios
+                .post("/fetch-bike-variant", {
+                    series1: this.serie1Selected,
+                    series2: this.serie2Selected,
+                    series3: this.serie3Selected,
+                })
+                .then((res) => {
+                    this.versions1 = res.data[0];
+                    this.versions2 = res.data[1];
+                    this.versions3 = res.data[2];
+                    if (this.versions1.length) {
+                        this.variat1Disabled = false;
+                    }
+                    if (this.versions2.length) {
+                        this.variat2Disabled = false;
+                    }
+                    if (this.versions3.length) {
+                        this.variat3Disabled = false;
+                    }
+                    console.log(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
+    },
 });
 </script>
 

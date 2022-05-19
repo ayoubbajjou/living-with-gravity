@@ -99,6 +99,7 @@ Route::post('/popular-bikes', [BikeController::class, 'popularBikes']);
 // QA
 Route::post('/ask-question', [QaController::class, 'store'])->name('store.qa');
 Route::get('/get-questions/{bike_id}', [QaController::class, 'index'])->name('get_questions');
+Route::get('/{brand}/{series}/{version_name}/questions', [QaController::class, 'allQuestions'])->name('allQuestions');
 
 // Review
 Route::get('/review/{brand}/{series}/{version_name}', [ReviewController::class, 'create'])->name('review.create');
@@ -107,6 +108,7 @@ Route::post('/approve-review', [ReviewController::class, 'approve'])->name('revi
 Route::middleware(['auth:sanctum', 'verified', 'admin'])
     ->get('/rt-reviews', [ReviewController::class, 'fetchReviews'])->name('fetch_reviews');
 Route::get('/{brand}/{series}/{version_name}/reviews', [ReviewController::class, 'allReviews'])->name('allReviews');
+Route::get('/{brand}/{series}/{version_name}/reviews/{slug}', [ReviewController::class, 'review'])->name('review');
 
 //Compare
 Route::post('/compare-bikes', [CompareController::class, 'compareBikes'])->name('compare.bikes');

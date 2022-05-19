@@ -28,7 +28,6 @@
             <h3 class="text-white font-bold text-5xl uppercase text-center">
               {{bike?.avg.toFixed(1)}}
             </h3>
-            <p class="text-white text-center">Great Ride !</p>
           </div>
           <div class="w-full lg:w-1/2 space-y-4">
             <RatingItem :rate="5" percentage="100%" />
@@ -90,6 +89,7 @@
             v-for="(review, index) in reviews"
             :key="index"
             :review="review"
+            :url="url"
           />
         </div>
 
@@ -129,7 +129,7 @@
       </div>
     </div>
     <!-- <review-modal  :bike="bike"></review-modal> -->
-    <Login v-if="isModalOpened" @close="isModalOpened = false"/>
+    <SlideLogin v-if="isModalOpened" @review-close="isModalOpened = false"/>
   </div>
 </template>
 
@@ -138,7 +138,7 @@ import RatingItem from "./components/RatingItem.vue";
 import Tags from "./components/Tags.vue";
 import Review from "./components/Review.vue";
 import ReviewModal from "./components/ReviewModal.vue";
-import Login from "../Auth/LoginSlide.vue";
+import SlideLogin from "../Auth/LoginSlide.vue";
 
 export default {
   name: "UserReviews",
@@ -147,7 +147,7 @@ export default {
     Tags,
     Review,
     ReviewModal,
-    Login,
+    SlideLogin,
   },
   props: {
     bike: {
@@ -169,23 +169,19 @@ export default {
       isModalOpened: false,
     };
   },
-  computed: {},
   mounted() {
     this.historyUrl = document.location.pathname;
   },
   methods: {
     writeReview() {
-      this.$emit("remove-nav");
-      console.log(this.isModalOpened)
+        this.$emit("remove-nav");
 
       if (this.$page.props.user && this.$page.props.user?.is_admin !== true) {
         window.location.href = "/review" + document.location.pathname;
       } else {
         this.isModalOpened = true;
       }
-      console.log(this.isModalOpened)
-
-    },
+    }
   },
 };
 </script>

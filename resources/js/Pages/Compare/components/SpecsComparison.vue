@@ -3,18 +3,18 @@
         <div class="text-white" v-for="(bike, index) in bikesData" :key="index">
             <div class="space-y-3">
                 <img
-                    :src="bikesData[index].images[0].thumb_link"
+                    :src="bikesData[index]?.images[0].thumb_link"
                     class="w-60"
                     alt=""
                 />
                 <div>
                     <div class="flex items-center justify-between">
                         <p class="font-bold">
-                            {{ bike.make }} {{ bike.series }}
+                            {{ bike?.make }} {{ bike?.series }}
                         </p>
                         <div class="flex items-center space-x-2">
                             <svg
-                                @click="editBike(bike.id)"
+                                @click="editBike(bike?.id)"
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="h-6 w-6"
                                 fill="none"
@@ -29,7 +29,8 @@
                                 />
                             </svg>
                             <svg
-                                @click="removeBike(bike.id)"
+                                v-if="index === 2"
+                                @click="removeBike(bike?.id)"
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="h-6 w-6 text-red-500 cursor-pointer"
                                 fill="none"
@@ -45,9 +46,9 @@
                             </svg>
                         </div>
                     </div>
-                    <p class="font-light text-sm">{{ bike.version_name }}</p>
+                    <p class="font-light text-sm">{{ bike?.version_name }}</p>
                     <p class="font-bold text-xl">
-                        ₹{{ bike.prices[0]?.onroad_price }}
+                        ₹{{ bike?.prices[0]?.onroad_price }}
                     </p>
                 </div>
             </div>
@@ -172,14 +173,14 @@
         <div class="flex w-2/3 max-h-168 overflow-y-auto scrollBar">
             <ul class="grid grid-cols-3 gap-0 w-full lg:ml-12">
                 <li
-                    v-for="(spec, idx) in specsData"
+                    v-for="(spec, idx) in specsList"
                     :key="spec.id"
                     class="text-bold space-y-3"
                 >
                     <div
                         v-for="(val, index) in spec"
                         :key="index"
-                        class="w-full text-white py-4 min-h-[120px] border-b"
+                        class="w-full text-white py-4 min-h-[150px] border-b"
                     >
                         <div class="space-y-3">
                             <p
@@ -234,7 +235,7 @@ export default {
                     ]?.specifications?.filter((spec) => {
                         return spec.specification_group_id === this.activeTab;
                     });
-                    if (specBike.length) {
+                    if (specBike?.length) {
                         specsList.push(specBike);
                     }
                 });
@@ -256,6 +257,9 @@ export default {
         activeTab(newTab, oldTab) {
             this.getSpecsCategory();
         },
+        bikes(newVal, oldVal) {
+            this.bikesData = this.bikes;
+        },
     },
     methods: {
         changeActiveTab(tab) {
@@ -269,7 +273,7 @@ export default {
                         return spec.specification_group_id === this.activeTab;
                     }
                 );
-                if (specBike.length) {
+                if (specBike?.length) {
                     this.specsData.push(specBike);
                 }
             });
@@ -279,18 +283,20 @@ export default {
         },
         removeBike(id) {
             if (this.bikesData.length > 1) {
-                // this.bikesList = this.bikeData
                 const bikes = this.bikesList.filter((bike) => {
-                    return bike.id !== id;
+                    return bike?.id !== id;
                 });
 
-                // this.specsList = this.specsData
                 const specs = this.specsList.filter((specs, index) => {
-                    return specs[index].bike_id !== id;
+                    console.log(specs[index])
+                    console.log(specs[index].bike_id !== id)
+                    if(specs[index].bike_id !== id) {
+                        this.specsList.splice(index, 1);
+                    }
                 });
 
                 this.bikesList = bikes;
-                this.specsList = specs;
+                this.specsData = this.specsList;
             }
         },
     },

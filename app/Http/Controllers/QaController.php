@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bike;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,7 +18,7 @@ class QaController extends Controller
      */
     public function adminPanel(Request $request)
     {
-        $questions =  Question::orderByDesc('created_at')->paginate(20);
+        $questions =  Question::orderByDesc('created_at')->with('user')->paginate(20);
         return Inertia::render('Questions/index', compact('questions'));
     }
 
@@ -51,7 +52,7 @@ class QaController extends Controller
             'answer' => $request->form['answer']
         ]);
 
-        return Redirect::route('/questions');
+        return $question;
     }
 
     /**
@@ -118,5 +119,17 @@ class QaController extends Controller
     public function destroy(Question $question)
     {
         //
+    }
+
+    public function allQuestions(Request $request, $brand, $series, $version_name)
+    {
+
+        $questions = [];
+        $unslug = ucwords(str_replace('-', ' ', $series));
+        $bike = Bike::where('make', $brand)->where('series', $unslug)->where('version_name', $version_name)->first();
+        if($bike) {
+            $questions = Question::where('bike_id', $bike->id)->whereNotNull('answer')->with('user')->orderByDesc('updated_at')->get();
+        }
+        return Inertia::render('components/Qa/All', compact('questions'));
     }
 }

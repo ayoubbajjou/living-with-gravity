@@ -185,6 +185,7 @@
           rounded-md
           z-50
         "
+        :class="`w-[${width}px]`"
       >
         <h1
           class="cursor-pointer"
@@ -255,7 +256,7 @@
         :dealersCount="dealersCount"
       />
 
-      <Qa :bike="bike" @remove-nav="removeNav" />
+      <Qa :bike="bike" @remove-nav="removeNav" :url="`${url}`" />
 
       <UserReviews :bike="bike" :reviews="reviews" @remove-nav="removeNav" :url="`${url}`" />
     </div>
@@ -319,6 +320,7 @@ export default defineComponent({
       displayColors: false,
       colorSelected: null,
       activeTab: "bikes",
+      width: 1280
     };
   },
   computed: {
@@ -333,6 +335,7 @@ export default defineComponent({
     window.removeEventListener("scroll", this.handleScroll);
   },
   mounted() {
+    this.width = window.innerWidth
     this.bike = this.$inertia.page.props.bike;
     this.dealers = this.$inertia.page.props.dealers;
     this.suggestedBikes = this.$inertia.page.props.moreBikes;
@@ -501,9 +504,7 @@ select {
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
-  position: fixed;
   top: 0;
-  width: 100%;
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
