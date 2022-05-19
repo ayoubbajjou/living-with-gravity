@@ -46,6 +46,7 @@
               focus:ring-0
               active:ring-0
             "
+            :class="{'border-red-500': questionInputError}"
           />
           <button
             @click="askQuestion"
@@ -75,6 +76,9 @@
               />
             </svg>
           </button>
+        </div>
+        <div v-if="questionSent" class="w-full">
+            <p class="flex items-center justify-center italic mx-auto w-full text-green-500">We will notify once your question is answered.</p>
         </div>
         <div @click="writeQuestion" class="flex items-start justify-center mt-3" v-if="!$page.props.user && !$page.props?.user?.is_admin">
           <button
@@ -121,7 +125,7 @@
             </template>
           </div>
 
-          <a class="flex justify-center mt-8 mb-8">
+          <a class="flex justify-center mt-8 mb-8" :href="`${url}/questions`">
             <button
               class="
                 text-white
@@ -177,13 +181,19 @@ export default {
       type: Object,
       required: true,
     },
+    url: {
+        type: String,
+        required: true
+    }
   },
   data() {
     return {
       qaData: 4,
       question: null,
       questions: [],
-      isModalOpened: false
+      isModalOpened: false,
+      questionSent: false,
+      questionInputError: false
     };
   },
   mounted() {
@@ -212,6 +222,10 @@ export default {
         this.isModalOpened = true;
     },
     async askQuestion() {
+        if(this.question === null || this.question === "") {
+            this.questionInputError = true
+            return;
+        }
       await axios
         .post("/ask-question", {
           bike_id: this.bike.id,
@@ -219,6 +233,8 @@ export default {
         })
         .then((res) => {
           this.question = null;
+          this.questionSent = true;
+            this.questionInputError = false
           this.getQuestions();
         })
         .catch((err) => {

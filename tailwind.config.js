@@ -30,6 +30,7 @@ module.exports = {
             },
             backgroundImage: {
                 "hero-user": "url('/images/Userbg.png')",
+                "hero-compare": "url('/images/comparison_banner.png')",
             },
         },
     },

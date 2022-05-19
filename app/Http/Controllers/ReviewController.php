@@ -82,6 +82,7 @@ class ReviewController extends Controller
             'performance_rate' => $request->performanceRate,
             'design_rate' => $request->designRate,
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'description' => $request->description,
         ]);
 
@@ -108,9 +109,12 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function review(Request $request, $brand, $series, $version_name, $slug)
     {
-        //
+        $bike = Bike::where('make', $brand)->where('version_name', $version_name)->with('images')->first();
+
+        $review = Review::where('bike_id', $bike->id)->where('slug', $slug)->where('approved', true)->with('user')->first();
+        return Inertia::render('Reviews/ShowReview', compact('review'));
     }
 
     /**
