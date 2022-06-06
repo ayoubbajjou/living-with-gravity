@@ -25,6 +25,11 @@ class GoogleSocialiteController extends Controller
             if (!session()->has('url.intended')) {
                 session(['url.intended' => $prevUrl]);
             }
+        }elseif($section === 'login') {
+            $prevUrl = '/dashboard';
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => $prevUrl]);
+            }
         }else {
             $prevUrl = str_replace(url('/'), '', url()->previous()).'?section=questions';
             if (!session()->has('url.intended')) {

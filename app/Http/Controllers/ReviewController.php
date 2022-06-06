@@ -118,14 +118,15 @@ class ReviewController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * write review.
      *
-     * @param  \App\Models\Review  $review
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function writeReview(Request $request)
     {
-        //
+        $series = Bike::select('series')->whereNotNull('model_id')->pluck('series');
+        $series = array_values(collect($series)->unique()->toArray());
+
+        return Inertia::render('Reviews/WriteGuestReview', compact('series'));
     }
 
     /**

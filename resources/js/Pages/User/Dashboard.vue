@@ -284,7 +284,7 @@ export default defineComponent({
                     console.log(res);
                     if (res.data.status === 200) {
                         this.bikeModal = false;
-                        window.location.reload;
+                        window.location.reload(true)
                     }
                 })
                 .catch((err) => {

@@ -290,11 +290,21 @@
                         <li>
                             <a
                                 href="/compare"
-                                aria-label="Contact us"
-                                title="Contact us"
+                                aria-label="compare"
+                                title="compare"
                                 class="text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             >
                                 Compare
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/review/write"
+                                aria-label="Write a review"
+                                title="Write a review"
+                                class="text-sm font-bold uppercase space-x-4 tracking-wide flex items-center text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                                Write a review
                             </a>
                         </li>
                         <li>

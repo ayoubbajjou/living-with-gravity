@@ -156,10 +156,9 @@
                     </tbody>
                   </table>
                   <div class="flex items-center justify-end">
-                    <template v-for="(link, index) in bikes.links">
+                    <template v-for="(link, index) in bikes.links" :key="link.url ? link.id : index">
                       <div
                         v-if="link.url === null"
-                        :key="index"
                         class="
                           mr-1
                           mb-1
@@ -187,7 +186,6 @@
                           hover:bg-white
                           focus:border-indigo-500 focus:text-indigo-500
                         "
-                        :key="link.id"
                         :class="{ 'bg-white': link.active }"
                         :href="link.url"
                         v-html="link.label"
