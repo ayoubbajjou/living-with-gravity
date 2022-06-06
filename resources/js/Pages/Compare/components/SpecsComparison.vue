@@ -10,7 +10,7 @@
                 <div>
                     <div class="flex items-center justify-between">
                         <p class="font-bold">
-                            {{ bike?.make }} {{ bike?.series }}
+                            {{ bike?.series }}
                         </p>
                         <div class="flex items-center space-x-2">
                             <svg
@@ -281,6 +281,19 @@ export default {
         editBike(id) {
             console.log(id);
         },
+
+
+        slugify(text) {
+            const separator = "-"
+            return text
+                .toString()
+                .normalize("NFD") // split an accented letter in the base letter and the acent
+                .replace(/[\u0300-\u036f]/g, "") // remove all previously split accents
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9 ]/g, "") // remove all chars not letters, numbers and spaces (to be replaced)
+                .replace(/\s+/g, separator);
+        },
         removeBike(id) {
             if (this.bikesData.length > 1) {
                 const bikes = this.bikesList.filter((bike) => {
@@ -288,12 +301,23 @@ export default {
                 });
 
                 const specs = this.specsList.filter((specs, index) => {
-                    console.log(specs[index])
-                    console.log(specs[index].bike_id !== id)
-                    if(specs[index].bike_id !== id) {
+                    console.log(specs[index]);
+                    console.log(specs[index].bike_id !== id);
+                    if (specs[index].bike_id !== id) {
                         this.specsList.splice(index, 1);
                     }
                 });
+                var slug = "";
+                if (bikes.length === 2) {
+                    slug = `${this.slugify(
+                        bikes?.[0].series + " " + bikes?.[0].version_name
+                    )}-vs-${this.slugify(
+                        bikes?.[1].series + " " + bikes?.[1].version_name
+                    )}`;
+                }
+                const bikesUrl = `/compare/${slug}`;
+
+                history.pushState(null, null, bikesUrl);
 
                 this.bikesList = bikes;
                 this.specsData = this.specsList;

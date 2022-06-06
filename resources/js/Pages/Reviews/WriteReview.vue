@@ -79,16 +79,10 @@
                                     >
                                         <div class="space-y-1">
                                             <img
-                                                v-if="mileageRate"
                                                 :src="`/icons/${mileageRate}.svg`"
                                                 class="w-10 h-10 mx-auto"
                                                 alt=""
                                             />
-                                            <div
-                                                v-else
-                                                class="w-10 h-10 mx-auto bg-yellow-300 rounded-full"
-                                                alt=""
-                                            ></div>
                                             <p>Mileage</p>
                                             <star-rating
                                                 :rounded-corners="true"
@@ -102,16 +96,10 @@
                                         </div>
                                         <div>
                                             <img
-                                                v-if="safetyRate"
                                                 :src="`/icons/${safetyRate}.svg`"
                                                 class="w-10 h-10 mx-auto"
                                                 alt=""
                                             />
-                                            <div
-                                                v-else
-                                                class="w-10 h-10 mx-auto bg-yellow-300 rounded-full"
-                                                alt=""
-                                            ></div>
                                             <p>Safety</p>
                                             <star-rating
                                                 :rounded-corners="true"
@@ -125,16 +113,10 @@
                                         </div>
                                         <div>
                                             <img
-                                                v-if="pricingRate"
                                                 :src="`/icons/${pricingRate}.svg`"
                                                 class="w-10 h-10 mx-auto"
                                                 alt=""
                                             />
-                                            <div
-                                                v-else
-                                                class="w-10 h-10 mx-auto bg-yellow-300 rounded-full"
-                                                alt=""
-                                            ></div>
                                             <p>Pricing</p>
                                             <star-rating
                                                 :rounded-corners="true"
@@ -152,16 +134,10 @@
                                     >
                                         <div>
                                             <img
-                                                v-if="performanceRate"
                                                 :src="`/icons/${performanceRate}.svg`"
                                                 class="w-10 h-10 mx-auto"
                                                 alt=""
                                             />
-                                            <div
-                                                v-else
-                                                class="w-10 h-10 mx-auto bg-yellow-300 rounded-full"
-                                                alt=""
-                                            ></div>
                                             <p>Performance</p>
                                             <star-rating
                                                 :rounded-corners="true"
@@ -175,16 +151,10 @@
                                         </div>
                                         <div>
                                             <img
-                                                v-if="designRate"
                                                 :src="`/icons/${designRate}.svg`"
                                                 class="w-10 h-10 mx-auto"
                                                 alt=""
                                             />
-                                            <div
-                                                v-else
-                                                class="w-10 h-10 mx-auto bg-yellow-300 rounded-full"
-                                                alt=""
-                                            ></div>
                                             <p>Design & Styling</p>
                                             <star-rating
                                                 :rounded-corners="true"
@@ -218,9 +188,13 @@
                                 <div class="w-full">
                                     <p
                                         class="flex items-center py-2 italic mx-auto w-full"
-                                        :class="!inputsError ? 'text-green-500' : 'text-red-500'"
+                                        :class="
+                                            !inputsError
+                                                ? 'text-green-500'
+                                                : 'text-red-500'
+                                        "
                                     >
-                                        {{errorMessage}}
+                                        {{ errorMessage }}
                                     </p>
                                 </div>
                                 <div
@@ -298,9 +272,10 @@ export default defineComponent({
             title: null,
             description: null,
             inputsError: false,
-            successMessage: 'Thanks for Submitting the review, We will publish it shortly',
-            failMessage: 'Please make sure the fields are not empty!',
-            errorMessage: null
+            successMessage:
+                "Thanks for Submitting the review, We will publish it shortly",
+            failMessage: "Please make sure the fields are not empty!",
+            errorMessage: null,
         };
     },
     mounted() {
@@ -311,16 +286,16 @@ export default defineComponent({
     methods: {
         submitReview() {
             if (
-                this.mileageRate === null ||
-                this.safetyRate === null ||
-                this.pricingRate === null ||
-                this.performanceRate === null ||
-                this.designRate === null ||
+                this.mileageRate === 0 ||
+                this.safetyRate === 0 ||
+                this.pricingRate === 0 ||
+                this.performanceRate === 0 ||
+                this.designRate === 0 ||
                 this.title === null ||
                 this.description === null
             ) {
                 this.inputsError = true;
-                this.errorMessage = this.failMessage
+                this.errorMessage = this.failMessage;
                 return;
             }
             axios
@@ -335,15 +310,15 @@ export default defineComponent({
                 })
                 .then((res) => {
                     if (res.status === 200) {
-                        this.mileageRate = null;
-                        this.safetyRate = null;
-                        this.pricingRate = null;
-                        this.performanceRate = null;
-                        this.designRate = null;
+                        this.mileageRate = 0;
+                        this.safetyRate = 0;
+                        this.pricingRate = 0;
+                        this.performanceRate = 0;
+                        this.designRate = 0;
                         this.title = null;
                         this.description = null;
                         this.inputsError = false;
-                        this.errorMessage = null;
+                        this.errorMessage = this.successMessage;
                     }
                 })
                 .catch((err) => {

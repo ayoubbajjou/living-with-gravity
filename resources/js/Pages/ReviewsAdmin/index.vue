@@ -35,6 +35,12 @@
                                                     ID
                                                 </th>
                                                 <th
+                                                    scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                >
+                                                    Bike
+                                                </th>
+                                                <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                 >
                                                     Name
@@ -72,7 +78,29 @@
                                                     <div
                                                         class="text-sm text-gray-900"
                                                     >
-                                                        {{ review?.user?.id }}
+                                                        {{ review?.id }}
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <div
+                                                        class="flex items-center"
+                                                    >
+                                                        <div class="ml-4">
+                                                            <div
+                                                                class="text-sm font-medium text-gray-900"
+                                                            >
+                                                                {{
+                                                                    review
+                                                                        .bike
+                                                                        ?.series
+                                                                }}
+                                                                {{
+                                                                    review
+                                                                        .bike
+                                                                        ?.version_name
+                                                                }}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4">

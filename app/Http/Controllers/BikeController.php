@@ -191,7 +191,41 @@ class BikeController extends Controller
         if (count($arr) > 0) {
             $bike['avg'] =  floor(array_sum($arr) / count($arr));
         }
-        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount', 'reviews', 'rating'));
+
+        $five = [];
+        $foor = [];
+        $three = [];
+        $two = [];
+        $one = [];
+
+        foreach ($rating as $key => $value) {
+            $keys = ['mileage_rate', 'safety_rate', 'performance_rate', 'design_rate' ];
+
+            foreach($keys as $key) {
+                if($value[$key] === "5") {
+                    $five[] = 5;
+                }elseif($value[$key] === "4") {
+                    $foor[] = 4;
+                }elseif($value[$key] === "3") {
+                    $three[] = 3;
+                }elseif($value[$key] === "2") {
+                    $two[] = 2;
+                }else {
+                    $one[] = 1;
+                }
+            }
+        }
+
+        $ratingData = [$five, $foor, $three, $two, $one];
+        $rates = [];
+        foreach($ratingData as $val) {
+            $totalRates = $rating->count() * 4;
+            if($totalRates != 0 ) {
+                $rates[] = number_format(count($val) / $totalRates * 100, 2, '.', "");
+            }
+        }
+
+        return Inertia::render('Bikes/Details', compact('postsData', 'bike', 'dealers', 'moreBikes', 'cities', 'brands', 'dealersCount', 'reviews', 'rating', 'rates'));
     }
 
     /**
