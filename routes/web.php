@@ -103,6 +103,7 @@ Route::get('/{brand}/{series}/{version_name}/questions', [QaController::class, '
 
 // Review
 Route::get('/review/{brand}/{series}/{version_name}', [ReviewController::class, 'create'])->name('review.create');
+Route::get('/review/write', [ReviewController::class, 'writeReview'])->name('review.write');
 Route::post('/submit-review/{id}', [ReviewController::class, 'store'])->name('review.store');
 Route::post('/approve-review', [ReviewController::class, 'approve'])->name('review.approve');
 Route::middleware(['auth:sanctum', 'verified', 'admin'])
