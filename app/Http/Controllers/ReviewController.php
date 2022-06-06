@@ -17,7 +17,7 @@ class ReviewController extends Controller
      */
     public function adminPanel()
     {
-        $reviews = Review::with('user')->paginate(20);
+        $reviews = Review::with('user', 'bike')->paginate(20);
         return Inertia::render('ReviewsAdmin/index', compact('reviews'));
     }
 

@@ -11,25 +11,27 @@
                 <div class="overflow-x-auto scrollBar" id="popularComparisons">
                     <div class="w-max flex pt-12 pb-6">
                         <!-- 1 -->
-                        <div class="relative">
+                        <div
+                            v-for="(bike, index) in loop"
+                            class="relative cursor-pointer"
+                            @click="
+                                startComparing(
+                                    bikesData?.[index]?.series,
+                                    bikesData?.[index]?.version_name,
+                                    bikesData?.[index + 1]?.series,
+                                    bikesData?.[index + 1]?.version_name
+                                )
+                            "
+                        >
                             <div
                                 class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
                             >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            bikesData?.[0]?.series,
-                                            bikesData?.[0]?.version_name,
-                                            bikesData?.[1]?.series,
-                                            bikesData?.[1]?.version_name
-                                        )
-                                    "
-                                >
+                                <div class="flex">
                                     <img
                                         class="z-50 w-48 h-32 rounded-lg mr-4"
                                         :src="
-                                            bikesData?.[0]?.images[0].thumb_link
+                                            bikesData?.[index]?.images[0]
+                                                .thumb_link
                                         "
                                         alt=""
                                     />
@@ -37,8 +39,7 @@
                                         class="text-white flex-col flex justify-evenly"
                                     >
                                         <h3 class="font-bold">
-                                            {{ bikesData?.[0]?.model_name }}
-                                            {{ bikesData?.[0]?.version_name }}
+                                            {{ bikesData?.[index]?.series }} {{ bikesData?.[index]?.version_name }}
                                         </h3>
                                         <span class="text-xs"
                                             >Starting from</span
@@ -46,7 +47,7 @@
                                         <p class="text-light italic">
                                             <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
                                             ₹{{
-                                                bikesData?.[0]?.prices[0]
+                                                bikesData?.[index]?.prices[0]
                                                     ?.ex_showroom_price
                                             }}
                                         </p>
@@ -63,17 +64,18 @@
                                     class="flex cursor-pointer"
                                     @click="
                                         startComparing(
-                                            bikesData?.[0]?.series,
-                                            bikesData?.[0]?.version_name,
-                                            bikesData?.[1]?.series,
-                                            bikesData?.[1]?.version_name
+                                            bikesData?.[index]?.series,
+                                            bikesData?.[index]?.version_name,
+                                            bikesData?.[index + 1]?.series,
+                                            bikesData?.[index + 1]?.version_name
                                         )
                                     "
                                 >
                                     <img
                                         class="z-50 w-48 h-32 rounded-lg mr-4"
                                         :src="
-                                            bikesData?.[1]?.images[0].thumb_link
+                                            bikesData?.[index + 1]?.images[0]
+                                                .thumb_link
                                         "
                                         alt=""
                                     />
@@ -81,96 +83,14 @@
                                         class="text-white flex-col flex justify-evenly"
                                     >
                                         <h3 class="font-bold">
-                                            {{ bikesData?.[1]?.model_name }}
-                                            {{ bikesData?.[1]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[1]?.prices[0]
-                                                    ?.ex_showroom_price
+                                            {{
+                                                bikesData?.[index + 1]
+                                                    ?.model_name
                                             }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 2 -->
-                        <div class="relative">
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            bikesData?.[2]?.series,
-                                            bikesData?.[2]?.version_name,
-                                            bikesData?.[3]?.series,
-                                            bikesData?.[3]?.version_name
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[2]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[2]?.model_name }}
-                                            {{ bikesData?.[2]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[2]?.prices[0]
-                                                    ?.ex_showroom_price
+                                            {{
+                                                bikesData?.[index + 1]
+                                                    ?.version_name
                                             }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute w-24 left-24 top-32 z-0">
-                                <img src="/icons/vs_icon.svg" alt="" />
-                            </div>
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            bikesData?.[2]?.series,
-                                            bikesData?.[2]?.version_name,
-                                            bikesData?.[3]?.series,
-                                            bikesData?.[3]?.version_name
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[3]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[3]?.model_name }}
-                                            {{ bikesData?.[3]?.version_name }}
                                         </h3>
                                         <span class="text-xs"
                                             >Starting from</span
@@ -178,283 +98,8 @@
                                         <p class="text-light italic">
                                             <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
                                             ₹{{
-                                                bikesData?.[3]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 3 -->
-                        <div class="relative">
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[4]?.series,
-                                                bikesData?.[4]?.version_name,
-                                                bikesData?.[5]?.series,
-                                                bikesData?.[5]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[4]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[4]?.model_name }}
-                                            {{ bikesData?.[4]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[4]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute w-24 left-24 top-32 z-0">
-                                <img src="/icons/vs_icon.svg" alt="" />
-                            </div>
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[4]?.series,
-                                                bikesData?.[4]?.version_name,
-                                                bikesData?.[5]?.series,
-                                                bikesData?.[5]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[5]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[5]?.model_name }}
-                                            {{ bikesData?.[5]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[5]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 4 -->
-                        <div class="relative">
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[6]?.series,
-                                                bikesData?.[6]?.version_name,
-                                                bikesData?.[7]?.series,
-                                                bikesData?.[7]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[6]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[6]?.model_name }}
-                                            {{ bikesData?.[6]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[6]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute w-24 left-24 top-32 z-0">
-                                <img src="/icons/vs_icon.svg" alt="" />
-                            </div>
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[6]?.series,
-                                                bikesData?.[6]?.version_name,
-                                                bikesData?.[7]?.series,
-                                                bikesData?.[7]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[7]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[7]?.model_name }}
-                                            {{ bikesData?.[7]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[7]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 5 -->
-                        <div class="relative">
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[8]?.series,
-                                                bikesData?.[8]?.version_name,
-                                                bikesData?.[9]?.series,
-                                                bikesData?.[9]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[8]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[8]?.model_name }}
-                                            {{ bikesData?.[8]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[8]?.prices[0]
-                                                    ?.ex_showroom_price
-                                            }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="absolute w-24 left-24 top-32 z-0">
-                                <img src="/icons/vs_icon.svg" alt="" />
-                            </div>
-                            <div
-                                class="bg-[#2F2F2F] flex px-6 py-4 items-center space-x-12 mx-8 w-112"
-                            >
-                                <div
-                                    class="flex cursor-pointer"
-                                    @click="
-                                        startComparing(
-                                            startComparing(
-                                                bikesData?.[8]?.series,
-                                                bikesData?.[8]?.version_name,
-                                                bikesData?.[9]?.series,
-                                                bikesData?.[9]?.version_name
-                                            )
-                                        )
-                                    "
-                                >
-                                    <img
-                                        class="z-50 w-48 h-32 rounded-lg mr-4"
-                                        :src="
-                                            bikesData?.[9]?.images[0].thumb_link
-                                        "
-                                        alt=""
-                                    />
-                                    <div
-                                        class="text-white flex-col flex justify-evenly"
-                                    >
-                                        <h3 class="font-bold">
-                                            {{ bikesData?.[9]?.model_name }}
-                                            {{ bikesData?.[9]?.version_name }}
-                                        </h3>
-                                        <span class="text-xs"
-                                            >Starting from</span
-                                        >
-                                        <p class="text-light italic">
-                                            <!-- ₹{{ bike??.prices?.[0]??.ex_showroom_price }} -->
-                                            ₹{{
-                                                bikesData?.[9]?.prices[0]
+                                                bikesData?.[index + 1]
+                                                    ?.prices[0]
                                                     ?.ex_showroom_price
                                             }}
                                         </p>
@@ -517,6 +162,7 @@ export default {
             scrollVal: 300,
             bikesData: [],
             bikes: [3, 53, 110, 160, 267, 140, 245, 313, 292, 336],
+            loop: [0, 1, 2, 3, 4, 5],
         };
     },
     mounted() {

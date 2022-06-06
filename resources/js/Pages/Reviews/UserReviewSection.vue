@@ -30,11 +30,11 @@
             </h3>
           </div>
           <div class="w-full lg:w-1/2 space-y-4">
-            <RatingItem :rate="5" percentage="100%" />
-            <RatingItem :rate="4" />
-            <RatingItem :rate="3" percentage="40%" />
-            <RatingItem :rate="2" />
-            <RatingItem :rate="1" />
+            <RatingItem :rate="5" :percentage="`${rates[0] ?? 0}%`" />
+            <RatingItem :rate="4" :percentage="`${rates[1] ?? 0}%`" />
+            <RatingItem :rate="3" :percentage="`${rates[2] ?? 0}%`" />
+            <RatingItem :rate="2" :percentage="`${rates[3] ?? 0}%`" />
+            <RatingItem :rate="1" :percentage="`${rates[4] ?? 0}%`" />
           </div>
         </div>
         <div class="text-white text-center px-8 py-6 space-y-3">
@@ -161,6 +161,10 @@ export default {
     },
     url: {
         type: String,
+        required: true
+    },
+    rates: {
+        type: Array,
         required: true
     }
   },

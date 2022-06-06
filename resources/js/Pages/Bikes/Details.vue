@@ -258,7 +258,7 @@
 
       <Qa :bike="bike" @remove-nav="removeNav" :url="`${url}`" />
 
-      <UserReviews :bike="bike" :reviews="reviews" @remove-nav="removeNav" :url="`${url}`" />
+      <UserReviews :bike="bike" :reviews="reviews" @remove-nav="removeNav" :url="`${url}`" :rates="rates" />
     </div>
     <Subscribe />
 
@@ -320,7 +320,8 @@ export default defineComponent({
       displayColors: false,
       colorSelected: null,
       activeTab: "bikes",
-      width: 1280
+      width: 1280,
+      rates: []
     };
   },
   computed: {
@@ -343,6 +344,7 @@ export default defineComponent({
     this.brands = this.$inertia.page.props.brands;
     this.dealersCount = this.$inertia.page.props.dealersCount;
     this.reviews = this.$inertia.page.props.reviews;
+    this.rates = this.$inertia.page.props.rates;
     axios
       .get(`/bike-versions/${this.bike?.model_id}`)
       .then((res) => {

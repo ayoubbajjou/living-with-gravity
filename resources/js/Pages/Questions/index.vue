@@ -39,6 +39,12 @@
                                                     scope="col"
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                                 >
+                                                    Bike
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                >
                                                     User
                                                 </th>
                                                 <th
@@ -79,9 +85,29 @@
                                                                 class="text-sm font-medium text-gray-900"
                                                             >
                                                                 {{
+                                                                    question.id
+                                                                }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <div
+                                                        class="flex items-center"
+                                                    >
+                                                        <div class="ml-4">
+                                                            <div
+                                                                class="text-sm font-medium text-gray-900"
+                                                            >
+                                                                {{
                                                                     question
-                                                                        .user
-                                                                        ?.id
+                                                                        .bike
+                                                                        ?.series
+                                                                }}
+                                                                {{
+                                                                    question
+                                                                        .bike
+                                                                        ?.version_name
                                                                 }}
                                                             </div>
                                                         </div>

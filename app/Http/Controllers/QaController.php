@@ -18,7 +18,7 @@ class QaController extends Controller
      */
     public function adminPanel(Request $request)
     {
-        $questions =  Question::orderByDesc('created_at')->with('user')->paginate(20);
+        $questions =  Question::orderByDesc('created_at')->with('user', 'bike')->paginate(20);
         return Inertia::render('Questions/index', compact('questions'));
     }
 
