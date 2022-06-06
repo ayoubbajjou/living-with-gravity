@@ -541,7 +541,7 @@ import JetApplicationLogo from "@/Jetstream/ApplicationLogo.vue";
 import JetDropdown from "@/Jetstream/Dropdown.vue";
 import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
 import CityModal from "./CityModal.vue";
-import Login from "../../pages/Auth/LoginSlide.vue";
+import Login from "../Auth/LoginSlide.vue";
 
 export default {
     components: {
