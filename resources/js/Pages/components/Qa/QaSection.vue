@@ -179,7 +179,7 @@ export default {
   props: {
     bike: {
       type: Object,
-      required: true,
+      required: false,
     },
     url: {
         type: String,

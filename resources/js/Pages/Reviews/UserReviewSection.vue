@@ -43,7 +43,8 @@
             Share your experience about {{ bike?.series }} -
             {{ bike?.version_name }}
           </p>
-          <a class="flex justify-center mt-8 mb-8" @click="writeReview">
+          <button @click="openModalLogin">Open</button>
+          <div @click="writeReview" class="flex justify-center mt-8 mb-8" >
             <button
               class="
                 text-white
@@ -76,7 +77,7 @@
                 />
               </svg>
             </button>
-          </a>
+          </div>
         </div>
       </div>
       <div class="bg-[#2F2F2F] w-full lg:w-3/4 p-8 space-y-4">
@@ -87,7 +88,7 @@
         <div class="grid lg:grid-cols-3 gap-4">
           <Review
             v-for="(review, index) in reviews"
-            :key="index"
+            :key="review.id"
             :review="review"
             :url="url"
           />
@@ -129,7 +130,7 @@
       </div>
     </div>
     <!-- <review-modal  :bike="bike"></review-modal> -->
-    <SlideLogin v-if="isModalOpened" @review-close="isModalOpened = false"/>
+    <!-- <SlideLogin v-if="isModalOpened" @review-close="isModalOpened = false"/> -->
   </div>
 </template>
 
@@ -138,7 +139,6 @@ import RatingItem from "./components/RatingItem.vue";
 import Tags from "./components/Tags.vue";
 import Review from "./components/Review.vue";
 import ReviewModal from "./components/ReviewModal.vue";
-import SlideLogin from "../Auth/LoginSlide.vue";
 
 export default {
   name: "UserReviews",
@@ -147,12 +147,11 @@ export default {
     Tags,
     Review,
     ReviewModal,
-    SlideLogin,
   },
   props: {
     bike: {
       type: Object,
-      required: true,
+      required: false,
       historyUrl: null,
     },
     reviews: {
@@ -170,7 +169,7 @@ export default {
   },
   data() {
     return {
-      isModalOpened: false,
+
     };
   },
   mounted() {
@@ -179,12 +178,16 @@ export default {
   methods: {
     writeReview() {
         this.$emit("remove-nav");
+        this.$emit("slide-login");
 
-      if (this.$page.props.user && this.$page.props.user?.is_admin !== true) {
-        window.location.href = "/review" + document.location.pathname;
-      } else {
+    //   if (this.$page.props.user && this.$page.props.user?.is_admin !== true) {
+    //     window.location.href = "/review" + document.location.pathname;
+    //   } else {
+    //     this.isModalOpened = true;
+    //   }
+    },
+    openModalLogin() {
         this.isModalOpened = true;
-      }
     }
   },
 };
