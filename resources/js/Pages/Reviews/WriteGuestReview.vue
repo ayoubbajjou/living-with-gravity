@@ -48,18 +48,6 @@
                         <div class="flex justify-between w-full">
                             <!-- left side -->
                             <div class="bg-gray-200 lg:w-1/3 px-4 py-2 rounded-2xl w-full h-36">
-                                <!-- <img
-                                    :src="bike?.images[0].image_link"
-                                    :alt="bike?.series"
-                                    class="relative w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <p
-                                    class="absolute text-white top-32 px-4 font-bold text-xl"
-                                >
-                                    {{ bike?.series }} -
-                                    {{ bike?.version_name }}
-                                </p> -->
                                 <div class="mt-4 space-y-4">
                                     <v-select
                                         v-model="form.serie"

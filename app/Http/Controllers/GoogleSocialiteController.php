@@ -19,6 +19,7 @@ class GoogleSocialiteController extends Controller
     public function redirectToGoogle(Request $request)
     {
         $section = $request->all()['section'];
+
         if($section === 'review') {
             $prevUrl = '/review'.str_replace(url('/'), '', url()->previous());
 
@@ -36,6 +37,7 @@ class GoogleSocialiteController extends Controller
                 session(['url.intended' => $prevUrl]);
             }
         }
+
         return Socialite::driver('google')->redirect();
     }
 
