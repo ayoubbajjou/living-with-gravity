@@ -32,7 +32,7 @@ class ReviewController extends Controller
         $unslug = ucwords(str_replace('-', ' ', $series));
         $bike = Bike::where('make', $brand)->where('series', $unslug)->where('version_name', $version_name)->first();
         if($bike) {
-            $reviews = Review::where('bike_id', $bike->id)->with('user')->get();
+            $reviews = Review::where('bike_id', $bike->id)->where('approved', 1)->with('user')->get();
             foreach ($reviews as $key => $value) {
                 $arr = array_filter([$value->mileage_rate, $value->mileage_rate, $value->safety_rate, $value->pricing_rate, $value->performace_rate, $value->design_rate]);
                 $count = count($arr) > 0 ? count($arr) : 1;
