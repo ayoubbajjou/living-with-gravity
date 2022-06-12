@@ -18,14 +18,20 @@ class FacebookSocialiteController extends Controller
     public function redirectToFB(Request $request)
     {
         $section = $request->all()['section'];
-        if($section === 'review') {
-            $prevUrl = '/review'.str_replace(url('/'), '', url()->previous());
+
+        if ($section === 'review') {
+            $prevUrl = '/review' . str_replace(url('/'), '', url()->previous());
 
             if (!session()->has('url.intended')) {
                 session(['url.intended' => $prevUrl]);
             }
-        }else {
-            $prevUrl = str_replace(url('/'), '', url()->previous()).'?section=questions';
+        } elseif ($section === 'login') {
+            $prevUrl = '/dashboard';
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => $prevUrl]);
+            }
+        } else {
+            $prevUrl = str_replace(url('/'), '', url()->previous()) . '?section=questions';
             if (!session()->has('url.intended')) {
                 session(['url.intended' => $prevUrl]);
             }
@@ -42,29 +48,26 @@ class FacebookSocialiteController extends Controller
     {
         try {
 
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('facebook')->user();
 
             $findUser = User::where('email', $user->email)->first();
             if ($findUser) {
 
                 Auth::login($findUser);
-                $path = session('url.intended');
-                session()->forget('url.intended');
-                return redirect($path);
+
+                return redirect(session('url.intended'));
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
                     'social_id' => $user->id,
-                    'social_type' => 'google',
+                    'social_type' => 'facebook',
                     'profile_photo_path' => $user->user['picture'],
                     'password' => encrypt('password')
                 ]);
 
                 Auth::login($newUser);
-                $path = session('url.intended');
-                session()->forget('url.intended');
-                return redirect($path);
+                return redirect(session('url.intended'));
             }
         } catch (Exception $e) {
             dd($e->getMessage());
