@@ -30,9 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'facebook' => [
-        'client_id' => '1022544615007607',
-        'client_secret' => '017ae924685ca924c272a4de25a72007',
-        'redirect' => app()->runningInConsole() ? '' : url('/callback/facebook'),
+        'client_id' => '371087885073761',
+        'client_secret' => 'c39eb0ad36c80db9e85c8d5217a0a6d7',
+        'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
     'google' => [
