@@ -62,7 +62,7 @@ class FacebookSocialiteController extends Controller
                     'email' => $user->email,
                     'social_id' => $user->id,
                     'social_type' => 'facebook',
-                    'profile_photo_path' => $user->user['picture'],
+                    'profile_photo_path' => $user->avatar,
                     'password' => encrypt('password')
                 ]);
 
