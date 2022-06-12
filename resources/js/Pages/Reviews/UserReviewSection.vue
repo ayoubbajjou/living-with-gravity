@@ -24,7 +24,7 @@
                         <h3
                             class="text-white font-bold text-5xl uppercase text-center"
                         >
-                            {{ bike?.avg.toFixed(1) }}
+                            {{ bike?.avg }}
                         </h3>
                     </div>
                     <div class="w-full lg:w-1/2 space-y-4">
