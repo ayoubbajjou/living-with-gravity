@@ -190,7 +190,7 @@ class BikeController extends Controller
         }
         $arr = array_filter($rates);
         if (count($arr) > 0) {
-            $bike['avg'] =  floor(array_sum($arr) / count($arr));
+            $bike['avg'] = number_format(array_sum($arr) / count($arr), 1, '.', '');
         }
 
         $five = [];
