@@ -35,7 +35,8 @@ class ReviewController extends Controller
             $reviews = Review::where('bike_id', $bike->id)->with('user')->get();
             foreach ($reviews as $key => $value) {
                 $arr = array_filter([$value->mileage_rate, $value->mileage_rate, $value->safety_rate, $value->pricing_rate, $value->performace_rate, $value->design_rate]);
-                $value['avg'] = array_sum($arr) / count($arr) ?? 1;
+                $count = count($arr) > 0 ? count($arr) : 1;
+                $value['avg'] = array_sum($arr) / $count;
             }
         }
 
