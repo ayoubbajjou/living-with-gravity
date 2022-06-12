@@ -92,7 +92,7 @@
                         </div>
                         <div class="flex items-center space-x-1">
                             <svg
-                                v-for="(bike, index) in bike?.avg"
+                                v-for="(bike, index) in Math.floor(bike?.avg)"
                                 :key="index"
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="h-6 w-6 text-yellow-400"
