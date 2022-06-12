@@ -184,7 +184,8 @@ class BikeController extends Controller
         $rates = [];
         foreach ($rating as $key => $value) {
             $arr = array_filter([$value->mileage_rate, $value->mileage_rate, $value->safety_rate, $value->pricing_rate, $value->performace_rate, $value->design_rate]);
-            $value['avg'] = array_sum($arr) / count($arr);
+            $count = count($arr) > 0 ? count($arr) : 1;
+            $value['avg'] = array_sum($arr) / $count;
             $rates[] = $value['avg'];
         }
         $arr = array_filter($rates);
