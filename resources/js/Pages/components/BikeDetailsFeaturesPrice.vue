@@ -447,7 +447,6 @@ export default {
             rto_price: res.data.data?.price?.[1]?.amount,
           };
           this.loading = false;
-          console.log(this.bikePriceList);
         })
         .catch((err) => {
           console.log(err);

@@ -125,7 +125,6 @@ export default {
     do {
         if (targetElement == flyoutElement) {
             // This is a click inside. Do nothing, just return.
-            console.log('click inside')
             return;
         }
         // Go up the DOM

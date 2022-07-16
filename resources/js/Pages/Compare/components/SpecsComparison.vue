@@ -14,9 +14,9 @@
                         </p>
                         <div class="flex items-center space-x-2">
                             <svg
-                                @click="editBike(bike?.id)"
+                                @click="showBikeModal(index + 1)"
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
+                                class="cursor-pointer h-6 w-6"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -199,18 +199,78 @@
                 </li>
             </ul>
         </div>
+        <modal
+            class="bg-secondary"
+            :show="bikeModal"
+            max-width="xl"
+            :closeable="true"
+            @close="close"
+        >
+            <div class="px-6 py-4">
+                <div class="text-lg">
+                    <h2 class="text-2xl">Add bike you own</h2>
+                </div>
+
+                <div class="mt-4 space-y-4">
+                    <label>Select your bike</label>
+                    <v-select
+                        v-model="form.serie"
+                        :options="series"
+                        placeholder="Select Brand/Model"
+                        @select="getVariant"
+                    ></v-select>
+                    <v-select
+                        class="variant-select"
+                        v-model="form.version"
+                        :options="versions"
+                        placeholder="Select Variant"
+                        :disabled="variatDisabled"
+                    ></v-select>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 bg-gray-100 text-right">
+                <jet-button
+                    class="ml-2"
+                    @click="editBike"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
+                    Edit bike
+                </jet-button>
+            </div>
+        </modal>
     </div>
 </template>
 
 <script>
+
+import Modal from "../../../Jetstream/Modal.vue";
+import JetButton from "../../../Jetstream/Button.vue";
+
 export default {
     name: "SpecsComparison",
     props: ["bikes"],
+    components: {
+        Modal,
+        JetButton
+    },
     data() {
         return {
             activeTab: 1,
             bikesData: [],
             specsData: [],
+            bikeModal: false,
+            variatDisabled: true,
+            bikeSelected: null,
+            versions: [],
+            series: [],
+            serieSelected: null,
+            form: {
+                serie: null,
+                version: null,
+                processing: false,
+            },
         };
     },
     computed: {
@@ -252,6 +312,7 @@ export default {
     mounted() {
         this.bikesData = this.bikes;
         this.getSpecsCategory();
+        this.series = this.$inertia?.page?.props?.series;
     },
     watch: {
         activeTab(newTab, oldTab) {
@@ -259,6 +320,10 @@ export default {
         },
         bikes(newVal, oldVal) {
             this.bikesData = this.bikes;
+        },
+        "form.serie"(newVal, oldVal) {
+            this.serieSelected = newVal;
+            this.getVariant();
         },
     },
     methods: {
@@ -278,13 +343,39 @@ export default {
                 }
             });
         },
-        editBike(id) {
-            console.log(id);
+        showBikeModal(id) {
+            this.bikeModal = true;
+            this.bikeSelected = id
         },
-
-
+        editBike() {
+            this.$emit("bike-edited", {
+                id: this.bikeSelected,
+                form: this.form
+            });
+            this.form = {
+                serie: null,
+                version: null,
+                processing: false,
+            },
+            this.bikeModal = false;
+        },
+        getVariant() {
+            axios
+                .post("/get-bike-variant", {
+                    serie: this.serieSelected,
+                })
+                .then((res) => {
+                    this.versions = res.data;
+                    if (this.versions.length) {
+                        this.variatDisabled = false;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
         slugify(text) {
-            const separator = "-"
+            const separator = "-";
             return text
                 .toString()
                 .normalize("NFD") // split an accented letter in the base letter and the acent
@@ -296,31 +387,21 @@ export default {
         },
         removeBike(id) {
             if (this.bikesData.length > 1) {
-                const bikes = this.bikesList.filter((bike) => {
-                    return bike?.id !== id;
-                });
+                this.specsData.pop();
+                this.bikesData.pop();
 
-                const specs = this.specsList.filter((specs, index) => {
-                    console.log(specs[index]);
-                    console.log(specs[index].bike_id !== id);
-                    if (specs[index].bike_id !== id) {
-                        this.specsList.splice(index, 1);
-                    }
-                });
                 var slug = "";
-                if (bikes.length === 2) {
                     slug = `${this.slugify(
-                        bikes?.[0].series + " " + bikes?.[0].version_name
+                        this.bikesData?.[0].series + " " + this.bikesData?.[0].version_name
                     )}-vs-${this.slugify(
-                        bikes?.[1].series + " " + bikes?.[1].version_name
+                        this.bikesData?.[1].series + " " + this.bikesData?.[1].version_name
                     )}`;
-                }
                 const bikesUrl = `/compare/${slug}`;
 
                 history.pushState(null, null, bikesUrl);
 
-                this.bikesList = bikes;
-                this.specsData = this.specsList;
+                this.bikesList = this.bikesData;
+                this.specsList = this.specsData;
             }
         },
     },

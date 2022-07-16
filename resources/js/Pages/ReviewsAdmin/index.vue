@@ -280,7 +280,6 @@ export default {
                     review_id: id,
                 })
                 .then((res) => {
-                    console.log(res);
                     window.location.reload()
                 })
                 .catch((err) => {

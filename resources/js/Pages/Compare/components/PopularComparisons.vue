@@ -166,13 +166,11 @@ export default {
         };
     },
     mounted() {
-        console.log("sadsa");
         axios
             .post("/popular-bikes", {
                 bikes: this.bikes,
             })
             .then((res) => {
-                console.log(res.data);
                 this.bikesData = res.data;
             })
             .catch((err) => {
@@ -233,7 +231,6 @@ export default {
                 axios
                     .post("/compare-bikes", bikes)
                     .then((res) => {
-                        console.log(res);
                         this.comparedBikes = res.data;
 
                         var emitter = require("tiny-emitter/instance");

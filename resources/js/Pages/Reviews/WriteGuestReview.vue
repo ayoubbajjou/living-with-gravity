@@ -314,7 +314,6 @@ export default defineComponent({
                 })
                 .then((res) => {
                     this.versions = res.data;
-                    console.log(res);
                     if (this.versions.length) {
                         this.variatDisabled = false;
                     }
