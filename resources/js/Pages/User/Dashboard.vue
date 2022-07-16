@@ -264,7 +264,6 @@ export default defineComponent({
                 })
                 .then((res) => {
                     this.versions = res.data;
-                    console.log(res);
                     if (this.versions.length) {
                         this.variatDisabled = false;
                     }
@@ -274,14 +273,12 @@ export default defineComponent({
                 });
         },
         saveBike() {
-            console.log(this.form);
             axios
                 .post("/save-user-bike", {
                     serie: this.form.serie,
                     version: this.form.version,
                 })
                 .then((res) => {
-                    console.log(res);
                     if (res.data.status === 200) {
                         this.bikeModal = false;
                         window.location.reload(true)

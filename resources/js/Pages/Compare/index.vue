@@ -75,7 +75,29 @@
                     </compare-bike-card>
                 </div>
                 <div v-else>
-                    <specs-comparison :bikes="comparedBikes"></specs-comparison>
+                    <div class="px-10 py-4 text-white">
+                        <a href="/compare" class="flex items-center space-x-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                                />
+                            </svg>
+                            <span class="text-lg">Back</span>
+                        </a>
+                    </div>
+                    <specs-comparison
+                        :bikes="comparedBikes"
+                        @bike-edited="bikeEdited"
+                    ></specs-comparison>
                 </div>
                 <div
                     v-if="!comparedBikes.length"
@@ -189,7 +211,6 @@ export default defineComponent({
         var emitter = require("tiny-emitter/instance");
 
         emitter.on("compare-bikes", (val) => {
-            console.log({ val });
             this.series1 = val?.[0]?.series;
             this.variant1 = val?.[0]?.version_name;
             this.series2 = val?.[1]?.series;
@@ -232,11 +253,21 @@ export default defineComponent({
                     variant: this.variant3,
                 });
             }
-            var slug = ''
-            if(bikes.length === 2) {
-                slug = `${this.slugify(this.serie1Selected +' '+ this.variant1)}-vs-${this.slugify(this.serie2Selected +' '+ this.variant2)}`;
-            }else if(bikes.length === 3) {
-                slug = `${this.slugify(this.serie1Selected +' '+ this.variant1)}-vs-${this.slugify(this.serie2Selected +' '+ this.variant2)}-vs-${this.slugify(this.serie3Selected +' '+ this.variant3)}`;
+            var slug = "";
+            if (bikes.length === 2) {
+                slug = `${this.slugify(
+                    this.serie1Selected + " " + this.variant1
+                )}-vs-${this.slugify(
+                    this.serie2Selected + " " + this.variant2
+                )}`;
+            } else if (bikes.length === 3) {
+                slug = `${this.slugify(
+                    this.serie1Selected + " " + this.variant1
+                )}-vs-${this.slugify(
+                    this.serie2Selected + " " + this.variant2
+                )}-vs-${this.slugify(
+                    this.serie3Selected + " " + this.variant3
+                )}`;
             }
             const bikesUrl = `/compare/${slug}`;
 
@@ -249,7 +280,6 @@ export default defineComponent({
                 axios
                     .post("/compare-bikes", bikes)
                     .then((res) => {
-                        console.log(res);
                         this.comparedBikes = res.data;
                         window.scroll({
                             top: 200,
@@ -262,7 +292,7 @@ export default defineComponent({
             }
         },
         slugify(text) {
-            const separator = "-"
+            const separator = "-";
             return text
                 .toString()
                 .normalize("NFD") // split an accented letter in the base letter and the acent
@@ -292,11 +322,26 @@ export default defineComponent({
                     if (this.versions3.length) {
                         this.variat3Disabled = false;
                     }
-                    console.log(res);
                 })
                 .catch((err) => {
                     console.log(err);
                 });
+        },
+        bikeEdited(val) {
+            console.log({ val });
+            if (val.id === 1) {
+                this.series1 = val.form.serie;
+                this.variant1 = val.form.version;
+            }
+            if (val.id === 2) {
+                this.series2 = val.form.serie;
+                this.variant2 = val.form.version;
+            }
+            if (val.id === 3) {
+                this.series3 = val.form.serie;
+                this.variant3 = val.form.version;
+            }
+            this.startComparing();
         },
     },
 });
