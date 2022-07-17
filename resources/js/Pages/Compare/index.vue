@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div>
-                <PopularComparisons />
+                <PopularComparisons @start-comparing="popularCompare" />
             </div>
         </div>
         <Subscribe />
@@ -341,6 +341,15 @@ export default defineComponent({
                 this.series3 = val.form.serie;
                 this.variant3 = val.form.version;
             }
+            this.startComparing();
+        },
+        popularCompare(val) {
+            this.series1 = val.bike1.series;
+            this.variant1 = val.bike1.version_name;
+            this.series2 = val.bike2.series;
+            this.variant2 = val.bike2.version_name;
+            this.series3 = null;
+            this.variant3 = null;
             this.startComparing();
         },
     },
