@@ -408,10 +408,10 @@ export default defineComponent({
         selectColor(color) {
             this.colorSelected = color;
             this.displayColors = false;
-            const img = this.bike.images.filter((img, index) => {
-                console.log({img})
-                return img.type === 2 && img.caption === color
-            })
+            // const img = this.bike.images.filter((img, index) => {
+            //     console.log({img})
+            //     return img.type === 2 && img.caption === color
+            // })
             console.log({color})
         },
         handleScroll() {
