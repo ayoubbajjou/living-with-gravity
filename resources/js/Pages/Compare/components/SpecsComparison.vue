@@ -9,9 +9,9 @@
                 />
                 <div>
                     <div class="flex items-center justify-between">
-                        <p class="font-bold">
+                        <a :href="`/${bike.make}/${slugify(bike.series)}/${bike.version_name}`" target="_blank" class="font-bold">
                             {{ bike?.series }}
-                        </p>
+                        </a>
                         <div class="flex items-center space-x-2">
                             <svg
                                 @click="showBikeModal(index + 1)"

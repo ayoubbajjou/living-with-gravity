@@ -4,7 +4,14 @@
             {{ bike?.series }} {{ bike?.version_name }} price, specs, mileage &
             dealers
         </title>
-        <!-- <meta name="description" content="Your page description"> -->
+        <meta
+            name="description"
+            :content="`${bike?.series} price starts at ${priceFormat(
+                bike?.prices[0]?.ex_showroom_price
+            )}, Find all the latest ${
+                bike?.series
+            } reviews, specifications, videos, pros and cons, latest news and much more only at livingwithgravity.com`"
+        />
     </Head>
     <Navigation />
     <div class="bg-secondary h-screen">
@@ -38,7 +45,12 @@
                                     :key="index"
                                     class="w-6 h-6 rounded-full cursor-pointer"
                                     :style="`background-color: ${color.colorcodes}`"
-                                    @click="selectColor(color.color)"
+                                    @click="
+                                        selectColor(
+                                            color.color,
+                                            color.colorcodes
+                                        )
+                                    "
                                 ></div>
                             </div>
                         </div>
@@ -298,10 +310,10 @@ export default defineComponent({
             return location.pathname;
         },
         average() {
-            if(this.bike) {
+            if (this.bike) {
                 return Math.floor(this.bike?.avg);
             }
-        }
+        },
     },
     created() {
         window.addEventListener("scroll", this.handleScroll);
@@ -405,15 +417,15 @@ export default defineComponent({
                 .replace(/ /g, "-")
                 .replace(/[^\w-]+/g, "");
         },
-        selectColor(color) {
-            this.colorSelected = color;
+        selectColor(color, code) {
+            this.colorSelected = code;
             this.displayColors = false;
             const img = this.bike.images.filter((img, index) => {
-                if(img.type === 2 && img.caption === color) {
-                    this.currentImg = index
-                    return img.type === 2 && img.caption === color
+                if (img.type === 2 && img.caption === color) {
+                    this.currentImg = index;
+                    return img.type === 2 && img.caption === color;
                 }
-            })
+            });
         },
         handleScroll() {
             var navbar = document.getElementById("navbar");
@@ -469,6 +481,14 @@ export default defineComponent({
                     behavior: "smooth",
                 });
             }
+        },
+        priceFormat(price) {
+            return price
+                ? "₹ " +
+                      new Intl.NumberFormat("en-IN", {
+                          maximumSignificantDigits: 3,
+                      }).format(price)
+                : `N/A`;
         },
     },
 });
