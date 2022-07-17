@@ -221,35 +221,6 @@ export default {
                     version_name: variant2
                 },
             })
-            // var bikes = [];
-            // if (brand1 && variant1) {
-            //     bikes.push({
-            //         brand: brand1,
-            //         variant: variant1,
-            //     });
-            // }
-            // if (brand2 && variant2) {
-            //     bikes.push({
-            //         brand: brand2,
-            //         variant: variant2,
-            //     });
-            // }
-            // if (bikes.length < 2) {
-            //     //   alert('Ooops! You need to select at least 2 bikes')
-            //     this.selectedBikes = true;
-            // } else {
-            //     axios
-            //         .post("/compare-bikes", bikes)
-            //         .then((res) => {
-            //             this.comparedBikes = res.data;
-
-            //             var emitter = require("tiny-emitter/instance");
-            //             emitter.emit("compare-bikes", this.comparedBikes);
-            //         })
-            //         .catch((err) => {
-            //             console.log(err);
-            //         });
-            // }
         },
     },
 };
