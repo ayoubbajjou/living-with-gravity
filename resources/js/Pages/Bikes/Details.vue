@@ -38,7 +38,7 @@
                                     :key="index"
                                     class="w-6 h-6 rounded-full cursor-pointer"
                                     :style="`background-color: ${color.colorcodes}`"
-                                    @click="selectColor(color.color)"
+                                    @click="selectColor(color.color, color.colorcodes)"
                                 ></div>
                             </div>
                         </div>
@@ -405,8 +405,8 @@ export default defineComponent({
                 .replace(/ /g, "-")
                 .replace(/[^\w-]+/g, "");
         },
-        selectColor(color) {
-            this.colorSelected = color;
+        selectColor(color, code) {
+            this.colorSelected = code;
             this.displayColors = false;
             const img = this.bike.images.filter((img, index) => {
                 if(img.type === 2 && img.caption === color) {
