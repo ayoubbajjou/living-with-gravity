@@ -38,7 +38,7 @@
                                     :key="index"
                                     class="w-6 h-6 rounded-full cursor-pointer"
                                     :style="`background-color: ${color.colorcodes}`"
-                                    @click="selectColor(color.colorcodes)"
+                                    @click="selectColor(color.color)"
                                 ></div>
                             </div>
                         </div>
@@ -324,7 +324,7 @@ export default defineComponent({
             .then((res) => {
                 this.versions = res.data;
                 this.versionSelected = this.bike?.version_name;
-                this.colors = JSON.parse(this.bike.color_codes);
+                this.colors = this.bike.color_codes;
             })
             .catch((err) => {
                 console.log(err);
@@ -408,6 +408,11 @@ export default defineComponent({
         selectColor(color) {
             this.colorSelected = color;
             this.displayColors = false;
+            const img = this.bike.images.filter((img, index) => {
+                console.log({img})
+                return img.type === 2 && img.caption === color
+            })
+            console.log({color})
         },
         handleScroll() {
             var navbar = document.getElementById("navbar");
